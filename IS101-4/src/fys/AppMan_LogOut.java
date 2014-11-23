@@ -1,7 +1,5 @@
 package fys;
 
-import javax.swing.ImageIcon;
-
 public class AppMan_LogOut extends javax.swing.JPanel {
 
     public AppMan_LogOut() {
@@ -64,6 +62,9 @@ public class AppMan_LogOut extends javax.swing.JPanel {
         Button_Yes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_Yes.setOpaque(true);
         Button_Yes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_YesMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Button_YesMouseEntered(evt);
             }
@@ -176,6 +177,10 @@ public class AppMan_LogOut extends javax.swing.JPanel {
     private void Tab_NewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseClicked
         FYS.getInstance().showPage(new AppMan_NewAccount());
     }//GEN-LAST:event_Tab_NewAccountMouseClicked
+
+    private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
+        FYS.getInstance().showPage(new Login());
+    }//GEN-LAST:event_Button_YesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

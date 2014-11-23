@@ -1,7 +1,5 @@
 package fys;
 
-import javax.swing.ImageIcon;
-
 public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
     public AppMan_ManageAccounts() {

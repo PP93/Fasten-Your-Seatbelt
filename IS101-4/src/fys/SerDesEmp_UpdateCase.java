@@ -31,8 +31,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         password_field = new javax.swing.JTextField();
         email = new javax.swing.JLabel();
         ManageAccounts_button = new javax.swing.JLabel();
+        reset_button = new javax.swing.JLabel();
         save_button = new javax.swing.JLabel();
-        save_button1 = new javax.swing.JLabel();
         LogOut_button2 = new javax.swing.JLabel();
         newaccount_button4 = new javax.swing.JLabel();
         employee_id3 = new javax.swing.JLabel();
@@ -47,7 +47,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         email_field3 = new javax.swing.JTextField();
         employee_id4 = new javax.swing.JLabel();
         employeeid_field3 = new javax.swing.JTextField();
-        Reset_button = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -126,11 +126,29 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         });
         add(ManageAccounts_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
 
+        reset_button.setBackground(new java.awt.Color(34, 153, 68));
+        reset_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        reset_button.setForeground(new java.awt.Color(255, 255, 255));
+        reset_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        reset_button.setText("Reset");
+        reset_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reset_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        reset_button.setOpaque(true);
+        reset_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                reset_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                reset_buttonMouseExited(evt);
+            }
+        });
+        add(reset_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, 130, -1));
+
         save_button.setBackground(new java.awt.Color(34, 153, 68));
         save_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         save_button.setForeground(new java.awt.Color(255, 255, 255));
         save_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        save_button.setText("Reset");
+        save_button.setText("Save");
         save_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         save_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         save_button.setOpaque(true);
@@ -142,25 +160,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 save_buttonMouseExited(evt);
             }
         });
-        add(save_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, 130, -1));
-
-        save_button1.setBackground(new java.awt.Color(34, 153, 68));
-        save_button1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        save_button1.setForeground(new java.awt.Color(255, 255, 255));
-        save_button1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        save_button1.setText("Save");
-        save_button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        save_button1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        save_button1.setOpaque(true);
-        save_button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                save_button1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                save_button1MouseExited(evt);
-            }
-        });
-        add(save_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 600, 130, -1));
+        add(save_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 600, 130, -1));
 
         LogOut_button2.setBackground(new java.awt.Color(156, 10, 13));
         LogOut_button2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -282,12 +282,12 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         employeeid_field3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(employeeid_field3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, 320, 30));
 
-        Reset_button.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Reset_button.setForeground(new java.awt.Color(153, 0, 0));
-        Reset_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background (1).png"))); // NOI18N
-        Reset_button.setOpaque(true);
-        add(Reset_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
+        Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Background.setForeground(new java.awt.Color(153, 0, 0));
+        Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
+        Background.setOpaque(true);
+        add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ManageAccounts_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageAccounts_buttonMouseEntered
@@ -303,23 +303,23 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     }//GEN-LAST:event_ManageAccounts_buttonMouseExited
 
 
+    private void reset_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_buttonMouseEntered
+        reset_button.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_reset_buttonMouseEntered
+
+    private void reset_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_buttonMouseExited
+        reset_button.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_reset_buttonMouseExited
+
     private void save_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_buttonMouseEntered
         save_button.setBackground(new java.awt.Color(51, 136, 68));
+
     }//GEN-LAST:event_save_buttonMouseEntered
 
     private void save_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_buttonMouseExited
         save_button.setBackground(new java.awt.Color(34, 153, 68));
+
     }//GEN-LAST:event_save_buttonMouseExited
-
-    private void save_button1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_button1MouseEntered
-        save_button1.setBackground(new java.awt.Color(51, 136, 68));
-
-    }//GEN-LAST:event_save_button1MouseEntered
-
-    private void save_button1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_button1MouseExited
-        save_button1.setBackground(new java.awt.Color(34, 153, 68));
-
-    }//GEN-LAST:event_save_button1MouseExited
 
     private void newaccount_button4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccount_button4MouseEntered
     }//GEN-LAST:event_newaccount_button4MouseEntered
@@ -358,11 +358,11 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JLabel LogOut_button2;
     private javax.swing.JLabel LogOut_button3;
     private javax.swing.JLabel ManageAccounts_button;
     private javax.swing.JLabel ManageAccounts_button1;
-    private javax.swing.JLabel Reset_button;
     private javax.swing.JLabel email;
     private javax.swing.JLabel email3;
     private javax.swing.JTextField email_field2;
@@ -384,8 +384,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel newaccount_button4;
     private javax.swing.JLabel password;
     private javax.swing.JTextField password_field;
+    private javax.swing.JLabel reset_button;
     private javax.swing.JLabel save_button;
-    private javax.swing.JLabel save_button1;
     private javax.swing.JLabel username;
     private javax.swing.JTextField username_field;
     // End of variables declaration//GEN-END:variables
