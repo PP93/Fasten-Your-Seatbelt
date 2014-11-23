@@ -18,14 +18,13 @@ public class Login extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        logo = new javax.swing.JLabel();
-        Password = new javax.swing.JLabel();
-        employeeid_field = new javax.swing.JTextField();
-        Login = new javax.swing.JLabel();
-        firstname_field = new javax.swing.JTextField();
-        save_button1 = new javax.swing.JLabel();
-        LoginLogo = new javax.swing.JLabel();
-        Login_button = new javax.swing.JLabel();
+        Label_Username = new javax.swing.JLabel();
+        Label_Password = new javax.swing.JLabel();
+        Field_Username = new javax.swing.JTextField();
+        Field_Password = new javax.swing.JTextField();
+        Button_LogIn = new javax.swing.JLabel();
+        Tab_LogIn = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -33,83 +32,79 @@ public class Login extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 70));
+        Label_Username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_Username.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Username.setText("Username:");
+        add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
-        Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Password.setForeground(new java.awt.Color(153, 0, 0));
-        Password.setText("Login:");
-        add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        Label_Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_Password.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Password.setText("Password:");
+        add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
-        employeeid_field.setForeground(new java.awt.Color(153, 0, 0));
-        employeeid_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(employeeid_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 520, 30));
+        Field_Username.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Username.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 520, 30));
 
-        Login.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Login.setForeground(new java.awt.Color(153, 0, 0));
-        Login.setText("Password:");
-        add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
+        Field_Password.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 520, 30));
 
-        firstname_field.setForeground(new java.awt.Color(153, 0, 0));
-        firstname_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(firstname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 520, 30));
-
-        save_button1.setBackground(new java.awt.Color(34, 153, 68));
-        save_button1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        save_button1.setForeground(new java.awt.Color(255, 255, 255));
-        save_button1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        save_button1.setText("Login");
-        save_button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        save_button1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        save_button1.setOpaque(true);
-        save_button1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Button_LogIn.setBackground(new java.awt.Color(34, 153, 68));
+        Button_LogIn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_LogIn.setForeground(new java.awt.Color(255, 255, 255));
+        Button_LogIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_LogIn.setText("Log In");
+        Button_LogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_LogIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_LogIn.setOpaque(true);
+        Button_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                save_button1MouseEntered(evt);
+                Button_LogInMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                save_button1MouseExited(evt);
+                Button_LogInMouseExited(evt);
             }
         });
-        add(save_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 130, -1));
+        add(Button_LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 130, -1));
 
-        LoginLogo.setBackground(new java.awt.Color(255, 255, 255));
-        LoginLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        LoginLogo.setForeground(new java.awt.Color(153, 0, 0));
-        LoginLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LoginLogo.setText("Login");
-        LoginLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LoginLogo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        LoginLogo.setOpaque(true);
-        add(LoginLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 40));
+        Tab_LogIn.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_LogIn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_LogIn.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_LogIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_LogIn.setText("Log In");
+        Tab_LogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_LogIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_LogIn.setOpaque(true);
+        add(Tab_LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
 
-        Login_button.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Login_button.setForeground(new java.awt.Color(153, 0, 0));
-        Login_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Login_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background (1).png"))); // NOI18N
-        Login_button.setOpaque(true);
-        add(Login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
+        Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Background.setForeground(new java.awt.Color(153, 0, 0));
+        Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
+        Background.setOpaque(true);
+        add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void save_button1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_button1MouseEntered
-        save_button1.setBackground(new java.awt.Color(51, 136, 68));
+    private void Button_LogInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LogInMouseEntered
+        Button_LogIn.setBackground(new java.awt.Color(51, 136, 68));
 
-    }//GEN-LAST:event_save_button1MouseEntered
+    }//GEN-LAST:event_Button_LogInMouseEntered
 
-    private void save_button1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_button1MouseExited
-        save_button1.setBackground(new java.awt.Color(34, 153, 68));
+    private void Button_LogInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LogInMouseExited
+        Button_LogIn.setBackground(new java.awt.Color(34, 153, 68));
 
-    }//GEN-LAST:event_save_button1MouseExited
+    }//GEN-LAST:event_Button_LogInMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Login;
-    private javax.swing.JLabel LoginLogo;
-    private javax.swing.JLabel Login_button;
-    private javax.swing.JLabel Password;
-    private javax.swing.JTextField employeeid_field;
-    private javax.swing.JTextField firstname_field;
-    private javax.swing.JLabel logo;
-    private javax.swing.JLabel save_button1;
+    private javax.swing.JLabel Background;
+    private javax.swing.JLabel Button_LogIn;
+    private javax.swing.JTextField Field_Password;
+    private javax.swing.JTextField Field_Username;
+    private javax.swing.JLabel Label_Password;
+    private javax.swing.JLabel Label_Username;
+    private javax.swing.JLabel Tab_LogIn;
     // End of variables declaration//GEN-END:variables
 }

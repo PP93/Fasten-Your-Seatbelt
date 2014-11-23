@@ -40,7 +40,7 @@ public class FYS {
         container.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
         container.getContentPane();
-        showPage(new Login());
+        showPage(new AppMan_NewAccount());
 
         container.setVisible(true);
 

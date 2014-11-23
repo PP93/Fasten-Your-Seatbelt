@@ -25,28 +25,25 @@ PreparedStatement  pst=null;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ManageAccounts_button = new javax.swing.JLabel();
-        RemoteShutdown_button1 = new javax.swing.JLabel();
-        LogOut_button2 = new javax.swing.JLabel();
-        chart_button1 = new javax.swing.JLabel();
-        newaccount_button4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        logo = new javax.swing.JLabel();
+        Button_GenerateGraph = new javax.swing.JLabel();
+        Label_Timeframe = new javax.swing.JLabel();
+        Radio_Today = new javax.swing.JRadioButton();
+        Radio_Week = new javax.swing.JRadioButton();
+        Radio_Month = new javax.swing.JRadioButton();
+        Radio_Year = new javax.swing.JRadioButton();
+        Label_CaseType = new javax.swing.JLabel();
+        Radio_Client = new javax.swing.JRadioButton();
+        Radio_Baggage = new javax.swing.JRadioButton();
+        Label_CaseStatus = new javax.swing.JLabel();
+        Radio_NotFound = new javax.swing.JRadioButton();
+        Radio_Found = new javax.swing.JRadioButton();
+        Radio_Returned = new javax.swing.JRadioButton();
+        Scrollpane_Cases = new javax.swing.JScrollPane();
+        Table_Cases = new javax.swing.JTable();
+        Tab_GraphData = new javax.swing.JLabel();
+        Tab_BaggageData = new javax.swing.JLabel();
+        Tab_LogOut = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -54,98 +51,100 @@ PreparedStatement  pst=null;
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ManageAccounts_button.setBackground(new java.awt.Color(156, 10, 13));
-        ManageAccounts_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        ManageAccounts_button.setForeground(new java.awt.Color(255, 255, 255));
-        ManageAccounts_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ManageAccounts_button.setText("Bagage data");
-        ManageAccounts_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ManageAccounts_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ManageAccounts_button.setOpaque(true);
-        ManageAccounts_button.addMouseListener(new java.awt.event.MouseAdapter() {
+        Button_GenerateGraph.setBackground(new java.awt.Color(34, 153, 68));
+        Button_GenerateGraph.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_GenerateGraph.setForeground(new java.awt.Color(255, 255, 255));
+        Button_GenerateGraph.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_GenerateGraph.setText("Generate Graph");
+        Button_GenerateGraph.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_GenerateGraph.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_GenerateGraph.setOpaque(true);
+        Button_GenerateGraph.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ManageAccounts_buttonMouseEntered(evt);
+                Button_GenerateGraphMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ManageAccounts_buttonMouseExited(evt);
+                Button_GenerateGraphMouseExited(evt);
             }
         });
-        add(ManageAccounts_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 250, 40));
+        add(Button_GenerateGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 590, 200, 40));
 
-        RemoteShutdown_button1.setBackground(new java.awt.Color(156, 10, 13));
-        RemoteShutdown_button1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        RemoteShutdown_button1.setForeground(new java.awt.Color(255, 255, 255));
-        RemoteShutdown_button1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        RemoteShutdown_button1.setText("Search");
-        RemoteShutdown_button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        RemoteShutdown_button1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        RemoteShutdown_button1.setOpaque(true);
-        RemoteShutdown_button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RemoteShutdown_button1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                RemoteShutdown_button1MouseExited(evt);
+        Label_Timeframe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Label_Timeframe.setForeground(new java.awt.Color(156, 10, 13));
+        Label_Timeframe.setText("Timeframe:");
+        add(Label_Timeframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+
+        Radio_Today.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Today.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Today.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Today.setText("Today");
+        add(Radio_Today, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
+
+        Radio_Week.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Week.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Week.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Week.setText("Week");
+        add(Radio_Week, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, -1, -1));
+
+        Radio_Month.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Month.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Month.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Month.setText("Month");
+        add(Radio_Month, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, -1, -1));
+
+        Radio_Year.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Year.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Year.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Year.setText("Year");
+        add(Radio_Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, -1, -1));
+
+        Label_CaseType.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Label_CaseType.setForeground(new java.awt.Color(156, 10, 13));
+        Label_CaseType.setText("Case Type:");
+        add(Label_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
+
+        Radio_Client.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Client.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Client.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Client.setText("Client");
+        add(Radio_Client, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
+
+        Radio_Baggage.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Baggage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Baggage.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Baggage.setText("Baggage");
+        Radio_Baggage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Radio_BaggageActionPerformed(evt);
             }
         });
-        add(RemoteShutdown_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 250, 40));
+        add(Radio_Baggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, -1, -1));
 
-        LogOut_button2.setBackground(new java.awt.Color(156, 10, 13));
-        LogOut_button2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        LogOut_button2.setForeground(new java.awt.Color(255, 255, 255));
-        LogOut_button2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LogOut_button2.setText("Log Out");
-        LogOut_button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LogOut_button2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        LogOut_button2.setOpaque(true);
-        LogOut_button2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                LogOut_button2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                LogOut_button2MouseExited(evt);
-            }
-        });
-        add(LogOut_button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 110, 250, 40));
+        Label_CaseStatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Label_CaseStatus.setForeground(new java.awt.Color(156, 10, 13));
+        Label_CaseStatus.setText("Case Status:");
+        Label_CaseStatus.setToolTipText("");
+        add(Label_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, 20));
 
-        chart_button1.setBackground(new java.awt.Color(34, 153, 68));
-        chart_button1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        chart_button1.setForeground(new java.awt.Color(255, 255, 255));
-        chart_button1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        chart_button1.setText("Show chart");
-        chart_button1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        chart_button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        chart_button1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        chart_button1.setOpaque(true);
-        chart_button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                chart_button1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                chart_button1MouseExited(evt);
-            }
-        });
-        add(chart_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 590, 130, 40));
+        Radio_NotFound.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_NotFound.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_NotFound.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_NotFound.setText("Not Found");
+        add(Radio_NotFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, -1));
 
-        newaccount_button4.setBackground(new java.awt.Color(255, 255, 255));
-        newaccount_button4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        newaccount_button4.setForeground(new java.awt.Color(156, 10, 13));
-        newaccount_button4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        newaccount_button4.setText("Graphic data");
-        newaccount_button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        newaccount_button4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        newaccount_button4.setOpaque(true);
-        newaccount_button4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                newaccount_button4MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                newaccount_button4MouseExited(evt);
-            }
-        });
-        add(newaccount_button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 250, 40));
+        Radio_Found.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Found.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Found.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Found.setText("Found");
+        add(Radio_Found, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Radio_Returned.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_Returned.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Radio_Returned.setForeground(new java.awt.Color(156, 10, 13));
+        Radio_Returned.setText("Returned");
+        add(Radio_Returned, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
+
+        Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -156,156 +155,130 @@ PreparedStatement  pst=null;
                 "Found", "Not Found", "Returned"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        Scrollpane_Cases.setViewportView(Table_Cases);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, 280));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 150, 1280, 30));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1290, 60));
+        add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, 280));
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton1.setText("Returned");
-        add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
+        Tab_GraphData.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_GraphData.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_GraphData.setForeground(new java.awt.Color(156, 10, 13));
+        Tab_GraphData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_GraphData.setText("Graph Data");
+        Tab_GraphData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_GraphData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_GraphData.setOpaque(true);
+        Tab_GraphData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Tab_GraphDataMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Tab_GraphDataMouseExited(evt);
+            }
+        });
+        add(Tab_GraphData, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton2.setText("Not Found");
-        add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, -1));
+        Tab_BaggageData.setBackground(new java.awt.Color(156, 10, 13));
+        Tab_BaggageData.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_BaggageData.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_BaggageData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_BaggageData.setText("Baggage Data");
+        Tab_BaggageData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_BaggageData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_BaggageData.setOpaque(true);
+        Tab_BaggageData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Tab_BaggageDataMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Tab_BaggageDataMouseExited(evt);
+            }
+        });
+        add(Tab_BaggageData, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 250, 40));
 
-        jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton3.setText("Found");
-        add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
+        Tab_LogOut.setBackground(new java.awt.Color(156, 10, 13));
+        Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_LogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_LogOut.setText("Log Out");
+        Tab_LogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_LogOut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_LogOut.setOpaque(true);
+        Tab_LogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Tab_LogOutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Tab_LogOutMouseExited(evt);
+            }
+        });
+        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 250, 40));
 
-        jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton4.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton4.setText("Today");
-        add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
-
-        jRadioButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton5.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton5.setText("Bagage");
-        add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
-
-        jRadioButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton6.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton6.setText("Week");
-        add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, -1, -1));
-
-        jRadioButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton7.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton7.setText("Month");
-        add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 180, -1, -1));
-
-        jRadioButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton8.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton8.setText("Year");
-        add(jRadioButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 180, -1, -1));
-
-        jRadioButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton9.setForeground(new java.awt.Color(156, 10, 13));
-        jRadioButton9.setText("Client");
-        add(jRadioButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(156, 10, 13));
-        jLabel1.setText("Case status:");
-        jLabel1.setToolTipText("");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, 20));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(156, 10, 13));
-        jLabel2.setText("Timeframe:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(156, 10, 13));
-        jLabel4.setText("Case type:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
-
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background (1).png"))); // NOI18N
-        logo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 720));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
+        Background.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 720));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ManageAccounts_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageAccounts_buttonMouseEntered
+    private void Tab_BaggageDataMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_BaggageDataMouseEntered
         ManageAccounts_button.setBackground(new java.awt.Color(255, 255, 255));
         ManageAccounts_button.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_ManageAccounts_buttonMouseEntered
+    }//GEN-LAST:event_Tab_BaggageDataMouseEntered
 
-    private void ManageAccounts_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageAccounts_buttonMouseExited
+    private void Tab_BaggageDataMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_BaggageDataMouseExited
         ManageAccounts_button.setBackground(new java.awt.Color(153, 0, 0));
 
         ManageAccounts_button.setForeground(new java.awt.Color(255, 255, 255));
 
-    }//GEN-LAST:event_ManageAccounts_buttonMouseExited
+    }//GEN-LAST:event_Tab_BaggageDataMouseExited
 
 
-    private void RemoteShutdown_button1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoteShutdown_button1MouseEntered
-        RemoteShutdown_button1.setBackground(new java.awt.Color(255, 255, 255));
-        RemoteShutdown_button1.setForeground(new java.awt.Color(153, 0, 0));    }//GEN-LAST:event_RemoteShutdown_button1MouseEntered
-
-    private void RemoteShutdown_button1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoteShutdown_button1MouseExited
-        RemoteShutdown_button1.setBackground(new java.awt.Color(153, 0, 0));
-
-        RemoteShutdown_button1.setForeground(new java.awt.Color(255, 255, 255));    }//GEN-LAST:event_RemoteShutdown_button1MouseExited
-
-    private void LogOut_button2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button2MouseEntered
+    private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
         LogOut_button2.setBackground(new java.awt.Color(255, 255, 255));
-        LogOut_button2.setForeground(new java.awt.Color(153, 0, 0));     }//GEN-LAST:event_LogOut_button2MouseEntered
+        LogOut_button2.setForeground(new java.awt.Color(153, 0, 0));     }//GEN-LAST:event_Tab_LogOutMouseEntered
 
-    private void LogOut_button2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button2MouseExited
+    private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
         LogOut_button2.setBackground(new java.awt.Color(153, 0, 0));
 
-        LogOut_button2.setForeground(new java.awt.Color(255, 255, 255));    }//GEN-LAST:event_LogOut_button2MouseExited
+        LogOut_button2.setForeground(new java.awt.Color(255, 255, 255));    }//GEN-LAST:event_Tab_LogOutMouseExited
 
-    private void newaccount_button4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccount_button4MouseEntered
-    }//GEN-LAST:event_newaccount_button4MouseEntered
+    private void Tab_GraphDataMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_GraphDataMouseEntered
+    }//GEN-LAST:event_Tab_GraphDataMouseEntered
 
-    private void newaccount_button4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccount_button4MouseExited
+    private void Tab_GraphDataMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_GraphDataMouseExited
 
-     }//GEN-LAST:event_newaccount_button4MouseExited
+     }//GEN-LAST:event_Tab_GraphDataMouseExited
 
-    private void chart_button1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chart_button1MouseEntered
+    private void Button_GenerateGraphMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_GenerateGraphMouseEntered
         chart_button1.setBackground(new java.awt.Color(51, 136, 68));
-    }//GEN-LAST:event_chart_button1MouseEntered
+    }//GEN-LAST:event_Button_GenerateGraphMouseEntered
 
-    private void chart_button1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chart_button1MouseExited
+    private void Button_GenerateGraphMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_GenerateGraphMouseExited
         chart_button1.setBackground(new java.awt.Color(34, 153, 68));
-    }//GEN-LAST:event_chart_button1MouseExited
+    }//GEN-LAST:event_Button_GenerateGraphMouseExited
+
+    private void Radio_BaggageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_BaggageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Radio_BaggageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LogOut_button2;
-    private javax.swing.JLabel ManageAccounts_button;
-    private javax.swing.JLabel RemoteShutdown_button1;
-    private javax.swing.JLabel chart_button1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel logo;
-    private javax.swing.JLabel newaccount_button4;
+    private javax.swing.JLabel Background;
+    private javax.swing.JLabel Button_GenerateGraph;
+    private javax.swing.JLabel Label_CaseStatus;
+    private javax.swing.JLabel Label_CaseType;
+    private javax.swing.JLabel Label_Timeframe;
+    private javax.swing.JRadioButton Radio_Baggage;
+    private javax.swing.JRadioButton Radio_Client;
+    private javax.swing.JRadioButton Radio_Found;
+    private javax.swing.JRadioButton Radio_Month;
+    private javax.swing.JRadioButton Radio_NotFound;
+    private javax.swing.JRadioButton Radio_Returned;
+    private javax.swing.JRadioButton Radio_Today;
+    private javax.swing.JRadioButton Radio_Week;
+    private javax.swing.JRadioButton Radio_Year;
+    private javax.swing.JScrollPane Scrollpane_Cases;
+    private javax.swing.JLabel Tab_BaggageData;
+    private javax.swing.JLabel Tab_GraphData;
+    private javax.swing.JLabel Tab_LogOut;
+    private javax.swing.JTable Table_Cases;
     // End of variables declaration//GEN-END:variables
 }*/

@@ -2,9 +2,9 @@ package fys;
 
 import javax.swing.ImageIcon;
 
-public class AppMan_NewAccount extends javax.swing.JPanel {
+public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
-    public AppMan_NewAccount() {
+    public AppMan_ManageAccounts() {
         initComponents();
 
     }
@@ -34,11 +34,17 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         Field_Password = new javax.swing.JTextField();
         Field_Email = new javax.swing.JTextField();
         Field_PhoneNumber = new javax.swing.JTextField();
-        Button_Reset = new javax.swing.JLabel();
+        Button_Cancel = new javax.swing.JLabel();
         Button_Save = new javax.swing.JLabel();
-        Tab_NewAccount = new javax.swing.JLabel();
-        Tab_ManageAccounts = new javax.swing.JLabel();
+        Label_Search = new javax.swing.JLabel();
+        Field_Search = new javax.swing.JTextField();
+        ScrollPane_AccountList = new javax.swing.JScrollPane();
+        List_Accounts = new javax.swing.JList();
+        Button_Edit = new javax.swing.JLabel();
+        Button_Delete = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
+        Tab_ManageAccounts = new javax.swing.JLabel();
+        Tab_NewAccount = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -50,37 +56,37 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
         Label_AccountType.setText("Account Type:");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Label_FirstName.setText("First Name:");
-        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Label_LastName.setText("Last Name:");
-        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
+        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, -1, -1));
 
         Label_Username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Username.setForeground(new java.awt.Color(153, 0, 0));
         Label_Username.setText("Username:");
-        add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, -1, -1));
+        add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, -1, -1));
 
         Label_Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(153, 0, 0));
         Label_Password.setText("Password:");
-        add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
+        add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, -1, -1));
 
         Label_Email.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Email.setForeground(new java.awt.Color(153, 0, 0));
         Label_Email.setText("Email:");
-        add(Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));
+        add(Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, -1, -1));
 
         Label_PhoneNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Label_PhoneNumber.setText("Phone Number:");
-        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
+        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, -1, -1));
 
         Radio_ServiceDeskEmployee.setBackground(new java.awt.Color(255, 255, 255));
         Radio_ServiceDeskEmployee.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -94,7 +100,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 Radio_ServiceDeskEmployeeActionPerformed(evt);
             }
         });
-        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
+        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, -1, -1));
 
         Radio_Manager.setBackground(new java.awt.Color(255, 255, 255));
         Radio_Manager.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -102,7 +108,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         Radio_Manager.setText("Manager");
         Radio_Manager.setBorder(null);
         Radio_Manager.setOpaque(false);
-        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, -1, -1));
+        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 280, -1, -1));
 
         Radio_ApplicationManager.setBackground(new java.awt.Color(255, 255, 255));
         Radio_ApplicationManager.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -115,55 +121,55 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 Radio_ApplicationManagerActionPerformed(evt);
             }
         });
-        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, -1, -1));
+        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 280, -1, -1));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 520, 30));
+        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 480, 30));
 
         Field_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Field_LastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 520, 30));
+        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 480, 30));
 
         Field_Username.setForeground(new java.awt.Color(153, 0, 0));
         Field_Username.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 520, 30));
+        add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 480, 30));
 
         Field_Password.setForeground(new java.awt.Color(153, 0, 0));
         Field_Password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 520, 30));
+        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 440, 480, 30));
 
         Field_Email.setForeground(new java.awt.Color(153, 0, 0));
         Field_Email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 520, 30));
+        add(Field_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 480, 30));
 
         Field_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_PhoneNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 520, 30));
+        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 520, 480, 30));
 
-        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
-        Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Button_Reset.setText("Reset");
-        Button_Reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button_Reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Button_Reset.setOpaque(true);
-        Button_Reset.addMouseListener(new java.awt.event.MouseAdapter() {
+        Button_Cancel.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Cancel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Cancel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Cancel.setText("Cancel");
+        Button_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Cancel.setOpaque(true);
+        Button_Cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Button_ResetMouseEntered(evt);
+                Button_CancelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Button_ResetMouseExited(evt);
+                Button_CancelMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 130, -1));
+        add(Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 570, 130, -1));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
         Button_Save.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Button_Save.setForeground(new java.awt.Color(255, 255, 255));
         Button_Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Button_Save.setText("Save");
+        Button_Save.setText("Save Changes");
         Button_Save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Save.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_Save.setOpaque(true);
@@ -175,49 +181,61 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 Button_SaveMouseExited(evt);
             }
         });
-        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 130, -1));
+        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 570, 200, -1));
 
-        Tab_NewAccount.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tab_NewAccount.setForeground(new java.awt.Color(156, 10, 13));
-        Tab_NewAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_NewAccount.setText("New Account");
-        Tab_NewAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_NewAccount.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_NewAccount.setOpaque(true);
-        Tab_NewAccount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_NewAccountMouseClicked(evt);
-            }
+        Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_Search.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Search.setText("Search Employee ID:");
+        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+
+        Field_Search.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 250, 30));
+
+        List_Accounts.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        ScrollPane_AccountList.setViewportView(List_Accounts);
+
+        add(ScrollPane_AccountList, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 250, 280));
+
+        Button_Edit.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Edit.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Edit.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Edit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Edit.setText("Edit");
+        Button_Edit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Edit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Edit.setOpaque(true);
+        Button_Edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_NewAccountMouseEntered(evt);
+                Button_EditMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_NewAccountMouseExited(evt);
+                Button_EditMouseExited(evt);
             }
         });
-        add(Tab_NewAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
+        add(Button_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 90, -1));
 
-        Tab_ManageAccounts.setBackground(new java.awt.Color(156, 10, 13));
-        Tab_ManageAccounts.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tab_ManageAccounts.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_ManageAccounts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_ManageAccounts.setText("Manage Accounts");
-        Tab_ManageAccounts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_ManageAccounts.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_ManageAccounts.setOpaque(true);
-        Tab_ManageAccounts.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_ManageAccountsMouseClicked(evt);
-            }
+        Button_Delete.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Delete.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Delete.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Delete.setText("Delete");
+        Button_Delete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Delete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Delete.setOpaque(true);
+        Button_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_ManageAccountsMouseEntered(evt);
+                Button_DeleteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_ManageAccountsMouseExited(evt);
+                Button_DeleteMouseExited(evt);
             }
         });
-        add(Tab_ManageAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
+        add(Button_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 90, -1));
 
         Tab_LogOut.setBackground(new java.awt.Color(156, 10, 13));
         Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -240,6 +258,48 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         });
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 40));
 
+        Tab_ManageAccounts.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_ManageAccounts.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_ManageAccounts.setForeground(new java.awt.Color(156, 10, 13));
+        Tab_ManageAccounts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_ManageAccounts.setText("Manage Accounts");
+        Tab_ManageAccounts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_ManageAccounts.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_ManageAccounts.setOpaque(true);
+        Tab_ManageAccounts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab_ManageAccountsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Tab_ManageAccountsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Tab_ManageAccountsMouseExited(evt);
+            }
+        });
+        add(Tab_ManageAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
+
+        Tab_NewAccount.setBackground(new java.awt.Color(156, 10, 13));
+        Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_NewAccount.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_NewAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_NewAccount.setText("New Account");
+        Tab_NewAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_NewAccount.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_NewAccount.setOpaque(true);
+        Tab_NewAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab_NewAccountMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Tab_NewAccountMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Tab_NewAccountMouseExited(evt);
+            }
+        });
+        add(Tab_NewAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
+
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -249,39 +309,35 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Tab_ManageAccountsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseEntered
-        Tab_ManageAccounts.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_ManageAccounts.setForeground(new java.awt.Color(153, 0, 0));
+
     }//GEN-LAST:event_Tab_ManageAccountsMouseEntered
 
     private void Tab_ManageAccountsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseExited
-        Tab_ManageAccounts.setBackground(new java.awt.Color(153, 0, 0));
-
-        Tab_ManageAccounts.setForeground(new java.awt.Color(255, 255, 255));
 
     }//GEN-LAST:event_Tab_ManageAccountsMouseExited
 
 
-    private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
-        Button_Reset.setBackground(new java.awt.Color(51, 136, 68));
-    }//GEN-LAST:event_Button_ResetMouseEntered
+    private void Button_CancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_CancelMouseEntered
+        Button_Cancel.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_Button_CancelMouseEntered
 
-    private void Button_ResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseExited
-        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-    }//GEN-LAST:event_Button_ResetMouseExited
+    private void Button_CancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_CancelMouseExited
+        Button_Cancel.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_Button_CancelMouseExited
 
     private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
-    private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
-        Button_Save.setBackground(new java.awt.Color(51, 136, 68));
+    private void Button_EditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_EditMouseEntered
+        Button_Edit.setBackground(new java.awt.Color(51, 136, 68));
 
-    }//GEN-LAST:event_Button_SaveMouseEntered
+    }//GEN-LAST:event_Button_EditMouseEntered
 
-    private void Button_SaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseExited
-        Button_Save.setBackground(new java.awt.Color(34, 153, 68));
+    private void Button_EditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_EditMouseExited
+        Button_Edit.setBackground(new java.awt.Color(34, 153, 68));
 
-    }//GEN-LAST:event_Button_SaveMouseExited
+    }//GEN-LAST:event_Button_EditMouseExited
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
         Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
@@ -289,15 +345,37 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
     private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
         Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
-
         Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));    }//GEN-LAST:event_Tab_LogOutMouseExited
 
     private void Tab_NewAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseEntered
+        Tab_NewAccount.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_NewAccount.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_Tab_NewAccountMouseEntered
 
     private void Tab_NewAccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseExited
-
+        Tab_NewAccount.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_NewAccount.setForeground(new java.awt.Color(255, 255, 255));
      }//GEN-LAST:event_Tab_NewAccountMouseExited
+
+    private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SaveMouseEntered
+
+    private void Button_SaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SaveMouseExited
+
+    private void Button_DeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_DeleteMouseEntered
+
+    private void Button_DeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_DeleteMouseExited
+
+    private void Tab_NewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseClicked
+        FYS.getInstance().showPage(new AppMan_NewAccount());
+    }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
     private void Tab_ManageAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseClicked
         FYS.getInstance().showPage(new AppMan_ManageAccounts());
@@ -307,10 +385,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         FYS.getInstance().showPage(new AppMan_LogOut());
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
-    private void Tab_NewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseClicked
-        FYS.getInstance().showPage(new AppMan_NewAccount());
-    }//GEN-LAST:event_Tab_NewAccountMouseClicked
-
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
@@ -318,13 +392,16 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JLabel Button_Reset;
+    private javax.swing.JLabel Button_Cancel;
+    private javax.swing.JLabel Button_Delete;
+    private javax.swing.JLabel Button_Edit;
     private javax.swing.JLabel Button_Save;
     private javax.swing.JTextField Field_Email;
     private javax.swing.JTextField Field_FirstName;
     private javax.swing.JTextField Field_LastName;
     private javax.swing.JTextField Field_Password;
     private javax.swing.JTextField Field_PhoneNumber;
+    private javax.swing.JTextField Field_Search;
     private javax.swing.JTextField Field_Username;
     private javax.swing.JLabel Label_AccountType;
     private javax.swing.JLabel Label_Email;
@@ -332,10 +409,13 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private javax.swing.JLabel Label_LastName;
     private javax.swing.JLabel Label_Password;
     private javax.swing.JLabel Label_PhoneNumber;
+    private javax.swing.JLabel Label_Search;
     private javax.swing.JLabel Label_Username;
+    private javax.swing.JList List_Accounts;
     private javax.swing.JRadioButton Radio_ApplicationManager;
     private javax.swing.JRadioButton Radio_Manager;
     private javax.swing.JRadioButton Radio_ServiceDeskEmployee;
+    private javax.swing.JScrollPane ScrollPane_AccountList;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JLabel Tab_ManageAccounts;
     private javax.swing.JLabel Tab_NewAccount;
