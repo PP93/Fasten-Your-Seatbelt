@@ -271,6 +271,9 @@ public class AppMan_ManageAccount extends javax.swing.JPanel {
         Tab4_LogOut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tab4_LogOut.setOpaque(true);
         Tab4_LogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab4_LogOutMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Tab4_LogOutMouseEntered(evt);
             }
@@ -307,6 +310,9 @@ public class AppMan_ManageAccount extends javax.swing.JPanel {
         Tab2_ManageAccounts.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tab2_ManageAccounts.setOpaque(true);
         Tab2_ManageAccounts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab2_ManageAccountsMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Tab2_ManageAccountsMouseEntered(evt);
             }
@@ -325,6 +331,9 @@ public class AppMan_ManageAccount extends javax.swing.JPanel {
         Tab1_NewAccount.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tab1_NewAccount.setOpaque(true);
         Tab1_NewAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab1_NewAccountMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Tab1_NewAccountMouseEntered(evt);
             }
@@ -416,6 +425,18 @@ public class AppMan_ManageAccount extends javax.swing.JPanel {
     private void Button_DeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_DeleteMouseExited
+
+    private void Tab1_NewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab1_NewAccountMouseClicked
+        FYS.getInstance().showPage(new AppMan_NewAccount());
+    }//GEN-LAST:event_Tab1_NewAccountMouseClicked
+
+    private void Tab2_ManageAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab2_ManageAccountsMouseClicked
+        FYS.getInstance().showPage(new AppMan_ManageAccount());
+    }//GEN-LAST:event_Tab2_ManageAccountsMouseClicked
+
+    private void Tab4_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab4_LogOutMouseClicked
+        FYS.getInstance().showPage(new LogoutStandBy());
+    }//GEN-LAST:event_Tab4_LogOutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
