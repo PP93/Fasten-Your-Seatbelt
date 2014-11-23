@@ -2,9 +2,9 @@ package fys;
 
 import javax.swing.ImageIcon;
 
-public class AppMan_NewAccount extends javax.swing.JPanel {
+public class NewAccount_Page extends javax.swing.JPanel {
 
-    public AppMan_NewAccount() {
+    public NewAccount_Page() {
         initComponents();
 
     }
@@ -161,9 +161,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         ManageAccounts_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ManageAccounts_button.setOpaque(true);
         ManageAccounts_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ManageAccounts_buttonMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ManageAccounts_buttonMouseEntered(evt);
             }
@@ -330,10 +327,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private void newaccount_button4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccount_button4MouseExited
 
      }//GEN-LAST:event_newaccount_button4MouseExited
-
-    private void ManageAccounts_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageAccounts_buttonMouseClicked
-        FYS.getInstance().showPage(new AppMan_ManageAccount());
-    }//GEN-LAST:event_ManageAccounts_buttonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

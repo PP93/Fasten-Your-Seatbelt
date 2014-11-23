@@ -189,6 +189,9 @@ public class NewCaseBagage extends javax.swing.JPanel {
         newaccount_button4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         newaccount_button4.setOpaque(true);
         newaccount_button4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                newaccount_button4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 newaccount_button4MouseEntered(evt);
             }
@@ -348,6 +351,10 @@ public class NewCaseBagage extends javax.swing.JPanel {
     private void LogOut_button2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button2MouseEntered
         LogOut_button2.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_LogOut_button2MouseEntered
+
+    private void newaccount_button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccount_button4MouseClicked
+        FYS.getInstance().showPage(new NewCaseClient());
+    }//GEN-LAST:event_newaccount_button4MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
