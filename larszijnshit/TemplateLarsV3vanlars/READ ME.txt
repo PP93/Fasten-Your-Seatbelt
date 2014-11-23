@@ -1,5 +1,0 @@
---> Open FYS.java to start the program.
---> The manual popup functions (click the 'i' button).
---> Buttons are made from a label with a background image that changes upon rollover.
---> Text fields are created with a label with a rounded background image and then a
-     text input field placed overtop.
