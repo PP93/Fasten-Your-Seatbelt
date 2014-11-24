@@ -204,6 +204,9 @@ PreparedStatement  pst=null;
         Tab_LogOut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tab_LogOut.setOpaque(true);
         Tab_LogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab_LogOutMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Tab_LogOutMouseEntered(evt);
             }
@@ -258,6 +261,10 @@ PreparedStatement  pst=null;
     private void Radio_BaggageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_BaggageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Radio_BaggageActionPerformed
+
+    private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
+        FYS.getInstance().showPage(new Man_LogOut());
+    }//GEN-LAST:event_Tab_LogOutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -340,7 +340,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_ManageAccounts_buttonMouseClicked
 
     private void LogOut_button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button2MouseClicked
-        
+        FYS.getInstance().showPage(new SerDesEmp_LogOut());
     }//GEN-LAST:event_LogOut_button2MouseClicked
 
 

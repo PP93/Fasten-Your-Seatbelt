@@ -171,6 +171,9 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         LogOut_button2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         LogOut_button2.setOpaque(true);
         LogOut_button2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogOut_button2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 LogOut_button2MouseEntered(evt);
             }
@@ -355,6 +358,10 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private void newaccount_button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newaccount_button4MouseClicked
         FYS.getInstance().showPage(new SerDesEmp_NewCase());
     }//GEN-LAST:event_newaccount_button4MouseClicked
+
+    private void LogOut_button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button2MouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_LogOut());
+    }//GEN-LAST:event_LogOut_button2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
