@@ -32,7 +32,7 @@ public class AppMan_LogOut extends javax.swing.JPanel {
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
-        Label_AccountType.setText("Are you sure you want to log out of our fabulous fucking app?");
+        Label_AccountType.setText("Are you sure you want to log out?");
         add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
 
         Button_No.setBackground(new java.awt.Color(34, 153, 68));
@@ -44,6 +44,9 @@ public class AppMan_LogOut extends javax.swing.JPanel {
         Button_No.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_No.setOpaque(true);
         Button_No.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_NoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Button_NoMouseEntered(evt);
             }
@@ -181,6 +184,10 @@ public class AppMan_LogOut extends javax.swing.JPanel {
     private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
         FYS.getInstance().showPage(new Login());
     }//GEN-LAST:event_Button_YesMouseClicked
+
+    private void Button_NoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_NoMouseClicked
+        FYS.getInstance().showPage(new AppMan_NewAccount());
+    }//GEN-LAST:event_Button_NoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
