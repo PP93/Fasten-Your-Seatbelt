@@ -1,4 +1,4 @@
-CREATE TABLE `employeeID` ( 
+CREATE TABLE `employee` ( 
 `employeeID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
 `name` CHAR( 20 ) NOT NULL ,
 `lastname` CHAR( 20 ) NOT NULL ,
@@ -6,7 +6,7 @@ CREATE TABLE `employeeID` (
 `password` CHAR( 20 ) NOT NULL ,
 `email` CHAR( 50 ) NOT NULL ,
 `phonenumber` CHAR( 30 ) NOT NULL ,
-`function` CHAR( 50 ) NOT NULL ,
+`function` CHAR( 50 ) NOT NULL 
 );
 
 CREATE TABLE `client` ( 
