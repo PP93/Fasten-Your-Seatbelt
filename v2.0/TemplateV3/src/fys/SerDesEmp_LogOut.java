@@ -19,9 +19,10 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         Label_AccountType = new javax.swing.JLabel();
         Button_No = new javax.swing.JLabel();
         Button_Yes = new javax.swing.JLabel();
-        Tab_NewCase = new javax.swing.JLabel();
-        Tab_UpdateCase = new javax.swing.JLabel();
-        Tab_LogOut = new javax.swing.JLabel();
+        newclientaccount_button = new javax.swing.JLabel();
+        newbagageaccount_button = new javax.swing.JLabel();
+        updatecase_button = new javax.swing.JLabel();
+        LogOut_button4 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -74,57 +75,86 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         });
         add(Button_Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 130, -1));
 
-        Tab_NewCase.setBackground(new java.awt.Color(156, 10, 13));
-        Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tab_NewCase.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_NewCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_NewCase.setText("New Case");
-        Tab_NewCase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_NewCase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_NewCase.setOpaque(true);
-        Tab_NewCase.addMouseListener(new java.awt.event.MouseAdapter() {
+        newclientaccount_button.setBackground(new java.awt.Color(156, 0, 0));
+        newclientaccount_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        newclientaccount_button.setForeground(new java.awt.Color(255, 255, 255));
+        newclientaccount_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        newclientaccount_button.setText("New Client Case");
+        newclientaccount_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newclientaccount_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        newclientaccount_button.setOpaque(true);
+        newclientaccount_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_NewCaseMouseClicked(evt);
+                newclientaccount_buttonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_NewCaseMouseEntered(evt);
+                newclientaccount_buttonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_NewCaseMouseExited(evt);
+                newclientaccount_buttonMouseExited(evt);
             }
         });
-        add(Tab_NewCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
+        add(newclientaccount_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 40));
 
-        Tab_UpdateCase.setBackground(new java.awt.Color(156, 10, 13));
-        Tab_UpdateCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tab_UpdateCase.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateCase.setText("Update Case");
-        Tab_UpdateCase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_UpdateCase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateCase.setOpaque(true);
-        Tab_UpdateCase.addMouseListener(new java.awt.event.MouseAdapter() {
+        newbagageaccount_button.setBackground(new java.awt.Color(156, 0, 0));
+        newbagageaccount_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        newbagageaccount_button.setForeground(new java.awt.Color(255, 255, 255));
+        newbagageaccount_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        newbagageaccount_button.setText("New Bagage Case");
+        newbagageaccount_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newbagageaccount_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        newbagageaccount_button.setOpaque(true);
+        newbagageaccount_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_UpdateCaseMouseClicked(evt);
+                newbagageaccount_buttonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_UpdateCaseMouseEntered(evt);
+                newbagageaccount_buttonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_UpdateCaseMouseExited(evt);
+                newbagageaccount_buttonMouseExited(evt);
             }
         });
-        add(Tab_UpdateCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
+        add(newbagageaccount_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
 
-        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tab_LogOut.setForeground(new java.awt.Color(156, 10, 13));
-        Tab_LogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_LogOut.setText("Log Out");
-        Tab_LogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_LogOut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_LogOut.setOpaque(true);
-        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 40));
+        updatecase_button.setBackground(new java.awt.Color(156, 0, 0));
+        updatecase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
+        updatecase_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updatecase_button.setText("Update Case");
+        updatecase_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updatecase_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        updatecase_button.setOpaque(true);
+        updatecase_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updatecase_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updatecase_buttonMouseExited(evt);
+            }
+        });
+        add(updatecase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 250, 40));
+
+        LogOut_button4.setBackground(new java.awt.Color(255, 255, 255));
+        LogOut_button4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        LogOut_button4.setForeground(new java.awt.Color(156, 10, 13));
+        LogOut_button4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LogOut_button4.setText("Log Out");
+        LogOut_button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogOut_button4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LogOut_button4.setOpaque(true);
+        LogOut_button4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogOut_button4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LogOut_button4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LogOut_button4MouseExited(evt);
+            }
+        });
+        add(LogOut_button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 250, 40));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -133,16 +163,6 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Tab_UpdateCaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseEntered
-        Tab_UpdateCase.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateCase.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_UpdateCaseMouseEntered
-
-    private void Tab_UpdateCaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseExited
-        Tab_UpdateCase.setBackground(new java.awt.Color(153, 0, 0));
-        Tab_UpdateCase.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_UpdateCaseMouseExited
 
     private void Button_NoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_NoMouseEntered
         Button_No.setBackground(new java.awt.Color(51, 136, 68));
@@ -160,27 +180,56 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         Button_Yes.setBackground(new java.awt.Color(34, 153, 68));
     }//GEN-LAST:event_Button_YesMouseExited
 
-    private void Tab_NewCaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewCaseMouseEntered
-        Tab_NewCase.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_NewCase.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_NewCaseMouseEntered
-
-    private void Tab_NewCaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewCaseMouseExited
-        Tab_NewCase.setBackground(new java.awt.Color(153, 0, 0));
-        Tab_NewCase.setForeground(new java.awt.Color(255, 255, 255));
-     }//GEN-LAST:event_Tab_NewCaseMouseExited
-
-    private void Tab_UpdateCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
-    }//GEN-LAST:event_Tab_UpdateCaseMouseClicked
-
-    private void Tab_NewCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewCaseMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_NewCase());
-    }//GEN-LAST:event_Tab_NewCaseMouseClicked
-
     private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
         FYS.getInstance().showPage(new Login());
     }//GEN-LAST:event_Button_YesMouseClicked
+
+    private void newclientaccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newclientaccount_buttonMouseClicked
+
+    private void newclientaccount_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newclientaccount_buttonMouseEntered
+
+    private void newclientaccount_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newclientaccount_buttonMouseExited
+
+    private void newbagageaccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_NewCase());
+    }//GEN-LAST:event_newbagageaccount_buttonMouseClicked
+
+    private void newbagageaccount_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseEntered
+
+    }//GEN-LAST:event_newbagageaccount_buttonMouseEntered
+
+    private void newbagageaccount_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseExited
+
+    }//GEN-LAST:event_newbagageaccount_buttonMouseExited
+
+    private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
+        updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
+        updatecase_button.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_updatecase_buttonMouseEntered
+
+    private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
+        updatecase_button.setBackground(new java.awt.Color(153, 0, 0));
+
+        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_updatecase_buttonMouseExited
+
+    private void LogOut_button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_LogOut());
+    }//GEN-LAST:event_LogOut_button4MouseClicked
+
+    private void LogOut_button4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseEntered
+        LogOut_button4.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_LogOut_button4MouseEntered
+
+    private void LogOut_button4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseExited
+        LogOut_button4.setBackground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_LogOut_button4MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -188,8 +237,9 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     private javax.swing.JLabel Button_No;
     private javax.swing.JLabel Button_Yes;
     private javax.swing.JLabel Label_AccountType;
-    private javax.swing.JLabel Tab_LogOut;
-    private javax.swing.JLabel Tab_NewCase;
-    private javax.swing.JLabel Tab_UpdateCase;
+    private javax.swing.JLabel LogOut_button4;
+    private javax.swing.JLabel newbagageaccount_button;
+    private javax.swing.JLabel newclientaccount_button;
+    private javax.swing.JLabel updatecase_button;
     // End of variables declaration//GEN-END:variables
 }
