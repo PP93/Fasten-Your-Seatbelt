@@ -12,6 +12,9 @@ PreparedStatement pst=null;
         initComponents();
         conn=javaconnect.ConnecrDb();
         Update_table();
+        
+        Manual_Panel.setVisible(false);
+        Manual_Panel.setEnabled(false);
     }
 private void Update_table(){
     try{
@@ -34,6 +37,9 @@ private void Update_table(){
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        Label_CallManual = new javax.swing.JLabel();
+        Manual_Panel = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         Label_AccountType = new javax.swing.JLabel();
         Label_FirstName1 = new javax.swing.JLabel();
@@ -72,6 +78,30 @@ private void Update_table(){
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_CallManualMouseClicked(evt);
+            }
+        });
+        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
+
+        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Manual_Panel.setEnabled(false);
+        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
         add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 270, 10));
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -572,6 +602,16 @@ private void Update_table(){
       accounttype="manager";
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
+    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
+        Manual_Panel.setVisible(true);
+        Manual_Panel.setEnabled(true);
+    }//GEN-LAST:event_Label_CallManualMouseClicked
+
+    private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
+        Manual_Panel.setVisible(false);
+        Manual_Panel.setEnabled(false);
+    }//GEN-LAST:event_Label_ManualExitMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -587,14 +627,17 @@ private void Update_table(){
     private javax.swing.JTextField Field_Username;
     private javax.swing.JTextField Field_employeeID;
     private javax.swing.JLabel Label_AccountType;
+    private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_Email;
     private javax.swing.JLabel Label_FirstName;
     private javax.swing.JLabel Label_FirstName1;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;
     private javax.swing.JLabel Label_PhoneNumber;
     private javax.swing.JLabel Label_Search;
     private javax.swing.JLabel Label_Username;
+    private javax.swing.JPanel Manual_Panel;
     private javax.swing.JRadioButton Radio_ApplicationManager;
     private javax.swing.JRadioButton Radio_Manager;
     private javax.swing.JRadioButton Radio_ServiceDeskEmployee;
