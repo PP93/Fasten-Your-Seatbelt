@@ -8,15 +8,14 @@ import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
 
 public class SerDesEmp_NewCase extends javax.swing.JPanel {
-Connection conn=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
     public SerDesEmp_NewCase() {
         initComponents();
-        conn=javaconnect.ConnecrDb();
-        Manual_Panel.setVisible(false);
-        Manual_Panel.setEnabled(false);
+        conn = javaconnect.ConnecrDb();
     }
 
     /**
@@ -28,43 +27,59 @@ PreparedStatement pst=null;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Manual_Panel = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_CallManual = new javax.swing.JLabel();
-        logo = new javax.swing.JLabel();
         employee_id = new javax.swing.JLabel();
-        fname_field = new javax.swing.JTextField();
-        first_name = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        Date_field = new javax.swing.JTextField();
+        lname_label = new javax.swing.JLabel();
         lname_field = new javax.swing.JTextField();
-        last_name = new javax.swing.JLabel();
+        city_label = new javax.swing.JLabel();
         city_field = new javax.swing.JTextField();
-        username = new javax.swing.JLabel();
+        zipcode_label = new javax.swing.JLabel();
         zipcode_field = new javax.swing.JTextField();
-        password = new javax.swing.JLabel();
-        street_field = new javax.swing.JTextField();
-        email = new javax.swing.JLabel();
+        adress_label = new javax.swing.JLabel();
+        adress_field = new javax.swing.JTextField();
+        phone_label = new javax.swing.JLabel();
         shipcountry_field = new javax.swing.JTextField();
         reset_button = new javax.swing.JLabel();
         save_button = new javax.swing.JLabel();
         shipzipcode_field = new javax.swing.JTextField();
-        phone_number2 = new javax.swing.JLabel();
-        last_name1 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        password3 = new javax.swing.JLabel();
-        username2 = new javax.swing.JLabel();
+        shippingcountry_label = new javax.swing.JLabel();
+        country_label = new javax.swing.JLabel();
+        shippingCheckBox = new javax.swing.JCheckBox();
+        shippingcity_label = new javax.swing.JLabel();
+        shippinzip_label = new javax.swing.JLabel();
         country_field = new javax.swing.JTextField();
-        shipcity_field = new javax.swing.JTextField();
         shipaddress_field = new javax.swing.JTextField();
-        password2 = new javax.swing.JLabel();
-        employee_id4 = new javax.swing.JLabel();
-        emailadress_field = new javax.swing.JTextField();
+        shippingadress_label = new javax.swing.JLabel();
+        email_label = new javax.swing.JLabel();
         phone_field = new javax.swing.JTextField();
-        newclientaccount_button = new javax.swing.JLabel();
-        newbagageaccount_button = new javax.swing.JLabel();
+        newcase_button = new javax.swing.JLabel();
+        addbagage_button = new javax.swing.JLabel();
         updatecase_button = new javax.swing.JLabel();
-        LogOut_button4 = new javax.swing.JLabel();
+        LogOut_button = new javax.swing.JLabel();
+        email_field = new javax.swing.JTextField();
+        flightnmr_label = new javax.swing.JLabel();
+        brand_label = new javax.swing.JLabel();
+        color_label = new javax.swing.JLabel();
+        weight_label = new javax.swing.JLabel();
+        description_label = new javax.swing.JLabel();
+        shipcity_field = new javax.swing.JTextField();
+        flightnmr_field = new javax.swing.JTextField();
+        weight_field = new javax.swing.JTextField();
+        description_field = new javax.swing.JTextField();
+        color_field = new javax.swing.JTextField();
+        brand_field = new javax.swing.JTextField();
+        Date_label = new javax.swing.JLabel();
+        bagageinfo = new javax.swing.JLabel();
+        clientinformation = new javax.swing.JLabel();
+        fname_label = new javax.swing.JLabel();
+        fname_field = new javax.swing.JTextField();
         Background = new javax.swing.JLabel();
         Reset_button = new javax.swing.JLabel();
+
+        employee_id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        employee_id.setForeground(new java.awt.Color(153, 0, 0));
+        employee_id.setText("Client Information:");
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -72,86 +87,57 @@ PreparedStatement pst=null;
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Manual_Panel.setEnabled(false);
-        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-
-        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_CallManualMouseClicked(evt);
-            }
-        });
-        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
-
         logo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 70));
 
-        employee_id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        employee_id.setForeground(new java.awt.Color(153, 0, 0));
-        employee_id.setText("First name:");
-        add(employee_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        Date_field.setForeground(new java.awt.Color(153, 0, 0));
+        Date_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Date_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 230, 30));
 
-        fname_field.setForeground(new java.awt.Color(153, 0, 0));
-        fname_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(fname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 320, 30));
-
-        first_name.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        first_name.setForeground(new java.awt.Color(153, 0, 0));
-        first_name.setText("Last name:");
-        add(first_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
+        lname_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lname_label.setForeground(new java.awt.Color(153, 0, 0));
+        lname_label.setText("Last name:");
+        add(lname_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
         lname_field.setForeground(new java.awt.Color(153, 0, 0));
         lname_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(lname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 320, 30));
+        add(lname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 230, 30));
 
-        last_name.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        last_name.setForeground(new java.awt.Color(153, 0, 0));
-        last_name.setText("City:");
-        add(last_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
+        city_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        city_label.setForeground(new java.awt.Color(153, 0, 0));
+        city_label.setText("City:");
+        add(city_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
         city_field.setForeground(new java.awt.Color(153, 0, 0));
         city_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(city_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 320, 30));
+        add(city_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 230, 30));
 
-        username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        username.setForeground(new java.awt.Color(153, 0, 0));
-        username.setText("Zip Code:");
-        add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
+        zipcode_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        zipcode_label.setForeground(new java.awt.Color(153, 0, 0));
+        zipcode_label.setText("Zip Code:");
+        add(zipcode_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
 
         zipcode_field.setForeground(new java.awt.Color(153, 0, 0));
         zipcode_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(zipcode_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 320, 30));
+        add(zipcode_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 230, 30));
 
-        password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        password.setForeground(new java.awt.Color(153, 0, 0));
-        password.setText("Address:");
-        add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, -1));
+        adress_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        adress_label.setForeground(new java.awt.Color(153, 0, 0));
+        adress_label.setText("Address:");
+        add(adress_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
-        street_field.setForeground(new java.awt.Color(153, 0, 0));
-        street_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(street_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 320, 30));
+        adress_field.setForeground(new java.awt.Color(153, 0, 0));
+        adress_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(adress_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 230, 30));
 
-        email.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        email.setForeground(new java.awt.Color(153, 0, 0));
-        email.setText("phone number:");
-        add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
+        phone_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        phone_label.setForeground(new java.awt.Color(153, 0, 0));
+        phone_label.setText("phone number:");
+        add(phone_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
 
         shipcountry_field.setForeground(new java.awt.Color(153, 0, 0));
         shipcountry_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(shipcountry_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 290, 320, 30));
+        add(shipcountry_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 230, 30));
 
         reset_button.setBackground(new java.awt.Color(34, 153, 68));
         reset_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -197,110 +183,102 @@ PreparedStatement pst=null;
 
         shipzipcode_field.setForeground(new java.awt.Color(153, 0, 0));
         shipzipcode_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(shipzipcode_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 330, 320, 30));
+        add(shipzipcode_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 230, 30));
 
-        phone_number2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        phone_number2.setForeground(new java.awt.Color(153, 0, 0));
-        phone_number2.setText("Shipping country:");
-        add(phone_number2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, -1, -1));
+        shippingcountry_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippingcountry_label.setForeground(new java.awt.Color(153, 0, 0));
+        shippingcountry_label.setText("Shipping country:");
+        add(shippingcountry_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
 
-        last_name1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        last_name1.setForeground(new java.awt.Color(153, 0, 0));
-        last_name1.setText("Country:");
-        add(last_name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
+        country_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        country_label.setForeground(new java.awt.Color(153, 0, 0));
+        country_label.setText("Country:");
+        add(country_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
 
-        jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(153, 0, 0));
-        jCheckBox1.setText("Shipping adress same as living adress");
-        jCheckBox1.setOpaque(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        shippingCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippingCheckBox.setForeground(new java.awt.Color(153, 0, 0));
+        shippingCheckBox.setText("Shipping adress same as living adress");
+        shippingCheckBox.setOpaque(false);
+        shippingCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                shippingCheckBoxActionPerformed(evt);
             }
         });
-        add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 240, 330, 40));
+        add(shippingCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 330, 40));
 
-        password3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        password3.setForeground(new java.awt.Color(153, 0, 0));
-        password3.setText("Shipping City:");
-        add(password3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, -1, -1));
+        shippingcity_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippingcity_label.setForeground(new java.awt.Color(153, 0, 0));
+        shippingcity_label.setText("Shipping City:");
+        add(shippingcity_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, -1, -1));
 
-        username2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        username2.setForeground(new java.awt.Color(153, 0, 0));
-        username2.setText("Shipping Zip Code:");
-        add(username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, -1, -1));
+        shippinzip_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippinzip_label.setForeground(new java.awt.Color(153, 0, 0));
+        shippinzip_label.setText("Shipping Zip Code:");
+        add(shippinzip_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
         country_field.setForeground(new java.awt.Color(153, 0, 0));
         country_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(country_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 320, 30));
-
-        shipcity_field.setForeground(new java.awt.Color(153, 0, 0));
-        shipcity_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(shipcity_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 410, 320, 30));
+        add(country_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 230, 30));
 
         shipaddress_field.setForeground(new java.awt.Color(153, 0, 0));
         shipaddress_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(shipaddress_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 320, 30));
+        add(shipaddress_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 230, 30));
 
-        password2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        password2.setForeground(new java.awt.Color(153, 0, 0));
-        password2.setText("Shipping Address:");
-        add(password2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, -1, -1));
+        shippingadress_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippingadress_label.setForeground(new java.awt.Color(153, 0, 0));
+        shippingadress_label.setText("Shipping Address:");
+        add(shippingadress_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
 
-        employee_id4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        employee_id4.setForeground(new java.awt.Color(153, 0, 0));
-        employee_id4.setText("E-mail address:");
-        add(employee_id4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
-
-        emailadress_field.setForeground(new java.awt.Color(153, 0, 0));
-        emailadress_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(emailadress_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 530, 320, 30));
+        email_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        email_label.setForeground(new java.awt.Color(153, 0, 0));
+        email_label.setText("E-mail address:");
+        add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
 
         phone_field.setForeground(new java.awt.Color(153, 0, 0));
         phone_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(phone_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 320, 30));
+        add(phone_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 230, 30));
 
-        newclientaccount_button.setBackground(new java.awt.Color(255, 255, 255));
-        newclientaccount_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        newclientaccount_button.setForeground(new java.awt.Color(156, 10, 13));
-        newclientaccount_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        newclientaccount_button.setText("New Client Case");
-        newclientaccount_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        newclientaccount_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        newclientaccount_button.setOpaque(true);
-        newclientaccount_button.addMouseListener(new java.awt.event.MouseAdapter() {
+        newcase_button.setBackground(new java.awt.Color(255, 255, 255));
+        newcase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        newcase_button.setForeground(new java.awt.Color(156, 10, 13));
+        newcase_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        newcase_button.setText("New Case");
+        newcase_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newcase_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        newcase_button.setOpaque(true);
+        newcase_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                newclientaccount_buttonMouseClicked(evt);
+                newcase_buttonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                newclientaccount_buttonMouseEntered(evt);
+                newcase_buttonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                newclientaccount_buttonMouseExited(evt);
+                newcase_buttonMouseExited(evt);
             }
         });
-        add(newclientaccount_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 40));
+        add(newcase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 40));
 
-        newbagageaccount_button.setBackground(new java.awt.Color(156, 0, 0));
-        newbagageaccount_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        newbagageaccount_button.setForeground(new java.awt.Color(255, 255, 255));
-        newbagageaccount_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        newbagageaccount_button.setText("New Bagage Case");
-        newbagageaccount_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        newbagageaccount_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        newbagageaccount_button.setOpaque(true);
-        newbagageaccount_button.addMouseListener(new java.awt.event.MouseAdapter() {
+        addbagage_button.setBackground(new java.awt.Color(156, 0, 0));
+        addbagage_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
+        addbagage_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addbagage_button.setText("Add Bagage");
+        addbagage_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addbagage_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addbagage_button.setOpaque(true);
+        addbagage_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                newbagageaccount_buttonMouseClicked(evt);
+                addbagage_buttonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                newbagageaccount_buttonMouseEntered(evt);
+                addbagage_buttonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                newbagageaccount_buttonMouseExited(evt);
+                addbagage_buttonMouseExited(evt);
             }
         });
-        add(newbagageaccount_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
+        add(addbagage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 250, 40));
 
         updatecase_button.setBackground(new java.awt.Color(156, 0, 0));
         updatecase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -311,6 +289,9 @@ PreparedStatement pst=null;
         updatecase_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         updatecase_button.setOpaque(true);
         updatecase_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updatecase_buttonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 updatecase_buttonMouseEntered(evt);
             }
@@ -318,28 +299,115 @@ PreparedStatement pst=null;
                 updatecase_buttonMouseExited(evt);
             }
         });
-        add(updatecase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 250, 40));
+        add(updatecase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
 
-        LogOut_button4.setBackground(new java.awt.Color(156, 10, 13));
-        LogOut_button4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        LogOut_button4.setForeground(new java.awt.Color(255, 255, 255));
-        LogOut_button4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LogOut_button4.setText("Log Out");
-        LogOut_button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LogOut_button4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        LogOut_button4.setOpaque(true);
-        LogOut_button4.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogOut_button.setBackground(new java.awt.Color(156, 10, 13));
+        LogOut_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        LogOut_button.setForeground(new java.awt.Color(255, 255, 255));
+        LogOut_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LogOut_button.setText("Log Out");
+        LogOut_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogOut_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LogOut_button.setOpaque(true);
+        LogOut_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LogOut_button4MouseClicked(evt);
+                LogOut_buttonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                LogOut_button4MouseEntered(evt);
+                LogOut_buttonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                LogOut_button4MouseExited(evt);
+                LogOut_buttonMouseExited(evt);
             }
         });
-        add(LogOut_button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 250, 40));
+        add(LogOut_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 250, 40));
+
+        email_field.setForeground(new java.awt.Color(153, 0, 0));
+        email_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        email_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                email_fieldActionPerformed(evt);
+            }
+        });
+        add(email_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 230, 30));
+
+        flightnmr_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        flightnmr_label.setForeground(new java.awt.Color(153, 0, 0));
+        flightnmr_label.setText("Flight number:");
+        add(flightnmr_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 270, -1, -1));
+
+        brand_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        brand_label.setForeground(new java.awt.Color(153, 0, 0));
+        brand_label.setText("Brand:");
+        add(brand_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, -1));
+
+        color_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        color_label.setForeground(new java.awt.Color(153, 0, 0));
+        color_label.setText("Color:");
+        add(color_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 350, -1, -1));
+
+        weight_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        weight_label.setForeground(new java.awt.Color(153, 0, 0));
+        weight_label.setText("Weight:");
+        add(weight_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, -1, -1));
+
+        description_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        description_label.setForeground(new java.awt.Color(153, 0, 0));
+        description_label.setText("Description:");
+        add(description_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 430, -1, -1));
+
+        shipcity_field.setForeground(new java.awt.Color(153, 0, 0));
+        shipcity_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        shipcity_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shipcity_fieldActionPerformed(evt);
+            }
+        });
+        add(shipcity_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 230, 30));
+
+        flightnmr_field.setForeground(new java.awt.Color(153, 0, 0));
+        flightnmr_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(flightnmr_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
+
+        weight_field.setForeground(new java.awt.Color(153, 0, 0));
+        weight_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(weight_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 390, 230, 30));
+
+        description_field.setForeground(new java.awt.Color(153, 0, 0));
+        description_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(description_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 430, 230, 40));
+
+        color_field.setForeground(new java.awt.Color(153, 0, 0));
+        color_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(color_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 230, 30));
+
+        brand_field.setForeground(new java.awt.Color(153, 0, 0));
+        brand_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(brand_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 310, 230, 30));
+
+        Date_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Date_label.setForeground(new java.awt.Color(153, 0, 0));
+        Date_label.setText("Date:");
+        add(Date_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        bagageinfo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bagageinfo.setForeground(new java.awt.Color(153, 0, 0));
+        bagageinfo.setText("Bagage Information:");
+        add(bagageinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 200, -1, -1));
+
+        clientinformation.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        clientinformation.setForeground(new java.awt.Color(153, 0, 0));
+        clientinformation.setText("Client Information:");
+        add(clientinformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+
+        fname_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fname_label.setForeground(new java.awt.Color(153, 0, 0));
+        fname_label.setText("First name:");
+        add(fname_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+
+        fname_field.setForeground(new java.awt.Color(153, 0, 0));
+        fname_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(fname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 230, 30));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -353,7 +421,7 @@ PreparedStatement pst=null;
         Reset_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Reset_button.setOpaque(true);
-        add(Reset_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
+        add(Reset_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 1280, 780));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -375,153 +443,166 @@ PreparedStatement pst=null;
 
     }//GEN-LAST:event_save_buttonMouseExited
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void shippingCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shippingCheckBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_shippingCheckBoxActionPerformed
 
     private void save_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_buttonMouseClicked
-       try {
-            
-            
-            String sql= "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
-            pst=conn.prepareStatement(sql);
-            
-            pst.setString(1, fname_field.getText());
+        try {
+
+            String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
+            pst = conn.prepareStatement(sql);
+
+            pst.setString(1, Date_field.getText());
             pst.setString(2, lname_field.getText());
             pst.setString(3, country_field.getText());
             pst.setString(4, city_field.getText());
             pst.setString(5, zipcode_field.getText());
-            pst.setString(6, street_field.getText());
+            pst.setString(6, adress_field.getText());
             pst.setString(7, phone_field.getText());
-            pst.setString(8, emailadress_field.getText());
+            pst.setString(8, email_field.getText());
             pst.setString(9, shipcountry_field.getText());
             pst.setString(10, shipzipcode_field.getText());
             pst.setString(11, shipaddress_field.getText());
             pst.setString(12, shipcity_field.getText());
 
-               
-            
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Saved"); 
-            
-            
-        }catch(SQLException | HeadlessException e) {
-            
-            JOptionPane.showMessageDialog(null, e);    
+            JOptionPane.showMessageDialog(null, "Saved");
+
+        } catch (SQLException | HeadlessException e) {
+
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_save_buttonMouseClicked
 
     private void reset_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_buttonMouseClicked
 
-                   fname_field.setText("");
-                   lname_field.setText("");
-                   city_field.setText("");
-                   zipcode_field.setText("");
-                   street_field.setText("");
-                   phone_field.setText("");
-                   emailadress_field.setText("");
-                   shipcountry_field.setText("");
-                   shipzipcode_field.setText("");
-                   shipaddress_field.setText("");
-                   shipcity_field.setText("");
-           
+        Date_field.setText("");
+        lname_field.setText("");
+        city_field.setText("");
+        zipcode_field.setText("");
+        adress_field.setText("");
+        phone_field.setText("");
+        email_field.setText("");
+        shipcountry_field.setText("");
+        shipzipcode_field.setText("");
+        shipaddress_field.setText("");
+        shipcity_field.setText("");
+
     }//GEN-LAST:event_reset_buttonMouseClicked
 
-    private void newclientaccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseClicked
+    private void newcase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_newclientaccount_buttonMouseClicked
+    }//GEN-LAST:event_newcase_buttonMouseClicked
 
-    private void newclientaccount_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseEntered
+    private void newcase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_newclientaccount_buttonMouseEntered
+    }//GEN-LAST:event_newcase_buttonMouseEntered
 
-    private void newclientaccount_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseExited
+    private void newcase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_newclientaccount_buttonMouseExited
+    }//GEN-LAST:event_newcase_buttonMouseExited
 
-    private void newbagageaccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_NewCase());
-    }//GEN-LAST:event_newbagageaccount_buttonMouseClicked
+    private void addbagage_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseEntered
+        addbagage_button.setBackground(new java.awt.Color(255, 255, 255));
+        addbagage_button.setForeground(new java.awt.Color(153, 10, 13));
+    }//GEN-LAST:event_addbagage_buttonMouseEntered
 
-    private void newbagageaccount_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseEntered
+    private void addbagage_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseExited
+        addbagage_button.setBackground(new java.awt.Color(153, 10, 13));
 
-    }//GEN-LAST:event_newbagageaccount_buttonMouseEntered
+        addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_addbagage_buttonMouseExited
 
-    private void newbagageaccount_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseExited
+    private void LogOut_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_buttonMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_LogOut());
+    }//GEN-LAST:event_LogOut_buttonMouseClicked
 
-    }//GEN-LAST:event_newbagageaccount_buttonMouseExited
+    private void LogOut_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_buttonMouseEntered
+        LogOut_button.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_LogOut_buttonMouseEntered
+
+    private void LogOut_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_buttonMouseExited
+        LogOut_button.setBackground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_LogOut_buttonMouseExited
 
     private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
         updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
-        updatecase_button.setForeground(new java.awt.Color(153, 0, 0));
+        updatecase_button.setForeground(new java.awt.Color(153, 10, 13));
     }//GEN-LAST:event_updatecase_buttonMouseEntered
 
     private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
-        updatecase_button.setBackground(new java.awt.Color(153, 0, 0));
+        addbagage_button.setBackground(new java.awt.Color(153, 10, 13));
 
-        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
+        addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_updatecase_buttonMouseExited
 
-    private void LogOut_button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_LogOut());
-    }//GEN-LAST:event_LogOut_button4MouseClicked
+    private void email_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_email_fieldActionPerformed
 
-    private void LogOut_button4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseEntered
-        LogOut_button4.setBackground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_LogOut_button4MouseEntered
+    private void shipcity_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shipcity_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shipcity_fieldActionPerformed
 
-    private void LogOut_button4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseExited
-        LogOut_button4.setBackground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_LogOut_button4MouseExited
+    private void updatecase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
+    }//GEN-LAST:event_updatecase_buttonMouseClicked
 
-    private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
-        Manual_Panel.setVisible(false);
-        Manual_Panel.setEnabled(false);
-    }//GEN-LAST:event_Label_ManualExitMouseClicked
-
-    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
-        Manual_Panel.setVisible(true);
-        Manual_Panel.setEnabled(true);
-    }//GEN-LAST:event_Label_CallManualMouseClicked
+    private void addbagage_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+    }//GEN-LAST:event_addbagage_buttonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JLabel Label_CallManual;
-    private javax.swing.JLabel Label_ManualExit;
-    private javax.swing.JLabel LogOut_button4;
-    private javax.swing.JPanel Manual_Panel;
+    private javax.swing.JTextField Date_field;
+    private javax.swing.JLabel Date_label;
+    private javax.swing.JLabel LogOut_button;
     private javax.swing.JLabel Reset_button;
+    private javax.swing.JLabel addbagage_button;
+    private javax.swing.JTextField adress_field;
+    private javax.swing.JLabel adress_label;
+    private javax.swing.JLabel bagageinfo;
+    private javax.swing.JTextField brand_field;
+    private javax.swing.JLabel brand_label;
     private javax.swing.JTextField city_field;
+    private javax.swing.JLabel city_label;
+    private javax.swing.JLabel clientinformation;
+    private javax.swing.JTextField color_field;
+    private javax.swing.JLabel color_label;
     private javax.swing.JTextField country_field;
-    private javax.swing.JLabel email;
-    private javax.swing.JTextField emailadress_field;
+    private javax.swing.JLabel country_label;
+    private javax.swing.JTextField description_field;
+    private javax.swing.JLabel description_label;
+    private javax.swing.JTextField email_field;
+    private javax.swing.JLabel email_label;
     private javax.swing.JLabel employee_id;
-    private javax.swing.JLabel employee_id4;
-    private javax.swing.JLabel first_name;
+    private javax.swing.JTextField flightnmr_field;
+    private javax.swing.JLabel flightnmr_label;
     private javax.swing.JTextField fname_field;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel last_name;
-    private javax.swing.JLabel last_name1;
+    private javax.swing.JLabel fname_label;
     private javax.swing.JTextField lname_field;
+    private javax.swing.JLabel lname_label;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel newbagageaccount_button;
-    private javax.swing.JLabel newclientaccount_button;
-    private javax.swing.JLabel password;
-    private javax.swing.JLabel password2;
-    private javax.swing.JLabel password3;
+    private javax.swing.JLabel newcase_button;
     private javax.swing.JTextField phone_field;
-    private javax.swing.JLabel phone_number2;
+    private javax.swing.JLabel phone_label;
     private javax.swing.JLabel reset_button;
     private javax.swing.JLabel save_button;
     private javax.swing.JTextField shipaddress_field;
     private javax.swing.JTextField shipcity_field;
     private javax.swing.JTextField shipcountry_field;
+    private javax.swing.JCheckBox shippingCheckBox;
+    private javax.swing.JLabel shippingadress_label;
+    private javax.swing.JLabel shippingcity_label;
+    private javax.swing.JLabel shippingcountry_label;
+    private javax.swing.JLabel shippinzip_label;
     private javax.swing.JTextField shipzipcode_field;
-    private javax.swing.JTextField street_field;
     private javax.swing.JLabel updatecase_button;
-    private javax.swing.JLabel username;
-    private javax.swing.JLabel username2;
+    private javax.swing.JTextField weight_field;
+    private javax.swing.JLabel weight_label;
     private javax.swing.JTextField zipcode_field;
+    private javax.swing.JLabel zipcode_label;
     // End of variables declaration//GEN-END:variables
 }

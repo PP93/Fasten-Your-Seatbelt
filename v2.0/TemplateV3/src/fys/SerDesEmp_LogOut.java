@@ -4,8 +4,6 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
     public SerDesEmp_LogOut() {
         initComponents();
-        Manual_Panel.setVisible(false);
-        Manual_Panel.setEnabled(false);
 
     }
 
@@ -18,18 +16,13 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Manual_Panel = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
-        Label_CallManual = new javax.swing.JLabel();
         Label_AccountType = new javax.swing.JLabel();
         Button_No = new javax.swing.JLabel();
         Button_Yes = new javax.swing.JLabel();
-        newclientaccount_button = new javax.swing.JLabel();
-        newbagageaccount_button = new javax.swing.JLabel();
-        updatecase_button = new javax.swing.JLabel();
+        newcase_button = new javax.swing.JLabel();
+        addbagage_button = new javax.swing.JLabel();
         LogOut_button4 = new javax.swing.JLabel();
+        updatecase_button = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -38,46 +31,10 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Manual_Panel.setEnabled(false);
-        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nIf you wish to log out, please click\n'Yes'. Otherwise click 'No' and you \nwill be returned to the home page.\nYou can also click the menu buttons\non the upper left corner to navigate\nto other pages without logging out.\n<br>\n<br>\nIf you choose to log out, you will be \nreturned to the login page.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-
-        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_CallManualMouseClicked(evt);
-            }
-        });
-        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
-
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
-        Label_AccountType.setText("Are you sure you want to log out of our fabulous fucking app?");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
+        Label_AccountType.setText("Are you sure you want to log out?");
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         Button_No.setBackground(new java.awt.Color(34, 153, 68));
         Button_No.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -118,65 +75,47 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         });
         add(Button_Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 130, -1));
 
-        newclientaccount_button.setBackground(new java.awt.Color(156, 0, 0));
-        newclientaccount_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        newclientaccount_button.setForeground(new java.awt.Color(255, 255, 255));
-        newclientaccount_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        newclientaccount_button.setText("New Client Case");
-        newclientaccount_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        newclientaccount_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        newclientaccount_button.setOpaque(true);
-        newclientaccount_button.addMouseListener(new java.awt.event.MouseAdapter() {
+        newcase_button.setBackground(new java.awt.Color(156, 0, 0));
+        newcase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        newcase_button.setForeground(new java.awt.Color(255, 255, 255));
+        newcase_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        newcase_button.setText("New Case");
+        newcase_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newcase_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        newcase_button.setOpaque(true);
+        newcase_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                newclientaccount_buttonMouseClicked(evt);
+                newcase_buttonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                newclientaccount_buttonMouseEntered(evt);
+                newcase_buttonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                newclientaccount_buttonMouseExited(evt);
+                newcase_buttonMouseExited(evt);
             }
         });
-        add(newclientaccount_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 40));
+        add(newcase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 40));
 
-        newbagageaccount_button.setBackground(new java.awt.Color(156, 0, 0));
-        newbagageaccount_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        newbagageaccount_button.setForeground(new java.awt.Color(255, 255, 255));
-        newbagageaccount_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        newbagageaccount_button.setText("New Bagage Case");
-        newbagageaccount_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        newbagageaccount_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        newbagageaccount_button.setOpaque(true);
-        newbagageaccount_button.addMouseListener(new java.awt.event.MouseAdapter() {
+        addbagage_button.setBackground(new java.awt.Color(156, 0, 0));
+        addbagage_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
+        addbagage_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addbagage_button.setText("Add Bagage");
+        addbagage_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addbagage_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addbagage_button.setOpaque(true);
+        addbagage_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                newbagageaccount_buttonMouseClicked(evt);
+                addbagage_buttonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                newbagageaccount_buttonMouseEntered(evt);
+                addbagage_buttonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                newbagageaccount_buttonMouseExited(evt);
+                addbagage_buttonMouseExited(evt);
             }
         });
-        add(newbagageaccount_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
-
-        updatecase_button.setBackground(new java.awt.Color(156, 0, 0));
-        updatecase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
-        updatecase_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        updatecase_button.setText("Update Case");
-        updatecase_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        updatecase_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        updatecase_button.setOpaque(true);
-        updatecase_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                updatecase_buttonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                updatecase_buttonMouseExited(evt);
-            }
-        });
-        add(updatecase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 250, 40));
+        add(addbagage_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 250, 40));
 
         LogOut_button4.setBackground(new java.awt.Color(255, 255, 255));
         LogOut_button4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -198,6 +137,27 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
             }
         });
         add(LogOut_button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 250, 40));
+
+        updatecase_button.setBackground(new java.awt.Color(156, 0, 0));
+        updatecase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
+        updatecase_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updatecase_button.setText("Update Case");
+        updatecase_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updatecase_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        updatecase_button.setOpaque(true);
+        updatecase_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updatecase_buttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updatecase_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updatecase_buttonMouseExited(evt);
+            }
+        });
+        add(updatecase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -227,40 +187,30 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         FYS.getInstance().showPage(new Login());
     }//GEN-LAST:event_Button_YesMouseClicked
 
-    private void newclientaccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newclientaccount_buttonMouseClicked
-
-    private void newclientaccount_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newclientaccount_buttonMouseEntered
-
-    private void newclientaccount_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newclientaccount_buttonMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newclientaccount_buttonMouseExited
-
-    private void newbagageaccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseClicked
+    private void newcase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_NewCase());
-    }//GEN-LAST:event_newbagageaccount_buttonMouseClicked
+    }//GEN-LAST:event_newcase_buttonMouseClicked
 
-    private void newbagageaccount_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseEntered
+    private void newcase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseEntered
+        newcase_button.setBackground(new java.awt.Color(255, 255, 255));
+        newcase_button.setForeground(new java.awt.Color(153, 10, 13));
+    }//GEN-LAST:event_newcase_buttonMouseEntered
 
-    }//GEN-LAST:event_newbagageaccount_buttonMouseEntered
+    private void newcase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseExited
+        newcase_button.setBackground(new java.awt.Color(153, 10, 13));
+        newcase_button.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_newcase_buttonMouseExited
 
-    private void newbagageaccount_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newbagageaccount_buttonMouseExited
+    private void addbagage_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseEntered
+        addbagage_button.setBackground(new java.awt.Color(255, 255, 255));
+        addbagage_button.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_addbagage_buttonMouseEntered
 
-    }//GEN-LAST:event_newbagageaccount_buttonMouseExited
+    private void addbagage_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseExited
+        addbagage_button.setBackground(new java.awt.Color(153, 0, 0));
 
-    private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
-        updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
-        updatecase_button.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_updatecase_buttonMouseEntered
-
-    private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
-        updatecase_button.setBackground(new java.awt.Color(153, 0, 0));
-
-        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_updatecase_buttonMouseExited
+        addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_addbagage_buttonMouseExited
 
     private void LogOut_button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseClicked
         FYS.getInstance().showPage(new SerDesEmp_LogOut());
@@ -274,15 +224,23 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         LogOut_button4.setBackground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_LogOut_button4MouseExited
 
-    private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
-        Manual_Panel.setVisible(false);
-        Manual_Panel.setEnabled(false);
-    }//GEN-LAST:event_Label_ManualExitMouseClicked
+    private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
+        updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
+        updatecase_button.setForeground(new java.awt.Color(153, 10, 13));
+    }//GEN-LAST:event_updatecase_buttonMouseEntered
 
-    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
-        Manual_Panel.setVisible(true);
-        Manual_Panel.setEnabled(true);
-    }//GEN-LAST:event_Label_CallManualMouseClicked
+    private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
+        updatecase_button.setBackground(new java.awt.Color(153, 10, 13));
+        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_updatecase_buttonMouseExited
+
+    private void addbagage_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+    }//GEN-LAST:event_addbagage_buttonMouseClicked
+
+    private void updatecase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
+    }//GEN-LAST:event_updatecase_buttonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,14 +248,9 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     private javax.swing.JLabel Button_No;
     private javax.swing.JLabel Button_Yes;
     private javax.swing.JLabel Label_AccountType;
-    private javax.swing.JLabel Label_CallManual;
-    private javax.swing.JLabel Label_Info;
-    private javax.swing.JLabel Label_ManualExit;
-    private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel LogOut_button4;
-    private javax.swing.JPanel Manual_Panel;
-    private javax.swing.JLabel newbagageaccount_button;
-    private javax.swing.JLabel newclientaccount_button;
+    private javax.swing.JLabel addbagage_button;
+    private javax.swing.JLabel newcase_button;
     private javax.swing.JLabel updatecase_button;
     // End of variables declaration//GEN-END:variables
 }
