@@ -20,6 +20,8 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_AccountType = new javax.swing.JLabel();
         Button_No = new javax.swing.JLabel();
@@ -49,6 +51,18 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
             }
         });
         Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nIf you wish to log out, please click<br>\n'Yes'. Otherwise click 'No' and you <br>\nwill be returned to the home page.<br>\nYou can also click the menu buttons<br>\non the upper left corner to navigate<br>\nto other pages without logging out.<br>\n<br>\nIf you choose to log out, you will be <br>\nreturned to the login page.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -277,7 +291,9 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     private javax.swing.JLabel Button_Yes;
     private javax.swing.JLabel Label_AccountType;
     private javax.swing.JLabel Label_CallManual;
+    private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_ManualExit;
+    private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel LogOut_button4;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JLabel newbagageaccount_button;
