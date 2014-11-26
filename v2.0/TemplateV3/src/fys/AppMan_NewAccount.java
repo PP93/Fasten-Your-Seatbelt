@@ -32,6 +32,8 @@ public AppMan_NewAccount() {
         buttonGroup1 = new javax.swing.ButtonGroup();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_AccountType = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
@@ -78,6 +80,18 @@ public AppMan_NewAccount() {
             }
         });
         Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nTo create a new account, first choose\nthe type of account you would like to \nmake. Afterwards, fill in all the correct\nemployee data in the given fields. Click on \n'Save' to create and save the account. \nClick on 'Reset' to clear all fields and begin anew.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -452,10 +466,12 @@ public AppMan_NewAccount() {
     private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_Email;
     private javax.swing.JLabel Label_FirstName;
+    private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;
     private javax.swing.JLabel Label_PhoneNumber;
+    private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel Label_Username;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JRadioButton Radio_ApplicationManager;

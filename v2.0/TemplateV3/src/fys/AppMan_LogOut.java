@@ -54,7 +54,7 @@ public class AppMan_LogOut extends javax.swing.JPanel {
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nIf you wish to log out, please click<br>\n'Yes'. Otherwise click 'No' and you <br>\nwill be returned to the home page.<br>\nYou can also click the menu buttons<br>\non the upper left corner to navigate<br>\nto other pages without logging out.<br>\n<br>\nIf you choose to log out, you will be <br>\nreturned to the login page.");
+        Label_Info.setText("<html>\nIf you wish to log out, please click\n'Yes'. Otherwise click 'No' and you \nwill be returned to the home page.\nYou can also click the menu buttons\non the upper left corner to navigate\nto other pages without logging out.\n<br>\n<br>\nIf you choose to log out, you will be \nreturned to the login page.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 

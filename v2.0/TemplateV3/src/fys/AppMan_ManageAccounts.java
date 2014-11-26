@@ -40,6 +40,7 @@ private void Update_table(){
         Label_CallManual = new javax.swing.JLabel();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         Label_AccountType = new javax.swing.JLabel();
         Label_FirstName1 = new javax.swing.JLabel();
@@ -100,6 +101,11 @@ private void Update_table(){
             }
         });
         Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
         add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 270, 10));
@@ -636,6 +642,7 @@ private void Update_table(){
     private javax.swing.JLabel Label_Password;
     private javax.swing.JLabel Label_PhoneNumber;
     private javax.swing.JLabel Label_Search;
+    private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel Label_Username;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JRadioButton Radio_ApplicationManager;

@@ -75,7 +75,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;If you wish to log out, please click&lt;br&gt;&#xa;&apos;Yes&apos;. Otherwise click &apos;No&apos; and you &lt;br&gt;&#xa;will be returned to the home page.&lt;br&gt;&#xa;You can also click the menu buttons&lt;br&gt;&#xa;on the upper left corner to navigate&lt;br&gt;&#xa;to other pages without logging out.&lt;br&gt;&#xa;&lt;br&gt;&#xa;If you choose to log out, you will be &lt;br&gt;&#xa;returned to the login page."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;If you wish to log out, please click&#xa;&apos;Yes&apos;. Otherwise click &apos;No&apos; and you &#xa;will be returned to the home page.&#xa;You can also click the menu buttons&#xa;on the upper left corner to navigate&#xa;to other pages without logging out.&#xa;&lt;br&gt;&#xa;&lt;br&gt;&#xa;If you choose to log out, you will be &#xa;returned to the login page."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>
