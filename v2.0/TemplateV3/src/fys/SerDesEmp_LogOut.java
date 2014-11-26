@@ -52,7 +52,7 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
                 Button_NoMouseExited(evt);
             }
         });
-        add(Button_No, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 130, -1));
+        add(Button_No, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 130, -1));
 
         Button_Yes.setBackground(new java.awt.Color(34, 153, 68));
         Button_Yes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -73,7 +73,7 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
                 Button_YesMouseExited(evt);
             }
         });
-        add(Button_Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 130, -1));
+        add(Button_Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 130, -1));
 
         newcase_button.setBackground(new java.awt.Color(156, 0, 0));
         newcase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -235,7 +235,7 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     }//GEN-LAST:event_updatecase_buttonMouseExited
 
     private void addbagage_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+       
     }//GEN-LAST:event_addbagage_buttonMouseClicked
 
     private void updatecase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseClicked

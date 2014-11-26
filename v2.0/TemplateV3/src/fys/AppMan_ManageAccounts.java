@@ -41,7 +41,6 @@ private void Update_table(){
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         Label_AccountType = new javax.swing.JLabel();
         Label_FirstName1 = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
@@ -70,8 +69,6 @@ private void Update_table(){
         Tab_NewAccount = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_accounts = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -108,7 +105,6 @@ private void Update_table(){
         Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 270, 10));
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
@@ -396,8 +392,6 @@ private void Update_table(){
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 690, 270));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 640, 1320, 30));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 760, 10));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -428,16 +422,6 @@ private void Update_table(){
         Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
         Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));    }//GEN-LAST:event_Tab_LogOutMouseExited
 
-    private void Tab_NewAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseEntered
-        Tab_NewAccount.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_NewAccount.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_NewAccountMouseEntered
-
-    private void Tab_NewAccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseExited
-        Tab_NewAccount.setBackground(new java.awt.Color(153, 0, 0));
-        Tab_NewAccount.setForeground(new java.awt.Color(255, 255, 255));
-     }//GEN-LAST:event_Tab_NewAccountMouseExited
-
     private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
         Button_Save.setBackground(new java.awt.Color(51, 136, 68));
     }//GEN-LAST:event_Button_SaveMouseEntered
@@ -453,10 +437,6 @@ private void Update_table(){
     private void Button_DeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteMouseExited
         Button_Delete.setBackground(new java.awt.Color(34, 153, 68));
     }//GEN-LAST:event_Button_DeleteMouseExited
-
-    private void Tab_NewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseClicked
-        FYS.getInstance().showPage(new AppMan_NewAccount());
-    }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
     private void Tab_ManageAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseClicked
         FYS.getInstance().showPage(new AppMan_ManageAccounts());
@@ -618,6 +598,20 @@ private void Update_table(){
         Manual_Panel.setEnabled(false);
     }//GEN-LAST:event_Label_ManualExitMouseClicked
 
+    private void Tab_NewAccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseExited
+        Tab_NewAccount.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_NewAccount.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_Tab_NewAccountMouseExited
+
+    private void Tab_NewAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseEntered
+        Tab_NewAccount.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_NewAccount.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_Tab_NewAccountMouseEntered
+
+    private void Tab_NewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseClicked
+        FYS.getInstance().showPage(new AppMan_NewAccount());
+    }//GEN-LAST:event_Tab_NewAccountMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -653,9 +647,6 @@ private void Update_table(){
     private javax.swing.JLabel Tab_NewAccount;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable table_accounts;
     // End of variables declaration//GEN-END:variables
 

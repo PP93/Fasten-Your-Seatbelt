@@ -1,4 +1,4 @@
-CREATE TABLE `employee` ( 
+CREATE TABLE `employeeID` ( 
 `employeeID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
 `name` CHAR( 20 ) NOT NULL ,
 `lastname` CHAR( 20 ) NOT NULL ,
@@ -6,7 +6,7 @@ CREATE TABLE `employee` (
 `password` CHAR( 20 ) NOT NULL ,
 `email` CHAR( 50 ) NOT NULL ,
 `phonenumber` CHAR( 30 ) NOT NULL ,
-`function` CHAR( 50 ) NOT NULL 
+`function` CHAR( 50 ) NOT NULL ,
 );
 
 CREATE TABLE `client` ( 
@@ -23,5 +23,15 @@ CREATE TABLE `client` (
 `shippingaddress` CHAR( 50 ) NOT NULL ,
 `shippingcity` CHAR( 50 ) NOT NULL ,
 `shippingzipcode` CHAR( 50 ) NOT NULL 
+
+);
+
+CREATE TABLE `bagage` ( 
+`bagageID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
+`flightnumber` CHAR( 20 ) NOT NULL ,
+`brand` CHAR( 20 ) NOT NULL ,
+`color` CHAR( 30 ) NOT NULL ,
+`weight` CHAR( 50 ) NOT NULL ,
+`description` VARCHAR( 200 ) NOT NULL 
 
 );

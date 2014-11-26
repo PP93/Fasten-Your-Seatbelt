@@ -92,48 +92,48 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         Date_field.setForeground(new java.awt.Color(153, 0, 0));
         Date_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Date_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 230, 30));
+        add(Date_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 110, 30));
 
-        lname_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lname_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         lname_label.setForeground(new java.awt.Color(153, 0, 0));
         lname_label.setText("Last name:");
-        add(lname_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        add(lname_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         lname_field.setForeground(new java.awt.Color(153, 0, 0));
         lname_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(lname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 230, 30));
+        add(lname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 230, 30));
 
-        city_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        city_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         city_label.setForeground(new java.awt.Color(153, 0, 0));
         city_label.setText("City:");
-        add(city_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+        add(city_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
 
         city_field.setForeground(new java.awt.Color(153, 0, 0));
         city_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(city_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 230, 30));
+        add(city_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 230, 30));
 
-        zipcode_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        zipcode_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         zipcode_label.setForeground(new java.awt.Color(153, 0, 0));
         zipcode_label.setText("Zip Code:");
-        add(zipcode_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
+        add(zipcode_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
 
         zipcode_field.setForeground(new java.awt.Color(153, 0, 0));
         zipcode_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(zipcode_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 230, 30));
+        add(zipcode_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 230, 30));
 
-        adress_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        adress_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         adress_label.setForeground(new java.awt.Color(153, 0, 0));
         adress_label.setText("Address:");
-        add(adress_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
+        add(adress_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
 
         adress_field.setForeground(new java.awt.Color(153, 0, 0));
         adress_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(adress_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 230, 30));
+        add(adress_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 230, 30));
 
-        phone_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        phone_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         phone_label.setForeground(new java.awt.Color(153, 0, 0));
-        phone_label.setText("phone number:");
-        add(phone_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
+        phone_label.setText("Phone number:");
+        add(phone_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
 
         shipcountry_field.setForeground(new java.awt.Color(153, 0, 0));
         shipcountry_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -185,15 +185,15 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         shipzipcode_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(shipzipcode_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 230, 30));
 
-        shippingcountry_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippingcountry_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         shippingcountry_label.setForeground(new java.awt.Color(153, 0, 0));
         shippingcountry_label.setText("Shipping country:");
         add(shippingcountry_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
 
-        country_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        country_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         country_label.setForeground(new java.awt.Color(153, 0, 0));
         country_label.setText("Country:");
-        add(country_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+        add(country_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         shippingCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         shippingCheckBox.setForeground(new java.awt.Color(153, 0, 0));
@@ -206,37 +206,37 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         });
         add(shippingCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 330, 40));
 
-        shippingcity_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippingcity_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         shippingcity_label.setForeground(new java.awt.Color(153, 0, 0));
         shippingcity_label.setText("Shipping City:");
         add(shippingcity_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, -1, -1));
 
-        shippinzip_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippinzip_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         shippinzip_label.setForeground(new java.awt.Color(153, 0, 0));
         shippinzip_label.setText("Shipping Zip Code:");
         add(shippinzip_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
         country_field.setForeground(new java.awt.Color(153, 0, 0));
         country_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(country_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 230, 30));
+        add(country_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 230, 30));
 
         shipaddress_field.setForeground(new java.awt.Color(153, 0, 0));
         shipaddress_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(shipaddress_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 230, 30));
 
-        shippingadress_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        shippingadress_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         shippingadress_label.setForeground(new java.awt.Color(153, 0, 0));
         shippingadress_label.setText("Shipping Address:");
         add(shippingadress_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
 
-        email_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        email_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         email_label.setForeground(new java.awt.Color(153, 0, 0));
         email_label.setText("E-mail address:");
-        add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
+        add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
 
         phone_field.setForeground(new java.awt.Color(153, 0, 0));
         phone_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(phone_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 230, 30));
+        add(phone_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 230, 30));
 
         newcase_button.setBackground(new java.awt.Color(255, 255, 255));
         newcase_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -329,32 +329,32 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 email_fieldActionPerformed(evt);
             }
         });
-        add(email_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 230, 30));
+        add(email_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 560, 230, 30));
 
-        flightnmr_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        flightnmr_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         flightnmr_label.setForeground(new java.awt.Color(153, 0, 0));
         flightnmr_label.setText("Flight number:");
-        add(flightnmr_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 270, -1, -1));
+        add(flightnmr_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, -1, -1));
 
-        brand_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        brand_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         brand_label.setForeground(new java.awt.Color(153, 0, 0));
         brand_label.setText("Brand:");
-        add(brand_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, -1));
+        add(brand_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 320, -1, -1));
 
-        color_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        color_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         color_label.setForeground(new java.awt.Color(153, 0, 0));
         color_label.setText("Color:");
-        add(color_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 350, -1, -1));
+        add(color_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 360, -1, -1));
 
-        weight_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        weight_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         weight_label.setForeground(new java.awt.Color(153, 0, 0));
         weight_label.setText("Weight:");
-        add(weight_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, -1, -1));
+        add(weight_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 400, -1, -1));
 
-        description_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        description_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         description_label.setForeground(new java.awt.Color(153, 0, 0));
         description_label.setText("Description:");
-        add(description_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 430, -1, -1));
+        add(description_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 440, -1, -1));
 
         shipcity_field.setForeground(new java.awt.Color(153, 0, 0));
         shipcity_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -367,47 +367,47 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         flightnmr_field.setForeground(new java.awt.Color(153, 0, 0));
         flightnmr_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(flightnmr_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
+        add(flightnmr_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 280, 230, 30));
 
         weight_field.setForeground(new java.awt.Color(153, 0, 0));
         weight_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(weight_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 390, 230, 30));
+        add(weight_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 230, 30));
 
         description_field.setForeground(new java.awt.Color(153, 0, 0));
         description_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(description_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 430, 230, 40));
+        add(description_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 440, 230, 80));
 
         color_field.setForeground(new java.awt.Color(153, 0, 0));
         color_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(color_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 230, 30));
+        add(color_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 360, 230, 30));
 
         brand_field.setForeground(new java.awt.Color(153, 0, 0));
         brand_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(brand_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 310, 230, 30));
+        add(brand_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 320, 230, 30));
 
-        Date_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Date_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Date_label.setForeground(new java.awt.Color(153, 0, 0));
         Date_label.setText("Date:");
-        add(Date_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        add(Date_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
-        bagageinfo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bagageinfo.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         bagageinfo.setForeground(new java.awt.Color(153, 0, 0));
         bagageinfo.setText("Bagage Information:");
-        add(bagageinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 200, -1, -1));
+        add(bagageinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, -1, -1));
 
-        clientinformation.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        clientinformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         clientinformation.setForeground(new java.awt.Color(153, 0, 0));
         clientinformation.setText("Client Information:");
-        add(clientinformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        add(clientinformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
-        fname_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fname_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         fname_label.setForeground(new java.awt.Color(153, 0, 0));
         fname_label.setText("First name:");
-        add(fname_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+        add(fname_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
         fname_field.setForeground(new java.awt.Color(153, 0, 0));
         fname_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(fname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 230, 30));
+        add(fname_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 230, 30));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -448,12 +448,14 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_shippingCheckBoxActionPerformed
 
     private void save_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_buttonMouseClicked
+        
+       
         try {
 
             String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
             pst = conn.prepareStatement(sql);
 
-            pst.setString(1, Date_field.getText());
+            pst.setString(1, fname_field.getText());
             pst.setString(2, lname_field.getText());
             pst.setString(3, country_field.getText());
             pst.setString(4, city_field.getText());
@@ -473,8 +475,13 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(null, e);
         }
+       
+    
+                
     }//GEN-LAST:event_save_buttonMouseClicked
 
+    
+    
     private void reset_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_buttonMouseClicked
 
         Date_field.setText("");
@@ -488,6 +495,11 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         shipzipcode_field.setText("");
         shipaddress_field.setText("");
         shipcity_field.setText("");
+        flightnmr_field.setText("");
+        brand_field.setText("");
+        color_field.setText("");
+        weight_field.setText("");
+        description_field.setText("");
 
     }//GEN-LAST:event_reset_buttonMouseClicked
 
@@ -550,7 +562,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_updatecase_buttonMouseClicked
 
     private void addbagage_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+         FYS.getInstance().showPage(new SerDesEmp_AddBagage());
     }//GEN-LAST:event_addbagage_buttonMouseClicked
 
 

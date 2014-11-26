@@ -47,9 +47,6 @@ this.setVisible(false);
         Field_Password = new javax.swing.JPasswordField();
         Button_LogIn = new javax.swing.JLabel();
         Tab_LogIn = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -141,9 +138,6 @@ this.setVisible(false);
         Tab_LogIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tab_LogIn.setOpaque(true);
         add(Tab_LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 150, 20, 70));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1280, 10));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 1020, 50));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -176,7 +170,7 @@ this.setVisible(false);
             rs.close();
             pst.close();
             close();
-            FYS.getInstance().showPage(new AppMan_ManageAccounts());
+            FYS.getInstance().showPage(new SerDesEmp_NewCase());
             
         }
         else {
@@ -213,8 +207,5 @@ this.setVisible(false);
     private javax.swing.JLabel Label_Username;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JLabel Tab_LogIn;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
 }

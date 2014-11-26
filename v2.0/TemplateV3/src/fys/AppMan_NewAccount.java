@@ -56,9 +56,6 @@ public AppMan_NewAccount() {
         Tab_NewAccount = new javax.swing.JLabel();
         Tab_ManageAccounts = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -314,9 +311,6 @@ public AppMan_NewAccount() {
             }
         });
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 40));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1280, 20));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 1030, 20));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 10, 10));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -481,9 +475,6 @@ public AppMan_NewAccount() {
     private javax.swing.JLabel Tab_ManageAccounts;
     private javax.swing.JLabel Tab_NewAccount;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
 private String accounttype;
 }
