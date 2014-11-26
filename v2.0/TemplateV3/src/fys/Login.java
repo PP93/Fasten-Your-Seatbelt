@@ -38,6 +38,8 @@ this.setVisible(false);
 
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_Username = new javax.swing.JLabel();
         Label_Password = new javax.swing.JLabel();
@@ -69,6 +71,18 @@ this.setVisible(false);
             }
         });
         Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nPlease fill in your username and<br>\npassword, then click on 'Log In'.<br>\n<br>\nIf you've forgotten your login<br>\ndetails or are otherwise having<br>\ntrouble logging in, please contact<br>\nthe application manager.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -192,8 +206,10 @@ this.setVisible(false);
     private javax.swing.JPasswordField Field_Password;
     private javax.swing.JTextField Field_Username;
     private javax.swing.JLabel Label_CallManual;
+    private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;
+    private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel Label_Username;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JLabel Tab_LogIn;
