@@ -18,24 +18,28 @@ import net.proteanit.sql.DbUtils;
  * @author Leslie Fellensiek
  */
 public class SerDesEmp_AddBagage extends javax.swing.JPanel {
+
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+
     public SerDesEmp_AddBagage() {
         initComponents();
-         conn = javaconnect.ConnecrDb();
+        conn = javaconnect.ConnecrDb();
+        Manual_Panel.setVisible(false);
+        Manual_Panel.setEnabled(false);
     }
-    private void Update_table(){
-    try{
-    String sql = "select * from bagage";
-    pst=conn.prepareStatement(sql);
-    rs=pst.executeQuery();
-    addbagage_table.setModel(DbUtils.resultSetToTableModel(rs));
+
+    private void Update_table() {
+        try {
+            String sql = "select * from bagage";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            addbagage_table.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
-    catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
-    }
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +71,10 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         color_field = new javax.swing.JTextField();
         brand_label1 = new javax.swing.JLabel();
         reset_button1 = new javax.swing.JLabel();
+        Manual_Panel = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_CallManual = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -299,17 +307,46 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         });
         add(reset_button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 80, -1));
 
+        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Manual_Panel.setEnabled(false);
+        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
+
+        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_CallManualMouseClicked(evt);
+            }
+        });
+        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
-            updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
+        updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
         updatecase_button.setForeground(new java.awt.Color(153, 10, 13));
     }//GEN-LAST:event_updatecase_buttonMouseEntered
 
     private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
-             updatecase_button.setBackground(new java.awt.Color(153, 10, 13));
+        updatecase_button.setBackground(new java.awt.Color(153, 10, 13));
         updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_updatecase_buttonMouseExited
 
@@ -330,7 +367,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
     private void logout_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout_buttonMouseEntered
         logout_button.setBackground(new java.awt.Color(255, 255, 255));
-            logout_button.setForeground(new java.awt.Color(153, 10, 13));
+        logout_button.setForeground(new java.awt.Color(153, 10, 13));
     }//GEN-LAST:event_logout_buttonMouseEntered
 
     private void logout_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout_buttonMouseExited
@@ -360,45 +397,42 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     }//GEN-LAST:event_newcase_buttonMouseExited
 
     private void newcase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseEntered
-       newcase_button.setBackground(new java.awt.Color(255, 255, 255));
+        newcase_button.setBackground(new java.awt.Color(255, 255, 255));
         newcase_button.setForeground(new java.awt.Color(153, 10, 13));
     }//GEN-LAST:event_newcase_buttonMouseEntered
 
     private void newcase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseClicked
-       FYS.getInstance().showPage(new SerDesEmp_NewCase());
+        FYS.getInstance().showPage(new SerDesEmp_NewCase());
     }//GEN-LAST:event_newcase_buttonMouseClicked
 
     private void updatecase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseClicked
-FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
+        FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
     }//GEN-LAST:event_updatecase_buttonMouseClicked
 
     private void update_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseClicked
         try {
-            
 
-            String value1= flightnmr_field.getText();
-            String value2= brand_field.getText();
-            String value3= color_field.getText();
-            String value4= weight_field.getText();
-            String value5= description_field.getText();
+            String value1 = flightnmr_field.getText();
+            String value2 = brand_field.getText();
+            String value3 = color_field.getText();
+            String value4 = weight_field.getText();
+            String value5 = description_field.getText();
 
-            
-            String sql="update bagage set flightnumber='"+value1+"' ,brand = '"+value2+"',color = '"+value3+"',weight = '"+value4+"',description = '"+value5+"' where flightnumber='"+value1+"' ";
-            pst=conn.prepareStatement(sql);
+            String sql = "update bagage set flightnumber='" + value1 + "' ,brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "' where flightnumber='" + value1 + "' ";
+            pst = conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Updated"); 
-            
-            
-        }catch(Exception e) {
-            
-            JOptionPane.showMessageDialog(null, e);    
+            JOptionPane.showMessageDialog(null, "Updated");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
         }
         Update_table();
-      
+
     }//GEN-LAST:event_update_buttonMouseClicked
 
     private void add_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_buttonMouseClicked
-               try {
+        try {
 
             String sql = "insert into bagage (flightnumber,brand,color,weight,description)value(?,?,?,?,?)";
             pst = conn.prepareStatement(sql);
@@ -407,7 +441,6 @@ FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
             pst.setString(3, color_field.getText());
             pst.setString(4, weight_field.getText());
             pst.setString(5, description_field.getText());
-
 
             pst.execute();
             JOptionPane.showMessageDialog(null, "Saved");
@@ -419,26 +452,25 @@ FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
     }//GEN-LAST:event_add_buttonMouseClicked
 
     private void search_fieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_fieldKeyReleased
-        try{
-            String sql ="select * from bagage where bagageID=?";
+        try {
+            String sql = "select * from bagage where bagageID=?";
 
-            pst=conn.prepareStatement(sql);
+            pst = conn.prepareStatement(sql);
             pst.setString(1, search_field.getText());
 
-            rs=pst.executeQuery();
-            if(rs.next()){
-                String add1=rs.getString("brand");
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("brand");
                 brand_field.setText(add1);
-                String add2=rs.getString("color");
+                String add2 = rs.getString("color");
                 color_field.setText(add2);
-                String add3=rs.getString("weight");
+                String add3 = rs.getString("weight");
                 weight_field.setText(add3);
-                String add4=rs.getString("description");
+                String add4 = rs.getString("description");
                 description_field.setText(add4);
 
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, e);
         }
@@ -450,25 +482,25 @@ FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
 
     private void addbagage_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_tableMouseClicked
         try {
-            int row =addbagage_table.getSelectedRow();
-            String Table_click=(addbagage_table.getModel().getValueAt(row, 0).toString());
-            String sql ="select * from bagage where bagageID='"+Table_click+"' ";
-            pst=conn.prepareStatement(sql);
-            rs=pst.executeQuery();
-            if(rs.next()){
-                String add1 =rs.getString("flightnumber");
+            int row = addbagage_table.getSelectedRow();
+            String Table_click = (addbagage_table.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from bagage where bagageID='" + Table_click + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("flightnumber");
                 brand_field.setText(add1);
-                String add2 =rs.getString("brand");
+                String add2 = rs.getString("brand");
                 brand_field.setText(add2);
-                String add3 =rs.getString("color");
+                String add3 = rs.getString("color");
                 color_field.setText(add3);
-                String add4 =rs.getString("weight");
+                String add4 = rs.getString("weight");
                 weight_field.setText(add4);
-                String add5 =rs.getString("description");
+                String add5 = rs.getString("description");
                 description_field.setText(add5);
 
             }
-        }catch(Exception e){
+        } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, e);
 
@@ -487,8 +519,22 @@ FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
         // TODO add your handling code here:
     }//GEN-LAST:event_reset_button1MouseExited
 
+    private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
+        Manual_Panel.setVisible(false);
+        Manual_Panel.setEnabled(false);
+    }//GEN-LAST:event_Label_ManualExitMouseClicked
+
+    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
+        Manual_Panel.setVisible(true);
+        Manual_Panel.setEnabled(true);
+    }//GEN-LAST:event_Label_CallManualMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Label_CallManual;
+    private javax.swing.JLabel Label_ManualExit;
+    private javax.swing.JLabel Label_Title;
+    private javax.swing.JPanel Manual_Panel;
     private javax.swing.JLabel add_button;
     private javax.swing.JLabel addbagage_button;
     private javax.swing.JTable addbagage_table;
