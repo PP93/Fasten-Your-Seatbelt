@@ -1,6 +1,7 @@
 package fys;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -106,6 +107,11 @@ this.setVisible(false);
         add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 520, 30));
 
         Field_Password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Field_Password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Field_PasswordKeyPressed(evt);
+            }
+        });
         add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 520, 30));
 
         Button_LogIn.setBackground(new java.awt.Color(34, 153, 68));
@@ -125,6 +131,11 @@ this.setVisible(false);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Button_LogInMouseExited(evt);
+            }
+        });
+        Button_LogIn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Button_LogInKeyPressed(evt);
             }
         });
         add(Button_LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 130, -1));
@@ -192,6 +203,40 @@ this.setVisible(false);
         Manual_Panel.setVisible(true);
         Manual_Panel.setEnabled(true);
     }//GEN-LAST:event_Label_CallManualMouseClicked
+
+    private void Button_LogInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Button_LogInKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_LogInKeyPressed
+
+    private void Field_PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_PasswordKeyPressed
+       if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           
+                   String sql ="select * from employee where username=? and password=?";
+        try{
+        pst=conn.prepareStatement(sql);
+        pst.setString(1, Field_Username.getText());
+        pst.setString(2, Field_Password.getText());
+        
+        rs=pst.executeQuery();
+        if(rs.next()){
+            rs.close();
+            pst.close();
+            close();
+            FYS.getInstance().showPage(new SerDesEmp_NewCase());
+            
+        }
+        else {
+        JOptionPane.showMessageDialog(null, "Username and Password is not correct");
+        }
+        }
+        catch(SQLException | HeadlessException e){
+            
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }   
+           
+       
+    }//GEN-LAST:event_Field_PasswordKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
