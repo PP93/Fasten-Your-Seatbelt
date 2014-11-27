@@ -6,7 +6,7 @@ CREATE TABLE `employeeID` (
 `password` CHAR( 20 ) NOT NULL ,
 `email` CHAR( 50 ) NOT NULL ,
 `phonenumber` CHAR( 30 ) NOT NULL ,
-`function` CHAR( 50 ) NOT NULL ,
+`function` CHAR( 50 ) NOT NULL 
 );
 
 CREATE TABLE `client` ( 
@@ -19,19 +19,19 @@ CREATE TABLE `client` (
 `address` CHAR( 50 ) NOT NULL ,
 `city` CHAR( 50 ) NOT NULL ,
 `zipcode` CHAR( 20 ) NOT NULL ,
-`shippingcountry` CHAR( 50 ) NOT NULL ,
-`shippingaddress` CHAR( 50 ) NOT NULL ,
-`shippingcity` CHAR( 50 ) NOT NULL ,
-`shippingzipcode` CHAR( 50 ) NOT NULL 
+`shippingcountry` CHAR( 50 )  NULL ,
+`shippingaddress` CHAR( 50 )  NULL ,
+`shippingcity` CHAR( 50 )  NULL ,
+`shippingzipcode` CHAR( 50 )  NULL 
 
 );
 
 CREATE TABLE `bagage` ( 
 `bagageID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
 `flightnumber` CHAR( 20 ) NOT NULL ,
-`brand` CHAR( 20 ) NOT NULL ,
-`color` CHAR( 30 ) NOT NULL ,
-`weight` CHAR( 50 ) NOT NULL ,
-`description` VARCHAR( 200 ) NOT NULL 
+`brand` CHAR( 20 )  NULL ,
+`color` CHAR( 30 )  NULL ,
+`weight` CHAR( 50 )  NULL ,
+`description` VARCHAR( 200 )  NULL 
 
 );
