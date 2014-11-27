@@ -154,7 +154,7 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
         LogOut_button4.setBackground(new java.awt.Color(255, 255, 255));
         LogOut_button4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        LogOut_button4.setForeground(new java.awt.Color(156, 10, 13));
+        LogOut_button4.setForeground(new java.awt.Color(156, 0, 0));
         LogOut_button4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogOut_button4.setText("Log Out");
         LogOut_button4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -228,11 +228,11 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
     private void newcase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseEntered
         newcase_button.setBackground(new java.awt.Color(255, 255, 255));
-        newcase_button.setForeground(new java.awt.Color(153, 10, 13));
+        newcase_button.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_newcase_buttonMouseEntered
 
     private void newcase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newcase_buttonMouseExited
-        newcase_button.setBackground(new java.awt.Color(153, 10, 13));
+        newcase_button.setBackground(new java.awt.Color(153, 0, 0));
         newcase_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_newcase_buttonMouseExited
 
@@ -253,24 +253,28 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
     private void LogOut_button4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseEntered
         LogOut_button4.setBackground(new java.awt.Color(255, 255, 255));
+        LogOut_button4.setForeground(new java.awt.Color(153,0,0));
     }//GEN-LAST:event_LogOut_button4MouseEntered
 
     private void LogOut_button4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseExited
         LogOut_button4.setBackground(new java.awt.Color(153, 0, 0));
+        LogOut_button4.setForeground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_LogOut_button4MouseExited
 
     private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
         updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
-        updatecase_button.setForeground(new java.awt.Color(153, 10, 13));
+        updatecase_button.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_updatecase_buttonMouseEntered
 
     private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
-        updatecase_button.setBackground(new java.awt.Color(153, 10, 13));
+        updatecase_button.setBackground(new java.awt.Color(153, 0, 0));
         updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_updatecase_buttonMouseExited
 
     private void addbagage_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseClicked
-       
+       FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+               addbagage_button.setForeground(new java.awt.Color(153,0,0));
+        addbagage_button.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_addbagage_buttonMouseClicked
 
     private void updatecase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseClicked

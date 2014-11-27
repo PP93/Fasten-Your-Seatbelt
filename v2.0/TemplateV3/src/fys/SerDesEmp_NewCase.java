@@ -134,7 +134,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         Date_field.setForeground(new java.awt.Color(153, 0, 0));
         Date_field.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Date_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 110, 30));
+        add(Date_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 30));
 
         lname_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         lname_label.setForeground(new java.awt.Color(153, 0, 0));
@@ -240,13 +240,15 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         shippingCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         shippingCheckBox.setForeground(new java.awt.Color(153, 0, 0));
         shippingCheckBox.setText("Shipping adress same as living adress");
+        shippingCheckBox.setContentAreaFilled(false);
+        shippingCheckBox.setFocusPainted(false);
         shippingCheckBox.setOpaque(false);
         shippingCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shippingCheckBoxActionPerformed(evt);
             }
         });
-        add(shippingCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 330, 40));
+        add(shippingCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 330, 40));
 
         shippingcity_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         shippingcity_label.setForeground(new java.awt.Color(153, 0, 0));
@@ -343,7 +345,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         });
         add(updatecase_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 250, 40));
 
-        LogOut_button.setBackground(new java.awt.Color(156, 10, 13));
+        LogOut_button.setBackground(new java.awt.Color(156, 0, 0));
         LogOut_button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         LogOut_button.setForeground(new java.awt.Color(255, 255, 255));
         LogOut_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -440,7 +442,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         clientinformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         clientinformation.setForeground(new java.awt.Color(153, 0, 0));
         clientinformation.setText("Client Information:");
-        add(clientinformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        add(clientinformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         fname_label.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         fname_label.setForeground(new java.awt.Color(153, 0, 0));
@@ -483,8 +485,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_shippingCheckBoxActionPerformed
 
     private void save_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_save_buttonMouseClicked
-        
-       
+
         try {
 
             String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -510,13 +511,11 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(null, e);
         }
-       
-    
-                
+
+
     }//GEN-LAST:event_save_buttonMouseClicked
 
-    
-    
+
     private void reset_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_buttonMouseClicked
 
         Date_field.setText("");
@@ -552,36 +551,38 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
     private void addbagage_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseEntered
         addbagage_button.setBackground(new java.awt.Color(255, 255, 255));
-        addbagage_button.setForeground(new java.awt.Color(153, 10, 13));
+        addbagage_button.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_addbagage_buttonMouseEntered
 
     private void addbagage_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseExited
-        addbagage_button.setBackground(new java.awt.Color(153, 10, 13));
-
+        addbagage_button.setBackground(new java.awt.Color(153, 0, 0));
         addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_addbagage_buttonMouseExited
 
     private void LogOut_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_buttonMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_LogOut());
+        LogOut_button.setForeground(new java.awt.Color(153,0,0));
+        LogOut_button.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_LogOut_buttonMouseClicked
 
     private void LogOut_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_buttonMouseEntered
         LogOut_button.setBackground(new java.awt.Color(255, 255, 255));
+        LogOut_button.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_LogOut_buttonMouseEntered
 
     private void LogOut_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_buttonMouseExited
         LogOut_button.setBackground(new java.awt.Color(153, 0, 0));
+        LogOut_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_LogOut_buttonMouseExited
 
     private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
         updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
-        updatecase_button.setForeground(new java.awt.Color(153, 10, 13));
+        updatecase_button.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_updatecase_buttonMouseEntered
 
     private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
-        addbagage_button.setBackground(new java.awt.Color(153, 10, 13));
-
-        addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
+        updatecase_button.setBackground(new java.awt.Color(153, 0, 0));
+        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_updatecase_buttonMouseExited
 
     private void email_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_fieldActionPerformed
@@ -594,10 +595,14 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
     private void updatecase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
+        updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
+        updatecase_button.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_updatecase_buttonMouseClicked
 
     private void addbagage_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseClicked
-         FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+        addbagage_button.setForeground(new java.awt.Color(153,0,0));
+        addbagage_button.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_addbagage_buttonMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
