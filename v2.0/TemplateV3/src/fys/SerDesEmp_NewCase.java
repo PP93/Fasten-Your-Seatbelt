@@ -33,6 +33,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         Date_field = new javax.swing.JTextField();
@@ -110,6 +111,13 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Label_Title.setForeground(new java.awt.Color(153, 0, 0));
         Label_Title.setText("Manual");
         Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nTo create a new case, fill in all the known and necessary\ndata in the given fields. If you need to start over from \nscratch, click the 'Reset' button to clear all fields and\nbegin again. Once all the needed fields have been filled,\nclick 'Save' to create and save the new case.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -608,6 +616,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JTextField Date_field;
     private javax.swing.JLabel Date_label;
     private javax.swing.JLabel Label_CallManual;
+    private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel LogOut_button;

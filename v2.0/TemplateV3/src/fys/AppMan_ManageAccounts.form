@@ -110,7 +110,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;On the right side of the screen, you can search&#xa;by employee ID for a particular account.&#xa;Click on the desired account within the &#xa;generated list and you will be able to edit it&#xa;using the list of fields to the left.&#xa;You can delete the account entirely by using&#xa;the &apos;Delete&apos; button. You can reset any &#xa;changes back to their original status with&#xa;the &apos;Reset&apos; button, and you can permanently&#xa;save any changes you&apos;ve made with the&#xa;&apos;Save Changes&apos; button."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;On the left side of the screen, you can search&#xa;by employee ID for a particular account.&#xa;Click on the desired account within the &#xa;generated list and you will be able to edit it&#xa;using the list of fields to the right.&#xa;You can delete the account entirely by using&#xa;the &apos;Delete&apos; button. You can reset any &#xa;changes back to their original status with&#xa;the &apos;Reset&apos; button, and you can permanently&#xa;save any changes you&apos;ve made with the&#xa;&apos;Save Changes&apos; button."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>

@@ -23,6 +23,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         addbagage_button = new javax.swing.JLabel();
@@ -101,6 +102,13 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Label_Title.setForeground(new java.awt.Color(153, 0, 0));
         Label_Title.setText("Manual");
         Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -583,6 +591,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JTextField Date_field;
     private javax.swing.JLabel Date_label;
     private javax.swing.JLabel Label_CallManual;
+    private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel LogOut_button;

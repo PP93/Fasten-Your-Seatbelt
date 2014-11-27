@@ -108,7 +108,7 @@ private void Update_table(){
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nOn the right side of the screen, you can search\nby employee ID for a particular account.\nClick on the desired account within the \ngenerated list and you will be able to edit it\nusing the list of fields to the left.\nYou can delete the account entirely by using\nthe 'Delete' button. You can reset any \nchanges back to their original status with\nthe 'Reset' button, and you can permanently\nsave any changes you've made with the\n'Save Changes' button.");
+        Label_Info.setText("<html>\nOn the left side of the screen, you can search\nby employee ID for a particular account.\nClick on the desired account within the \ngenerated list and you will be able to edit it\nusing the list of fields to the right.\nYou can delete the account entirely by using\nthe 'Delete' button. You can reset any \nchanges back to their original status with\nthe 'Reset' button, and you can permanently\nsave any changes you've made with the\n'Save Changes' button.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
