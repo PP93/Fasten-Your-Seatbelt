@@ -337,14 +337,11 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     }//GEN-LAST:event_updatecase_buttonMouseExited
 
     private void addbagage_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseEntered
-        addbagage_button.setBackground(new java.awt.Color(255, 255, 255));
-        addbagage_button.setForeground(new java.awt.Color(153, 0, 0));
+
     }//GEN-LAST:event_addbagage_buttonMouseEntered
 
     private void addbagage_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addbagage_buttonMouseExited
-        addbagage_button.setBackground(new java.awt.Color(153, 0, 0));
 
-        addbagage_button.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_addbagage_buttonMouseExited
 
     private void logout_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout_buttonMouseClicked

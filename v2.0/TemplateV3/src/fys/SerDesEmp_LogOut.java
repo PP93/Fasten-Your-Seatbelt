@@ -248,17 +248,15 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     }//GEN-LAST:event_addbagage_buttonMouseExited
 
     private void LogOut_button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_LogOut());
+      
     }//GEN-LAST:event_LogOut_button4MouseClicked
 
     private void LogOut_button4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseEntered
-        LogOut_button4.setBackground(new java.awt.Color(255, 255, 255));
-        LogOut_button4.setForeground(new java.awt.Color(153,0,0));
+
     }//GEN-LAST:event_LogOut_button4MouseEntered
 
     private void LogOut_button4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOut_button4MouseExited
-        LogOut_button4.setBackground(new java.awt.Color(153, 0, 0));
-        LogOut_button4.setForeground(new java.awt.Color(255,255,255));
+
     }//GEN-LAST:event_LogOut_button4MouseExited
 
     private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered

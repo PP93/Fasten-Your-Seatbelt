@@ -544,13 +544,11 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     }//GEN-LAST:event_newcase_buttonMouseExited
 
     private void updatecase_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseEntered
-        updatecase_button.setBackground(new java.awt.Color(255, 255, 255));
-        updatecase_button.setForeground(new java.awt.Color(153, 0, 0));
+
     }//GEN-LAST:event_updatecase_buttonMouseEntered
 
     private void updatecase_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatecase_buttonMouseExited
-        updatecase_button.setBackground(new java.awt.Color(153, 0, 0));
-        updatecase_button.setForeground(new java.awt.Color(255, 255, 255));
+
     }//GEN-LAST:event_updatecase_buttonMouseExited
 
     private void email_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_fieldActionPerformed
