@@ -41,6 +41,7 @@ private void Update_table(){
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Label_AccountType = new javax.swing.JLabel();
         Label_FirstName1 = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
@@ -103,6 +104,13 @@ private void Update_table(){
         Label_Title.setForeground(new java.awt.Color(153, 0, 0));
         Label_Title.setText("Manual");
         Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nOn the right side of the screen, you can search\nby employee ID for a particular account.\nClick on the desired account within the \ngenerated list and you will be able to edit it\nusing the list of fields to the left.\nYou can delete the account entirely by using\nthe 'Delete' button. You can reset any \nchanges back to their original status with\nthe 'Reset' button, and you can permanently\nsave any changes you've made with the\n'Save Changes' button.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -631,6 +639,7 @@ private void Update_table(){
     private javax.swing.JLabel Label_Email;
     private javax.swing.JLabel Label_FirstName;
     private javax.swing.JLabel Label_FirstName1;
+    private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;

@@ -29,6 +29,8 @@ PreparedStatement  pst=null;
 
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Button_GenerateGraph = new javax.swing.JLabel();
         Label_Timeframe = new javax.swing.JLabel();
@@ -70,6 +72,18 @@ PreparedStatement  pst=null;
             }
         });
         Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nChoose the timeframe, case type, and case status\nby clicking their respective radio buttons. This will \ngenerate a list of cases based on the information you've\nchosen in the table below. \n<br>\n<br>\nTo view a graph of the data, click on 'Generate Graph'.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -314,8 +328,10 @@ PreparedStatement  pst=null;
     private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_CaseStatus;
     private javax.swing.JLabel Label_CaseType;
+    private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Timeframe;
+    private javax.swing.JLabel Label_Title;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JRadioButton Radio_Baggage;
     private javax.swing.JRadioButton Radio_Client;
