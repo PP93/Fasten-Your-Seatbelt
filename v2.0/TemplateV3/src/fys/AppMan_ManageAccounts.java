@@ -39,8 +39,8 @@ private void Update_table(){
         buttonGroup1 = new javax.swing.ButtonGroup();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_AccountType = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
@@ -90,17 +90,17 @@ private void Update_table(){
         });
         Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
 
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any  changes back to their original status with the 'Reset' button, and you can permanently save any changes you've made with the 'Save Changes' button.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
@@ -515,7 +515,7 @@ private void Update_table(){
         try {
             
 
-            String value1= Field_employeeID.getText();
+            
             String value2= Field_FirstName.getText();
             String value3= Field_LastName.getText();
             String value4= Field_Username.getText();
@@ -524,7 +524,7 @@ private void Update_table(){
             String value7= Field_PhoneNumber.getText();
             String value8= accounttype;
             
-            String sql="update employee set employeeID='"+value1+"' ,name = '"+value2+"',lastname = '"+value3+"',username = '"+value4+"',password = '"+value5+"',email = '"+value6+"' ,phonenumber = '"+value7+"',function = '"+value8+"' where employeeID='"+value1+"' ";
+            String sql="update employee set name = '"+value2+"',lastname = '"+value3+"',username = '"+value4+"',password = '"+value5+"',email = '"+value6+"' ,phonenumber = '"+value7+"',function = '"+value8+"' where employeeID='"+value2+"' ";
             pst=conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated"); 
@@ -538,7 +538,7 @@ private void Update_table(){
     }//GEN-LAST:event_Button_SaveChangesMouseClicked
 
     private void Button_ResetChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseClicked
-        Field_employeeID.setText("");
+        
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_Username.setText("");
@@ -557,7 +557,7 @@ private void Update_table(){
                 rs=pst.executeQuery();
                 if(rs.next()){
                     String add1=rs.getString("employeeID");
-                    Field_employeeID.setText(add1);
+                    
                     String add2=rs.getString("name");
                     Field_FirstName.setText(add2);
                     String add3=rs.getString("lastname");
