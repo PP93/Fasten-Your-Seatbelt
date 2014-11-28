@@ -37,13 +37,12 @@ private void Update_table(){
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        Label_CallManual = new javax.swing.JLabel();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
+        Label_CallManual = new javax.swing.JLabel();
         Label_AccountType = new javax.swing.JLabel();
-        Label_FirstName1 = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
         Label_LastName = new javax.swing.JLabel();
         Label_Username = new javax.swing.JLabel();
@@ -53,18 +52,17 @@ private void Update_table(){
         Radio_ServiceDeskEmployee = new javax.swing.JRadioButton();
         Radio_Manager = new javax.swing.JRadioButton();
         Radio_ApplicationManager = new javax.swing.JRadioButton();
-        Field_employeeID = new javax.swing.JTextField();
         Field_FirstName = new javax.swing.JTextField();
         Field_LastName = new javax.swing.JTextField();
         Field_Username = new javax.swing.JTextField();
         Field_Password = new javax.swing.JTextField();
         Field_Email = new javax.swing.JTextField();
         Field_PhoneNumber = new javax.swing.JTextField();
-        Button_Cancel = new javax.swing.JLabel();
-        Button_Save = new javax.swing.JLabel();
+        Button_ResetChanges = new javax.swing.JLabel();
+        Button_SaveChanges = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
         Field_Search = new javax.swing.JTextField();
-        Button_Delete = new javax.swing.JLabel();
+        Button_DeleteAccount = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Tab_ManageAccounts = new javax.swing.JLabel();
         Tab_NewAccount = new javax.swing.JLabel();
@@ -77,14 +75,6 @@ private void Update_table(){
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_CallManualMouseClicked(evt);
-            }
-        });
-        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
         Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Manual_Panel.setEnabled(false);
@@ -108,51 +98,54 @@ private void Update_table(){
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nOn the left side of the screen, you can search\nby employee ID for a particular account.\nClick on the desired account within the \ngenerated list and you will be able to edit it\nusing the list of fields to the right.\nYou can delete the account entirely by using\nthe 'Delete' button. You can reset any \nchanges back to their original status with\nthe 'Reset' button, and you can permanently\nsave any changes you've made with the\n'Save Changes' button.");
+        Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any  changes back to their original status with the 'Reset' button, and you can permanently save any changes you've made with the 'Save Changes' button.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
+        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_CallManualMouseClicked(evt);
+            }
+        });
+        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
+
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
         Label_AccountType.setText("Account Type:");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
-
-        Label_FirstName1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_FirstName1.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName1.setText("Employee ID:");
-        add(Label_FirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 220, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Label_FirstName.setText("First Name:");
-        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
+        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Label_LastName.setText("Last Name:");
-        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
+        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 360, -1, -1));
 
         Label_Username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Username.setForeground(new java.awt.Color(153, 0, 0));
         Label_Username.setText("Username:");
-        add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
+        add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 400, -1, -1));
 
         Label_Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(153, 0, 0));
         Label_Password.setText("Password:");
-        add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+        add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 440, -1, -1));
 
         Label_Email.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Email.setForeground(new java.awt.Color(153, 0, 0));
         Label_Email.setText("Email:");
-        add(Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
+        add(Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 480, -1, -1));
 
         Label_PhoneNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Label_PhoneNumber.setText("Phone Number:");
-        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, -1, -1));
+        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 520, -1, -1));
 
         Radio_ServiceDeskEmployee.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_ServiceDeskEmployee);
@@ -167,7 +160,7 @@ private void Update_table(){
                 Radio_ServiceDeskEmployeeActionPerformed(evt);
             }
         });
-        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
+        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 220, -1, -1));
 
         Radio_Manager.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_Manager);
@@ -181,7 +174,7 @@ private void Update_table(){
                 Radio_ManagerActionPerformed(evt);
             }
         });
-        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
+        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, -1, -1));
 
         Radio_ApplicationManager.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_ApplicationManager);
@@ -195,82 +188,78 @@ private void Update_table(){
                 Radio_ApplicationManagerActionPerformed(evt);
             }
         });
-        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
-
-        Field_employeeID.setForeground(new java.awt.Color(153, 0, 0));
-        Field_employeeID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_employeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 210, 30));
+        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 280, -1, -1));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 210, 30));
+        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 320, 210, 30));
 
         Field_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Field_LastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 210, 30));
+        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 360, 210, 30));
 
         Field_Username.setForeground(new java.awt.Color(153, 0, 0));
         Field_Username.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 210, 30));
+        add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 400, 210, 30));
 
         Field_Password.setForeground(new java.awt.Color(153, 0, 0));
         Field_Password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 210, 30));
+        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 440, 210, 30));
 
         Field_Email.setForeground(new java.awt.Color(153, 0, 0));
         Field_Email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 210, 30));
+        add(Field_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 480, 210, 30));
 
         Field_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_PhoneNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, 210, 30));
+        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 520, 210, 30));
 
-        Button_Cancel.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Cancel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Button_Cancel.setForeground(new java.awt.Color(255, 255, 255));
-        Button_Cancel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Button_Cancel.setText("Reset");
-        Button_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button_Cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Button_Cancel.setOpaque(true);
-        Button_Cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+        Button_ResetChanges.setBackground(new java.awt.Color(34, 153, 68));
+        Button_ResetChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_ResetChanges.setForeground(new java.awt.Color(255, 255, 255));
+        Button_ResetChanges.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_ResetChanges.setText("Reset Changes");
+        Button_ResetChanges.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_ResetChanges.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_ResetChanges.setOpaque(true);
+        Button_ResetChanges.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button_CancelMouseClicked(evt);
+                Button_ResetChangesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Button_CancelMouseEntered(evt);
+                Button_ResetChangesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Button_CancelMouseExited(evt);
+                Button_ResetChangesMouseExited(evt);
             }
         });
-        add(Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 110, -1));
+        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 580, 180, -1));
 
-        Button_Save.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Save.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Button_Save.setForeground(new java.awt.Color(255, 255, 255));
-        Button_Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Button_Save.setText("Save Changes");
-        Button_Save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button_Save.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Button_Save.setOpaque(true);
-        Button_Save.addMouseListener(new java.awt.event.MouseAdapter() {
+        Button_SaveChanges.setBackground(new java.awt.Color(34, 153, 68));
+        Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_SaveChanges.setForeground(new java.awt.Color(255, 255, 255));
+        Button_SaveChanges.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_SaveChanges.setText("Save Changes");
+        Button_SaveChanges.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_SaveChanges.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_SaveChanges.setOpaque(true);
+        Button_SaveChanges.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button_SaveMouseClicked(evt);
+                Button_SaveChangesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Button_SaveMouseEntered(evt);
+                Button_SaveChangesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Button_SaveMouseExited(evt);
+                Button_SaveChangesMouseExited(evt);
             }
         });
-        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 580, 200, -1));
+        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 580, 170, -1));
 
         Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Search.setForeground(new java.awt.Color(153, 0, 0));
         Label_Search.setText("Search Employee ID:");
-        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 220, -1, -1));
+        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         Field_Search.setForeground(new java.awt.Color(153, 0, 0));
         Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -279,28 +268,28 @@ private void Update_table(){
                 Field_SearchKeyReleased(evt);
             }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 210, 30));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 210, 30));
 
-        Button_Delete.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Delete.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Button_Delete.setForeground(new java.awt.Color(255, 255, 255));
-        Button_Delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Button_Delete.setText("Delete");
-        Button_Delete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button_Delete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Button_Delete.setOpaque(true);
-        Button_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
+        Button_DeleteAccount.setBackground(new java.awt.Color(34, 153, 68));
+        Button_DeleteAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_DeleteAccount.setForeground(new java.awt.Color(255, 255, 255));
+        Button_DeleteAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_DeleteAccount.setText("Delete Account");
+        Button_DeleteAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_DeleteAccount.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_DeleteAccount.setOpaque(true);
+        Button_DeleteAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button_DeleteMouseClicked(evt);
+                Button_DeleteAccountMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Button_DeleteMouseEntered(evt);
+                Button_DeleteAccountMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Button_DeleteMouseExited(evt);
+                Button_DeleteAccountMouseExited(evt);
             }
         });
-        add(Button_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 580, 90, -1));
+        add(Button_DeleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 220, -1));
 
         Tab_LogOut.setBackground(new java.awt.Color(156, 10, 13));
         Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -399,7 +388,7 @@ private void Update_table(){
             table_accounts.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 690, 270));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 690, 270));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -430,21 +419,21 @@ private void Update_table(){
         Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
         Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));    }//GEN-LAST:event_Tab_LogOutMouseExited
 
-    private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
-        Button_Save.setBackground(new java.awt.Color(51, 136, 68));
-    }//GEN-LAST:event_Button_SaveMouseEntered
+    private void Button_SaveChangesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseEntered
+        Button_SaveChanges.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_Button_SaveChangesMouseEntered
 
-    private void Button_SaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseExited
-        Button_Save.setBackground(new java.awt.Color(34, 153, 68));
-    }//GEN-LAST:event_Button_SaveMouseExited
+    private void Button_SaveChangesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseExited
+        Button_SaveChanges.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_Button_SaveChangesMouseExited
 
-    private void Button_DeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteMouseEntered
-        Button_Delete.setBackground(new java.awt.Color(51, 136, 68));
-    }//GEN-LAST:event_Button_DeleteMouseEntered
+    private void Button_DeleteAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteAccountMouseEntered
+        Button_DeleteAccount.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_Button_DeleteAccountMouseEntered
 
-    private void Button_DeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteMouseExited
-        Button_Delete.setBackground(new java.awt.Color(34, 153, 68));
-    }//GEN-LAST:event_Button_DeleteMouseExited
+    private void Button_DeleteAccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteAccountMouseExited
+        Button_DeleteAccount.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_Button_DeleteAccountMouseExited
 
     private void Tab_ManageAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseClicked
         FYS.getInstance().showPage(new AppMan_ManageAccounts());
@@ -466,9 +455,7 @@ private void Update_table(){
            pst=conn.prepareStatement(sql);
            rs=pst.executeQuery();
            if(rs.next()){
-           
-               String add1 =rs.getString("employeeID");
-               Field_employeeID.setText(add1);
+
                String add2 =rs.getString("name");
                Field_FirstName.setText(add2);
                String add3 =rs.getString("lastname");
@@ -492,7 +479,7 @@ private void Update_table(){
       
     }//GEN-LAST:event_table_accountsMouseClicked
 
-    private void Button_DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteMouseClicked
+    private void Button_DeleteAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteAccountMouseClicked
        int p = JOptionPane.showConfirmDialog(null, "Do you really want to delete this account?","Delete Account",JOptionPane.YES_NO_OPTION );
         if(p==0){
             
@@ -501,8 +488,8 @@ private void Update_table(){
         try{
             
             pst = conn.prepareStatement(sql); 
-            
-            pst.setString(1, Field_employeeID.getText());
+            //DIT GAAT FOUT, MAAR JE MAG ECHT NIET EMPLOYEE-ID AANPASSEN
+            //pst.setString(1, Field_employeeID.getText());
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Deleted");
@@ -514,17 +501,17 @@ private void Update_table(){
         }
         Update_table();
         }
-    }//GEN-LAST:event_Button_DeleteMouseClicked
+    }//GEN-LAST:event_Button_DeleteAccountMouseClicked
 
-    private void Button_CancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_CancelMouseExited
-        Button_Cancel.setBackground(new java.awt.Color(34, 153, 68));
-    }//GEN-LAST:event_Button_CancelMouseExited
+    private void Button_ResetChangesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseExited
+        Button_ResetChanges.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_Button_ResetChangesMouseExited
 
-    private void Button_CancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_CancelMouseEntered
-        Button_Cancel.setBackground(new java.awt.Color(51, 136, 68));
-    }//GEN-LAST:event_Button_CancelMouseEntered
+    private void Button_ResetChangesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseEntered
+        Button_ResetChanges.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_Button_ResetChangesMouseEntered
 
-    private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
+    private void Button_SaveChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseClicked
         try {
             
 
@@ -548,9 +535,9 @@ private void Update_table(){
             JOptionPane.showMessageDialog(null, e);    
         }
         Update_table();
-    }//GEN-LAST:event_Button_SaveMouseClicked
+    }//GEN-LAST:event_Button_SaveChangesMouseClicked
 
-    private void Button_CancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_CancelMouseClicked
+    private void Button_ResetChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseClicked
         Field_employeeID.setText("");
         Field_FirstName.setText("");
         Field_LastName.setText("");
@@ -558,7 +545,7 @@ private void Update_table(){
         Field_Password.setText("");
         Field_Email.setText("");
         Field_PhoneNumber.setText("");
-    }//GEN-LAST:event_Button_CancelMouseClicked
+    }//GEN-LAST:event_Button_ResetChangesMouseClicked
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
         try{
@@ -623,9 +610,9 @@ private void Update_table(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JLabel Button_Cancel;
-    private javax.swing.JLabel Button_Delete;
-    private javax.swing.JLabel Button_Save;
+    private javax.swing.JLabel Button_DeleteAccount;
+    private javax.swing.JLabel Button_ResetChanges;
+    private javax.swing.JLabel Button_SaveChanges;
     private javax.swing.JTextField Field_Email;
     private javax.swing.JTextField Field_FirstName;
     private javax.swing.JTextField Field_LastName;
@@ -633,12 +620,10 @@ private void Update_table(){
     private javax.swing.JTextField Field_PhoneNumber;
     private javax.swing.JTextField Field_Search;
     private javax.swing.JTextField Field_Username;
-    private javax.swing.JTextField Field_employeeID;
     private javax.swing.JLabel Label_AccountType;
     private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_Email;
     private javax.swing.JLabel Label_FirstName;
-    private javax.swing.JLabel Label_FirstName1;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
     private javax.swing.JLabel Label_ManualExit;

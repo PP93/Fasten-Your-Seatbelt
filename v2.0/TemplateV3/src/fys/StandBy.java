@@ -90,9 +90,9 @@ public class StandBy extends javax.swing.JPanel {
         Text.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Text.setForeground(new java.awt.Color(153, 0, 0));
         Text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Text.setText("<html><center>Your session timed out, dickface.<br>Click continue to log in.</center></html>");
+        Text.setText("<html><center>Your session timed out.<br>Click continue to log in.</center></html>");
         Text.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        add(Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 650, 220));
+        add(Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 650, 220));
 
         Tab_StandBy.setBackground(new java.awt.Color(255, 255, 255));
         Tab_StandBy.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
