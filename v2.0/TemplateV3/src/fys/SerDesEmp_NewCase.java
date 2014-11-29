@@ -80,6 +80,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Tab_UpdateCase = new javax.swing.JLabel();
         Tab_AddBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
+        Button_PDF = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         employee_id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -448,6 +449,27 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         });
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, 250, 40));
 
+        Button_PDF.setBackground(new java.awt.Color(34, 153, 68));
+        Button_PDF.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_PDF.setForeground(new java.awt.Color(255, 255, 255));
+        Button_PDF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_PDF.setText("Make PDF");
+        Button_PDF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_PDF.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_PDF.setOpaque(true);
+        Button_PDF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_PDFMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_PDFMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_PDFMouseExited(evt);
+            }
+        });
+        add(Button_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, 130, -1));
+
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -556,8 +578,8 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_LogOut());
-        Tab_LogOut.setForeground(new java.awt.Color(153,0,0));
-        Tab_LogOut.setBackground(new java.awt.Color(255,255,255));
+        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
@@ -596,8 +618,8 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
     private void Tab_AddBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddBaggageMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_AddBagage());
-        Tab_AddBaggage.setForeground(new java.awt.Color(153,0,0));
-        Tab_AddBaggage.setBackground(new java.awt.Color(255,255,255));
+        Tab_AddBaggage.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_AddBaggage.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_AddBaggageMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
@@ -610,9 +632,49 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Panel_Manual.setEnabled(true);
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
+    private void Button_PDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseClicked
+
+        //alles uit het updatecase screen 
+        int date = 0;
+        String firstname = "x";
+        String lastname = "x";
+        String country = "x";
+        String city = "x";
+        String zipcode = "x";
+        String address = "x";
+        String phonenumber = "x";
+        String emailaddress = "x";
+        String shippingcountry = "x";
+        String shippingzipcode = "x";
+        String shippingaddress = "x";
+        String shippingcity = "x";
+        String flightnumber = "x";
+        String brand = "x";
+        String color = "x";
+        int weight = 0;
+        String description = "x";
+
+        //description  generate and save pdf
+        PDFGenerator pdf = new PDFGenerator();
+        pdf.generate(date, firstname, lastname, country, city, zipcode, address, phonenumber, emailaddress, shippingcountry, shippingzipcode, shippingaddress, shippingcity, flightnumber, brand, color, weight, description);
+
+        //  moet aangepast worden zodra doreen klaar heeft wat er in gevuld moet worden
+        pdf.save("CaseNR + Firstname + Date.pdf");
+
+     }//GEN-LAST:event_Button_PDFMouseClicked
+
+    private void Button_PDFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseEntered
+        Button_Save.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_Button_PDFMouseEntered
+
+    private void Button_PDFMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseExited
+        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_Button_PDFMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JLabel Button_PDF;
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JLabel Button_Save;
     private javax.swing.JCheckBox Checkbox_CopyAddressInfo;
