@@ -181,13 +181,13 @@ public class Login extends javax.swing.JPanel {
             if (rs.next()) {
                 employeeFunction = rs.getString("function");
                 switch (employeeFunction) {
-                    case "appmanager"://Change this value to whatever is in the database.
+                    case "application manager"://Change this value to whatever is in the database.
                         FYS.getInstance().showPage(new AppMan_NewAccount());
                         break;
                     case "manager":
                         FYS.getInstance().showPage(new Man_Graphs());
                         break;
-                    case "serdesemployee":
+                    case "service desk employee":
                         FYS.getInstance().showPage(new SerDesEmp_NewCase());
                         break;
                     default:
@@ -225,26 +225,41 @@ public class Login extends javax.swing.JPanel {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
             String sql = "select * from employee where username=? and password=?";
-            try {
-                pst = conn.prepareStatement(sql);
-                pst.setString(1, Field_Username.getText());
-                pst.setString(2, Field_Password.getText());
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, Field_Username.getText());
+            pst.setString(2, Field_Password.getText());
 
-                rs = pst.executeQuery();
-                if (rs.next()) {
-                    rs.close();
-                    pst.close();
-                    close();
-                    FYS.getInstance().showPage(new SerDesEmp_NewCase());
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Username and Password is not correct");
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                employeeFunction = rs.getString("function");
+                switch (employeeFunction) {
+                    case "application manager"://Change this value to whatever is in the database.
+                        FYS.getInstance().showPage(new AppMan_NewAccount());
+                        break;
+                    case "manager":
+                        FYS.getInstance().showPage(new Man_Graphs());
+                        break;
+                    case "service desk employee":
+                        FYS.getInstance().showPage(new SerDesEmp_NewCase());
+                        break;
+                    default:
+                        break;
                 }
-            } catch (SQLException | HeadlessException e) {
 
-                JOptionPane.showMessageDialog(null, e);
+                rs.close();
+                pst.close();
+                close();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Username and Password is not correct");
             }
+        } catch (SQLException | HeadlessException e) {
+
+            JOptionPane.showMessageDialog(null, e);
         }
+        }
+   
 
 
     }//GEN-LAST:event_Field_PasswordKeyPressed
