@@ -1,4 +1,4 @@
-CREATE TABLE `employeeID` ( 
+CREATE TABLE `employee` ( 
 `employeeID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
 `name` CHAR( 20 ) NOT NULL ,
 `lastname` CHAR( 20 ) NOT NULL ,
@@ -26,7 +26,7 @@ CREATE TABLE `client` (
 
 );
 
-CREATE TABLE `bagage` ( 
+CREATE TABLE `baggage` ( 
 `bagageID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
 `flightnumber` CHAR( 20 ) NOT NULL ,
 `brand` CHAR( 20 )  NULL ,
@@ -35,3 +35,15 @@ CREATE TABLE `bagage` (
 `description` VARCHAR( 200 )  NULL 
 
 );
+
+INSERT INTO employee
+(name , lastname, username, password, email, phonenumber, function)
+VALUES ('', '', 'appmanager1', 'appmanager123', '', '', 'application manager'); 
+
+INSERT INTO employee
+(name , lastname, username, password, email, phonenumber, function)
+VALUES ('', '', 'manager1', 'manager123', '', '', 'manager'); 
+
+INSERT INTO employee
+(name , lastname, username, password, email, phonenumber, function)
+VALUES ('', '', 'serdesemp1', 'serdesemp123', '', '', 'service desk employee'); 
