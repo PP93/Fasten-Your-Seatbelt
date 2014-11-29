@@ -32,7 +32,7 @@ public class PDFGenerator {
     }
 
     public void generate(int date, String firstname, String lastname, String country, String city, String zipcode, String address, String phonenumber, String emailaddress,
-            String shippingcountry, String shippingzipcode, String shippingaddress, String shippingcity, String flightnumber, String brand, String color, int weight, String description) {
+            String shippingcountry, String shippingzipcode, String shippingaddress, String shippingcity, String flightnumber, String brand, String color, String weight, String description) {
         try {
             // Define a text content stream using the selected font, moving the cursor and drawing the text "Hello World"
             this.contentStream.beginText();
