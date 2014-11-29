@@ -636,30 +636,31 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         //alles uit het updatecase screen 
         int date = 0;
-        String firstname = "x";
-        String lastname = "x";
-        String country = "x";
-        String city = "x";
-        String zipcode = "x";
-        String address = "x";
-        String phonenumber = "x";
-        String emailaddress = "x";
-        String shippingcountry = "x";
-        String shippingzipcode = "x";
-        String shippingaddress = "x";
-        String shippingcity = "x";
-        String flightnumber = "x";
-        String brand = "x";
-        String color = "x";
-        int weight = 0;
-        String description = "x";
-
+        String firstname = Field_FirstName.getText();
+        String lastname = Field_LastName.getText();
+        String country = Field_Country.getText();
+        String city = Field_City.getText();
+        String zipcode = Field_ZipCode.getText();
+        String address =  Field_Address.getText();
+        String phonenumber = Field_PhoneNumber.getText();
+        String emailaddress = Field_EmailAddress.getText();
+        String shippingcountry =  Field_ShippingCountry.getText();
+        String shippingzipcode = Field_ShippingZipCode.getText();
+        String shippingaddress = Field_ShippingAddress.getText();
+        String shippingcity = Field_ShippingCity.getText();
+        String flightnumber = Field_ShippingAddress.getText();
+        String brand = Field_Brand.getText();
+        String color = Field_Color.getText();
+        String weight = Field_Weight.getText();
+        String description = Field_Description.getText();
+        
+        
         //description  generate and save pdf
         PDFGenerator pdf = new PDFGenerator();
         pdf.generate(date, firstname, lastname, country, city, zipcode, address, phonenumber, emailaddress, shippingcountry, shippingzipcode, shippingaddress, shippingcity, flightnumber, brand, color, weight, description);
 
         //  moet aangepast worden zodra doreen klaar heeft wat er in gevuld moet worden
-        pdf.save("CaseNR + Firstname + Date.pdf");
+        pdf.save(firstname + lastname + zipcode + ".pdf");
 
      }//GEN-LAST:event_Button_PDFMouseClicked
 
