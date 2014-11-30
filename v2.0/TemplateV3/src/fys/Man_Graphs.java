@@ -42,7 +42,7 @@ public class Man_Graphs extends javax.swing.JPanel {
         Scrollpane_Cases = new javax.swing.JScrollPane();
         Table_Cases = new javax.swing.JTable();
         Tab_GraphData = new javax.swing.JLabel();
-        Tab_BaggageData = new javax.swing.JLabel();
+        Tab_LogActivities = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
@@ -162,23 +162,26 @@ public class Man_Graphs extends javax.swing.JPanel {
         });
         add(Tab_GraphData, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
 
-        Tab_BaggageData.setBackground(new java.awt.Color(156, 10, 13));
-        Tab_BaggageData.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tab_BaggageData.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_BaggageData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_BaggageData.setText("Baggage Data");
-        Tab_BaggageData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_BaggageData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_BaggageData.setOpaque(true);
-        Tab_BaggageData.addMouseListener(new java.awt.event.MouseAdapter() {
+        Tab_LogActivities.setBackground(new java.awt.Color(156, 10, 13));
+        Tab_LogActivities.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_LogActivities.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_LogActivities.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_LogActivities.setText("Log Activities");
+        Tab_LogActivities.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_LogActivities.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_LogActivities.setOpaque(true);
+        Tab_LogActivities.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab_LogActivitiesMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_BaggageDataMouseEntered(evt);
+                Tab_LogActivitiesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_BaggageDataMouseExited(evt);
+                Tab_LogActivitiesMouseExited(evt);
             }
         });
-        add(Tab_BaggageData, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
+        add(Tab_LogActivities, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
 
         Tab_LogOut.setBackground(new java.awt.Color(156, 10, 13));
         Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -233,16 +236,16 @@ public class Man_Graphs extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Tab_GraphDataMouseExited
 
-    private void Tab_BaggageDataMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_BaggageDataMouseEntered
-        Tab_BaggageData.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_BaggageData.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_BaggageDataMouseEntered
+    private void Tab_LogActivitiesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseEntered
+        Tab_LogActivities.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_LogActivities.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_Tab_LogActivitiesMouseEntered
 
-    private void Tab_BaggageDataMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_BaggageDataMouseExited
-        Tab_BaggageData.setBackground(new java.awt.Color(153, 0, 0));
+    private void Tab_LogActivitiesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseExited
+        Tab_LogActivities.setBackground(new java.awt.Color(153, 0, 0));
 
-        Tab_BaggageData.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_BaggageDataMouseExited
+        Tab_LogActivities.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_Tab_LogActivitiesMouseExited
 
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
         FYS.getInstance().showPage(new Man_LogOut());
@@ -250,11 +253,17 @@ public class Man_Graphs extends javax.swing.JPanel {
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
         Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_Tab_LogOutMouseEntered
 
     private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
         Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_LogOutMouseExited
+
+    private void Tab_LogActivitiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseClicked
+        FYS.getInstance().showPage(new Man_LogActivities());
+    }//GEN-LAST:event_Tab_LogActivitiesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -269,8 +278,8 @@ public class Man_Graphs extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Title;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JScrollPane Scrollpane_Cases;
-    private javax.swing.JLabel Tab_BaggageData;
     private javax.swing.JLabel Tab_GraphData;
+    private javax.swing.JLabel Tab_LogActivities;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JTable Table_Cases;
     private javax.swing.JComboBox jComboBox1;

@@ -76,7 +76,7 @@ public class AppMan_LogOut extends javax.swing.JPanel {
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
         Label_AccountType.setText("Are you sure you want to log out?");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
 
         Button_No.setBackground(new java.awt.Color(34, 153, 68));
         Button_No.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N

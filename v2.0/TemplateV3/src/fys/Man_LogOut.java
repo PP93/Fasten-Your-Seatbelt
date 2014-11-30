@@ -27,7 +27,7 @@ public class Man_LogOut extends javax.swing.JPanel {
         Button_No = new javax.swing.JLabel();
         Button_Yes = new javax.swing.JLabel();
         Tab_GraphData = new javax.swing.JLabel();
-        Tab_BaggageData = new javax.swing.JLabel();
+        Tab_LogActivities = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -78,8 +78,8 @@ public class Man_LogOut extends javax.swing.JPanel {
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
-        Label_AccountType.setText("Are you sure you want to log out of our fabulous fucking app?");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
+        Label_AccountType.setText("Are you sure you want to log out?");
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
 
         Button_No.setBackground(new java.awt.Color(34, 153, 68));
         Button_No.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -141,26 +141,26 @@ public class Man_LogOut extends javax.swing.JPanel {
         });
         add(Tab_GraphData, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
 
-        Tab_BaggageData.setBackground(new java.awt.Color(156, 10, 13));
-        Tab_BaggageData.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tab_BaggageData.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_BaggageData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_BaggageData.setText("Baggage Data");
-        Tab_BaggageData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_BaggageData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_BaggageData.setOpaque(true);
-        Tab_BaggageData.addMouseListener(new java.awt.event.MouseAdapter() {
+        Tab_LogActivities.setBackground(new java.awt.Color(156, 10, 13));
+        Tab_LogActivities.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_LogActivities.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_LogActivities.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_LogActivities.setText("Log Activities");
+        Tab_LogActivities.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_LogActivities.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_LogActivities.setOpaque(true);
+        Tab_LogActivities.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_BaggageDataMouseClicked(evt);
+                Tab_LogActivitiesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_BaggageDataMouseEntered(evt);
+                Tab_LogActivitiesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_BaggageDataMouseExited(evt);
+                Tab_LogActivitiesMouseExited(evt);
             }
         });
-        add(Tab_BaggageData, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
+        add(Tab_LogActivities, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
 
         Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
         Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -183,15 +183,15 @@ public class Man_LogOut extends javax.swing.JPanel {
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Tab_BaggageDataMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_BaggageDataMouseEntered
-        Tab_BaggageData.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_BaggageData.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_BaggageDataMouseEntered
+    private void Tab_LogActivitiesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseEntered
+        Tab_LogActivities.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_LogActivities.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_Tab_LogActivitiesMouseEntered
 
-    private void Tab_BaggageDataMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_BaggageDataMouseExited
-        Tab_BaggageData.setBackground(new java.awt.Color(153, 0, 0));
-        Tab_BaggageData.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_BaggageDataMouseExited
+    private void Tab_LogActivitiesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseExited
+        Tab_LogActivities.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_LogActivities.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_Tab_LogActivitiesMouseExited
 
     private void Button_NoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_NoMouseEntered
         Button_No.setBackground(new java.awt.Color(51, 136, 68));
@@ -219,12 +219,12 @@ public class Man_LogOut extends javax.swing.JPanel {
         Tab_GraphData.setForeground(new java.awt.Color(255, 255, 255));
      }//GEN-LAST:event_Tab_GraphDataMouseExited
 
-    private void Tab_BaggageDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_BaggageDataMouseClicked
-        FYS.getInstance().showPage(new AppMan_ManageAccounts());
-    }//GEN-LAST:event_Tab_BaggageDataMouseClicked
+    private void Tab_LogActivitiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseClicked
+        FYS.getInstance().showPage(new Man_LogActivities());
+    }//GEN-LAST:event_Tab_LogActivitiesMouseClicked
 
     private void Tab_GraphDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_GraphDataMouseClicked
-        FYS.getInstance().showPage(new AppMan_NewAccount());
+        FYS.getInstance().showPage(new Man_Graphs());
     }//GEN-LAST:event_Tab_GraphDataMouseClicked
 
     private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
@@ -252,8 +252,8 @@ public class Man_LogOut extends javax.swing.JPanel {
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JPanel Manual_Panel;
-    private javax.swing.JLabel Tab_BaggageData;
     private javax.swing.JLabel Tab_GraphData;
+    private javax.swing.JLabel Tab_LogActivities;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
