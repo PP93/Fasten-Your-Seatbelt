@@ -35,7 +35,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             String sql = "select * from bagage";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
-            Table_Cases.setModel(DbUtils.resultSetToTableModel(rs));
+            Table_ExtraBaggage.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -58,7 +58,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Label_SearchClientID = new javax.swing.JLabel();
         Field_SearchClientID = new javax.swing.JTextField();
         ScrollPane_Cases = new javax.swing.JScrollPane();
-        Table_Cases = new javax.swing.JTable();
+        Table_ExtraBaggage = new javax.swing.JTable();
         Label_BaggageInformation = new javax.swing.JLabel();
         Label_FlightNumber = new javax.swing.JLabel();
         Label_Brand = new javax.swing.JLabel();
@@ -135,7 +135,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         });
         add(Field_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 250, 30));
 
-        Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
+        Table_ExtraBaggage.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -146,12 +146,12 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Table_Cases.addMouseListener(new java.awt.event.MouseAdapter() {
+        Table_ExtraBaggage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Table_CasesMouseClicked(evt);
+                Table_ExtraBaggageMouseClicked(evt);
             }
         });
-        ScrollPane_Cases.setViewportView(Table_Cases);
+        ScrollPane_Cases.setViewportView(Table_ExtraBaggage);
 
         add(ScrollPane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 530, 310));
 
@@ -395,7 +395,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     private void Button_AddToCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_AddToCaseMouseClicked
         try {
 
-            String sql = "insert into bagage (flightnumber,brand,color,weight,description)value(?,?,?,?,?)";
+            String sql = "insert into baggage (flightnumber,brand,color,weight,description)value(?,?,?,?,?)";
             pst = conn.prepareStatement(sql);
             pst.setString(1, Field_FlightNumber.getText());
             pst.setString(2, Field_Brand.getText());
@@ -414,7 +414,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
     private void Field_SearchClientIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchClientIDKeyReleased
         try {
-            String sql = "select * from bagage where bagageID=?";
+            String sql = "select * from baggage where baggageID=?";
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, Field_SearchClientID.getText());
@@ -441,16 +441,16 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Field_SearchClientIDActionPerformed
 
-    private void Table_CasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_CasesMouseClicked
+    private void Table_ExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_ExtraBaggageMouseClicked
         try {
-            int row = Table_Cases.getSelectedRow();
-            String Table_click = (Table_Cases.getModel().getValueAt(row, 0).toString());
-            String sql = "select * from bagage where bagageID='" + Table_click + "' ";
+            int row = Table_ExtraBaggage.getSelectedRow();
+            String Table_click = (Table_ExtraBaggage.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from baggage where bagaggeID='" + Table_click + "' ";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs.next()) {
                 String add1 = rs.getString("flightnumber");
-                Field_Brand.setText(add1);
+                Field_FlightNumber.setText(add1);
                 String add2 = rs.getString("brand");
                 Field_Brand.setText(add2);
                 String add3 = rs.getString("color");
@@ -466,7 +466,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
 
         }
-    }//GEN-LAST:event_Table_CasesMouseClicked
+    }//GEN-LAST:event_Table_ExtraBaggageMouseClicked
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
         // TODO add your handling code here:
@@ -518,6 +518,6 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JLabel Tab_NewCase;
     private javax.swing.JLabel Tab_UpdateCase;
-    private javax.swing.JTable Table_Cases;
+    private javax.swing.JTable Table_ExtraBaggage;
     // End of variables declaration//GEN-END:variables
 }

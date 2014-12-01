@@ -27,7 +27,7 @@ CREATE TABLE `client` (
 );
 
 CREATE TABLE `baggage` ( 
-`bagageID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
+`baggageID` INT( 3 ) NOT NULL AUTO_INCREMENT primary key,
 `flightnumber` CHAR( 20 ) NOT NULL ,
 `brand` CHAR( 20 )  NULL ,
 `color` CHAR( 30 )  NULL ,

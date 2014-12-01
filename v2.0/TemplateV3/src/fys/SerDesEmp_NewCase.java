@@ -132,11 +132,11 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Label_Date.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Date.setForeground(new java.awt.Color(153, 0, 0));
         Label_Date.setText("Registration Date:");
-        add(Label_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
+        add(Label_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
 
         Field_Date.setForeground(new java.awt.Color(153, 0, 0));
         Field_Date.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 230, 30));
+        add(Field_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 230, 30));
 
         Label_ClientInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_ClientInformation.setForeground(new java.awt.Color(153, 0, 0));
