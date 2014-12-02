@@ -633,16 +633,18 @@ private void Update_table(){
                Field_ZipCode.setText(add5);
                String add6 =rs.getString("address");
                Field_Address.setText(add6);
-               String add7 =rs.getString("country");
-               Field_Country.setText(add7);
-               String add8 =rs.getString("shippingzipcode");
-               Field_ShippingZipCode.setText(add8);
-               String add9 =rs.getString("shippingaddress");
-               Field_ShippingAddress.setText(add9);
-               String add10 =rs.getString("shippingcity");
-               Field_ShippingCity.setText(add10);
-               String add11 =rs.getString("shippingcountry");
-               Field_ShippingCountry.setText(add11);
+               String add7 =rs.getString("city");
+               Field_City.setText(add7);
+               String add8 =rs.getString("country");
+               Field_Country.setText(add8);
+               String add9 =rs.getString("shippingzipcode");
+               Field_ShippingZipCode.setText(add9);
+               String add10 =rs.getString("shippingaddress");
+               Field_ShippingAddress.setText(add10);
+               String add11 =rs.getString("shippingcity");
+               Field_ShippingCity.setText(add11);
+               String add12 =rs.getString("shippingcountry");
+               Field_ShippingCountry.setText(add12);
                
            }
        }catch(Exception e){
