@@ -16,6 +16,8 @@ public class Man_Graphs extends javax.swing.JPanel {
      */
     public Man_Graphs() {
         initComponents();
+        Manual_Panel.setVisible(false);
+        Manual_Panel.setEnabled(false);
     }
 
     /**
@@ -37,9 +39,9 @@ public class Man_Graphs extends javax.swing.JPanel {
         Label_Timeframe = new javax.swing.JLabel();
         Label_CaseType = new javax.swing.JLabel();
         Label_CaseStatus = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
+        Box_TimeFrame = new javax.swing.JComboBox();
+        Box_CaseType = new javax.swing.JComboBox();
+        Box_CaseStatus = new javax.swing.JComboBox();
         Scrollpane_Cases = new javax.swing.JScrollPane();
         Table_Cases = new javax.swing.JTable();
         Tab_GraphData = new javax.swing.JLabel();
@@ -115,27 +117,30 @@ public class Man_Graphs extends javax.swing.JPanel {
         Label_Timeframe.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Timeframe.setForeground(new java.awt.Color(156, 10, 13));
         Label_Timeframe.setText("Timeframe:");
-        add(Label_Timeframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        add(Label_Timeframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
 
         Label_CaseType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_CaseType.setForeground(new java.awt.Color(156, 10, 13));
         Label_CaseType.setText("Case Type:");
-        add(Label_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+        add(Label_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
 
         Label_CaseStatus.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_CaseStatus.setForeground(new java.awt.Color(156, 10, 13));
         Label_CaseStatus.setText("Case Status:");
         Label_CaseStatus.setToolTipText("");
-        add(Label_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, 20));
+        add(Label_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Today", "Week", "Month", "Year" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 90, 20));
+        Box_TimeFrame.setForeground(new java.awt.Color(156, 10, 13));
+        Box_TimeFrame.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Today", "Week", "Month", "Year" }));
+        add(Box_TimeFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 120, 20));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Client", "Baggage" }));
-        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 90, 20));
+        Box_CaseType.setForeground(new java.awt.Color(156, 10, 13));
+        Box_CaseType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Client", "Baggage" }));
+        add(Box_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 120, 20));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Found", "Not Found", "Returned" }));
-        add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 90, 20));
+        Box_CaseStatus.setForeground(new java.awt.Color(156, 10, 13));
+        Box_CaseStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Unresolved", "Resolved", "Permanently lost" }));
+        add(Box_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 120, 20));
 
         Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -150,7 +155,7 @@ public class Man_Graphs extends javax.swing.JPanel {
         ));
         Scrollpane_Cases.setViewportView(Table_Cases);
 
-        add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 510, 280));
+        add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 510, 280));
 
         Tab_GraphData.setBackground(new java.awt.Color(255, 255, 255));
         Tab_GraphData.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -246,11 +251,11 @@ public class Man_Graphs extends javax.swing.JPanel {
 
     private void Tab_LogActivitiesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseEntered
         Tab_LogActivities.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_LogActivities.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_LogActivities.setForeground(new java.awt.Color(156, 10, 13));
     }//GEN-LAST:event_Tab_LogActivitiesMouseEntered
 
     private void Tab_LogActivitiesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogActivitiesMouseExited
-        Tab_LogActivities.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_LogActivities.setBackground(new java.awt.Color(156, 10, 13));
 
         Tab_LogActivities.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_LogActivitiesMouseExited
@@ -261,11 +266,11 @@ public class Man_Graphs extends javax.swing.JPanel {
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
         Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setForeground(new java.awt.Color(156, 10, 13));
     }//GEN-LAST:event_Tab_LogOutMouseEntered
 
     private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
-        Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setBackground(new java.awt.Color(156, 10, 13));
         Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_LogOutMouseExited
 
@@ -280,6 +285,9 @@ public class Man_Graphs extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JComboBox Box_CaseStatus;
+    private javax.swing.JComboBox Box_CaseType;
+    private javax.swing.JComboBox Box_TimeFrame;
     private javax.swing.JLabel Button_GenerateGraph;
     private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_CaseStatus;
@@ -295,8 +303,5 @@ public class Man_Graphs extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_LogActivities;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JTable Table_Cases;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     // End of variables declaration//GEN-END:variables
 }
