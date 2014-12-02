@@ -584,8 +584,48 @@ private void Update_table(){
     }//GEN-LAST:event_Tab_UpdateCaseMouseExited
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
-
-
+ 
+         try{
+        String sql ="select * from client where name=?, ";
+                
+                pst=conn.prepareStatement(sql);
+                pst.setString(1, Field_Search.getText());
+                
+                rs=pst.executeQuery();
+                if(rs.next()){
+                    String add1=rs.getString("clientID");
+                    
+                    String add2=rs.getString("name");
+                    Field_FirstName.setText(add2);
+                    String add3=rs.getString("lastname");
+                    Field_LastName.setText(add3);
+                    String add4=rs.getString("email");
+                    Field_EmailAddress.setText(add4);
+                    String add5=rs.getString("phonenumber");
+                    Field_PhoneNumber.setText(add5);
+                    String add7=rs.getString("address");
+                    Field_Address.setText(add7);
+                    String add8=rs.getString("city");
+                    Field_City.setText(add8);
+                    String add9=rs.getString("country");
+                    Field_Country.setText(add9);
+                     String add10=rs.getString("shippingzipcode");
+                    Field_ShippingZipCode.setText(add10);
+                    String add11=rs.getString("shippingaddress");
+                    Field_ShippingAddress.setText(add11);
+                    String add12=rs.getString("shippingcity");
+                    Field_ShippingCity.setText(add12);
+                    String add13=rs.getString("shippingcountry");
+                    Field_ShippingCountry.setText(add13);
+                }
+         }
+        
+        catch(Exception e){
+            
+            JOptionPane.showMessageDialog(null, e);
+        }      
+                              
+         
     }//GEN-LAST:event_Field_SearchKeyReleased
 
     private void Tab_AddExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseClicked
