@@ -30,11 +30,12 @@ public AppMan_NewAccount() {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        Label_Logo = new javax.swing.JLabel();
+        Label_CallManual = new javax.swing.JLabel();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
-        Label_CallManual = new javax.swing.JLabel();
         Label_AccountType = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
         Label_LastName = new javax.swing.JLabel();
@@ -64,6 +65,21 @@ public AppMan_NewAccount() {
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_LogoMouseClicked(evt);
+            }
+        });
+        add(Label_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 60));
+
+        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_CallManualMouseClicked(evt);
+            }
+        });
+        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
+
         Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Manual_Panel.setEnabled(false);
         Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,14 +107,6 @@ public AppMan_NewAccount() {
         Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-
-        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_CallManualMouseClicked(evt);
-            }
-        });
-        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
@@ -445,6 +453,10 @@ public AppMan_NewAccount() {
         Manual_Panel.setEnabled(true);
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
+    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
+        FYS.getInstance().showPage(new AppMan_Home());
+    }//GEN-LAST:event_Label_LogoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -462,6 +474,7 @@ public AppMan_NewAccount() {
     private javax.swing.JLabel Label_FirstName;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;
     private javax.swing.JLabel Label_PhoneNumber;

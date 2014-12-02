@@ -37,6 +37,7 @@ private void Update_table(){
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Panel_Manual = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
@@ -75,6 +76,13 @@ private void Update_table(){
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_LogoMouseClicked(evt);
+            }
+        });
+        add(Label_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 60));
 
         Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -607,6 +615,10 @@ private void Update_table(){
         FYS.getInstance().showPage(new AppMan_NewAccount());
     }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
+    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
+        FYS.getInstance().showPage(new AppMan_Home());
+    }//GEN-LAST:event_Label_LogoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -626,6 +638,7 @@ private void Update_table(){
     private javax.swing.JLabel Label_FirstName;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;
     private javax.swing.JLabel Label_PhoneNumber;

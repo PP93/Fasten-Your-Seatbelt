@@ -50,6 +50,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Panel_Manual = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
@@ -79,6 +80,13 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Background = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_LogoMouseClicked(evt);
+            }
+        });
+        add(Label_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 60));
 
         Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -490,6 +498,10 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Panel_Manual.setEnabled(true);
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
+    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_Home());
+    }//GEN-LAST:event_Label_LogoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -508,6 +520,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Description;
     private javax.swing.JLabel Label_FlightNumber;
     private javax.swing.JLabel Label_Info;
+    private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_SearchClientID;
     private javax.swing.JLabel Label_Title;

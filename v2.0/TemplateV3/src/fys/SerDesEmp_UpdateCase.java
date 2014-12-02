@@ -40,13 +40,14 @@ private void Update_table(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
-        Label_Search = new javax.swing.JLabel();
-        Field_Search = new javax.swing.JTextField();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
+        Label_Search = new javax.swing.JLabel();
+        Field_Search = new javax.swing.JTextField();
         ScrollPane_Cases = new javax.swing.JScrollPane();
         Table_Cases = new javax.swing.JTable();
         Label_Date = new javax.swing.JLabel();
@@ -101,6 +102,13 @@ private void Update_table(){
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_LogoMouseClicked(evt);
+            }
+        });
+        add(Label_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 60));
+
         Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,20 +116,6 @@ private void Update_table(){
             }
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
-
-        Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_Search.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Search.setText("Search:");
-        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 30));
-
-        Field_Search.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                Field_SearchKeyReleased(evt);
-            }
-        });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 210, 30));
 
         Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Manual_Panel.setEnabled(false);
@@ -150,6 +144,20 @@ private void Update_table(){
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
+
+        Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_Search.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Search.setText("Search:");
+        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 30));
+
+        Field_Search.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Field_SearchKeyReleased(evt);
+            }
+        });
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 210, 30));
 
         Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -673,6 +681,10 @@ private void Update_table(){
             Field_ShippingCountry.setText("");
     }//GEN-LAST:event_Button_ResetMouseClicked
 
+    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_Home());
+    }//GEN-LAST:event_Label_LogoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -712,6 +724,7 @@ private void Update_table(){
     private javax.swing.JLabel Label_FlightNumber;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_PhoneNumber;
     private javax.swing.JLabel Label_Search;

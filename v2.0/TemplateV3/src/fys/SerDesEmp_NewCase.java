@@ -30,6 +30,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private void initComponents() {
 
         employee_id = new javax.swing.JLabel();
+        Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Panel_Manual = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
@@ -92,6 +93,13 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_LogoMouseClicked(evt);
+            }
+        });
+        add(Label_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 60));
 
         Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -661,7 +669,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         //  moet aangepast worden zodra doreen klaar heeft wat er in gevuld moet worden
         pdf.save(firstname + lastname + zipcode + ".pdf");
-
      }//GEN-LAST:event_Button_PDFMouseClicked
 
     private void Button_PDFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseEntered
@@ -671,6 +678,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private void Button_PDFMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseExited
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
     }//GEN-LAST:event_Button_PDFMouseExited
+
+    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_Home());
+    }//GEN-LAST:event_Label_LogoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -712,6 +723,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_FlightNumber;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_PhoneNumber;
     private javax.swing.JLabel Label_ShippingAddress;

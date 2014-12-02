@@ -27,11 +27,12 @@ public class Man_Graphs extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Label_Logo = new javax.swing.JLabel();
+        Label_CallManual = new javax.swing.JLabel();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
-        Label_CallManual = new javax.swing.JLabel();
         Button_GenerateGraph = new javax.swing.JLabel();
         Label_Timeframe = new javax.swing.JLabel();
         Label_CaseType = new javax.swing.JLabel();
@@ -49,6 +50,21 @@ public class Man_Graphs extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_LogoMouseClicked(evt);
+            }
+        });
+        add(Label_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 60));
+
+        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_CallManualMouseClicked(evt);
+            }
+        });
+        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
         Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Manual_Panel.setEnabled(false);
@@ -77,14 +93,6 @@ public class Man_Graphs extends javax.swing.JPanel {
         Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-
-        Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_CallManualMouseClicked(evt);
-            }
-        });
-        add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
         Button_GenerateGraph.setBackground(new java.awt.Color(34, 153, 68));
         Button_GenerateGraph.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -265,6 +273,10 @@ public class Man_Graphs extends javax.swing.JPanel {
         FYS.getInstance().showPage(new Man_LogActivities());
     }//GEN-LAST:event_Tab_LogActivitiesMouseClicked
 
+    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
+        FYS.getInstance().showPage(new Man_Home());
+    }//GEN-LAST:event_Label_LogoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -273,6 +285,7 @@ public class Man_Graphs extends javax.swing.JPanel {
     private javax.swing.JLabel Label_CaseStatus;
     private javax.swing.JLabel Label_CaseType;
     private javax.swing.JLabel Label_Info;
+    private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Timeframe;
     private javax.swing.JLabel Label_Title;
