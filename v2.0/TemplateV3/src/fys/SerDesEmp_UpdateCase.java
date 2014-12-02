@@ -586,14 +586,26 @@ private void Update_table(){
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
  
          try{
-        String sql ="select * from client where name=?, ";
+        String sql ="select * from client where name=? OR lastname=? OR email=? OR phonenumber=? OR address=? OR city=? OR country=? OR shippingzipcode=? OR shippingaddress=? OR shippingcity=? OR shippingcountry=? ";
                 
                 pst=conn.prepareStatement(sql);
                 pst.setString(1, Field_Search.getText());
+                pst.setString(2, Field_Search.getText());
+                pst.setString(3, Field_Search.getText());
+                pst.setString(4, Field_Search.getText());
+                pst.setString(5, Field_Search.getText());
+                pst.setString(6, Field_Search.getText());
+                pst.setString(7, Field_Search.getText());
+                pst.setString(8, Field_Search.getText());
+                pst.setString(9, Field_Search.getText());
+                pst.setString(10, Field_Search.getText());
+                pst.setString(11, Field_Search.getText());
+                
+                
                 
                 rs=pst.executeQuery();
                 if(rs.next()){
-                    String add1=rs.getString("clientID");
+                 
                     
                     String add2=rs.getString("name");
                     Field_FirstName.setText(add2);
