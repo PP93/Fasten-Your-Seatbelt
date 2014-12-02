@@ -1,4 +1,5 @@
 package fys;
+import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.*;
 import net.proteanit.sql.DbUtils;
@@ -496,13 +497,13 @@ private void Update_table(){
         try{
             
             pst = conn.prepareStatement(sql); 
-            //DIT GAAT FOUT, MAAR JE MAG ECHT NIET EMPLOYEE-ID AANPASSEN
-            //pst.setString(1, Field_employeeID.getText());
+            
+            pst.setString(1, Field_FirstName.getText());
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Deleted");
             
-        }catch(Exception e){
+        }catch(SQLException | HeadlessException e){
             
            JOptionPane.showMessageDialog(null, e);
             
