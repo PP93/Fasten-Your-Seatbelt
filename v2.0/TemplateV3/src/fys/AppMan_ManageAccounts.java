@@ -493,7 +493,7 @@ private void Update_table(){
         if(p==0){
             
         
-        String sql="delete from employee where name=?";
+        String sql="delete from employee where employeeID=?";
         try{
             
             pst = conn.prepareStatement(sql); 
