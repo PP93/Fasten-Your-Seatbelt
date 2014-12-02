@@ -182,13 +182,13 @@ public class Login extends javax.swing.JPanel {
                 employeeFunction = rs.getString("function");
                 switch (employeeFunction) {
                     case "application manager"://Change this value to whatever is in the database.
-                        FYS.getInstance().showPage(new AppMan_NewAccount());
+                        FYS.getInstance().showPage(new AppMan_Home());
                         break;
                     case "manager":
-                        FYS.getInstance().showPage(new Man_Graphs());
+                        FYS.getInstance().showPage(new Man_Home());
                         break;
                     case "service desk employee":
-                        FYS.getInstance().showPage(new SerDesEmp_NewCase());
+                        FYS.getInstance().showPage(new SerDesEmp_Home());
                         break;
                     default:
                         break;
@@ -235,13 +235,13 @@ public class Login extends javax.swing.JPanel {
                 employeeFunction = rs.getString("function");
                 switch (employeeFunction) {
                     case "application manager"://Change this value to whatever is in the database.
-                        FYS.getInstance().showPage(new AppMan_NewAccount());
+                        FYS.getInstance().showPage(new AppMan_Home());
                         break;
                     case "manager":
-                        FYS.getInstance().showPage(new Man_Graphs());
+                        FYS.getInstance().showPage(new Man_Home());
                         break;
                     case "service desk employee":
-                        FYS.getInstance().showPage(new SerDesEmp_NewCase());
+                        FYS.getInstance().showPage(new SerDesEmp_Home());
                         break;
                     default:
                         break;
