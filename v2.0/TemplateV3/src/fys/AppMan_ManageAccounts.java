@@ -12,10 +12,10 @@ PreparedStatement pst=null;
     public AppMan_ManageAccounts() {
         initComponents();
         conn=javaconnect.ConnecrDb();
-        Update_table();
         
         Panel_Manual.setVisible(false);
         Panel_Manual.setEnabled(false);
+        Update_table();
     }
 private void Update_table(){
     try{
@@ -453,7 +453,7 @@ private void Update_table(){
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype="servicedesk employee";
+        accounttype="service desk employee";
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
 
     private void Table_AccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_AccountsMouseClicked
@@ -465,18 +465,18 @@ private void Update_table(){
            rs=pst.executeQuery();
            if(rs.next()){
 
-               String add2 =rs.getString("name");
-               Field_FirstName.setText(add2);
-               String add3 =rs.getString("lastname");
-               Field_LastName.setText(add3);
-               String add4 =rs.getString("username");
-               Field_Username.setText(add4);
-               String add5 =rs.getString("password");
-               Field_Password.setText(add5);
-               String add6 =rs.getString("email");
-               Field_Email.setText(add6);
-               String add7 =rs.getString("phonenumber");
-               Field_PhoneNumber.setText(add7);
+               String add1 =rs.getString("name");
+               Field_FirstName.setText(add1);
+               String add2 =rs.getString("lastname");
+               Field_LastName.setText(add2);
+               String add3 =rs.getString("username");
+               Field_Username.setText(add3);
+               String add4 =rs.getString("password");
+               Field_Password.setText(add4);
+               String add5 =rs.getString("email");
+               Field_Email.setText(add5);
+               String add6 =rs.getString("phonenumber");
+               Field_PhoneNumber.setText(add6);
                
            }
        }catch(Exception e){
@@ -521,19 +521,19 @@ private void Update_table(){
     }//GEN-LAST:event_Button_ResetChangesMouseEntered
 
     private void Button_SaveChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseClicked
-        try {
+             try {
             
 
             
-            String value2= Field_FirstName.getText();
-            String value3= Field_LastName.getText();
-            String value4= Field_Username.getText();
-            String value5= Field_Password.getText();
-            String value6= Field_Email.getText();
-            String value7= Field_PhoneNumber.getText();
-            String value8= accounttype;
+            String value1= Field_FirstName.getText();
+            String value2= Field_LastName.getText();
+            String value3= Field_Username.getText();
+            String value4= Field_Password.getText();
+            String value5= Field_Email.getText();
+            String value6= Field_PhoneNumber.getText();
+
             
-            String sql="update employee set name = '"+value2+"',lastname = '"+value3+"',username = '"+value4+"',password = '"+value5+"',email = '"+value6+"' ,phonenumber = '"+value7+"',function = '"+value8+"' where employeeID='"+value2+"' ";
+            String sql="update employee set name = '"+value1+"',lastname = '"+value2+"',username = '"+value3+"',password = '"+value4+"',email = '"+value5+"' ,phonenumber = '"+value6+"' where name='"+value1+"' ";
             pst=conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated"); 
@@ -544,6 +544,9 @@ private void Update_table(){
             JOptionPane.showMessageDialog(null, e);    
         }
         Update_table();
+                                               
+
+    
     }//GEN-LAST:event_Button_SaveChangesMouseClicked
 
     private void Button_ResetChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseClicked
@@ -565,20 +568,19 @@ private void Update_table(){
                 
                 rs=pst.executeQuery();
                 if(rs.next()){
-                    String add1=rs.getString("employeeID");
                     
-                    String add2=rs.getString("name");
-                    Field_FirstName.setText(add2);
-                    String add3=rs.getString("lastname");
-                    Field_LastName.setText(add3);
-                    String add4=rs.getString("username");
-                    Field_Username.setText(add4);
-                    String add5=rs.getString("password");
-                    Field_Password.setText(add5);
-                    String add6=rs.getString("email");
-                    Field_Email.setText(add6);
-                    String add7=rs.getString("phonenumber");
-                    Field_PhoneNumber.setText(add7);
+                    String add1=rs.getString("name");
+                    Field_FirstName.setText(add1);
+                    String add2=rs.getString("lastname");
+                    Field_LastName.setText(add2);
+                    String add3=rs.getString("username");
+                    Field_Username.setText(add3);
+                    String add4=rs.getString("password");
+                    Field_Password.setText(add4);
+                    String add5=rs.getString("email");
+                    Field_Email.setText(add5);
+                    String add6=rs.getString("phonenumber");
+                    Field_PhoneNumber.setText(add6);
                 }
         }
         catch(Exception e){

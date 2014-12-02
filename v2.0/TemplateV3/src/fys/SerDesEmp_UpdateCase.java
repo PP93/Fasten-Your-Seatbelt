@@ -3,7 +3,6 @@ package fys;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -363,7 +362,7 @@ private void Update_table(){
         add(Field_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 330, 230, 100));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Save.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Save.setForeground(new java.awt.Color(255, 255, 255));
         Button_Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Save.setText("Save");
@@ -381,10 +380,10 @@ private void Update_table(){
                 Button_SaveMouseExited(evt);
             }
         });
-        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, 130, -1));
+        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, 130, 30));
 
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
         Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Reset.setText("Reset");
@@ -402,7 +401,7 @@ private void Update_table(){
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 590, 130, -1));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 590, 130, 30));
 
         Tab_NewCase.setBackground(new java.awt.Color(156, 0, 0));
         Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -486,7 +485,7 @@ private void Update_table(){
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, 250, 40));
 
         Button_PDF.setBackground(new java.awt.Color(34, 153, 68));
-        Button_PDF.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_PDF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_PDF.setForeground(new java.awt.Color(255, 255, 255));
         Button_PDF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_PDF.setText("Make PDF");
@@ -504,7 +503,7 @@ private void Update_table(){
                 Button_PDFMouseExited(evt);
             }
         });
-        add(Button_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 130, -1));
+        add(Button_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 130, 30));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));

@@ -13,10 +13,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-/**
- *
- * @author Leslie Fellensiek
- */
+
 public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
     Connection conn = null;
@@ -30,16 +27,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Panel_Manual.setEnabled(false);
     }
 
-    private void Update_table() {
-        try {
-            String sql = "select * from bagage";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            Table_ExtraBaggage.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
