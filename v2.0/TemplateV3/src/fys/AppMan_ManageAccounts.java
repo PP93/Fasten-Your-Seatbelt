@@ -1,33 +1,46 @@
 package fys;
+
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 
 public class AppMan_ManageAccounts extends javax.swing.JPanel {
-Connection conn=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    boolean radiobuttonSelected = false;
 
     public AppMan_ManageAccounts() {
         initComponents();
-        conn=javaconnect.ConnecrDb();
-        
+        conn = javaconnect.ConnecrDb();
+
         Panel_Manual.setVisible(false);
         Panel_Manual.setEnabled(false);
+
+        emptyfield_warning.setVisible(false);
+        emptyfield_warning.setEnabled(false);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(Radio_ApplicationManager);
+        group.add(Radio_Manager);
+        group.add(Radio_ServiceDeskEmployee);
+
         Update_table();
     }
-private void Update_table(){
-    try{
-    String sql = "select * from employee";
-    pst=conn.prepareStatement(sql);
-    rs=pst.executeQuery();
-    Table_Accounts.setModel(DbUtils.resultSetToTableModel(rs));
+
+    private void Update_table() {
+        try {
+            String sql = "select * from employee";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            Table_Accounts.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
-    catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
-    }
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +54,7 @@ private void Update_table(){
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
+        emptyfield_warning = new javax.swing.JLabel();
         ScrollPane_Accounts = new javax.swing.JScrollPane();
         Table_Accounts = new javax.swing.JTable();
         Button_DeleteAccount = new javax.swing.JLabel();
@@ -99,6 +113,11 @@ private void Update_table(){
         Label_Search.setForeground(new java.awt.Color(153, 0, 0));
         Label_Search.setText("Search Employee ID:");
         add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
+        emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
+        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 560, -1, -1));
 
         ScrollPane_Accounts.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -159,27 +178,27 @@ private void Update_table(){
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
-        Label_AccountType.setText("Account Type:");
+        Label_AccountType.setText("Account Type: *");
         add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName.setText("Employee ID:");
+        Label_FirstName.setText("Employee ID: *");
         add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_LastName.setText("Last Name:");
+        Label_LastName.setText("Last Name: *");
         add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 360, -1, -1));
 
         Label_Username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Username.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Username.setText("Username:");
+        Label_Username.setText("Username: *");
         add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 400, -1, -1));
 
         Label_Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Password.setText("Password:");
+        Label_Password.setText("Password: *");
         add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 440, -1, -1));
 
         Label_EmailAddress.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -194,7 +213,7 @@ private void Update_table(){
 
         Label_FirstName1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName1.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName1.setText("First Name:");
+        Label_FirstName1.setText("First Name: *");
         add(Label_FirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
 
         Radio_ServiceDeskEmployee.setBackground(new java.awt.Color(255, 255, 255));
@@ -301,7 +320,7 @@ private void Update_table(){
                 Button_SaveChangesMouseExited(evt);
             }
         });
-        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 580, 170, -1));
+        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 590, 170, -1));
 
         Button_ResetChanges.setBackground(new java.awt.Color(34, 153, 68));
         Button_ResetChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -322,7 +341,7 @@ private void Update_table(){
                 Button_ResetChangesMouseExited(evt);
             }
         });
-        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 580, 180, -1));
+        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 590, 180, -1));
 
         Tab_NewAccount.setBackground(new java.awt.Color(156, 10, 13));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -433,7 +452,7 @@ private void Update_table(){
 
 
     private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
-        accounttype="application manager";
+        accounttype = "application manager";
     }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
@@ -469,65 +488,64 @@ private void Update_table(){
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype="service desk employee";
+        accounttype = "service desk employee";
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
 
     private void Table_AccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_AccountsMouseClicked
-       try {
-           int row =Table_Accounts.getSelectedRow();
-           String Table_click=(Table_Accounts.getModel().getValueAt(row, 0).toString());
-           String sql ="select * from employee where employeeID='"+Table_click+"' ";
-           pst=conn.prepareStatement(sql);
-           rs=pst.executeQuery();
-           if(rs.next()){
+        try {
+            int row = Table_Accounts.getSelectedRow();
+            String Table_click = (Table_Accounts.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from employee where employeeID='" + Table_click + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
 
-               String add1 =rs.getString("employeeID");
-               Field_EmployeeID.setText(add1);
-               Field_EmployeeID.setEditable(false);
-               String add2 =rs.getString("name");
-               Field_FirstName.setText(add2);
-               String add3 =rs.getString("lastname");
-               Field_LastName.setText(add3);
-               String add4 =rs.getString("username");
-               Field_Username.setText(add4);
-               String add5 =rs.getString("password");
-               Field_Password.setText(add5);
-               String add6 =rs.getString("email");
-               Field_Email.setText(add6);
-               String add7 =rs.getString("phonenumber");
-               Field_PhoneNumber.setText(add7);
-               
-           }
-       }catch(Exception e){
-           
-           JOptionPane.showMessageDialog(null, e);
-           
-       }
-      
-      
+                String add1 = rs.getString("employeeID");
+                Field_EmployeeID.setText(add1);
+                Field_EmployeeID.setEditable(false);
+                String add2 = rs.getString("name");
+                Field_FirstName.setText(add2);
+                String add3 = rs.getString("lastname");
+                Field_LastName.setText(add3);
+                String add4 = rs.getString("username");
+                Field_Username.setText(add4);
+                String add5 = rs.getString("password");
+                Field_Password.setText(add5);
+                String add6 = rs.getString("email");
+                Field_Email.setText(add6);
+                String add7 = rs.getString("phonenumber");
+                Field_PhoneNumber.setText(add7);
+
+            }
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+
     }//GEN-LAST:event_Table_AccountsMouseClicked
 
     private void Button_DeleteAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteAccountMouseClicked
-       int p = JOptionPane.showConfirmDialog(null, "Do you really want to delete this account?","Delete Account",JOptionPane.YES_NO_OPTION );
-        if(p==0){
-            
-        
-        String sql="delete from employee where name=?";
-        try{
-            
-            pst = conn.prepareStatement(sql); 
-            
-            pst.setString(1, Field_FirstName.getText());
-            
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Deleted");
-            
-        }catch(SQLException | HeadlessException e){
-            
-           JOptionPane.showMessageDialog(null, e);
-            
-        }
-        Update_table();
+        int p = JOptionPane.showConfirmDialog(null, "Do you really want to delete this account?", "Delete Account", JOptionPane.YES_NO_OPTION);
+        if (p == 0) {
+
+            String sql = "delete from employee where name=?";
+            try {
+
+                pst = conn.prepareStatement(sql);
+
+                pst.setString(1, Field_FirstName.getText());
+
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Deleted");
+
+            } catch (SQLException | HeadlessException e) {
+
+                JOptionPane.showMessageDialog(null, e);
+
+            }
+            Update_table();
         }
     }//GEN-LAST:event_Button_DeleteAccountMouseClicked
 
@@ -539,43 +557,45 @@ private void Update_table(){
         Button_ResetChanges.setBackground(new java.awt.Color(51, 136, 68));
     }//GEN-LAST:event_Button_ResetChangesMouseEntered
 
-    
 
-    
     private void Button_SaveChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseClicked
-             try {
-            
+        radiobuttonSelected = Radio_ApplicationManager.isSelected() || Radio_Manager.isSelected() || Radio_ServiceDeskEmployee.isSelected();
 
-            String value1= Field_EmployeeID.getText();
-            Field_EmployeeID.setEditable(false);
-            String value2= Field_FirstName.getText();
-            String value3= Field_LastName.getText();
-            String value4= Field_Username.getText();
-            String value5= Field_Password.getText();
-            String value6= Field_Email.getText();
-            String value7= Field_PhoneNumber.getText();
-            
-            
+        if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_Username.getText().equals("") || Field_Password.getText().equals("") || radiobuttonSelected == false) {
+            emptyfield_warning.setVisible(true);
+            emptyfield_warning.setEnabled(true);
+        } else {
+            try {
 
-            
-            String sql="update employee set employeeID = '"+value1+"',name = '"+value2+"',lastname = '"+value3+"',username = '"+value4+"',password = '"+value5+"' ,email = '"+value6+"',phonenumber = '"+value7+"' where employeeID='"+value1+"' ";
-            pst=conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Updated"); 
-            
-            
-        }catch(Exception e) {
-            
-            JOptionPane.showMessageDialog(null, e);    
+                String value1 = Field_EmployeeID.getText();
+                Field_EmployeeID.setEditable(false);
+                String value2 = Field_FirstName.getText();
+                String value3 = Field_LastName.getText();
+                String value4 = Field_Username.getText();
+                String value5 = Field_Password.getText();
+                String value6 = Field_Email.getText();
+                String value7 = Field_PhoneNumber.getText();
+
+                String sql = "update employee set employeeID = '" + value1 + "',name = '" + value2 + "',lastname = '" + value3 + "',username = '" + value4 + "',password = '" + value5 + "' ,email = '" + value6 + "',phonenumber = '" + value7 + "' where employeeID='" + value1 + "' ";
+                pst = conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Updated");
+                emptyfield_warning.setVisible(false);
+                emptyfield_warning.setEnabled(false);
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, e);
+            }
+            Update_table();
+
         }
-        Update_table();
-                                               
 
-    
+
     }//GEN-LAST:event_Button_SaveChangesMouseClicked
 
     private void Button_ResetChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseClicked
-        
+
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_Username.setText("");
@@ -585,38 +605,37 @@ private void Update_table(){
     }//GEN-LAST:event_Button_ResetChangesMouseClicked
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
-        try{
-                String sql ="select * from employee where employeeID=?";
-                
-                pst=conn.prepareStatement(sql);
-                pst.setString(1, Field_Search.getText());
-                
-                rs=pst.executeQuery();
-                if(rs.next()){
-                    
-                    String add1=rs.getString("name");
-                    Field_FirstName.setText(add1);
-                    String add2=rs.getString("lastname");
-                    Field_LastName.setText(add2);
-                    String add3=rs.getString("username");
-                    Field_Username.setText(add3);
-                    String add4=rs.getString("password");
-                    Field_Password.setText(add4);
-                    String add5=rs.getString("email");
-                    Field_Email.setText(add5);
-                    String add6=rs.getString("phonenumber");
-                    Field_PhoneNumber.setText(add6);
-                }
-        }
-        catch(Exception e){
-            
+        try {
+            String sql = "select * from employee where employeeID=?";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, Field_Search.getText());
+
+            rs = pst.executeQuery();
+            if (rs.next()) {
+
+                String add1 = rs.getString("name");
+                Field_FirstName.setText(add1);
+                String add2 = rs.getString("lastname");
+                Field_LastName.setText(add2);
+                String add3 = rs.getString("username");
+                Field_Username.setText(add3);
+                String add4 = rs.getString("password");
+                Field_Password.setText(add4);
+                String add5 = rs.getString("email");
+                Field_Email.setText(add5);
+                String add6 = rs.getString("phonenumber");
+                Field_PhoneNumber.setText(add6);
+            }
+        } catch (Exception e) {
+
             JOptionPane.showMessageDialog(null, e);
-        }      
-          
+        }
+
     }//GEN-LAST:event_Field_SearchKeyReleased
 
     private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
-      accounttype="manager";
+        accounttype = "manager";
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
     private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
@@ -689,8 +708,9 @@ private void Update_table(){
     private javax.swing.JLabel Tab_NewAccount;
     private javax.swing.JTable Table_Accounts;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel emptyfield_warning;
     // End of variables declaration//GEN-END:variables
 
-private String accounttype;
+    private String accounttype;
 
 }

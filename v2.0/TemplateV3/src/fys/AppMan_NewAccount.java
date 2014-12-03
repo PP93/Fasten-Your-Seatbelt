@@ -432,6 +432,9 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Saved");
+                
+                emptyfield_warning.setVisible(false);
+                emptyfield_warning.setEnabled(false);
 
             } catch (SQLException | HeadlessException e) {
 
