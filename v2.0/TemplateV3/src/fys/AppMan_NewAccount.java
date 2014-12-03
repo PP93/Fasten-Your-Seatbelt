@@ -409,7 +409,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype = "servicedesk employee";
+        accounttype = "service desk employee";
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
@@ -452,7 +452,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Field_FirstNameActionPerformed
 
     private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
-        accounttype = "application manager";
+        accounttype = "manager";
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
