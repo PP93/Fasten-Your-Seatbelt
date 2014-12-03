@@ -137,7 +137,7 @@ private void Update_table(){
         add(ScrollPane_Accounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 690, 290));
 
         Button_DeleteAccount.setBackground(new java.awt.Color(34, 153, 68));
-        Button_DeleteAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_DeleteAccount.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_DeleteAccount.setForeground(new java.awt.Color(255, 255, 255));
         Button_DeleteAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_DeleteAccount.setText("Delete Account");
@@ -155,7 +155,7 @@ private void Update_table(){
                 Button_DeleteAccountMouseExited(evt);
             }
         });
-        add(Button_DeleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 220, -1));
+        add(Button_DeleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 220, 30));
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
@@ -243,6 +243,9 @@ private void Update_table(){
         Field_Search.setForeground(new java.awt.Color(153, 0, 0));
         Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Field_SearchKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Field_SearchKeyReleased(evt);
             }
@@ -283,7 +286,7 @@ private void Update_table(){
         add(Field_EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 280, 210, 30));
 
         Button_SaveChanges.setBackground(new java.awt.Color(34, 153, 68));
-        Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_SaveChanges.setForeground(new java.awt.Color(255, 255, 255));
         Button_SaveChanges.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_SaveChanges.setText("Save Changes");
@@ -301,10 +304,10 @@ private void Update_table(){
                 Button_SaveChangesMouseExited(evt);
             }
         });
-        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 580, 170, -1));
+        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 580, 170, 30));
 
         Button_ResetChanges.setBackground(new java.awt.Color(34, 153, 68));
-        Button_ResetChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_ResetChanges.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_ResetChanges.setForeground(new java.awt.Color(255, 255, 255));
         Button_ResetChanges.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_ResetChanges.setText("Reset Changes");
@@ -322,7 +325,7 @@ private void Update_table(){
                 Button_ResetChangesMouseExited(evt);
             }
         });
-        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 580, 180, -1));
+        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 580, 180, 30));
 
         Tab_NewAccount.setBackground(new java.awt.Color(156, 10, 13));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -576,6 +579,7 @@ private void Update_table(){
 
     private void Button_ResetChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseClicked
         
+        Field_EmployeeID.setText("");
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_Username.setText("");
@@ -586,27 +590,36 @@ private void Update_table(){
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
         try{
-                String sql ="select * from employee where employeeID=?";
+                String sql ="select * from employee where employeeID=? OR name=? OR lastname=? OR username=? OR email=? OR phonenumber=?";
                 
                 pst=conn.prepareStatement(sql);
                 pst.setString(1, Field_Search.getText());
+                pst.setString(2, Field_Search.getText());
+                pst.setString(3, Field_Search.getText());
+                pst.setString(4, Field_Search.getText());
+                pst.setString(5, Field_Search.getText());
+                pst.setString(6, Field_Search.getText());
+               
+                
                 
                 rs=pst.executeQuery();
                 if(rs.next()){
                     
-                    String add1=rs.getString("name");
-                    Field_FirstName.setText(add1);
-                    String add2=rs.getString("lastname");
-                    Field_LastName.setText(add2);
-                    String add3=rs.getString("username");
-                    Field_Username.setText(add3);
-                    String add4=rs.getString("password");
-                    Field_Password.setText(add4);
+                    
+                    String add1=rs.getString("employeeID");
+                    Field_EmployeeID.setText(add1);
+                    String add2=rs.getString("name");
+                    Field_FirstName.setText(add2);
+                    String add3=rs.getString("lastname");
+                    Field_LastName.setText(add3);
+                    String add4=rs.getString("username");
+                    Field_Username.setText(add4);
                     String add5=rs.getString("email");
                     Field_Email.setText(add5);
                     String add6=rs.getString("phonenumber");
                     Field_PhoneNumber.setText(add6);
-                }
+                     
+               }
         }
         catch(Exception e){
             
@@ -650,6 +663,10 @@ private void Update_table(){
     private void Field_EmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_EmployeeIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Field_EmployeeIDActionPerformed
+
+    private void Field_SearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Field_SearchKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
