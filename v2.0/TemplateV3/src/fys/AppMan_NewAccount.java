@@ -1,4 +1,5 @@
 package fys;
+
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.*;
@@ -6,17 +7,19 @@ import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
 
 public class AppMan_NewAccount extends javax.swing.JPanel {
-Connection conn=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
-   
-public AppMan_NewAccount() {
+
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    boolean radiobuttonSelected = false;
+
+    public AppMan_NewAccount() {
         initComponents();
-        conn=javaconnect.ConnecrDb();
-        
+        conn = javaconnect.ConnecrDb();
+
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
-        
+
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
 
@@ -362,7 +365,7 @@ public AppMan_NewAccount() {
     }//GEN-LAST:event_Button_ResetMouseExited
 
     private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
-        accounttype="application manager";
+        accounttype = "application manager";
     }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
     private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
@@ -404,37 +407,39 @@ public AppMan_NewAccount() {
     }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype="servicedesk employee";
+        accounttype = "servicedesk employee";
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
-        try {
-            
-            
-            String sql= "insert into employee (name,lastname,username,password,email,phonenumber,function)value(?,?,?,?,?,?,?)";
-            pst=conn.prepareStatement(sql);
-            
-            pst.setString(1, Field_FirstName.getText());
-            pst.setString(2, Field_LastName.getText());
-            pst.setString(3, Field_Username.getText());
-            pst.setString(4, Field_Password.getText());
-            pst.setString(5, Field_Email.getText());
-            pst.setString(6, Field_PhoneNumber.getText());
-            pst.setString(7, accounttype);
-            
-            
-            
-            
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Saved"); 
-            
-            
-        }catch(SQLException | HeadlessException e) {
-            
-            JOptionPane.showMessageDialog(null, e);    
+        radiobuttonSelected = Radio_ApplicationManager.isSelected() || Radio_Manager.isSelected() || Radio_ServiceDeskEmployee.isSelected();
+
+        if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_Username.getText().equals("") || Field_Password.getText().equals("") || radiobuttonSelected == false) {
+            emptyfield_warning.setVisible(true);
+            emptyfield_warning.setEnabled(true);
+        } else {
+            try {
+
+                String sql = "insert into employee (name,lastname,username,password,email,phonenumber,function)value(?,?,?,?,?,?,?)";
+                pst = conn.prepareStatement(sql);
+
+                pst.setString(1, Field_FirstName.getText());
+                pst.setString(2, Field_LastName.getText());
+                pst.setString(3, Field_Username.getText());
+                pst.setString(4, Field_Password.getText());
+                pst.setString(5, Field_Email.getText());
+                pst.setString(6, Field_PhoneNumber.getText());
+                pst.setString(7, accounttype);
+
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Saved");
+
+            } catch (SQLException | HeadlessException e) {
+
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
-        
-                                          
+
+
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Field_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_FirstNameActionPerformed
@@ -442,11 +447,11 @@ public AppMan_NewAccount() {
     }//GEN-LAST:event_Field_FirstNameActionPerformed
 
     private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
-        accounttype="application manager";
+        accounttype = "application manager";
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-              
+
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_Username.setText("");
