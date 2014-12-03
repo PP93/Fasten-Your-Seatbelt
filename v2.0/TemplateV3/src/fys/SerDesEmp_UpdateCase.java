@@ -155,7 +155,7 @@ private void Update_table(){
         Label_Date.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Date.setForeground(new java.awt.Color(153, 0, 0));
         Label_Date.setText("Registration Date:");
-        add(Label_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 520, 140, -1));
+        add(Label_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 510, 140, 20));
 
         Field_Date.setForeground(new java.awt.Color(153, 0, 0));
         Field_Date.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -287,7 +287,7 @@ private void Update_table(){
         Field_Description.setColumns(20);
         Field_Description.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         Field_Description.setRows(5);
-        Field_Description.setBorder(null);
+        Field_Description.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.lightGray));
         jScrollPane1.setViewportView(Field_Description);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 340, 230, 120));
