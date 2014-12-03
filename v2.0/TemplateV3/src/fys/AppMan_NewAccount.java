@@ -1,5 +1,4 @@
 package fys;
-
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.*;
@@ -7,25 +6,18 @@ import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
 
 public class AppMan_NewAccount extends javax.swing.JPanel {
-
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-    boolean radiobuttonSelected = false;
-
-    public AppMan_NewAccount() {
+Connection conn=null;
+ResultSet rs=null;
+PreparedStatement pst=null;
+   
+public AppMan_NewAccount() {
         initComponents();
-        conn = javaconnect.ConnecrDb();
-
+        conn=javaconnect.ConnecrDb();
+        
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
-        emptyfield_warning.setVisible(false);
-        emptyfield_warning.setEnabled(false);
-
-        ButtonGroup group = new ButtonGroup();
-        group.add(Radio_ApplicationManager);
-        group.add(Radio_Manager);
-        group.add(Radio_ServiceDeskEmployee);
+        
+        
     }
 
     /**
@@ -40,7 +32,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
-        emptyfield_warning = new javax.swing.JLabel();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
@@ -89,11 +80,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
-        emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
-        emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
-        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, -1, -1));
-
         Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Manual_Panel.setEnabled(false);
         Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,27 +110,27 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
-        Label_AccountType.setText("Account Type: *");
+        Label_AccountType.setText("Account Type:");
         add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName.setText("First Name: *");
+        Label_FirstName.setText("First Name:");
         add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_LastName.setText("Last Name: *");
+        Label_LastName.setText("Last Name:");
         add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         Label_Username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Username.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Username.setText("Username: *");
+        Label_Username.setText("Username:");
         add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, -1, -1));
 
         Label_Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Password.setText("Password: *");
+        Label_Password.setText("Password:");
         add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
         Label_Email.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -248,7 +234,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 560, 130, -1));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 130, -1));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
         Button_Save.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -269,7 +255,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 Button_SaveMouseExited(evt);
             }
         });
-        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 560, 130, -1));
+        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 130, -1));
 
         Tab_NewAccount.setBackground(new java.awt.Color(255, 255, 255));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -364,7 +350,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_ResetMouseExited
 
     private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
-        accounttype = "application manager";
+        accounttype="application manager";
     }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
     private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
@@ -406,39 +392,37 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype = "servicedesk employee";
+        accounttype="servicedesk employee";
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
-        radiobuttonSelected = Radio_ApplicationManager.isSelected() || Radio_Manager.isSelected() || Radio_ServiceDeskEmployee.isSelected();
-
-        if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_Username.getText().equals("") || Field_Password.getText().equals("") || radiobuttonSelected == false) {
-            emptyfield_warning.setVisible(true);
-            emptyfield_warning.setEnabled(true);
-        } else {
-            try {
-
-                String sql = "insert into employee (name,lastname,username,password,email,phonenumber,function)value(?,?,?,?,?,?,?)";
-                pst = conn.prepareStatement(sql);
-
-                pst.setString(1, Field_FirstName.getText());
-                pst.setString(2, Field_LastName.getText());
-                pst.setString(3, Field_Username.getText());
-                pst.setString(4, Field_Password.getText());
-                pst.setString(5, Field_Email.getText());
-                pst.setString(6, Field_PhoneNumber.getText());
-                pst.setString(7, accounttype);
-
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Saved");
-                emptyfield_warning.setVisible(false);
-                emptyfield_warning.setEnabled(false);
-
-            } catch (SQLException | HeadlessException e) {
-
-                JOptionPane.showMessageDialog(null, e);
-            }
+        try {
+            
+            
+            String sql= "insert into employee (name,lastname,username,password,email,phonenumber,function)value(?,?,?,?,?,?,?)";
+            pst=conn.prepareStatement(sql);
+            
+            pst.setString(1, Field_FirstName.getText());
+            pst.setString(2, Field_LastName.getText());
+            pst.setString(3, Field_Username.getText());
+            pst.setString(4, Field_Password.getText());
+            pst.setString(5, Field_Email.getText());
+            pst.setString(6, Field_PhoneNumber.getText());
+            pst.setString(7, accounttype);
+            
+            
+            
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Saved"); 
+            
+            
+        }catch(SQLException | HeadlessException e) {
+            
+            JOptionPane.showMessageDialog(null, e);    
         }
+        
+                                          
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Field_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_FirstNameActionPerformed
@@ -446,11 +430,11 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Field_FirstNameActionPerformed
 
     private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
-        accounttype = "application manager";
+        accounttype="application manager";
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-
+              
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_Username.setText("");
@@ -504,7 +488,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_ManageAccounts;
     private javax.swing.JLabel Tab_NewAccount;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel emptyfield_warning;
     // End of variables declaration//GEN-END:variables
 private String accounttype;
 }
