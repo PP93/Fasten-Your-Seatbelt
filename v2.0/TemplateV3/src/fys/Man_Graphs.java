@@ -97,10 +97,11 @@ public class Man_Graphs extends javax.swing.JPanel {
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Button_GenerateGraph.setBackground(new java.awt.Color(34, 153, 68));
-        Button_GenerateGraph.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_GenerateGraph.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Button_GenerateGraph.setForeground(new java.awt.Color(255, 255, 255));
         Button_GenerateGraph.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_GenerateGraph.setText("Generate Graph");
+        Button_GenerateGraph.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_GenerateGraph.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_GenerateGraph.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_GenerateGraph.setOpaque(true);

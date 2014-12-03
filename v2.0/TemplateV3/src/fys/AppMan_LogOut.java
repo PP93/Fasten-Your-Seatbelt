@@ -87,10 +87,11 @@ public class AppMan_LogOut extends javax.swing.JPanel {
         add(Label_Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
 
         Button_No.setBackground(new java.awt.Color(34, 153, 68));
-        Button_No.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_No.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_No.setForeground(new java.awt.Color(255, 255, 255));
         Button_No.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_No.setText("No");
+        Button_No.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_No.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_No.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_No.setOpaque(true);
@@ -105,13 +106,14 @@ public class AppMan_LogOut extends javax.swing.JPanel {
                 Button_NoMouseExited(evt);
             }
         });
-        add(Button_No, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 130, -1));
+        add(Button_No, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 130, 30));
 
         Button_Yes.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Yes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Yes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Yes.setForeground(new java.awt.Color(255, 255, 255));
         Button_Yes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Yes.setText("Yes");
+        Button_Yes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_Yes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Yes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_Yes.setOpaque(true);
@@ -126,7 +128,7 @@ public class AppMan_LogOut extends javax.swing.JPanel {
                 Button_YesMouseExited(evt);
             }
         });
-        add(Button_Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 130, -1));
+        add(Button_Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 130, 30));
 
         Tab_NewAccount.setBackground(new java.awt.Color(156, 10, 13));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N

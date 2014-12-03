@@ -55,6 +55,10 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_CallManual = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
         emptyfield_warning = new javax.swing.JLabel();
+        Panel_Manual = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
         ScrollPane_Accounts = new javax.swing.JScrollPane();
         Table_Accounts = new javax.swing.JTable();
         Button_DeleteAccount = new javax.swing.JLabel();
@@ -83,10 +87,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Tab_ManageAccounts = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
-        Panel_Manual = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -111,13 +111,41 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
         Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Search.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Search.setText("Search Employee ID:");
+        Label_Search.setText("Search Employee:");
         add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
         add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 560, -1, -1));
+
+        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Panel_Manual.setEnabled(false);
+        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any  changes back to their original status with the 'Reset' button, and you can permanently save any changes you've made with the 'Save Changes' button.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         ScrollPane_Accounts.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -156,10 +184,11 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         add(ScrollPane_Accounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 690, 290));
 
         Button_DeleteAccount.setBackground(new java.awt.Color(34, 153, 68));
-        Button_DeleteAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_DeleteAccount.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_DeleteAccount.setForeground(new java.awt.Color(255, 255, 255));
         Button_DeleteAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_DeleteAccount.setText("Delete Account");
+        Button_DeleteAccount.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_DeleteAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_DeleteAccount.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_DeleteAccount.setOpaque(true);
@@ -174,7 +203,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Button_DeleteAccountMouseExited(evt);
             }
         });
-        add(Button_DeleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 220, -1));
+        add(Button_DeleteAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 220, 30));
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
@@ -266,7 +295,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Field_SearchKeyReleased(evt);
             }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 210, 30));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, 30));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -302,10 +331,11 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         add(Field_EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 280, 210, 30));
 
         Button_SaveChanges.setBackground(new java.awt.Color(34, 153, 68));
-        Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_SaveChanges.setForeground(new java.awt.Color(255, 255, 255));
         Button_SaveChanges.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_SaveChanges.setText("Save Changes");
+        Button_SaveChanges.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_SaveChanges.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_SaveChanges.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_SaveChanges.setOpaque(true);
@@ -320,13 +350,14 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Button_SaveChangesMouseExited(evt);
             }
         });
-        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 590, 170, -1));
+        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 590, 170, 30));
 
         Button_ResetChanges.setBackground(new java.awt.Color(34, 153, 68));
-        Button_ResetChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_ResetChanges.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_ResetChanges.setForeground(new java.awt.Color(255, 255, 255));
         Button_ResetChanges.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_ResetChanges.setText("Reset Changes");
+        Button_ResetChanges.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_ResetChanges.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_ResetChanges.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_ResetChanges.setOpaque(true);
@@ -341,7 +372,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Button_ResetChangesMouseExited(evt);
             }
         });
-        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 590, 180, -1));
+        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 590, 180, 30));
 
         Tab_NewAccount.setBackground(new java.awt.Color(156, 10, 13));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -412,34 +443,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
-
-        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Panel_Manual.setEnabled(false);
-        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any  changes back to their original status with the 'Reset' button, and you can permanently save any changes you've made with the 'Save Changes' button.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Tab_ManageAccountsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseEntered

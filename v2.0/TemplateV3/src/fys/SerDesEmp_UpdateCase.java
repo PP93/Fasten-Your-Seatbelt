@@ -366,6 +366,7 @@ private void Update_table(){
         Button_Save.setForeground(new java.awt.Color(255, 255, 255));
         Button_Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Save.setText("Save");
+        Button_Save.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_Save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Save.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_Save.setOpaque(true);
@@ -387,6 +388,7 @@ private void Update_table(){
         Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
         Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Reset.setText("Reset");
+        Button_Reset.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_Reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_Reset.setOpaque(true);
@@ -489,6 +491,7 @@ private void Update_table(){
         Button_PDF.setForeground(new java.awt.Color(255, 255, 255));
         Button_PDF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_PDF.setText("Make PDF");
+        Button_PDF.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_PDF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_PDF.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_PDF.setOpaque(true);

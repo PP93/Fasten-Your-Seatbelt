@@ -116,10 +116,11 @@ public class Login extends javax.swing.JPanel {
         add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 520, 30));
 
         Button_LogIn.setBackground(new java.awt.Color(34, 153, 68));
-        Button_LogIn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_LogIn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_LogIn.setForeground(new java.awt.Color(255, 255, 255));
         Button_LogIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_LogIn.setText("Log In");
+        Button_LogIn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_LogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_LogIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_LogIn.setOpaque(true);
@@ -139,7 +140,7 @@ public class Login extends javax.swing.JPanel {
                 Button_LogInKeyPressed(evt);
             }
         });
-        add(Button_LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 130, -1));
+        add(Button_LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 130, 30));
 
         Tab_LogIn.setBackground(new java.awt.Color(255, 255, 255));
         Tab_LogIn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
