@@ -17,7 +17,13 @@ public AppMan_NewAccount() {
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
         
-        
+        emptyfield_warning.setVisible(false);
+        emptyfield_warning.setEnabled(false);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(Radio_ApplicationManager);
+        group.add(Radio_Manager);
+        group.add(Radio_ServiceDeskEmployee);
     }
 
     /**
@@ -31,6 +37,7 @@ public AppMan_NewAccount() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         Label_Logo = new javax.swing.JLabel();
+        emptyfield_warning = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Manual_Panel = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
@@ -71,6 +78,11 @@ public AppMan_NewAccount() {
             }
         });
         add(Label_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 60));
+
+        emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
+        emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
+        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, -1, -1));
 
         Label_CallManual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Label_CallManual.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,7 +246,7 @@ public AppMan_NewAccount() {
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 130, -1));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 560, 130, -1));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
         Button_Save.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -255,7 +267,7 @@ public AppMan_NewAccount() {
                 Button_SaveMouseExited(evt);
             }
         });
-        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 130, -1));
+        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 560, 130, -1));
 
         Tab_NewAccount.setBackground(new java.awt.Color(255, 255, 255));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -488,6 +500,7 @@ public AppMan_NewAccount() {
     private javax.swing.JLabel Tab_ManageAccounts;
     private javax.swing.JLabel Tab_NewAccount;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel emptyfield_warning;
     // End of variables declaration//GEN-END:variables
 private String accounttype;
 }
