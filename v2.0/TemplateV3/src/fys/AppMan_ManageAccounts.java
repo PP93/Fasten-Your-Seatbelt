@@ -40,12 +40,7 @@ private void Update_table(){
         buttonGroup1 = new javax.swing.ButtonGroup();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
-        Panel_Manual = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
-        Field_Search = new javax.swing.JTextField();
         ScrollPane_Accounts = new javax.swing.JScrollPane();
         Table_Accounts = new javax.swing.JTable();
         Button_DeleteAccount = new javax.swing.JLabel();
@@ -56,21 +51,28 @@ private void Update_table(){
         Label_Password = new javax.swing.JLabel();
         Label_EmailAddress = new javax.swing.JLabel();
         Label_PhoneNumber = new javax.swing.JLabel();
+        Label_FirstName1 = new javax.swing.JLabel();
         Radio_ServiceDeskEmployee = new javax.swing.JRadioButton();
         Radio_Manager = new javax.swing.JRadioButton();
         Radio_ApplicationManager = new javax.swing.JRadioButton();
+        Field_Search = new javax.swing.JTextField();
         Field_FirstName = new javax.swing.JTextField();
         Field_LastName = new javax.swing.JTextField();
         Field_Username = new javax.swing.JTextField();
         Field_Password = new javax.swing.JTextField();
         Field_Email = new javax.swing.JTextField();
         Field_PhoneNumber = new javax.swing.JTextField();
+        Field_EmployeeID = new javax.swing.JTextField();
         Button_SaveChanges = new javax.swing.JLabel();
         Button_ResetChanges = new javax.swing.JLabel();
         Tab_NewAccount = new javax.swing.JLabel();
         Tab_ManageAccounts = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
+        Panel_Manual = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -93,47 +95,10 @@ private void Update_table(){
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
-        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Panel_Manual.setEnabled(false);
-        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any  changes back to their original status with the 'Reset' button, and you can permanently save any changes you've made with the 'Save Changes' button.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-
         Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Search.setForeground(new java.awt.Color(153, 0, 0));
         Label_Search.setText("Search Employee ID:");
         add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
-
-        Field_Search.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                Field_SearchKeyReleased(evt);
-            }
-        });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 210, 30));
 
         ScrollPane_Accounts.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -195,12 +160,12 @@ private void Update_table(){
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
         Label_AccountType.setText("Account Type:");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 220, -1, -1));
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName.setText("First Name:");
-        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
+        Label_FirstName.setText("Employee ID:");
+        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
@@ -227,6 +192,11 @@ private void Update_table(){
         Label_PhoneNumber.setText("Phone Number:");
         add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 520, -1, -1));
 
+        Label_FirstName1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_FirstName1.setForeground(new java.awt.Color(153, 0, 0));
+        Label_FirstName1.setText("First Name:");
+        add(Label_FirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
+
         Radio_ServiceDeskEmployee.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_ServiceDeskEmployee);
         Radio_ServiceDeskEmployee.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -240,7 +210,7 @@ private void Update_table(){
                 Radio_ServiceDeskEmployeeActionPerformed(evt);
             }
         });
-        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 220, -1, -1));
+        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 190, -1, -1));
 
         Radio_Manager.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_Manager);
@@ -254,7 +224,7 @@ private void Update_table(){
                 Radio_ManagerActionPerformed(evt);
             }
         });
-        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, -1, -1));
+        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 220, -1, -1));
 
         Radio_ApplicationManager.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_ApplicationManager);
@@ -268,7 +238,16 @@ private void Update_table(){
                 Radio_ApplicationManagerActionPerformed(evt);
             }
         });
-        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 280, -1, -1));
+        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, -1, -1));
+
+        Field_Search.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Field_SearchKeyReleased(evt);
+            }
+        });
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 210, 30));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -293,6 +272,15 @@ private void Update_table(){
         Field_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_PhoneNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 520, 210, 30));
+
+        Field_EmployeeID.setMinimumSize(new java.awt.Dimension(4, 18));
+        Field_EmployeeID.setPreferredSize(new java.awt.Dimension(4, 18));
+        Field_EmployeeID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Field_EmployeeIDActionPerformed(evt);
+            }
+        });
+        add(Field_EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 280, 210, 30));
 
         Button_SaveChanges.setBackground(new java.awt.Color(34, 153, 68));
         Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -405,6 +393,34 @@ private void Update_table(){
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
+
+        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Panel_Manual.setEnabled(false);
+        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any  changes back to their original status with the 'Reset' button, and you can permanently save any changes you've made with the 'Save Changes' button.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Tab_ManageAccountsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseEntered
@@ -465,18 +481,21 @@ private void Update_table(){
            rs=pst.executeQuery();
            if(rs.next()){
 
-               String add1 =rs.getString("name");
-               Field_FirstName.setText(add1);
-               String add2 =rs.getString("lastname");
-               Field_LastName.setText(add2);
-               String add3 =rs.getString("username");
-               Field_Username.setText(add3);
-               String add4 =rs.getString("password");
-               Field_Password.setText(add4);
-               String add5 =rs.getString("email");
-               Field_Email.setText(add5);
-               String add6 =rs.getString("phonenumber");
-               Field_PhoneNumber.setText(add6);
+               String add1 =rs.getString("employeeID");
+               Field_EmployeeID.setText(add1);
+               Field_EmployeeID.setEditable(false);
+               String add2 =rs.getString("name");
+               Field_FirstName.setText(add2);
+               String add3 =rs.getString("lastname");
+               Field_LastName.setText(add3);
+               String add4 =rs.getString("username");
+               Field_Username.setText(add4);
+               String add5 =rs.getString("password");
+               Field_Password.setText(add5);
+               String add6 =rs.getString("email");
+               Field_Email.setText(add6);
+               String add7 =rs.getString("phonenumber");
+               Field_PhoneNumber.setText(add7);
                
            }
        }catch(Exception e){
@@ -520,20 +539,26 @@ private void Update_table(){
         Button_ResetChanges.setBackground(new java.awt.Color(51, 136, 68));
     }//GEN-LAST:event_Button_ResetChangesMouseEntered
 
+    
+
+    
     private void Button_SaveChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseClicked
              try {
             
 
+            String value1= Field_EmployeeID.getText();
+            Field_EmployeeID.setEditable(false);
+            String value2= Field_FirstName.getText();
+            String value3= Field_LastName.getText();
+            String value4= Field_Username.getText();
+            String value5= Field_Password.getText();
+            String value6= Field_Email.getText();
+            String value7= Field_PhoneNumber.getText();
             
-            String value1= Field_FirstName.getText();
-            String value2= Field_LastName.getText();
-            String value3= Field_Username.getText();
-            String value4= Field_Password.getText();
-            String value5= Field_Email.getText();
-            String value6= Field_PhoneNumber.getText();
+            
 
             
-            String sql="update employee set name = '"+value1+"',lastname = '"+value2+"',username = '"+value3+"',password = '"+value4+"',email = '"+value5+"' ,phonenumber = '"+value6+"' where name='"+value1+"' ";
+            String sql="update employee set employeeID = '"+value1+"',name = '"+value2+"',lastname = '"+value3+"',username = '"+value4+"',password = '"+value5+"' ,email = '"+value6+"',phonenumber = '"+value7+"' where employeeID='"+value1+"' ";
             pst=conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated"); 
@@ -622,6 +647,10 @@ private void Update_table(){
         FYS.getInstance().showPage(new AppMan_Home());
     }//GEN-LAST:event_Label_LogoMouseClicked
 
+    private void Field_EmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_EmployeeIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Field_EmployeeIDActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -629,6 +658,7 @@ private void Update_table(){
     private javax.swing.JLabel Button_ResetChanges;
     private javax.swing.JLabel Button_SaveChanges;
     private javax.swing.JTextField Field_Email;
+    private javax.swing.JTextField Field_EmployeeID;
     private javax.swing.JTextField Field_FirstName;
     private javax.swing.JTextField Field_LastName;
     private javax.swing.JTextField Field_Password;
@@ -639,6 +669,7 @@ private void Update_table(){
     private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_EmailAddress;
     private javax.swing.JLabel Label_FirstName;
+    private javax.swing.JLabel Label_FirstName1;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
     private javax.swing.JLabel Label_Logo;
