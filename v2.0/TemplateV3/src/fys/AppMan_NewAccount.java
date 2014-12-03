@@ -125,27 +125,27 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
-        Label_AccountType.setText("Account Type:");
+        Label_AccountType.setText("Account Type: *");
         add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName.setText("First Name:");
+        Label_FirstName.setText("First Name: *");
         add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_LastName.setText("Last Name:");
+        Label_LastName.setText("Last Name: *");
         add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         Label_Username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Username.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Username.setText("Username:");
+        Label_Username.setText("Username: *");
         add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, -1, -1));
 
         Label_Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Password.setText("Password:");
+        Label_Password.setText("Password: *");
         add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
         Label_Email.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
