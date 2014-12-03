@@ -70,7 +70,7 @@ public class StandBy extends javax.swing.JPanel {
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
         Button_Continue.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Continue.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Continue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Continue.setForeground(new java.awt.Color(255, 255, 255));
         Button_Continue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Continue.setText("Continue");
@@ -85,7 +85,7 @@ public class StandBy extends javax.swing.JPanel {
                 Button_ContinueMouseExited(evt);
             }
         });
-        add(Button_Continue, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 130, -1));
+        add(Button_Continue, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 130, 30));
 
         Text.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Text.setForeground(new java.awt.Color(153, 0, 0));

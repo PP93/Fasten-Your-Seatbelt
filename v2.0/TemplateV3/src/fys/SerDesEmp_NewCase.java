@@ -331,7 +331,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         add(Field_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 230, 150));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Save.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Save.setForeground(new java.awt.Color(255, 255, 255));
         Button_Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Save.setText("Save");
@@ -349,10 +349,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Button_SaveMouseExited(evt);
             }
         });
-        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 600, 130, -1));
+        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 600, 130, 30));
 
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
         Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Reset.setText("Reset");
@@ -370,7 +370,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, 130, -1));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, 130, 30));
 
         Tab_NewCase.setBackground(new java.awt.Color(255, 255, 255));
         Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N

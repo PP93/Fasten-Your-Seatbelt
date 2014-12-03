@@ -40,12 +40,12 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
+        Label_SearchClientID = new javax.swing.JLabel();
+        Field_SearchClientID = new javax.swing.JTextField();
         Panel_Manual = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
-        Label_SearchClientID = new javax.swing.JLabel();
-        Field_SearchClientID = new javax.swing.JTextField();
         ScrollPane_Cases = new javax.swing.JScrollPane();
         Table_ExtraBaggage = new javax.swing.JTable();
         Label_BaggageInformation = new javax.swing.JLabel();
@@ -84,6 +84,25 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
+        Label_SearchClientID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_SearchClientID.setForeground(new java.awt.Color(153, 0, 0));
+        Label_SearchClientID.setText("Search Client ID:");
+        add(Label_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, 30));
+
+        Field_SearchClientID.setForeground(new java.awt.Color(153, 0, 0));
+        Field_SearchClientID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Field_SearchClientID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Field_SearchClientIDActionPerformed(evt);
+            }
+        });
+        Field_SearchClientID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Field_SearchClientIDKeyReleased(evt);
+            }
+        });
+        add(Field_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 250, 30));
+
         Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Panel_Manual.setEnabled(false);
         Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,25 +130,6 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-
-        Label_SearchClientID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_SearchClientID.setForeground(new java.awt.Color(153, 0, 0));
-        Label_SearchClientID.setText("Search Client ID:");
-        add(Label_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, 30));
-
-        Field_SearchClientID.setForeground(new java.awt.Color(153, 0, 0));
-        Field_SearchClientID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Field_SearchClientID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Field_SearchClientIDActionPerformed(evt);
-            }
-        });
-        Field_SearchClientID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                Field_SearchClientIDKeyReleased(evt);
-            }
-        });
-        add(Field_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 250, 30));
 
         Table_ExtraBaggage.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -202,7 +202,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         add(Field_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 430, 260, 100));
 
         Button_AddToCase.setBackground(new java.awt.Color(34, 153, 68));
-        Button_AddToCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_AddToCase.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_AddToCase.setForeground(new java.awt.Color(255, 255, 255));
         Button_AddToCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_AddToCase.setText("Add To Case");
@@ -220,10 +220,10 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
                 Button_AddToCaseMouseExited(evt);
             }
         });
-        add(Button_AddToCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 150, -1));
+        add(Button_AddToCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 150, 30));
 
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
         Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Reset.setText("Reset");
@@ -241,7 +241,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 540, 100, -1));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 540, 100, 30));
 
         Tab_NewCase.setBackground(new java.awt.Color(156, 0, 0));
         Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N

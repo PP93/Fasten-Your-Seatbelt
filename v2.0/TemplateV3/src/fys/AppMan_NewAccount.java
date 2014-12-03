@@ -216,7 +216,7 @@ public AppMan_NewAccount() {
         add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 520, 30));
 
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
         Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Reset.setText("Reset");
@@ -234,10 +234,10 @@ public AppMan_NewAccount() {
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 130, -1));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 130, 30));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Save.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Button_Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Save.setForeground(new java.awt.Color(255, 255, 255));
         Button_Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_Save.setText("Save");
@@ -255,7 +255,7 @@ public AppMan_NewAccount() {
                 Button_SaveMouseExited(evt);
             }
         });
-        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 130, -1));
+        add(Button_Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 130, 30));
 
         Tab_NewAccount.setBackground(new java.awt.Color(255, 255, 255));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
