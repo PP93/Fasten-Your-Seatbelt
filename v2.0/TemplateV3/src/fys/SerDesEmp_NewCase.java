@@ -12,15 +12,12 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
-    boolean isSelected = false;
 
     public SerDesEmp_NewCase() {
         initComponents();
         conn = javaconnect.ConnecrDb();
         Panel_Manual.setVisible(false);
         Panel_Manual.setEnabled(false);
-        emptyfield_warning.setVisible(false);
-        emptyfield_warning.setEnabled(false);
     }
 
     /**
@@ -84,9 +81,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Tab_UpdateCase = new javax.swing.JLabel();
         Tab_AddBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
-        Check_BaggageCase = new javax.swing.JCheckBox();
-        Check_ClientCase = new javax.swing.JCheckBox();
-        emptyfield_warning = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         employee_id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -158,12 +152,12 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName.setText("First Name: *");
+        Label_FirstName.setText("First Name:");
         add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_LastName.setText("Last Name: *");
+        Label_LastName.setText("Last Name:");
         add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
         Label_EmailAddress.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -178,22 +172,22 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         Label_ZipCode.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ZipCode.setForeground(new java.awt.Color(153, 0, 0));
-        Label_ZipCode.setText("Zip Code: *");
+        Label_ZipCode.setText("Zip Code:");
         add(Label_ZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
 
         Label_Address.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Address.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Address.setText("Address: *");
+        Label_Address.setText("Address:");
         add(Label_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
 
         Label_City.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_City.setForeground(new java.awt.Color(153, 0, 0));
-        Label_City.setText("City: *");
+        Label_City.setText("City:");
         add(Label_City, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
 
         Label_Country.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Country.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Country.setText("Country: *");
+        Label_Country.setText("Country:");
         add(Label_Country, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
@@ -464,28 +458,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         });
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, 250, 40));
 
-        Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
-        Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Check_BaggageCase.setForeground(new java.awt.Color(153, 0, 0));
-        Check_BaggageCase.setText("Baggage Case");
-        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 180, -1, -1));
-
-        Check_ClientCase.setBackground(new java.awt.Color(255, 255, 255));
-        Check_ClientCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Check_ClientCase.setForeground(new java.awt.Color(153, 0, 0));
-        Check_ClientCase.setText("Client Case");
-        Check_ClientCase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Check_ClientCaseActionPerformed(evt);
-            }
-        });
-        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
-
-        emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
-        emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
-        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
-
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -518,75 +490,34 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Checkbox_CopyAddressInfoActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
-        if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
-            JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
-        } else {
-            if (Check_ClientCase.isSelected()) {
-                if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
-                    emptyfield_warning.setVisible(true);
-                    emptyfield_warning.setEnabled(true);
-                } else {
-                    try {
 
-                        String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
-                        pst = conn.prepareStatement(sql);
+        try {
 
-                        pst.setString(1, Field_FirstName.getText());
-                        pst.setString(2, Field_LastName.getText());
-                        pst.setString(3, Field_Country.getText());
-                        pst.setString(4, Field_City.getText());
-                        pst.setString(5, Field_ZipCode.getText());
-                        pst.setString(6, Field_Address.getText());
-                        pst.setString(7, Field_PhoneNumber.getText());
-                        pst.setString(8, Field_EmailAddress.getText());
-                        pst.setString(9, Field_ShippingCountry.getText());
-                        pst.setString(10, Field_ShippingZipCode.getText());
-                        pst.setString(11, Field_ShippingAddress.getText());
-                        pst.setString(12, Field_ShippingCity.getText());
+            String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
+            pst = conn.prepareStatement(sql);
 
-                        pst.execute();
-                        JOptionPane.showMessageDialog(null, "Saved");
-                        emptyfield_warning.setVisible(false);
-                        emptyfield_warning.setEnabled(false);
+            pst.setString(1, Field_FirstName.getText());
+            pst.setString(2, Field_LastName.getText());
+            pst.setString(3, Field_Country.getText());
+            pst.setString(4, Field_City.getText());
+            pst.setString(5, Field_ZipCode.getText());
+            pst.setString(6, Field_Address.getText());
+            pst.setString(7, Field_PhoneNumber.getText());
+            pst.setString(8, Field_EmailAddress.getText());
+            pst.setString(9, Field_ShippingCountry.getText());
+            pst.setString(10, Field_ShippingZipCode.getText());
+            pst.setString(11, Field_ShippingAddress.getText());
+            pst.setString(12, Field_ShippingCity.getText());
 
-                    } catch (SQLException | HeadlessException e) {
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Saved");
 
-                        JOptionPane.showMessageDialog(null, e);
-                    }
-                }
+        } catch (SQLException | HeadlessException e) {
 
-            } else {
-                if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "You haven't filled in any fields!");
-                } else {
-                    try {
-
-                        String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
-                        pst = conn.prepareStatement(sql);
-
-                        pst.setString(1, Field_FirstName.getText());
-                        pst.setString(2, Field_LastName.getText());
-                        pst.setString(3, Field_Country.getText());
-                        pst.setString(4, Field_City.getText());
-                        pst.setString(5, Field_ZipCode.getText());
-                        pst.setString(6, Field_Address.getText());
-                        pst.setString(7, Field_PhoneNumber.getText());
-                        pst.setString(8, Field_EmailAddress.getText());
-                        pst.setString(9, Field_ShippingCountry.getText());
-                        pst.setString(10, Field_ShippingZipCode.getText());
-                        pst.setString(11, Field_ShippingAddress.getText());
-                        pst.setString(12, Field_ShippingCity.getText());
-
-                        pst.execute();
-                        JOptionPane.showMessageDialog(null, "Saved");
-
-                    } catch (SQLException | HeadlessException e) {
-
-                        JOptionPane.showMessageDialog(null, e);
-                    }
-                }
-            }
+            JOptionPane.showMessageDialog(null, e);
         }
+
+
     }//GEN-LAST:event_Button_SaveMouseClicked
 
 
@@ -696,17 +627,11 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         FYS.getInstance().showPage(new SerDesEmp_Home());
     }//GEN-LAST:event_Label_LogoMouseClicked
 
-    private void Check_ClientCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Check_ClientCaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Check_ClientCaseActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JLabel Button_Save;
-    private javax.swing.JCheckBox Check_BaggageCase;
-    private javax.swing.JCheckBox Check_ClientCase;
     private javax.swing.JCheckBox Checkbox_CopyAddressInfo;
     private javax.swing.JTextField Field_Address;
     private javax.swing.JTextField Field_Brand;
@@ -757,6 +682,5 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_NewCase;
     private javax.swing.JLabel Tab_UpdateCase;
     private javax.swing.JLabel employee_id;
-    private javax.swing.JLabel emptyfield_warning;
     // End of variables declaration//GEN-END:variables
 }
