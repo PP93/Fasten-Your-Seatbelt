@@ -19,7 +19,7 @@ public class javaconnect {
             
             try{
                Class.forName("org.sqlite.JDBC");
-               Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3305/fysgroep?zeroDateTimeBehavior=convertToNull","root", "ginger8");
+               Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/fys?zeroDateTimeBehavior=convertToNull","root", "");
                //JOptionPane.showMessageDialog(null, "Connection Established");
                  return conn;
                 }catch (ClassNotFoundException | SQLException | HeadlessException e) {

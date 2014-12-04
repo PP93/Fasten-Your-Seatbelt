@@ -555,45 +555,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     }
                 }
 
-            } 
-            else if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
-                if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
-                    emptyfield_warning.setVisible(true);
-                    emptyfield_warning.setEnabled(true);
-                }
-                else if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "You haven't filled in any fields!");
-                }
-                else {
-                    try {
-
-                        String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
-                        pst = conn.prepareStatement(sql);
-
-                        pst.setString(1, Field_FirstName.getText());
-                        pst.setString(2, Field_LastName.getText());
-                        pst.setString(3, Field_Country.getText());
-                        pst.setString(4, Field_City.getText());
-                        pst.setString(5, Field_ZipCode.getText());
-                        pst.setString(6, Field_Address.getText());
-                        pst.setString(7, Field_PhoneNumber.getText());
-                        pst.setString(8, Field_EmailAddress.getText());
-                        pst.setString(9, Field_ShippingCountry.getText());
-                        pst.setString(10, Field_ShippingZipCode.getText());
-                        pst.setString(11, Field_ShippingAddress.getText());
-                        pst.setString(12, Field_ShippingCity.getText());
-
-                        pst.execute();
-                        JOptionPane.showMessageDialog(null, "Saved");
-
-                    } catch (SQLException | HeadlessException e) {
-
-                        JOptionPane.showMessageDialog(null, e);
-                    }
-                }
-            }
-            
-            else {
+            } else {
                 if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "You haven't filled in any fields!");
                 } else {
