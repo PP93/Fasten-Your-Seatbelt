@@ -484,7 +484,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
-        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, -1, -1));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -518,10 +518,44 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Checkbox_CopyAddressInfoActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
-        if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
+        if (!Check_ClientCase.isSelected() && !Check_BaggageCase.isSelected()) {
             JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
         } else {
-            if (Check_ClientCase.isSelected()) {
+            if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
+                if ((Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
+                    emptyfield_warning.setVisible(true);
+                    emptyfield_warning.setEnabled(true);
+                } else {
+                    try {
+
+                        String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
+                        pst = conn.prepareStatement(sql);
+
+                        pst.setString(1, Field_FirstName.getText());
+                        pst.setString(2, Field_LastName.getText());
+                        pst.setString(3, Field_Country.getText());
+                        pst.setString(4, Field_City.getText());
+                        pst.setString(5, Field_ZipCode.getText());
+                        pst.setString(6, Field_Address.getText());
+                        pst.setString(7, Field_PhoneNumber.getText());
+                        pst.setString(8, Field_EmailAddress.getText());
+                        pst.setString(9, Field_ShippingCountry.getText());
+                        pst.setString(10, Field_ShippingZipCode.getText());
+                        pst.setString(11, Field_ShippingAddress.getText());
+                        pst.setString(12, Field_ShippingCity.getText());
+
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Saved");
+                        emptyfield_warning.setVisible(false);
+                        emptyfield_warning.setEnabled(false);
+
+                    } catch (SQLException | HeadlessException e) {
+
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                }
+            }
+            else if (Check_ClientCase.isSelected()) {
                 if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
@@ -557,7 +591,8 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
             } else {
                 if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "You haven't filled in any fields!");
+                    emptyfield_warning.setVisible(true);
+                    emptyfield_warning.setEnabled(true);
                 } else {
                     try {
 
