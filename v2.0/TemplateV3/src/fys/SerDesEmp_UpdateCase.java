@@ -1,35 +1,42 @@
 package fys;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
-Connection conn=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    boolean isSelected = false;
 
     public SerDesEmp_UpdateCase() {
         initComponents();
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
+        emptyfield_warning.setVisible(false);
+        emptyfield_warning.setEnabled(false);
 
-        conn=javaconnect.ConnecrDb();
+        conn = javaconnect.ConnecrDb();
         Update_table();
     }
-private void Update_table(){
-    try{
-    String sql = "select * from client";
-    pst=conn.prepareStatement(sql);
-    rs=pst.executeQuery();
-    Table_Cases.setModel(DbUtils.resultSetToTableModel(rs));
+
+    private void Update_table() {
+        try {
+            String sql = "select * from client";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            Table_Cases.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
-    catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
-    }
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +46,10 @@ private void Update_table(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Manual_Panel = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
@@ -91,17 +102,44 @@ private void Update_table(){
         Tab_AddExtraBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Button_PDF = new javax.swing.JLabel();
+        Check_ClientCase = new javax.swing.JCheckBox();
+        Check_BaggageCase = new javax.swing.JCheckBox();
+        emptyfield_warning = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
-        Manual_Panel = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Manual_Panel.setEnabled(false);
+        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -168,12 +206,12 @@ private void Update_table(){
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName.setText("First Name:");
+        Label_FirstName.setText("First Name: *");
         add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_LastName.setText("Last Name:");
+        Label_LastName.setText("Last Name: *");
         add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
 
         Label_EmailAddress.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -188,22 +226,22 @@ private void Update_table(){
 
         Label_ZipCode.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ZipCode.setForeground(new java.awt.Color(153, 0, 0));
-        Label_ZipCode.setText("Zip Code:");
+        Label_ZipCode.setText("Zip Code: *");
         add(Label_ZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
 
         Label_Address.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Address.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Address.setText("Address:");
+        Label_Address.setText("Address: *");
         add(Label_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
 
         Label_City.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_City.setForeground(new java.awt.Color(153, 0, 0));
-        Label_City.setText("City:");
+        Label_City.setText("City: *");
         add(Label_City, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, -1, -1));
 
         Label_Country.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Country.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Country.setText("Country:");
+        Label_Country.setText("Country: *");
         add(Label_Country, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
@@ -485,40 +523,34 @@ private void Update_table(){
         });
         add(Button_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 130, 30));
 
+        Check_ClientCase.setBackground(new java.awt.Color(255, 255, 255));
+        Check_ClientCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Check_ClientCase.setForeground(new java.awt.Color(153, 0, 0));
+        Check_ClientCase.setText("Client Case");
+        Check_ClientCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Check_ClientCaseActionPerformed(evt);
+            }
+        });
+        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, -1, 30));
+
+        Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
+        Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Check_BaggageCase.setForeground(new java.awt.Color(153, 0, 0));
+        Check_BaggageCase.setText("Baggage Case");
+        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 150, -1, 30));
+
+        emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
+        emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
+        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, -1, -1));
+
         Background.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
-
-        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Manual_Panel.setEnabled(false);
-        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Tab_AddExtraBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseEntered
@@ -591,66 +623,61 @@ private void Update_table(){
     }//GEN-LAST:event_Tab_UpdateCaseMouseExited
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
- 
-         try{
-        String sql ="select * from client where name=? OR lastname=? OR email=? OR phonenumber=? OR address=? OR city=? OR country=? OR shippingzipcode=? OR shippingaddress=? OR shippingcity=? OR shippingcountry=? ";
-                
-                pst=conn.prepareStatement(sql);
-                pst.setString(1, Field_Search.getText());
-                pst.setString(2, Field_Search.getText());
-                pst.setString(3, Field_Search.getText());
-                pst.setString(4, Field_Search.getText());
-                pst.setString(5, Field_Search.getText());
-                pst.setString(6, Field_Search.getText());
-                pst.setString(7, Field_Search.getText());
-                pst.setString(8, Field_Search.getText());
-                pst.setString(9, Field_Search.getText());
-                pst.setString(10, Field_Search.getText());
-                pst.setString(11, Field_Search.getText());
-                
-                
-                
-                rs=pst.executeQuery();
-                if(rs.next()){
-                 
-                    
-                    String add2=rs.getString("name");
-                    Field_FirstName.setText(add2);
-                    String add3=rs.getString("lastname");
-                    Field_LastName.setText(add3);
-                    String add4=rs.getString("email");
-                    Field_EmailAddress.setText(add4);
-                    String add5=rs.getString("phonenumber");
-                    Field_PhoneNumber.setText(add5);
-                    String add7=rs.getString("address");
-                    Field_Address.setText(add7);
-                    String add8=rs.getString("city");
-                    Field_City.setText(add8);
-                    String add9=rs.getString("country");
-                    Field_Country.setText(add9);
-                     String add10=rs.getString("shippingzipcode");
-                    Field_ShippingZipCode.setText(add10);
-                    String add11=rs.getString("shippingaddress");
-                    Field_ShippingAddress.setText(add11);
-                    String add12=rs.getString("shippingcity");
-                    Field_ShippingCity.setText(add12);
-                    String add13=rs.getString("shippingcountry");
-                    Field_ShippingCountry.setText(add13);
-                }
-         }
-        
-        catch(Exception e){
-            
+
+        try {
+            String sql = "select * from client where name=? OR lastname=? OR email=? OR phonenumber=? OR address=? OR city=? OR country=? OR shippingzipcode=? OR shippingaddress=? OR shippingcity=? OR shippingcountry=? ";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, Field_Search.getText());
+            pst.setString(2, Field_Search.getText());
+            pst.setString(3, Field_Search.getText());
+            pst.setString(4, Field_Search.getText());
+            pst.setString(5, Field_Search.getText());
+            pst.setString(6, Field_Search.getText());
+            pst.setString(7, Field_Search.getText());
+            pst.setString(8, Field_Search.getText());
+            pst.setString(9, Field_Search.getText());
+            pst.setString(10, Field_Search.getText());
+            pst.setString(11, Field_Search.getText());
+
+            rs = pst.executeQuery();
+            if (rs.next()) {
+
+                String add2 = rs.getString("name");
+                Field_FirstName.setText(add2);
+                String add3 = rs.getString("lastname");
+                Field_LastName.setText(add3);
+                String add4 = rs.getString("email");
+                Field_EmailAddress.setText(add4);
+                String add5 = rs.getString("phonenumber");
+                Field_PhoneNumber.setText(add5);
+                String add7 = rs.getString("address");
+                Field_Address.setText(add7);
+                String add8 = rs.getString("city");
+                Field_City.setText(add8);
+                String add9 = rs.getString("country");
+                Field_Country.setText(add9);
+                String add10 = rs.getString("shippingzipcode");
+                Field_ShippingZipCode.setText(add10);
+                String add11 = rs.getString("shippingaddress");
+                Field_ShippingAddress.setText(add11);
+                String add12 = rs.getString("shippingcity");
+                Field_ShippingCity.setText(add12);
+                String add13 = rs.getString("shippingcountry");
+                Field_ShippingCountry.setText(add13);
+            }
+        } catch (Exception e) {
+
             JOptionPane.showMessageDialog(null, e);
-        }      
-                              
-         
+        }
+
+
     }//GEN-LAST:event_Field_SearchKeyReleased
 
     private void Tab_AddExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_AddBagage());
-                Tab_AddExtraBaggage.setForeground(new java.awt.Color(153,0,0));
-        Tab_AddExtraBaggage.setBackground(new java.awt.Color(255,255,255));
+        Tab_AddExtraBaggage.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_AddExtraBaggage.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
@@ -672,96 +699,170 @@ private void Update_table(){
     }//GEN-LAST:event_Field_ShippingCityActionPerformed
 
     private void Table_CasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_CasesMouseClicked
-           try {
-           int row =Table_Cases.getSelectedRow();
-           String Table_click=(Table_Cases.getModel().getValueAt(row, 0).toString());
-           String sql ="select * from client where clientID='"+Table_click+"' ";
-           pst=conn.prepareStatement(sql);
-           rs=pst.executeQuery();
-           if(rs.next()){
+        try {
+            int row = Table_Cases.getSelectedRow();
+            String Table_click = (Table_Cases.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from client where clientID='" + Table_click + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
 
-               String add1 =rs.getString("name");
-               Field_FirstName.setText(add1);
-               String add2 =rs.getString("lastname");
-               Field_LastName.setText(add2);
-               String add3 =rs.getString("email");
-               Field_EmailAddress.setText(add3);
-               String add4 =rs.getString("phonenumber");
-               Field_PhoneNumber.setText(add4);
-               String add5 =rs.getString("zipcode");
-               Field_ZipCode.setText(add5);
-               String add6 =rs.getString("address");
-               Field_Address.setText(add6);
-               String add7 =rs.getString("city");
-               Field_City.setText(add7);
-               String add8 =rs.getString("country");
-               Field_Country.setText(add8);
-               String add9 =rs.getString("shippingzipcode");
-               Field_ShippingZipCode.setText(add9);
-               String add10 =rs.getString("shippingaddress");
-               Field_ShippingAddress.setText(add10);
-               String add11 =rs.getString("shippingcity");
-               Field_ShippingCity.setText(add11);
-               String add12 =rs.getString("shippingcountry");
-               Field_ShippingCountry.setText(add12);
-               
-           }
-       }catch(Exception e){
-           
-           JOptionPane.showMessageDialog(null, e);
-           
-       }
-      
-      
-       
+                String add1 = rs.getString("name");
+                Field_FirstName.setText(add1);
+                String add2 = rs.getString("lastname");
+                Field_LastName.setText(add2);
+                String add3 = rs.getString("email");
+                Field_EmailAddress.setText(add3);
+                String add4 = rs.getString("phonenumber");
+                Field_PhoneNumber.setText(add4);
+                String add5 = rs.getString("zipcode");
+                Field_ZipCode.setText(add5);
+                String add6 = rs.getString("address");
+                Field_Address.setText(add6);
+                String add7 = rs.getString("city");
+                Field_City.setText(add7);
+                String add8 = rs.getString("country");
+                Field_Country.setText(add8);
+                String add9 = rs.getString("shippingzipcode");
+                Field_ShippingZipCode.setText(add9);
+                String add10 = rs.getString("shippingaddress");
+                Field_ShippingAddress.setText(add10);
+                String add11 = rs.getString("shippingcity");
+                Field_ShippingCity.setText(add11);
+                String add12 = rs.getString("shippingcountry");
+                Field_ShippingCountry.setText(add12);
+
+            }
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+
     }//GEN-LAST:event_Table_CasesMouseClicked
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
-             try {
-            
+        if (!Check_ClientCase.isSelected() && !Check_BaggageCase.isSelected()) {
+            JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
+        } else {
+            if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
+                if ((Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
+                    emptyfield_warning.setVisible(true);
+                    emptyfield_warning.setEnabled(true);
+                } else {
+                    try {
 
-            
-            String value1= Field_FirstName.getText();
-            String value2= Field_LastName.getText();
-            String value3= Field_EmailAddress.getText();
-            String value4= Field_PhoneNumber.getText();
-            String value5= Field_ZipCode.getText();
-            String value6= Field_Address.getText();
-            String value7= Field_City.getText();
-            String value8= Field_Country.getText();
-            String value9= Field_ShippingZipCode.getText();
-            String value10= Field_ShippingAddress.getText();
-            String value11= Field_ShippingCity.getText();
-            String value12= Field_ShippingCountry.getText();
-            
-            String sql="update client set name = '"+value1+"',lastname = '"+value2+"',email = '"+value3+"',phonenumber = '"+value4+"',zipcode = '"+value5+"' ,address = '"+value6+"',city = '"+value7+"' ,country = '"+value8+"',shippingzipcode = '"+value9+"',shippingaddress = '"+value10+"',shippingcity = '"+value11+"',shippingcountry = '"+value12+"' where name='"+value1+"' ";
-            pst=conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Updated"); 
-            
-            
-        }catch(Exception e) {
-            
-            JOptionPane.showMessageDialog(null, e);    
+                        String value1 = Field_FirstName.getText();
+                        String value2 = Field_LastName.getText();
+                        String value3 = Field_EmailAddress.getText();
+                        String value4 = Field_PhoneNumber.getText();
+                        String value5 = Field_ZipCode.getText();
+                        String value6 = Field_Address.getText();
+                        String value7 = Field_City.getText();
+                        String value8 = Field_Country.getText();
+                        String value9 = Field_ShippingZipCode.getText();
+                        String value10 = Field_ShippingAddress.getText();
+                        String value11 = Field_ShippingCity.getText();
+                        String value12 = Field_ShippingCountry.getText();
+
+                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "' where name='" + value1 + "' ";
+                        pst = conn.prepareStatement(sql);
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Updated");
+
+                    } catch (Exception e) {
+
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                    Update_table();
+                    emptyfield_warning.setVisible(false);
+                    emptyfield_warning.setEnabled(false);
+                }
+            } else if (Check_ClientCase.isSelected()) {
+                if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
+                    emptyfield_warning.setVisible(true);
+                    emptyfield_warning.setEnabled(true);
+                } else {
+                    try {
+
+                        String value1 = Field_FirstName.getText();
+                        String value2 = Field_LastName.getText();
+                        String value3 = Field_EmailAddress.getText();
+                        String value4 = Field_PhoneNumber.getText();
+                        String value5 = Field_ZipCode.getText();
+                        String value6 = Field_Address.getText();
+                        String value7 = Field_City.getText();
+                        String value8 = Field_Country.getText();
+                        String value9 = Field_ShippingZipCode.getText();
+                        String value10 = Field_ShippingAddress.getText();
+                        String value11 = Field_ShippingCity.getText();
+                        String value12 = Field_ShippingCountry.getText();
+
+                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "' where name='" + value1 + "' ";
+                        pst = conn.prepareStatement(sql);
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Updated");
+
+                    } catch (Exception e) {
+
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                    Update_table();
+                    emptyfield_warning.setVisible(false);
+                    emptyfield_warning.setEnabled(false);
+                }
+
+            } else {
+                if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
+                    emptyfield_warning.setVisible(true);
+                    emptyfield_warning.setEnabled(true);
+                } else {
+                    try {
+
+                        String value1 = Field_FirstName.getText();
+                        String value2 = Field_LastName.getText();
+                        String value3 = Field_EmailAddress.getText();
+                        String value4 = Field_PhoneNumber.getText();
+                        String value5 = Field_ZipCode.getText();
+                        String value6 = Field_Address.getText();
+                        String value7 = Field_City.getText();
+                        String value8 = Field_Country.getText();
+                        String value9 = Field_ShippingZipCode.getText();
+                        String value10 = Field_ShippingAddress.getText();
+                        String value11 = Field_ShippingCity.getText();
+                        String value12 = Field_ShippingCountry.getText();
+
+                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "' where name='" + value1 + "' ";
+                        pst = conn.prepareStatement(sql);
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Updated");
+
+                    } catch (Exception e) {
+
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                    Update_table();
+                    emptyfield_warning.setVisible(false);
+                    emptyfield_warning.setEnabled(false);
+                }
+            }
         }
-        Update_table();
-                                               
-
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-            Field_FirstName.setText("");
-            Field_LastName.setText("");
-            Field_EmailAddress.setText("");
-            Field_PhoneNumber.setText("");
-            Field_ZipCode.setText("");
-            Field_Address.setText("");
-            Field_City.setText("");
-            Field_Country.setText("");
-            Field_ShippingZipCode.setText("");
-            Field_ShippingAddress.setText("");
-            Field_ShippingCity.setText("");
-            Field_ShippingCountry.setText("");
+        Field_FirstName.setText("");
+        Field_LastName.setText("");
+        Field_EmailAddress.setText("");
+        Field_PhoneNumber.setText("");
+        Field_ZipCode.setText("");
+        Field_Address.setText("");
+        Field_City.setText("");
+        Field_Country.setText("");
+        Field_ShippingZipCode.setText("");
+        Field_ShippingAddress.setText("");
+        Field_ShippingCity.setText("");
+        Field_ShippingCountry.setText("");
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
@@ -806,12 +907,18 @@ private void Update_table(){
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
     }//GEN-LAST:event_Button_PDFMouseExited
 
+    private void Check_ClientCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Check_ClientCaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Check_ClientCaseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_PDF;
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JLabel Button_Save;
+    private javax.swing.JCheckBox Check_BaggageCase;
+    private javax.swing.JCheckBox Check_ClientCase;
     private javax.swing.JTextField Field_Address;
     private javax.swing.JTextField Field_Brand;
     private javax.swing.JTextField Field_City;
@@ -864,6 +971,7 @@ private void Update_table(){
     private javax.swing.JLabel Tab_NewCase;
     private javax.swing.JLabel Tab_UpdateCase;
     private javax.swing.JTable Table_Cases;
+    private javax.swing.JLabel emptyfield_warning;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
