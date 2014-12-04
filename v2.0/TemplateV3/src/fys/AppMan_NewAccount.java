@@ -3,7 +3,6 @@ package fys;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.*;
-import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
 
 public class AppMan_NewAccount extends javax.swing.JPanel {

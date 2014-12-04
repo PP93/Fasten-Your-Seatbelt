@@ -180,7 +180,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
         Label_AccountType.setText("Account Type: *");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, -1));
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 240, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
@@ -294,8 +294,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 520, 210, 30));
 
         Field_EmployeeID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Field_EmployeeID.setMinimumSize(new java.awt.Dimension(4, 18));
-        Field_EmployeeID.setPreferredSize(new java.awt.Dimension(4, 18));
         Field_EmployeeID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Field_EmployeeIDActionPerformed(evt);
@@ -455,10 +453,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_ManageAccountsMouseExited
 
 
-    private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
-        accounttype = "application manager";
-    }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
-
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
         Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
         Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));     }//GEN-LAST:event_Tab_LogOutMouseEntered
@@ -491,10 +485,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         FYS.getInstance().showPage(new AppMan_LogOut());
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
-    private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype = "service desk employee";
-    }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
-
     private void Table_AccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_AccountsMouseClicked
         try {
             int row = Table_Accounts.getSelectedRow();
@@ -519,6 +509,8 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Field_Email.setText(add6);
                 String add7 = rs.getString("phonenumber");
                 Field_PhoneNumber.setText(add7);
+                rs.getString("function");
+                
 
             }
         } catch (Exception e) {
@@ -579,6 +571,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 String value5 = Field_Password.getText();
                 String value6 = Field_Email.getText();
                 String value7 = Field_PhoneNumber.getText();
+                
 
                 String sql = "update employee set employeeID = '" + value1 + "',name = '" + value2 + "',lastname = '" + value3 + "',username = '" + value4 + "',password = '" + value5 + "' ,email = '" + value6 + "',phonenumber = '" + value7 + "' where employeeID='" + value1 + "' ";
                 pst = conn.prepareStatement(sql);
@@ -638,10 +631,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Field_SearchKeyReleased
 
-    private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
-        accounttype = "manager";
-    }//GEN-LAST:event_Radio_ManagerActionPerformed
-
     private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
         Panel_Manual.setVisible(true);
         Panel_Manual.setEnabled(true);
@@ -673,6 +662,18 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     private void Field_EmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_EmployeeIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Field_EmployeeIDActionPerformed
+
+    private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
+        accounttype = "service desk employee";
+    }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
+
+    private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
+        accounttype = "manager";
+    }//GEN-LAST:event_Radio_ManagerActionPerformed
+
+    private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
+        accounttype = "application manager";
+    }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
