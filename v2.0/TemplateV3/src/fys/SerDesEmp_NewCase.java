@@ -4,7 +4,6 @@ import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.sql.*;
 import javax.swing.*;
-import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
 
 public class SerDesEmp_NewCase extends javax.swing.JPanel {

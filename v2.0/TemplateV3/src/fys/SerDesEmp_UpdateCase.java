@@ -2,10 +2,12 @@ package fys;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
 
 public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
@@ -46,10 +48,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Manual_Panel = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
@@ -57,7 +55,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         ScrollPane_Cases = new javax.swing.JScrollPane();
         Table_Cases = new javax.swing.JTable();
         Label_Date = new javax.swing.JLabel();
-        Field_Date = new javax.swing.JTextField();
         Label_ClientInformation = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
         Label_LastName = new javax.swing.JLabel();
@@ -102,44 +99,23 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Tab_AddExtraBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Button_PDF = new javax.swing.JLabel();
+        Label_Date1 = new javax.swing.JLabel();
         Check_ClientCase = new javax.swing.JCheckBox();
         Check_BaggageCase = new javax.swing.JCheckBox();
         emptyfield_warning = new javax.swing.JLabel();
+        Field_DateAdded = new com.toedter.calendar.JDateChooser();
+        Field_DateFound = new com.toedter.calendar.JDateChooser();
         Background = new javax.swing.JLabel();
+        Manual_Panel = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Manual_Panel.setEnabled(false);
-        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -192,12 +168,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
         Label_Date.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Date.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Date.setText("Registration Date:");
-        add(Label_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 510, 140, 20));
-
-        Field_Date.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Date.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 510, 230, 30));
+        Label_Date.setText("Retrieved Date:");
+        add(Label_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 520, 140, 20));
 
         Label_ClientInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_ClientInformation.setForeground(new java.awt.Color(153, 0, 0));
@@ -523,27 +495,42 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         });
         add(Button_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 130, 30));
 
+        Label_Date1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_Date1.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Date1.setText("Registration Date:");
+        add(Label_Date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 140, 20));
+
         Check_ClientCase.setBackground(new java.awt.Color(255, 255, 255));
         Check_ClientCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Check_ClientCase.setForeground(new java.awt.Color(153, 0, 0));
-        Check_ClientCase.setText("Client Case");
         Check_ClientCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Check_ClientCaseActionPerformed(evt);
             }
         });
-        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, -1, 30));
+        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, 20));
 
         Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
         Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Check_BaggageCase.setForeground(new java.awt.Color(153, 0, 0));
-        Check_BaggageCase.setText("Baggage Case");
-        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 150, -1, 30));
+        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, -1, 20));
 
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
         add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, -1, -1));
+
+        Field_DateAdded.setForeground(new java.awt.Color(156, 0, 0));
+        Field_DateAdded.setDateFormatString("d-MMM-yyyy");
+        Field_DateAdded.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Field_DateAdded.setName("Field_DateAdded"); // NOI18N
+        add(Field_DateAdded, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 480, 230, 30));
+
+        Field_DateFound.setForeground(new java.awt.Color(156, 0, 0));
+        Field_DateFound.setDateFormatString("d-MMM-yyyy");
+        Field_DateFound.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Field_DateFound.setName("Field_DateFound"); // NOI18N
+        add(Field_DateFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 520, 230, 30));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -551,6 +538,34 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
+
+        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Manual_Panel.setEnabled(false);
+        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Tab_AddExtraBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseEntered
@@ -731,6 +746,10 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_ShippingCity.setText(add11);
                 String add12 = rs.getString("shippingcountry");
                 Field_ShippingCountry.setText(add12);
+                Date add13 = rs.getDate("dateadded");
+                Field_DateAdded.setDate(add13);
+                Date add14 = rs.getDate("datefound");
+                Field_DateAdded.setDate(add14);
 
             }
         } catch (Exception e) {
@@ -765,8 +784,10 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                         String value10 = Field_ShippingAddress.getText();
                         String value11 = Field_ShippingCity.getText();
                         String value12 = Field_ShippingCountry.getText();
+                        String value13 =((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText();
+                        String value14 =((JTextField)Field_DateFound.getDateEditor().getUiComponent()).getText();
 
-                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "' where name='" + value1 + "' ";
+                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "',dateadded = '" + value13 + "',datefound = '" + value14 + "' where name='" + value1 + "' ";
                         pst = conn.prepareStatement(sql);
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Updated");
@@ -798,8 +819,10 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                         String value10 = Field_ShippingAddress.getText();
                         String value11 = Field_ShippingCity.getText();
                         String value12 = Field_ShippingCountry.getText();
+                        String value13 =((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText();
+                        String value14 =((JTextField)Field_DateFound.getDateEditor().getUiComponent()).getText();
 
-                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "' where name='" + value1 + "' ";
+                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "',dateadded = '" + value13 + "',datefound = '" + value14 + "' where name='" + value1 + "' ";
                         pst = conn.prepareStatement(sql);
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Updated");
@@ -820,20 +843,13 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 } else {
                     try {
 
-                        String value1 = Field_FirstName.getText();
-                        String value2 = Field_LastName.getText();
-                        String value3 = Field_EmailAddress.getText();
-                        String value4 = Field_PhoneNumber.getText();
-                        String value5 = Field_ZipCode.getText();
-                        String value6 = Field_Address.getText();
-                        String value7 = Field_City.getText();
-                        String value8 = Field_Country.getText();
-                        String value9 = Field_ShippingZipCode.getText();
-                        String value10 = Field_ShippingAddress.getText();
-                        String value11 = Field_ShippingCity.getText();
-                        String value12 = Field_ShippingCountry.getText();
+                        String value1 = Field_FlightNumber.getText();
+                        String value2 = Field_Brand.getText();
+                        String value3 = Field_Color.getText();
+                        String value4 = Field_Weight.getText();
+                        String value5 = Field_Description.getText();
 
-                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "' where name='" + value1 + "' ";
+                        String sql = "update baggage set flightnumber = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "' where name='" + value1 + "' ";
                         pst = conn.prepareStatement(sql);
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Updated");
@@ -863,6 +879,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_ShippingAddress.setText("");
         Field_ShippingCity.setText("");
         Field_ShippingCountry.setText("");
+        
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
@@ -924,7 +941,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JTextField Field_City;
     private javax.swing.JTextField Field_Color;
     private javax.swing.JTextField Field_Country;
-    private javax.swing.JTextField Field_Date;
+    private com.toedter.calendar.JDateChooser Field_DateAdded;
+    private com.toedter.calendar.JDateChooser Field_DateFound;
     private javax.swing.JTextArea Field_Description;
     private javax.swing.JTextField Field_EmailAddress;
     private javax.swing.JTextField Field_FirstName;
@@ -947,6 +965,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Color;
     private javax.swing.JLabel Label_Country;
     private javax.swing.JLabel Label_Date;
+    private javax.swing.JLabel Label_Date1;
     private javax.swing.JLabel Label_Description;
     private javax.swing.JLabel Label_EmailAddress;
     private javax.swing.JLabel Label_FirstName;
