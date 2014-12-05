@@ -5,12 +5,31 @@
  */
 package fys;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JPanel;
+import org.jfree.chart.ChartPanel;
+import org.jfree.ui.RefineryUtilities;
+import java.awt.BasicStroke;
+import java.awt.Dimension;
+import java.awt.Paint;
+import javax.swing.JInternalFrame;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.ui.ApplicationFrame;
+
 /**
  *
  * @author Doreen
  */
 public class Man_Graphs extends javax.swing.JPanel {
-
+private DefaultCategoryDataset dataset;
+    private JFreeChart chart;
     /**
      * Creates new form Man_Graphs1
      */
@@ -42,11 +61,12 @@ public class Man_Graphs extends javax.swing.JPanel {
         Box_TimeFrame = new javax.swing.JComboBox();
         Box_CaseType = new javax.swing.JComboBox();
         Box_CaseStatus = new javax.swing.JComboBox();
-        Scrollpane_Cases = new javax.swing.JScrollPane();
-        Table_Cases = new javax.swing.JTable();
         Tab_GraphData = new javax.swing.JLabel();
         Tab_LogActivities = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
+        Scrollpane_Cases = new javax.swing.JScrollPane();
+        Table_Cases = new javax.swing.JTable();
+        jPanel_graph = new javax.swing.JPanel();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -94,7 +114,7 @@ public class Man_Graphs extends javax.swing.JPanel {
         Label_Title.setText("Manual");
         Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
-        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
+        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 290, 590));
 
         Button_GenerateGraph.setBackground(new java.awt.Color(34, 153, 68));
         Button_GenerateGraph.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -106,6 +126,9 @@ public class Man_Graphs extends javax.swing.JPanel {
         Button_GenerateGraph.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_GenerateGraph.setOpaque(true);
         Button_GenerateGraph.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_GenerateGraphMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Button_GenerateGraphMouseEntered(evt);
             }
@@ -118,45 +141,30 @@ public class Man_Graphs extends javax.swing.JPanel {
         Label_Timeframe.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Timeframe.setForeground(new java.awt.Color(156, 10, 13));
         Label_Timeframe.setText("Timeframe:");
-        add(Label_Timeframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
+        add(Label_Timeframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         Label_CaseType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_CaseType.setForeground(new java.awt.Color(156, 10, 13));
         Label_CaseType.setText("Case Type:");
-        add(Label_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
+        add(Label_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         Label_CaseStatus.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_CaseStatus.setForeground(new java.awt.Color(156, 10, 13));
         Label_CaseStatus.setText("Case Status:");
         Label_CaseStatus.setToolTipText("");
-        add(Label_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, 20));
+        add(Label_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
         Box_TimeFrame.setForeground(new java.awt.Color(156, 10, 13));
         Box_TimeFrame.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Today", "Week", "Month", "Year" }));
-        add(Box_TimeFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 120, 20));
+        add(Box_TimeFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 120, 20));
 
         Box_CaseType.setForeground(new java.awt.Color(156, 10, 13));
         Box_CaseType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Client", "Baggage" }));
-        add(Box_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 120, 20));
+        add(Box_CaseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 120, 20));
 
         Box_CaseStatus.setForeground(new java.awt.Color(156, 10, 13));
         Box_CaseStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Unresolved", "Resolved", "Permanently lost" }));
-        add(Box_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 120, 20));
-
-        Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Found", "Not Found", "Returned"
-            }
-        ));
-        Scrollpane_Cases.setViewportView(Table_Cases);
-
-        add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 510, 280));
+        add(Box_CaseStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 120, 20));
 
         Tab_GraphData.setBackground(new java.awt.Color(255, 255, 255));
         Tab_GraphData.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -217,6 +225,24 @@ public class Man_Graphs extends javax.swing.JPanel {
             }
         });
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 40));
+
+        Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Found", "Not Found", "Returned"
+            }
+        ));
+        Scrollpane_Cases.setViewportView(Table_Cases);
+
+        add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 510, 280));
+
+        jPanel_graph.setLayout(new javax.swing.BoxLayout(jPanel_graph, javax.swing.BoxLayout.LINE_AXIS));
+        add(jPanel_graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 600, 400));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
@@ -283,6 +309,42 @@ public class Man_Graphs extends javax.swing.JPanel {
         FYS.getInstance().showPage(new Man_Home());
     }//GEN-LAST:event_Label_LogoMouseClicked
 
+    private void Button_GenerateGraphMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_GenerateGraphMouseClicked
+
+        final int Resolved = 0;
+        final int Unresolved = 0;
+        final int PermanentlyLost = 0;
+        String graphname = "Graph Name Test";
+
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        int[] totalResolved = {1, 3, 1, 5, 1, 7, 1, 9, 1, 11, 1, 13};
+        int[] totalUnresolved = {2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7};
+        int[] totalPermanentlyLost = {3, 1, 5, 1, 7, 1, 9, 1, 11, 1, 8, 1};
+
+        Graph baggageGraph = new Graph(graphname);
+
+        baggageGraph.addSeries(totalResolved, "Resolved", months);
+        baggageGraph.addSeries(totalUnresolved, "Unresolved", months);
+        baggageGraph.addSeries(totalPermanentlyLost, "PermanentlyLost", months);
+          
+        baggageGraph.createChart("Baggage Overview", "Month", "Number", 600, 400, Color.WHITE);
+        
+        
+
+        baggageGraph.setSeriesThickness(Resolved, 3);
+        baggageGraph.setSeriesThickness(PermanentlyLost, 3);
+        baggageGraph.setSeriesThickness(Unresolved, 3);
+        baggageGraph.setSeriesColor(Resolved, Color.GREEN);
+        baggageGraph.setSeriesColor(PermanentlyLost, Color.RED);
+        baggageGraph.setSeriesColor(Unresolved, Color.YELLOW);
+        baggageGraph.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
+        
+        baggageGraph.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_Button_GenerateGraphMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -304,5 +366,7 @@ public class Man_Graphs extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_LogActivities;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JTable Table_Cases;
+    private javax.swing.JPanel jPanel_graph;
     // End of variables declaration//GEN-END:variables
+
 }
