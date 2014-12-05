@@ -36,6 +36,14 @@ CREATE TABLE `baggage` (
 
 );
 
+CREATE TABLE `log` (
+`logID` INT(6) NOT NULL AUTO_INCREMENT primary key,
+`employeeID` INT(3) NOT NULL,
+`timestamp` TIMESTAMP(6),
+`action` CHAR(255) NOT NULL,
+`tab` CHAR(255) NOT NULL
+);
+
 INSERT INTO employee
 (name , lastname, username, password, email, phonenumber, function)
 VALUES ('', '', 'appmanager1', 'appmanager123', '', '', 'application manager'); 
@@ -46,4 +54,9 @@ VALUES ('', '', 'manager1', 'manager123', '', '', 'manager');
 
 INSERT INTO employee
 (name , lastname, username, password, email, phonenumber, function)
-VALUES ('', '', 'serdesemp1', 'serdesemp123', '', '', 'service desk employee'); 
+VALUES ('', '', 'serdesemp1', 'serdesemp123', '', '', 'service desk employee');
+
+-- Deze hoeft zo geen test meer te zijn
+-- INSERT INTO log
+-- (employeeID, action, tab)
+-- VALUES ('1', 'Ingelogd', 'LogIn');

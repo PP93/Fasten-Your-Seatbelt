@@ -1,23 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fys;
 
-/**
- *
- * @author Leslie Fellensiek
- */
+import java.awt.HeadlessException;
+import java.sql.*;
+import javax.swing.*;
+import net.proteanit.sql.DbUtils;
+
 public class Man_LogActivities extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Man_LogActivities
-     */
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     public Man_LogActivities() {
         initComponents();
+        conn = javaconnect.ConnecrDb();
+
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
+        
+        //emptyfield_warning.setVisible(false);
+        //emptyfield_warning.setEnabled(false);
+        
+        Update_table();
+    }
+    
+    private void Update_table() {
+        try {
+            String sql = "SELECT * FROM log";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            Table_Log.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -44,8 +59,8 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Box_TimeFrame = new javax.swing.JComboBox();
         Label_Search = new javax.swing.JLabel();
         Field_Search = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ScrollPane_Log = new javax.swing.JScrollPane();
+        Table_Log = new javax.swing.JTable();
         Background = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -192,7 +207,7 @@ public class Man_LogActivities extends javax.swing.JPanel {
         });
         add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 210, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table_Log.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -203,9 +218,9 @@ public class Man_LogActivities extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        ScrollPane_Log.setViewportView(Table_Log);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 227, 840, 380));
+        add(ScrollPane_Log, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 227, 840, 380));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -287,17 +302,15 @@ public class Man_LogActivities extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Case;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_Logo;
-    private javax.swing.JLabel Label_Logo1;
-    private javax.swing.JLabel Label_Logo2;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Search;
     private javax.swing.JLabel Label_Timeframe;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JPanel Manual_Panel;
+    private javax.swing.JScrollPane ScrollPane_Log;
     private javax.swing.JLabel Tab_GraphData;
     private javax.swing.JLabel Tab_LogActivities;
     private javax.swing.JLabel Tab_LogOut;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable Table_Log;
     // End of variables declaration//GEN-END:variables
 }
