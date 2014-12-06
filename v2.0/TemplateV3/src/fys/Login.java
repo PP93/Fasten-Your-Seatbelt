@@ -198,8 +198,12 @@ public class Login extends javax.swing.JPanel {
             pst.setString(2, Field_Password.getText());
 
             rs = pst.executeQuery();
+
             if (rs.next()) {
+                createLog(rs.getString("employeeID"));
+
                 employeeFunction = rs.getString("function");
+
                 switch (employeeFunction) {
                     case "application manager":
                         FYS.getInstance().showPage(new AppMan_Home());
@@ -226,6 +230,22 @@ public class Login extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    private void createLog(String employeeID) {
+        try {
+            String sql = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+            pst = conn.prepareStatement(sql);
+
+            pst.setString(1, employeeID);
+            pst.setString(2, "Logged in");
+            pst.setString(3, "LogIn");
+
+            pst.execute();
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_LogIn;

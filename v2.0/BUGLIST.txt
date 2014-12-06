@@ -1,4 +1,4 @@
 Appmanager:
 	Als je een account verwijdert worden ook accounts met dezelfde naam verwijderd.
 	Search Employee in Manage Accounts gaat meteen naar dat account, Field_EmployeeID verandert niet mee, tabel wordt niet aangepast
-	Manage Accounts help is niet weg te klikken
+	Je kan typen in de tabel van Manage Accounts

@@ -351,11 +351,8 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
     private void Tab_ManageAccountsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseExited
         Tab_ManageAccounts.setBackground(new java.awt.Color(153, 0, 0));
-
         Tab_ManageAccounts.setForeground(new java.awt.Color(255, 255, 255));
-
     }//GEN-LAST:event_Tab_ManageAccountsMouseExited
-
 
     private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
         Button_Reset.setBackground(new java.awt.Color(51, 136, 68));
@@ -371,12 +368,10 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
     private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
         Button_Save.setBackground(new java.awt.Color(51, 136, 68));
-
     }//GEN-LAST:event_Button_SaveMouseEntered
 
     private void Button_SaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseExited
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
-
     }//GEN-LAST:event_Button_SaveMouseExited
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
@@ -385,14 +380,12 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
     private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
         Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
-
         Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));    }//GEN-LAST:event_Tab_LogOutMouseExited
 
     private void Tab_NewAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseEntered
     }//GEN-LAST:event_Tab_NewAccountMouseEntered
 
     private void Tab_NewAccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewAccountMouseExited
-
      }//GEN-LAST:event_Tab_NewAccountMouseExited
 
     private void Tab_ManageAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_ManageAccountsMouseClicked
@@ -438,12 +431,9 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 emptyfield_warning.setEnabled(false);
 
             } catch (SQLException | HeadlessException e) {
-
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-
-
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Field_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_FirstNameActionPerformed
@@ -455,7 +445,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_Username.setText("");
@@ -511,5 +500,5 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel emptyfield_warning;
     // End of variables declaration//GEN-END:variables
-private String accounttype;
+    private String accounttype;
 }
