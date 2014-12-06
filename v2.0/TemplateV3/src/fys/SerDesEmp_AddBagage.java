@@ -10,13 +10,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
 
 public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    
 
     public SerDesEmp_AddBagage() {
         initComponents();
@@ -25,7 +29,20 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Panel_Manual.setEnabled(false);
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
-    }
+        Update_table();
+    
+   }
+       private void Update_table() {
+        try {
+            String sql = "select clientID, name, lastname from client";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            Table_ExtraBaggage.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } 
+       }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,11 +69,13 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Label_Color = new javax.swing.JLabel();
         Label_Weight = new javax.swing.JLabel();
         Label_Description = new javax.swing.JLabel();
+        Field_FlightNumber1 = new javax.swing.JTextField();
         Field_FlightNumber = new javax.swing.JTextField();
         Field_Brand = new javax.swing.JTextField();
         Field_Color = new javax.swing.JTextField();
         Field_Weight = new javax.swing.JTextField();
         Field_Description = new javax.swing.JTextField();
+        Label_FlightNumber1 = new javax.swing.JLabel();
         Button_AddToCase = new javax.swing.JLabel();
         Button_Reset = new javax.swing.JLabel();
         Tab_NewCase = new javax.swing.JLabel();
@@ -157,48 +176,57 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
         Label_FlightNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FlightNumber.setText("Flight number:");
-        add(Label_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, -1, -1));
+        Label_FlightNumber.setText("Client ID:");
+        add(Label_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, -1, -1));
 
         Label_Brand.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Brand.setForeground(new java.awt.Color(153, 0, 0));
         Label_Brand.setText("Brand:");
-        add(Label_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, -1, -1));
+        add(Label_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 340, -1, -1));
 
         Label_Color.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Color.setForeground(new java.awt.Color(153, 0, 0));
         Label_Color.setText("Color:");
-        add(Label_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, -1, 20));
+        add(Label_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 380, -1, 20));
 
         Label_Weight.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Weight.setForeground(new java.awt.Color(153, 0, 0));
         Label_Weight.setText("Weight:");
-        add(Label_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 390, -1, -1));
+        add(Label_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 420, -1, -1));
 
         Label_Description.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Description.setForeground(new java.awt.Color(153, 0, 0));
         Label_Description.setText("Description:");
-        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 430, -1, -1));
+        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 460, -1, -1));
+
+        Field_FlightNumber1.setForeground(new java.awt.Color(153, 0, 0));
+        Field_FlightNumber1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_FlightNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 260, 30));
 
         Field_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_FlightNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 260, 30));
+        add(Field_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 300, 260, 30));
 
         Field_Brand.setForeground(new java.awt.Color(153, 0, 0));
         Field_Brand.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 310, 260, 30));
+        add(Field_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 340, 260, 30));
 
         Field_Color.setForeground(new java.awt.Color(153, 0, 0));
         Field_Color.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 350, 260, 30));
+        add(Field_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 380, 260, 30));
 
         Field_Weight.setForeground(new java.awt.Color(153, 0, 0));
         Field_Weight.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 390, 260, 30));
+        add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 420, 260, 30));
 
         Field_Description.setForeground(new java.awt.Color(153, 0, 0));
         Field_Description.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 430, 260, 100));
+        add(Field_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, 260, 100));
+
+        Label_FlightNumber1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_FlightNumber1.setForeground(new java.awt.Color(153, 0, 0));
+        Label_FlightNumber1.setText("Flight number:");
+        add(Label_FlightNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, -1, -1));
 
         Button_AddToCase.setBackground(new java.awt.Color(34, 153, 68));
         Button_AddToCase.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -220,7 +248,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
                 Button_AddToCaseMouseExited(evt);
             }
         });
-        add(Button_AddToCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 560, 150, 30));
+        add(Button_AddToCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 600, 150, 30));
 
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
         Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -242,7 +270,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 560, 100, 30));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, 100, 30));
 
         Tab_NewCase.setBackground(new java.awt.Color(156, 0, 0));
         Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -328,7 +356,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
-        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 535, -1, -1));
+        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 570, -1, -1));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
@@ -400,8 +428,11 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             emptyfield_warning.setEnabled(true);
         } else {
             try {
+
+                
                 String sql = "insert into baggage (flightnumber,brand,color,weight,description)value(?,?,?,?,?)";
                 pst = conn.prepareStatement(sql);
+                
                 pst.setString(1, Field_FlightNumber.getText());
                 pst.setString(2, Field_Brand.getText());
                 pst.setString(3, Field_Color.getText());
@@ -450,6 +481,32 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Field_SearchClientIDActionPerformed
 
+    private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_ResetMouseClicked
+
+    private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_ResetMouseEntered
+
+    private void Button_ResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_ResetMouseExited
+
+    private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
+        Panel_Manual.setVisible(false);
+        Panel_Manual.setEnabled(false);
+    }//GEN-LAST:event_Label_ManualExitMouseClicked
+
+    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
+        Panel_Manual.setVisible(true);
+        Panel_Manual.setEnabled(true);
+    }//GEN-LAST:event_Label_CallManualMouseClicked
+
+    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_Home());
+    }//GEN-LAST:event_Label_LogoMouseClicked
+
     private void Table_ExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_ExtraBaggageMouseClicked
         try {
             int row = Table_ExtraBaggage.getSelectedRow();
@@ -477,32 +534,6 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Table_ExtraBaggageMouseClicked
 
-    private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Button_ResetMouseClicked
-
-    private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Button_ResetMouseEntered
-
-    private void Button_ResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Button_ResetMouseExited
-
-    private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
-        Panel_Manual.setVisible(false);
-        Panel_Manual.setEnabled(false);
-    }//GEN-LAST:event_Label_ManualExitMouseClicked
-
-    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
-        Panel_Manual.setVisible(true);
-        Panel_Manual.setEnabled(true);
-    }//GEN-LAST:event_Label_CallManualMouseClicked
-
-    private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_Home());
-    }//GEN-LAST:event_Label_LogoMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -512,6 +543,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     private javax.swing.JTextField Field_Color;
     private javax.swing.JTextField Field_Description;
     private javax.swing.JTextField Field_FlightNumber;
+    private javax.swing.JTextField Field_FlightNumber1;
     private javax.swing.JTextField Field_SearchClientID;
     private javax.swing.JTextField Field_Weight;
     private javax.swing.JLabel Label_BaggageInformation;
@@ -520,6 +552,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Color;
     private javax.swing.JLabel Label_Description;
     private javax.swing.JLabel Label_FlightNumber;
+    private javax.swing.JLabel Label_FlightNumber1;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
