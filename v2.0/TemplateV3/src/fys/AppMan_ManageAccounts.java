@@ -510,13 +510,13 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 String add7 = rs.getString("phonenumber");
                 Field_PhoneNumber.setText(add7);
                 rs.getString("function");
-                if (rs.getString("function").equals("appmanager")) {
+                if (rs.getString("function").equals("application manager")) {
                     Radio_ApplicationManager.setSelected(true);
                 }
                 else if (rs.getString("function").equals("manager")) {
                     Radio_Manager.setSelected(true);
                 }
-                else if (rs.getString("function").equals("serdesemployee")) {
+                else if (rs.getString("function").equals("service desk employee")) {
                     Radio_ServiceDeskEmployee.setSelected(true);
                 }
                 
@@ -582,17 +582,17 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 String value7 = Field_PhoneNumber.getText();
                 String value8 = "";
                 if (Radio_ApplicationManager.isSelected()) {
-                    value8 = "appmanager";
+                    value8 = "application manager";
                 }
                 else if (Radio_Manager.isSelected()) {
                     value8 = "manager";
                 }
                 else if (Radio_ServiceDeskEmployee.isSelected()) {
-                    value8 = "serdesemployee";
+                    value8 = "service desk employee";
                 }
                 
 
-                String sql = "update employee set employeeID = '" + value1 + "',name = '" + value2 + "',lastname = '" + value3 + "',username = '" + value4 + "',password = '" + value5 + "' ,email = '" + value6 + "',phonenumber = '" + value7 + "' where employeeID='" + value1 + "', function = '" + value8 + "' ";
+                String sql = "update employee set employeeID = '" + value1 + "',name = '" + value2 + "',lastname = '" + value3 + "',username = '" + value4 + "',password = '" + value5 + "' ,email = '" + value6 + "',phonenumber = '" + value7 + "',  function = '" + value8 + "' where employeeID='" + value1 + "' ";
                 pst = conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Updated");
