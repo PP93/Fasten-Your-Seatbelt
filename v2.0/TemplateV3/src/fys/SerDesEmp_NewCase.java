@@ -516,22 +516,21 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_SaveMouseExited
 
     private void Checkbox_CopyAddressInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Checkbox_CopyAddressInfoActionPerformed
-      
-                            try {
+        try {
 
-                        String sql = "insert into client (shippingcountry,shippingcity,shippingzipcode,shippingaddress)value(?,?,?,?)";
-                        pst = conn.prepareStatement(sql);
+            String sql = "insert into client (shippingcountry,shippingcity,shippingzipcode,shippingaddress)value(?,?,?,?)";
+            pst = conn.prepareStatement(sql);
 
-                        pst.setString(1, Field_Country.getText());
-                        pst.setString(2, Field_City.getText());
-                        pst.setString(3, Field_ZipCode.getText());
-                        pst.setString(4, Field_Address.getText());
-                        pst.execute();
+            pst.setString(1, Field_Country.getText());
+            pst.setString(2, Field_City.getText());
+            pst.setString(3, Field_ZipCode.getText());
+            pst.setString(4, Field_Address.getText());
+            pst.execute();
 
-                    } catch (SQLException | HeadlessException e) {
+        } catch (SQLException | HeadlessException e) {
 
-                        JOptionPane.showMessageDialog(null, e);
-                    }
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_Checkbox_CopyAddressInfoActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
@@ -563,6 +562,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                         
 
                         pst.execute();
+                        createLog(Field_FirstName.getText());
                         JOptionPane.showMessageDialog(null, "Saved");
                         emptyfield_warning.setVisible(false);
                         emptyfield_warning.setEnabled(false);
@@ -598,6 +598,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                         
 
                         pst.execute();
+                        createLog(Field_FirstName.getText());
                         JOptionPane.showMessageDialog(null, "Saved");
                         emptyfield_warning.setVisible(false);
                         emptyfield_warning.setEnabled(false);
@@ -627,6 +628,13 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
 
                         pst.execute();
+                        
+                        //Floris: This isn't perfect yet but neither is this huge ass block of 
+                        //if-else-statements :P When we have a class for getting all info of a piece
+                        //of baggage and other classes for employees and clients, I'll make this
+                        //better :D
+                        createLog(Field_FlightNumber.getText());
+                        
                         JOptionPane.showMessageDialog(null, "Saved");
 
                     } catch (SQLException | HeadlessException e) {
@@ -640,8 +648,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-
-        
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_City.setText("");
@@ -660,7 +666,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Field_Color.setText("");
         Field_Weight.setText("");
         Field_Description.setText("");
-
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Tab_NewCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewCaseMouseClicked
@@ -749,6 +754,29 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Check_ClientCaseActionPerformed
 
+    private void createLog(String clientName) {
+        try {
+            String sql1 = "select * from employee where username=?";
+            pst = conn.prepareStatement(sql1);
+            pst.setString(1, Global.getCurrentUser());
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String employeeID = rs.getString("employeeID");
+                
+                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+                pst = conn.prepareStatement(sql2);
+
+                pst.setString(1, employeeID);
+                pst.setString(2, "Created new case for " + clientName);
+                pst.setString(3, "SerDesEmp_NewCase");
+
+                pst.execute();
+            }
+        } catch (SQLException | HeadlessException e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;

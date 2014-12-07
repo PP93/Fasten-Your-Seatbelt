@@ -10,12 +10,12 @@ package fys;
  * @author Caitlin
  */
 public class Global {
-    public static String currentUser;
+    private static String currentUser;
     
     public static String getCurrentUser () {
         return Global.currentUser;
     }
-    
+
     public static void setCurrentUser (String currentUser) {
         Global.currentUser = currentUser;
     }

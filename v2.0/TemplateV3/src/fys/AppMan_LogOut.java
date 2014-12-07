@@ -1,12 +1,24 @@
 package fys;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 public class AppMan_LogOut extends javax.swing.JPanel {
+
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
     public AppMan_LogOut() {
         initComponents();
+        conn = javaconnect.ConnecrDb();
+
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
-
     }
 
     /**
@@ -235,6 +247,8 @@ public class AppMan_LogOut extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
     private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
+        createLog();
+        Global.setCurrentUser(null);
         FYS.getInstance().showPage(new Login());
     }//GEN-LAST:event_Button_YesMouseClicked
 
@@ -256,6 +270,29 @@ public class AppMan_LogOut extends javax.swing.JPanel {
         FYS.getInstance().showPage(new AppMan_Home());
     }//GEN-LAST:event_Label_LogoMouseClicked
 
+    private void createLog() {
+        try {
+            String sql1 = "select * from employee where username=?";
+            pst = conn.prepareStatement(sql1);
+            pst.setString(1, Global.getCurrentUser());
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String employeeID = rs.getString("employeeID");
+                
+                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+                pst = conn.prepareStatement(sql2);
+
+                pst.setString(1, employeeID);
+                pst.setString(2, "Logged out");
+                pst.setString(3, "AppMan_LogOut");
+
+                pst.execute();
+            }
+        } catch (SQLException | HeadlessException e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;

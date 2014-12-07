@@ -168,7 +168,6 @@ public class Login extends javax.swing.JPanel {
 
     private void Button_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LogInMouseClicked
         logIn();
-
     }//GEN-LAST:event_Button_LogInMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked

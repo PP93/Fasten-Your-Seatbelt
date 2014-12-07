@@ -1,12 +1,24 @@
 package fys;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 public class SerDesEmp_LogOut extends javax.swing.JPanel {
+
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
     public SerDesEmp_LogOut() {
         initComponents();
+        conn = javaconnect.ConnecrDb();
+
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
-
     }
 
     /**
@@ -28,7 +40,7 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         Button_No = new javax.swing.JLabel();
         Button_Yes = new javax.swing.JLabel();
         Tab_NewCase = new javax.swing.JLabel();
-        Tag_UpdateCase = new javax.swing.JLabel();
+        Tab_UpdateCase = new javax.swing.JLabel();
         Tab_AddExtraBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
@@ -150,26 +162,26 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         });
         add(Tab_NewCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
 
-        Tag_UpdateCase.setBackground(new java.awt.Color(156, 0, 0));
-        Tag_UpdateCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Tag_UpdateCase.setForeground(new java.awt.Color(255, 255, 255));
-        Tag_UpdateCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tag_UpdateCase.setText("Update Case");
-        Tag_UpdateCase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tag_UpdateCase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tag_UpdateCase.setOpaque(true);
-        Tag_UpdateCase.addMouseListener(new java.awt.event.MouseAdapter() {
+        Tab_UpdateCase.setBackground(new java.awt.Color(156, 0, 0));
+        Tab_UpdateCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_UpdateCase.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_UpdateCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_UpdateCase.setText("Update Case");
+        Tab_UpdateCase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_UpdateCase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_UpdateCase.setOpaque(true);
+        Tab_UpdateCase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tag_UpdateCaseMouseClicked(evt);
+                Tab_UpdateCaseMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tag_UpdateCaseMouseEntered(evt);
+                Tab_UpdateCaseMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tag_UpdateCaseMouseExited(evt);
+                Tab_UpdateCaseMouseExited(evt);
             }
         });
-        add(Tag_UpdateCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
+        add(Tab_UpdateCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
 
         Tab_AddExtraBaggage.setBackground(new java.awt.Color(156, 0, 0));
         Tab_AddExtraBaggage.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -238,6 +250,8 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_YesMouseExited
 
     private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
+        createLog();
+        Global.setCurrentUser(null);
         FYS.getInstance().showPage(new Login());
     }//GEN-LAST:event_Button_YesMouseClicked
 
@@ -262,7 +276,6 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
     private void Tab_AddExtraBaggageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseExited
         Tab_AddExtraBaggage.setBackground(new java.awt.Color(153, 0, 0));
-
         Tab_AddExtraBaggage.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseExited
 
@@ -278,25 +291,23 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Tab_LogOutMouseExited
 
-    private void Tag_UpdateCaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tag_UpdateCaseMouseEntered
-        Tag_UpdateCase.setBackground(new java.awt.Color(255, 255, 255));
-        Tag_UpdateCase.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tag_UpdateCaseMouseEntered
+    private void Tab_UpdateCaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseEntered
+        Tab_UpdateCase.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_UpdateCase.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_Tab_UpdateCaseMouseEntered
 
-    private void Tag_UpdateCaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tag_UpdateCaseMouseExited
-        Tag_UpdateCase.setBackground(new java.awt.Color(153, 0, 0));
-        Tag_UpdateCase.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tag_UpdateCaseMouseExited
+    private void Tab_UpdateCaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseExited
+        Tab_UpdateCase.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_UpdateCase.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_Tab_UpdateCaseMouseExited
 
     private void Tab_AddExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseClicked
        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
-               Tab_AddExtraBaggage.setForeground(new java.awt.Color(153,0,0));
-        Tab_AddExtraBaggage.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseClicked
 
-    private void Tag_UpdateCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tag_UpdateCaseMouseClicked
+    private void Tab_UpdateCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
-    }//GEN-LAST:event_Tag_UpdateCaseMouseClicked
+    }//GEN-LAST:event_Tab_UpdateCaseMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
         Manual_Panel.setVisible(false);
@@ -316,6 +327,30 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
         FYS.getInstance().showPage(new SerDesEmp_Home());
     }//GEN-LAST:event_Button_NoMouseClicked
 
+    private void createLog() {
+        try {
+            String sql1 = "select * from employee where username=?";
+            pst = conn.prepareStatement(sql1);
+            pst.setString(1, Global.getCurrentUser());
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String employeeID = rs.getString("employeeID");
+                
+                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+                pst = conn.prepareStatement(sql2);
+
+                pst.setString(1, employeeID);
+                pst.setString(2, "Logged out");
+                pst.setString(3, "SerDesEmp_LogOut");
+
+                pst.execute();
+            }
+        } catch (SQLException | HeadlessException e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_No;
@@ -330,6 +365,6 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_AddExtraBaggage;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JLabel Tab_NewCase;
-    private javax.swing.JLabel Tag_UpdateCase;
+    private javax.swing.JLabel Tab_UpdateCase;
     // End of variables declaration//GEN-END:variables
 }

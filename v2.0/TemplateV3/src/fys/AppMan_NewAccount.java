@@ -425,11 +425,11 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 pst.setString(7, accounttype);
 
                 pst.execute();
+                createLog(Field_Username.getText(), accounttype);
                 JOptionPane.showMessageDialog(null, "Saved");
                 
                 emptyfield_warning.setVisible(false);
                 emptyfield_warning.setEnabled(false);
-
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -467,6 +467,29 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         FYS.getInstance().showPage(new AppMan_Home());
     }//GEN-LAST:event_Label_LogoMouseClicked
 
+    private void createLog(String newAccountEmployeeID, String newAccountFunction) {
+        try {
+            String sql1 = "select * from employee where username=?";
+            pst = conn.prepareStatement(sql1);
+            pst.setString(1, Global.getCurrentUser());
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String employeeID = rs.getString("employeeID");
+                
+                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+                pst = conn.prepareStatement(sql2);
+
+                pst.setString(1, employeeID);
+                pst.setString(2, "Created new " + newAccountFunction + " " + newAccountEmployeeID);
+                pst.setString(3, "AppMan_NewAccount");
+
+                pst.execute();
+            }
+        } catch (SQLException | HeadlessException e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
