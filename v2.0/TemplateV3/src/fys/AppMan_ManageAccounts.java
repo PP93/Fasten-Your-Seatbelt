@@ -510,6 +510,15 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 String add7 = rs.getString("phonenumber");
                 Field_PhoneNumber.setText(add7);
                 rs.getString("function");
+                if (rs.getString("function").equals("appmanager")) {
+                    Radio_ApplicationManager.setSelected(true);
+                }
+                else if (rs.getString("function").equals("manager")) {
+                    Radio_Manager.setSelected(true);
+                }
+                else if (rs.getString("function").equals("serdesemployee")) {
+                    Radio_ServiceDeskEmployee.setSelected(true);
+                }
                 
 
             }
@@ -571,9 +580,19 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 String value5 = Field_Password.getText();
                 String value6 = Field_Email.getText();
                 String value7 = Field_PhoneNumber.getText();
+                String value8 = "";
+                if (Radio_ApplicationManager.isSelected()) {
+                    value8 = "appmanager";
+                }
+                else if (Radio_Manager.isSelected()) {
+                    value8 = "manager";
+                }
+                else if (Radio_ServiceDeskEmployee.isSelected()) {
+                    value8 = "serdesemployee";
+                }
                 
 
-                String sql = "update employee set employeeID = '" + value1 + "',name = '" + value2 + "',lastname = '" + value3 + "',username = '" + value4 + "',password = '" + value5 + "' ,email = '" + value6 + "',phonenumber = '" + value7 + "' where employeeID='" + value1 + "' ";
+                String sql = "update employee set employeeID = '" + value1 + "',name = '" + value2 + "',lastname = '" + value3 + "',username = '" + value4 + "',password = '" + value5 + "' ,email = '" + value6 + "',phonenumber = '" + value7 + "' where employeeID='" + value1 + "', function = '" + value8 + "' ";
                 pst = conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Updated");
