@@ -3,6 +3,7 @@ package fys;
 import java.awt.BasicStroke;
 import java.awt.Dimension;
 import java.awt.Paint;
+import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -49,7 +50,7 @@ public class Graph extends ApplicationFrame {
      * @param bgColor background color of the graph
      * @param container
      */
-    public void createChart(String title, String xAxisString, String yAxisString, int width, int height, Paint bgColor) {
+    public void createChart(String title, String xAxisString, String yAxisString, int width, int height, Paint bgColor, JPanel container) {
       
         this.chart = ChartFactory.createLineChart(title, xAxisString, yAxisString, this.dataset, PlotOrientation.VERTICAL, true, true, false);
         
@@ -59,6 +60,8 @@ public class Graph extends ApplicationFrame {
         ChartPanel chartPanel = new ChartPanel(this.chart);
         chartPanel.setPreferredSize(new Dimension(width, height));
         setContentPane(chartPanel);
+        container.add(chartPanel);
+        container.validate();
         pack();
         RefineryUtilities.centerFrameOnScreen(this);
     }
