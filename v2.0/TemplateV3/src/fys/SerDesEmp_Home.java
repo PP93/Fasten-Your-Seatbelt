@@ -59,7 +59,7 @@ public class SerDesEmp_Home extends javax.swing.JPanel {
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>You can click on one of the tabs to do your job.</html>");
+        Label_Info.setText("<html>Click on one of the menu buttons to navigate to the desired page.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 

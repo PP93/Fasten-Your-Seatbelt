@@ -79,7 +79,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt; On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the &apos;Delete&apos; button. You can reset any  changes back to their original status with the &apos;Reset&apos; button, and you can permanently save any changes you&apos;ve made with the &apos;Save Changes&apos; button."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt; On the left side of the screen, you can search by employee ID for a particular account. &#xa;Click on the desired account within the  generated list and you will be able to edit it using the list of&#xa; fields to the right. You can delete the account entirely by using the &apos;Delete&apos; button. You can reset any &#xa;changes back to their original status with the &apos;Reset&apos; button, and you can permanently save any &#xa;changes you&apos;ve made with the &apos;Save Changes&apos; button.&#xa;&lt;br&gt;&#xa;&lt;br&gt;&#xa;Required fields are marked by a *."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>

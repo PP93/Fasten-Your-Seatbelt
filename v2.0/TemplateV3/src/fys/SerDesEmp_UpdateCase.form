@@ -91,7 +91,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;On the left side of the screen, fill in the search term&#xa;for the case you wish to update. This will generate&#xa;a list of cases that match your search in the table below. &#xa;Click on the desired table to fill the list of fields to the right.&#xa;From here you can change or delete the case&apos;s data. If you &#xa;wish to start over, click the &apos;Reset&apos; button to return the&#xa;fields to their original values. If you&apos;re satisfied with the&#xa;changes you&apos;ve made, click the &apos;Save&apos; button to make&#xa;them permanent."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;On the left side of the screen, fill in the search term&#xa;for the case you wish to update. This will generate&#xa;a list of cases that match your search in the table below. &#xa;Click on the desired table to fill the list of fields to the right.&#xa;From here you can change or delete the case&apos;s data. If you &#xa;wish to start over, click the &apos;Reset&apos; button to return the&#xa;fields to their original values. If you&apos;re satisfied with the&#xa;changes you&apos;ve made, click the &apos;Save&apos; button to make&#xa;them permanent.&#xa;&lt;br&gt;&#xa;&lt;br&gt;&#xa;Required fields are marked by a *."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>

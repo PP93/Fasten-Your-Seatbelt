@@ -160,6 +160,7 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nSelect the timeframe and type of case by\nusing their respective drop down buttons.\nThis will generate a table of data based on your\nchoices. You can also search through the data using\nthe search bar located above the table.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 

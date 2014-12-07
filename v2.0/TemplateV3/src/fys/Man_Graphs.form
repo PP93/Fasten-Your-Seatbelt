@@ -96,7 +96,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Choose the timeframe, case type, and case status&#xa;by clicking their respective radio buttons. This will &#xa;generate a list of cases based on the information you&apos;ve&#xa;chosen in the table below. &#xa;&lt;br&gt;&#xa;&lt;br&gt;&#xa;To view a graph of the data, click on &apos;Generate Graph&apos;."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Choose the timeframe, case type, and case status&#xa;by clicking using their respective drop down buttons. This will &#xa;generate a list of cases based on the information you&apos;ve&#xa;chosen in the table below. &#xa;&lt;br&gt;&#xa;&lt;br&gt;&#xa;To view a graph of the data, click on &apos;Generate Graph&apos;."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>

@@ -111,7 +111,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nTo create a new account, first choose\nthe type of account you would like to \nmake. Afterwards, fill in all the correct\nemployee data in the given fields. Click on \n'Save' to create and save the account. \nClick on 'Reset' to clear all fields and begin anew.");
+        Label_Info.setText("<html>\nTo create a new account, first choose\nthe type of account you would like to \nmake. Afterwards, fill in all the correct\nemployee data in the given fields. Click on \n'Save' to create and save the account. \nClick on 'Reset' to clear all fields and begin anew.\n<br>\n<br>\nRequired fields are marked by a *.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 

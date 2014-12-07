@@ -111,7 +111,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. Click on the desired account within the  generated list and you will be able to edit it using the list of fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any  changes back to their original status with the 'Reset' button, and you can permanently save any changes you've made with the 'Save Changes' button.");
+        Label_Info.setText("<html> On the left side of the screen, you can search by employee ID for a particular account. \nClick on the desired account within the  generated list and you will be able to edit it using the list of\n fields to the right. You can delete the account entirely by using the 'Delete' button. You can reset any \nchanges back to their original status with the 'Reset' button, and you can permanently save any \nchanges you've made with the 'Save Changes' button.\n<br>\n<br>\nRequired fields are marked by a *.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 

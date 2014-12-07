@@ -105,7 +105,7 @@ private DefaultCategoryDataset dataset;
         Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Label_Info.setForeground(new java.awt.Color(153, 0, 0));
         Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nChoose the timeframe, case type, and case status\nby clicking their respective radio buttons. This will \ngenerate a list of cases based on the information you've\nchosen in the table below. \n<br>\n<br>\nTo view a graph of the data, click on 'Generate Graph'.");
+        Label_Info.setText("<html>\nChoose the timeframe, case type, and case status\nby clicking using their respective drop down buttons. This will \ngenerate a list of cases based on the information you've\nchosen in the table below. \n<br>\n<br>\nTo view a graph of the data, click on 'Generate Graph'.");
         Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 

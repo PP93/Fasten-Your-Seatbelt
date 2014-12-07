@@ -178,6 +178,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Select the timeframe and type of case by&#xa;using their respective drop down buttons.&#xa;This will generate a table of data based on your&#xa;choices. You can also search through the data using&#xa;the search bar located above the table."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>

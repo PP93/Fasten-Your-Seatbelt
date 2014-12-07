@@ -120,7 +120,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;To create a new account, first choose&#xa;the type of account you would like to &#xa;make. Afterwards, fill in all the correct&#xa;employee data in the given fields. Click on &#xa;&apos;Save&apos; to create and save the account. &#xa;Click on &apos;Reset&apos; to clear all fields and begin anew."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;To create a new account, first choose&#xa;the type of account you would like to &#xa;make. Afterwards, fill in all the correct&#xa;employee data in the given fields. Click on &#xa;&apos;Save&apos; to create and save the account. &#xa;Click on &apos;Reset&apos; to clear all fields and begin anew.&#xa;&lt;br&gt;&#xa;&lt;br&gt;&#xa;Required fields are marked by a *."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>

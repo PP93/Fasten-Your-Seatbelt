@@ -106,7 +106,7 @@
               <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;You can click on one of the tabs to do your job.&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;Click on one of the menu buttons to navigate to the desired page."/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>
