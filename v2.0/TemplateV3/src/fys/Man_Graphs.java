@@ -66,7 +66,7 @@ private DefaultCategoryDataset dataset;
         Tab_LogOut = new javax.swing.JLabel();
         Scrollpane_Cases = new javax.swing.JScrollPane();
         Table_Cases = new javax.swing.JTable();
-        jPanel_graph = new javax.swing.JPanel();
+        JPanel_Graph = new javax.swing.JPanel();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -241,8 +241,9 @@ private DefaultCategoryDataset dataset;
 
         add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 510, 280));
 
-        jPanel_graph.setLayout(new javax.swing.BoxLayout(jPanel_graph, javax.swing.BoxLayout.LINE_AXIS));
-        add(jPanel_graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 600, 400));
+        JPanel_Graph.setBackground(new java.awt.Color(255, 255, 255));
+        JPanel_Graph.setLayout(new javax.swing.BoxLayout(JPanel_Graph, javax.swing.BoxLayout.LINE_AXIS));
+        add(JPanel_Graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 600, 400));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
@@ -312,8 +313,8 @@ private DefaultCategoryDataset dataset;
     private void Button_GenerateGraphMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_GenerateGraphMouseClicked
 
         final int Resolved = 0;
-        final int Unresolved = 0;
-        final int PermanentlyLost = 0;
+        final int Unresolved = 1;
+        final int PermanentlyLost =2;
         String graphname = "Graph Name Test";
 
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -327,22 +328,19 @@ private DefaultCategoryDataset dataset;
         baggageGraph.addSeries(totalUnresolved, "Unresolved", months);
         baggageGraph.addSeries(totalPermanentlyLost, "PermanentlyLost", months);
           
-        baggageGraph.createChart("Baggage Overview", "Month", "Number", 600, 400, Color.WHITE);
+        baggageGraph.createChart("Baggage Overview", "Month", "Number", 600, 400, Color.WHITE, JPanel_Graph);
         
         
 
-        baggageGraph.setSeriesThickness(Resolved, 3);
-        baggageGraph.setSeriesThickness(PermanentlyLost, 3);
-        baggageGraph.setSeriesThickness(Unresolved, 3);
+        baggageGraph.setSeriesThickness(Resolved, 2);
+        baggageGraph.setSeriesThickness(PermanentlyLost, 2);
+        baggageGraph.setSeriesThickness(Unresolved, 2);
         baggageGraph.setSeriesColor(Resolved, Color.GREEN);
         baggageGraph.setSeriesColor(PermanentlyLost, Color.RED);
         baggageGraph.setSeriesColor(Unresolved, Color.YELLOW);
         baggageGraph.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
         
-        baggageGraph.setVisible(true);
-        
-        
-        
+        baggageGraph.setVisible(true); 
     }//GEN-LAST:event_Button_GenerateGraphMouseClicked
 
 
@@ -352,6 +350,7 @@ private DefaultCategoryDataset dataset;
     private javax.swing.JComboBox Box_CaseType;
     private javax.swing.JComboBox Box_TimeFrame;
     private javax.swing.JLabel Button_GenerateGraph;
+    private javax.swing.JPanel JPanel_Graph;
     private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_CaseStatus;
     private javax.swing.JLabel Label_CaseType;
@@ -366,7 +365,6 @@ private DefaultCategoryDataset dataset;
     private javax.swing.JLabel Tab_LogActivities;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JTable Table_Cases;
-    private javax.swing.JPanel jPanel_graph;
     // End of variables declaration//GEN-END:variables
 
 }
