@@ -168,6 +168,7 @@ public class Login extends javax.swing.JPanel {
 
     private void Button_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LogInMouseClicked
         logIn();
+
     }//GEN-LAST:event_Button_LogInMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
@@ -201,6 +202,7 @@ public class Login extends javax.swing.JPanel {
 
             if (rs.next()) {
                 createLog(rs.getString("employeeID"));
+                Global.setCurrentUser(Field_Username.getText());
 
                 employeeFunction = rs.getString("function");
 
@@ -217,7 +219,7 @@ public class Login extends javax.swing.JPanel {
                     default:
                         break;
                 }
-
+                
                 rs.close();
                 pst.close();
                 close();

@@ -6,6 +6,7 @@ public class SerDesEmp_Home extends javax.swing.JPanel {
         initComponents();
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
+        Label_WelcomeText.setText("Welcome " + Global.getCurrentUser() + ".");
 
     }
 
