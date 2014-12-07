@@ -617,7 +617,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 } else {
                     try {
 
-                        String sql = "insert into client (name,lastname,email,address,phonenumber,zipcode,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) INNER JOIN baggage ON client.flightnumber = baggage.flightnumber value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String sql = "insert into client (name,lastname,email,address,phonenumber,zipcode,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
                         pst = conn.prepareStatement(sql);
 
                         pst.setString(1, Field_FirstName.getText());
