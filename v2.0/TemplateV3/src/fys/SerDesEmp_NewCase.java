@@ -34,6 +34,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         employee_id = new javax.swing.JLabel();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
+        Panel_Manual = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Label_Date = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Field_Description = new javax.swing.JTextArea();
@@ -77,7 +81,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Button_Reset = new javax.swing.JLabel();
         Tab_NewCase = new javax.swing.JLabel();
         Tab_UpdateCase = new javax.swing.JLabel();
-        Tab_UpdateBaggage = new javax.swing.JLabel();
         Tab_AddBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Check_BaggageCase = new javax.swing.JCheckBox();
@@ -85,10 +88,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         emptyfield_warning = new javax.swing.JLabel();
         Field_DateAdded = new com.toedter.calendar.JDateChooser();
         Background = new javax.swing.JLabel();
-        Panel_Manual = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
 
         employee_id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         employee_id.setForeground(new java.awt.Color(153, 0, 0));
@@ -114,6 +113,34 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
             }
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
+
+        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Panel_Manual.setEnabled(false);
+        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nTo create a new case, fill in all the known and necessary\ndata in the given fields. If you need to start over from \nscratch, click the 'Reset' button to clear all fields and\nbegin again. Once all the needed fields have been filled,\nclick 'Save' to create and save the new case.\n<br>\n<br>\nRequired fields are marked by a *.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Label_Date.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Date.setForeground(new java.awt.Color(153, 0, 0));
@@ -353,7 +380,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, 130, 30));
 
         Tab_NewCase.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Tab_NewCase.setForeground(new java.awt.Color(156, 10, 13));
         Tab_NewCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tab_NewCase.setText("New Case");
@@ -371,13 +398,13 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Tab_NewCaseMouseExited(evt);
             }
         });
-        add(Tab_NewCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 240, 40));
+        add(Tab_NewCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
 
         Tab_UpdateCase.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_UpdateCase.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tab_UpdateCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Tab_UpdateCase.setForeground(new java.awt.Color(255, 255, 255));
         Tab_UpdateCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateCase.setText("Update Client Case");
+        Tab_UpdateCase.setText("Update Case");
         Tab_UpdateCase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Tab_UpdateCase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tab_UpdateCase.setMaximumSize(new java.awt.Dimension(186, 27));
@@ -395,31 +422,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Tab_UpdateCaseMouseExited(evt);
             }
         });
-        add(Tab_UpdateCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 240, 40));
-
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_UpdateBaggage.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateBaggage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateBaggage.setText("Update Baggage Case");
-        Tab_UpdateBaggage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_UpdateBaggage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateBaggage.setOpaque(true);
-        Tab_UpdateBaggage.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_UpdateBaggageMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_UpdateBaggageMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_UpdateBaggageMouseExited(evt);
-            }
-        });
-        add(Tab_UpdateBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 230, 40));
+        add(Tab_UpdateCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
 
         Tab_AddBaggage.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_AddBaggage.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tab_AddBaggage.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Tab_AddBaggage.setForeground(new java.awt.Color(255, 255, 255));
         Tab_AddBaggage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tab_AddBaggage.setText("Add Extra Baggage");
@@ -437,10 +443,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Tab_AddBaggageMouseExited(evt);
             }
         });
-        add(Tab_AddBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 230, 40));
+        add(Tab_AddBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 240, 40));
 
         Tab_LogOut.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
         Tab_LogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tab_LogOut.setText("Log Out");
@@ -458,7 +464,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Tab_LogOutMouseExited(evt);
             }
         });
-        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 110, 230, 40));
+        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 240, 40));
 
         Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
         Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -491,34 +497,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
-
-        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Panel_Manual.setEnabled(false);
-        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nTo create a new case, fill in all the known and necessary\ndata in the given fields. If you need to start over from \nscratch, click the 'Reset' button to clear all fields and\nbegin again. Once all the needed fields have been filled,\nclick 'Save' to create and save the new case.\n<br>\n<br>\nRequired fields are marked by a *.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -716,8 +694,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_LogOut());
-        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
-        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
@@ -777,21 +753,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private void Check_ClientCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Check_ClientCaseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Check_ClientCaseActionPerformed
-
-    private void Tab_UpdateBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseClicked
-
-    }//GEN-LAST:event_Tab_UpdateBaggageMouseClicked
-
-    private void Tab_UpdateBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseEntered
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_UpdateBaggageMouseEntered
-
-    private void Tab_UpdateBaggageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseExited
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(153, 0, 0));
-
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_UpdateBaggageMouseExited
 
     private void createLog(String clientName) {
         try {
@@ -871,7 +832,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_AddBaggage;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JLabel Tab_NewCase;
-    private javax.swing.JLabel Tab_UpdateBaggage;
     private javax.swing.JLabel Tab_UpdateCase;
     private javax.swing.JLabel employee_id;
     private javax.swing.JLabel emptyfield_warning;

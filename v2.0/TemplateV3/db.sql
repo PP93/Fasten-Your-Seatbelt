@@ -46,12 +46,12 @@
 
 INSERT INTO employee
 (name, lastname, username, password, email, phonenumber, function)
-VALUES ('', '', 'appmanager1', 'appmanager123', '', '', 'application manager');
+VALUES ('Jan', 'Janssen', 'appmanager1', 'appmanager123', 'jan@corendon.nl', '0612300321', 'application manager');
 
 INSERT INTO employee
 (name, lastname, username, password, email, phonenumber, function)
-VALUES ('', '', 'manager1', 'manager123', '', '', 'manager'); 
+VALUES ('Henk', 'de Vries', 'manager1', 'manager123', 'henk@corendon.nl', '0687654321', 'manager'); 
 
 INSERT INTO employee
 (name, lastname, username, password, email, phonenumber, function)
-VALUES ('', '', 'serdesemp1', 'serdesemp123', '', '', 'service desk employee');
+VALUES ('Evert', 'Smit', 'serdesemp1', 'serdesemp123', 'evert@corendon.nl', '0612344321', 'service desk employee');
