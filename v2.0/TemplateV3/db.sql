@@ -39,7 +39,7 @@
  CREATE TABLE `log` (
  `logID` INT(6) NOT NULL AUTO_INCREMENT primary key,
  `employeeID` INT(3) NOT NULL,
- `timestamp` TIMESTAMP(6),
+ `timestamp` TIMESTAMP(0),
  `action` CHAR(255) NOT NULL,
  `tab` CHAR(255) NOT NULL
  );

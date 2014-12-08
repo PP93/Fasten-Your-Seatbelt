@@ -8,11 +8,13 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- * It works for now. But we need a perfect database first
- * 
+ * It works for now, I guess...
+ *
  * @author Floris
  */
 public class Employee {
+    public static String currentUsername;
+
     public int employeeID;
     public String firstName;
     public String lastName;
@@ -31,13 +33,13 @@ public class Employee {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                this.employeeID  = employeeID;
-                this.firstName   = rs.getString("name");
-                this.lastName    = rs.getString("lastname");
-                this.username    = rs.getString("username");
-                this.password    = rs.getString("password");
+                this.employeeID = employeeID;
+                this.firstName = rs.getString("name");
+                this.lastName = rs.getString("lastname");
+                this.username = rs.getString("username");
+                this.password = rs.getString("password");
                 this.phoneNumber = rs.getString("phonenumber");
-                this.function    = rs.getString("function");
+                this.function = rs.getString("function");
 
             } else {
                 System.out.println("THIS WENT WRONG");
@@ -47,7 +49,7 @@ public class Employee {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+
     public Employee(String username) {
         Connection conn = javaconnect.ConnecrDb();
         try {
@@ -62,12 +64,12 @@ public class Employee {
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                this.firstName   = rs.getString("name");
-                this.lastName    = rs.getString("lastname");
-                this.username    = username;
-                this.password    = rs.getString("password");
+                this.firstName = rs.getString("name");
+                this.lastName = rs.getString("lastname");
+                this.username = username;
+                this.password = rs.getString("password");
                 this.phoneNumber = rs.getString("phonenumber");
-                this.function    = rs.getString("function");
+                this.function = rs.getString("function");
 
             } else {
                 System.out.println("THIS WENT WRONG");
@@ -77,7 +79,20 @@ public class Employee {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+
+    public static String getCurrentUser() {
+        return Employee.currentUsername;
+    }
+
+    public static void setCurrentUser(String currentUsername) {
+        Employee.currentUsername = currentUsername;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    // For testing
     @Override
     public String toString() {
         return employeeID + " " + firstName + " " + lastName + " " + username + " " + function;

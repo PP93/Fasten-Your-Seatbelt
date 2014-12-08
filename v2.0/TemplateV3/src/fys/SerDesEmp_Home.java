@@ -6,8 +6,9 @@ public class SerDesEmp_Home extends javax.swing.JPanel {
         initComponents();
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
-        Label_WelcomeText.setText("Welcome " + Global.getCurrentUser() + ".");
 
+        Employee currentEmployee = new Employee(Employee.getCurrentUser());
+        Label_WelcomeText.setText("Welcome " + currentEmployee.getFullName() + ".");
     }
 
     /**
@@ -225,9 +226,7 @@ public class SerDesEmp_Home extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_UpdateCaseMouseExited
 
     private void Tab_AddExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseClicked
-       FYS.getInstance().showPage(new SerDesEmp_AddBagage());
-               Tab_AddExtraBaggage.setForeground(new java.awt.Color(153,0,0));
-        Tab_AddExtraBaggage.setBackground(new java.awt.Color(255,255,255));
+        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseClicked
 
     private void Tab_UpdateCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseClicked

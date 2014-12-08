@@ -443,7 +443,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Tab_AddBaggageMouseExited(evt);
             }
         });
-        add(Tab_AddBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 240, 40));
+        add(Tab_AddBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 40));
 
         Tab_LogOut.setBackground(new java.awt.Color(156, 0, 0));
         Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -464,7 +464,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Tab_LogOutMouseExited(evt);
             }
         });
-        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 240, 40));
+        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, 250, 40));
 
         Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
         Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -726,14 +726,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
     private void Tab_UpdateCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
-        Tab_UpdateCase.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateCase.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_Tab_UpdateCaseMouseClicked
 
     private void Tab_AddBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddBaggageMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_AddBagage());
-        Tab_AddBaggage.setForeground(new java.awt.Color(153, 0, 0));
-        Tab_AddBaggage.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_AddBaggageMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked

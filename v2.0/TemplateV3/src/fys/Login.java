@@ -201,7 +201,7 @@ public class Login extends javax.swing.JPanel {
 
             if (rs.next()) {
                 createLog(rs.getString("employeeID"));
-                Global.setCurrentUser(Field_Username.getText());
+                Employee.setCurrentUser(Field_Username.getText());
 
                 employeeFunction = rs.getString("function");
 
