@@ -1,8 +1,10 @@
 package fys;
 
 import java.awt.HeadlessException;
+import java.security.MessageDigest;
 import java.sql.*;
 import javax.swing.*;
+import javax.xml.bind.DatatypeConverter;
 import net.proteanit.sql.DbUtils;
 
 public class AppMan_ManageAccounts extends javax.swing.JPanel {
@@ -571,13 +573,14 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
             emptyfield_warning.setEnabled(true);
         } else {
             try {
+                
 
                 String value1 = Field_EmployeeID.getText();
                 Field_EmployeeID.setEditable(false);
                 String value2 = Field_FirstName.getText();
                 String value3 = Field_LastName.getText();
                 String value4 = Field_Username.getText();
-                String value5 = Field_Password.getText();
+                String value5 =Field_Password.getText();
                 String value6 = Field_Email.getText();
                 String value7 = Field_PhoneNumber.getText();
                 String value8 = "";
@@ -622,10 +625,13 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
         try {
-            String sql = "select * from employee where employeeID=?";
+            String sql = "select * from employee where employeeID=? OR name=? OR lastname=? OR username=? ";
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, Field_Search.getText());
+            pst.setString(2, Field_Search.getText());
+            pst.setString(3, Field_Search.getText());
+            pst.setString(4, Field_Search.getText());
 
             rs = pst.executeQuery();
             if (rs.next()) {
