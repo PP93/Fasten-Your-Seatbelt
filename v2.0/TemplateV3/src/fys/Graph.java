@@ -1,6 +1,7 @@
 package fys;
 
 import java.awt.BasicStroke;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Paint;
 import javax.swing.JPanel;
@@ -11,20 +12,17 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
 
 /**
  *
  * @author breud
  */
-public class Graph extends ApplicationFrame {
+public class Graph extends JPanel {
 
     private DefaultCategoryDataset dataset;
     private JFreeChart chart;
 
     public Graph(String windowTitle) {
-        super(windowTitle);
         this.dataset = new DefaultCategoryDataset();
     }
 
@@ -59,11 +57,8 @@ public class Graph extends ApplicationFrame {
         chart.setBackgroundPaint(bgColor);
         ChartPanel chartPanel = new ChartPanel(this.chart);
         chartPanel.setPreferredSize(new Dimension(width, height));
-        setContentPane(chartPanel);
-        container.add(chartPanel);
+        container.add(chartPanel, BorderLayout.CENTER);
         container.validate();
-        pack();
-        RefineryUtilities.centerFrameOnScreen(this);
     }
 
     /**

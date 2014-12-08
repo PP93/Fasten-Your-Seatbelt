@@ -242,7 +242,7 @@ private DefaultCategoryDataset dataset;
         add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 510, 280));
 
         JPanel_Graph.setBackground(new java.awt.Color(255, 255, 255));
-        JPanel_Graph.setLayout(new javax.swing.BoxLayout(JPanel_Graph, javax.swing.BoxLayout.LINE_AXIS));
+        JPanel_Graph.setLayout(new java.awt.BorderLayout());
         add(JPanel_Graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 600, 400));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
