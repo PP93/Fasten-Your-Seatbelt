@@ -48,6 +48,37 @@ public class Employee {
         }
     }
     
+    public Employee(String username) {
+        Connection conn = javaconnect.ConnecrDb();
+        try {
+            String sql = "select * from employee where username=?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, username);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                try {
+                    this.employeeID = Integer.parseInt(rs.getString("employeeID"));
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                this.firstName   = rs.getString("name");
+                this.lastName    = rs.getString("lastname");
+                this.username    = username;
+                this.password    = rs.getString("password");
+                this.phoneNumber = rs.getString("phonenumber");
+                this.function    = rs.getString("function");
+
+            } else {
+                System.out.println("THIS WENT WRONG");
+            }
+
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    @Override
     public String toString() {
         return employeeID + " " + firstName + " " + lastName + " " + username + " " + function;
     }
