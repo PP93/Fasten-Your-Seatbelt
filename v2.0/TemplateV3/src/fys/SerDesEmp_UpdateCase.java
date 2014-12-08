@@ -767,12 +767,12 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_LastName.setText(add2);
                 String add3 = rs.getString("email");
                 Field_EmailAddress.setText(add3);
-                String add4 = rs.getString("phonenumber");
-                Field_PhoneNumber.setText(add4);
+                String add4 = rs.getString("address");
+                Field_Address.setText(add4);
                 String add5 = rs.getString("zipcode");
                 Field_ZipCode.setText(add5);
-                String add6 = rs.getString("address");
-                Field_Address.setText(add6);
+                String add6 = rs.getString("phonenumber");
+                Field_PhoneNumber.setText(add6);
                 String add7 = rs.getString("city");
                 Field_City.setText(add7);
                 String add8 = rs.getString("country");

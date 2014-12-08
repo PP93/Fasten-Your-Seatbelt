@@ -63,7 +63,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Field_ShippingAddress = new javax.swing.JTextField();
         Field_ShippingCity = new javax.swing.JTextField();
         Field_ShippingCountry = new javax.swing.JTextField();
-        Field_Country1 = new javax.swing.JTextField();
+        Field_Country = new javax.swing.JTextField();
         Label_BaggageInformation = new javax.swing.JLabel();
         Label_FlightNumber = new javax.swing.JLabel();
         Label_Brand = new javax.swing.JLabel();
@@ -264,9 +264,9 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Field_ShippingCountry.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(Field_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 230, 30));
 
-        Field_Country1.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Country1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Country1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 230, 30));
+        Field_Country.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Country.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Country, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 230, 30));
 
         Label_BaggageInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_BaggageInformation.setForeground(new java.awt.Color(153, 0, 0));
@@ -580,17 +580,17 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 } else {
                     try {
 
-                        String sql = "insert into client (name,lastname,email,address,phonenumber,zipcode,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) JOIN baggage ON client.flightnumber = baggage.flightnumber value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) JOIN baggage ON client.flightnumber = baggage.flightnumber value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
                         pst = conn.prepareStatement(sql);
 
                         pst.setString(1, Field_FirstName.getText());
                         pst.setString(2, Field_LastName.getText());
                         pst.setString(3, Field_EmailAddress.getText());
                         pst.setString(4, Field_PhoneNumber.getText());
-                        pst.setString(5, Field_Address.getText());
-                        pst.setString(6, Field_ZipCode.getText());
+                        pst.setString(5, Field_ZipCode.getText());
+                        pst.setString(6, Field_Address.getText());
                         pst.setString(7, Field_City.getText());
-                        pst.setString(8, Field_City.getText());
+                        pst.setString(8, Field_Country.getText());
                         pst.setString(9, Field_FlightNumber1.getText());             
                         pst.setString(10, Field_ShippingCountry.getText());
                         pst.setString(11, Field_ShippingZipCode.getText());
@@ -617,17 +617,17 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 } else {
                     try {
 
-                        String sql = "insert into client (name,lastname,email,address,phonenumber,zipcode,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
                         pst = conn.prepareStatement(sql);
 
                         pst.setString(1, Field_FirstName.getText());
                         pst.setString(2, Field_LastName.getText());
                         pst.setString(3, Field_EmailAddress.getText());
-                        pst.setString(4, Field_PhoneNumber.getText());
-                        pst.setString(5, Field_Address.getText());
-                        pst.setString(6, Field_ZipCode.getText());
+                        pst.setString(4, Field_PhoneNumber.getText());                     
+                        pst.setString(5, Field_ZipCode.getText());
+                        pst.setString(6, Field_Address.getText());
                         pst.setString(7, Field_City.getText());
-                        pst.setString(8, Field_City.getText());
+                        pst.setString(8, Field_Country.getText());
                         pst.setString(9, Field_FlightNumber1.getText());             
                         pst.setString(10, Field_ShippingCountry.getText());
                         pst.setString(11, Field_ShippingZipCode.getText());
@@ -843,7 +843,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JTextField Field_Brand;
     private javax.swing.JTextField Field_City;
     private javax.swing.JTextField Field_Color;
-    private javax.swing.JTextField Field_Country1;
+    private javax.swing.JTextField Field_Country;
     private com.toedter.calendar.JDateChooser Field_DateAdded;
     private javax.swing.JTextArea Field_Description;
     private javax.swing.JTextField Field_EmailAddress;
