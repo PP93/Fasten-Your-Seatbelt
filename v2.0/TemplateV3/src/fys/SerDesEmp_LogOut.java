@@ -323,9 +323,7 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_UpdateCaseMouseExited
 
     private void Tab_UpdateBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_UpdateBaggage());
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(153, 0, 0));
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(255, 255, 255));
+
     }//GEN-LAST:event_Tab_UpdateBaggageMouseClicked
 
     private void Tab_UpdateBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseEntered
