@@ -221,35 +221,35 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Checkbox_CopyAddressInfoActionPerformed(evt);
             }
         });
-        add(Checkbox_CopyAddressInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 350, 40));
+        add(Checkbox_CopyAddressInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 350, 40));
 
         Label_ShippingZipCode.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingZipCode.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingZipCode.setText("Shipping Zip Code:");
-        add(Label_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
+        add(Label_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
         Label_ShippingAddress.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingAddress.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingAddress.setText("Shipping Address:");
-        add(Label_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+        add(Label_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, -1));
 
         Label_ShippingCity.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingCity.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingCity.setText("Shipping City:");
-        add(Label_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, -1));
+        add(Label_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
 
         Label_ShippingCountry.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingCountry.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingCountry.setText("Shipping Country:");
-        add(Label_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
+        add(Label_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, -1));
 
         Field_ShippingZipCode.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingZipCode.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 230, 30));
+        add(Field_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 230, 30));
 
         Field_ShippingAddress.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingAddress.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 230, 30));
+        add(Field_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 230, 30));
 
         Field_ShippingCity.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingCity.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -258,11 +258,11 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Field_ShippingCityActionPerformed(evt);
             }
         });
-        add(Field_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 230, 30));
+        add(Field_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 230, 30));
 
         Field_ShippingCountry.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingCountry.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 230, 30));
+        add(Field_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 230, 30));
 
         Field_Country.setForeground(new java.awt.Color(153, 0, 0));
         Field_Country.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -580,7 +580,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 } else {
                     try {
 
-                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) JOIN baggage ON client.flightnumber = baggage.flightnumber value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
                         pst = conn.prepareStatement(sql);
 
                         pst.setString(1, Field_FirstName.getText());

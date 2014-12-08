@@ -1,6 +1,7 @@
 package fys;
 
 import java.awt.HeadlessException;
+import java.security.MessageDigest;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.JOptionPane;
@@ -26,8 +27,8 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         group.add(Radio_ApplicationManager);
         group.add(Radio_Manager);
         group.add(Radio_ServiceDeskEmployee);
-    }
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,8 +59,8 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         Field_FirstName = new javax.swing.JTextField();
         Field_LastName = new javax.swing.JTextField();
         Field_Username = new javax.swing.JTextField();
-        Field_Password = new javax.swing.JTextField();
         Field_Email = new javax.swing.JTextField();
+        Field_Password = new javax.swing.JPasswordField();
         Field_PhoneNumber = new javax.swing.JTextField();
         Button_Reset = new javax.swing.JLabel();
         Button_Save = new javax.swing.JLabel();
@@ -217,13 +218,12 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         Field_Username.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 520, 30));
 
-        Field_Password.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 520, 30));
-
         Field_Email.setForeground(new java.awt.Color(153, 0, 0));
         Field_Email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(Field_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 520, 30));
+
+        Field_Password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 520, 30));
 
         Field_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_PhoneNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -419,21 +419,54 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
                 pst.setString(1, Field_FirstName.getText());
                 pst.setString(2, Field_LastName.getText());
                 pst.setString(3, Field_Username.getText());
-                pst.setString(4, Field_Password.getText());
+             
+                if(md5(Field_Password.getPassword()).equals(""))
+                {
+                    
+                     JOptionPane.showMessageDialog(this, "Cannot encrypt", "error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                pst.setString(4, md5 (Field_Password.getPassword()));
+                
                 pst.setString(5, Field_Email.getText());
                 pst.setString(6, Field_PhoneNumber.getText());
                 pst.setString(7, accounttype);
 
+                
+                
                 pst.execute();
                 createLog(Field_Username.getText(), accounttype);
                 JOptionPane.showMessageDialog(null, "Saved");
                 
                 emptyfield_warning.setVisible(false);
                 emptyfield_warning.setEnabled(false);
+                
+               
+ 
+                
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
+    }
+        
+            private String md5(char[] c){
+        try{
+        MessageDigest digs = MessageDigest.getInstance("MD5");
+  
+        
+        digs.update(new String(c).getBytes("UTF8"));
+       
+        
+        String str = new String (digs.digest());
+        
+        return str;
+        }
+        catch(Exception e)
+        {
+    
+        return "";
+    }
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Field_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_FirstNameActionPerformed
@@ -498,7 +531,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private javax.swing.JTextField Field_Email;
     private javax.swing.JTextField Field_FirstName;
     private javax.swing.JTextField Field_LastName;
-    private javax.swing.JTextField Field_Password;
+    private javax.swing.JPasswordField Field_Password;
     private javax.swing.JTextField Field_PhoneNumber;
     private javax.swing.JTextField Field_Username;
     private javax.swing.JLabel Label_AccountType;
