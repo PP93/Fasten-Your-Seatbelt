@@ -588,28 +588,25 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 } else {
                     try {
 
-<<<<<<< HEAD
+
                         String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
-=======
-                        String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
->>>>>>> parent of f200d39... update baggage scherm
+
                         pst = conn.prepareStatement(sql);
 
                         pst.setString(1, Field_FirstName.getText());
                         pst.setString(2, Field_LastName.getText());
-<<<<<<< HEAD
+
                         pst.setString(3, Field_EmailAddress.getText());
                         pst.setString(4, Field_PhoneNumber.getText());
                         pst.setString(5, Field_ZipCode.getText());
                         pst.setString(6, Field_Address.getText());
                         pst.setString(7, Field_City.getText());
-                        pst.setString(8, Field_Country.getText());
-                        pst.setString(9, Field_FlightNumber1.getText());             
-                        pst.setString(10, Field_ShippingCountry.getText());
-                        pst.setString(11, Field_ShippingZipCode.getText());
-                        pst.setString(12, Field_ShippingAddress.getText());
-                        pst.setString(13, Field_ShippingCity.getText());
-=======
+                        pst.setString(8, Field_Country.getText());           
+                        pst.setString(9, Field_ShippingCountry.getText());
+                        pst.setString(10, Field_ShippingZipCode.getText());
+                        pst.setString(11, Field_ShippingAddress.getText());
+                        pst.setString(12, Field_ShippingCity.getText());
+
                         pst.setString(3, Field_Country.getText());
                         pst.setString(4, Field_City.getText());
                         pst.setString(5, Field_ZipCode.getText());
@@ -620,7 +617,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                         pst.setString(10, Field_ShippingZipCode.getText());
                         pst.setString(11, Field_ShippingAddress.getText());
                         pst.setString(12, Field_ShippingCity.getText());
->>>>>>> parent of f200d39... update baggage scherm
+
                         
 
                         pst.execute();
@@ -642,28 +639,26 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 } else {
                     try {
 
-<<<<<<< HEAD
-                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,flightnumber,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-=======
-                        String sql = "insert into client (name,lastname,country,city,zipcode,address,phonenumber,email,shippingcountry,shippingzipcode,shippingaddress,shippingcity)value(?,?,?,?,?,?,?,?,?,?,?,?)";
->>>>>>> parent of f200d39... update baggage scherm
+
+                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?)";
+
+                       
+
                         pst = conn.prepareStatement(sql);
 
                         pst.setString(1, Field_FirstName.getText());
                         pst.setString(2, Field_LastName.getText());
-<<<<<<< HEAD
                         pst.setString(3, Field_EmailAddress.getText());
                         pst.setString(4, Field_PhoneNumber.getText());                     
                         pst.setString(5, Field_ZipCode.getText());
                         pst.setString(6, Field_Address.getText());
                         pst.setString(7, Field_City.getText());
-                        pst.setString(8, Field_Country.getText());
-                        pst.setString(9, Field_FlightNumber1.getText());             
-                        pst.setString(10, Field_ShippingCountry.getText());
-                        pst.setString(11, Field_ShippingZipCode.getText());
-                        pst.setString(12, Field_ShippingAddress.getText());
-                        pst.setString(13, Field_ShippingCity.getText());
-=======
+                        pst.setString(8, Field_Country.getText());          
+                        pst.setString(9, Field_ShippingCountry.getText());
+                        pst.setString(10, Field_ShippingZipCode.getText());
+                        pst.setString(11, Field_ShippingAddress.getText());
+                        pst.setString(12, Field_ShippingCity.getText());
+
                         pst.setString(3, Field_Country.getText());
                         pst.setString(4, Field_City.getText());
                         pst.setString(5, Field_ZipCode.getText());
@@ -674,7 +669,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                         pst.setString(10, Field_ShippingZipCode.getText());
                         pst.setString(11, Field_ShippingAddress.getText());
                         pst.setString(12, Field_ShippingCity.getText());
->>>>>>> parent of f200d39... update baggage scherm
+
                         
 
                         pst.execute();
