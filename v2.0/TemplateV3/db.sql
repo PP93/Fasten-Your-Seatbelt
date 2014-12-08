@@ -33,7 +33,9 @@
  `weight` CHAR(50) NULL ,
  `description` VARCHAR(200) NULL,
  `dateadded` CHAR(20) NULL,
- `dateretrieved` CHAR(20) NULL
+ `dateretrieved` CHAR(20) NULL,
+ `status` CHAR(20) NULL,
+ `clientID` INT(3) NULL
  );
  
  CREATE TABLE `log` (
@@ -55,3 +57,23 @@ VALUES ('Henk', 'de Vries', 'manager1', 'manager123', 'henk@corendon.nl', '06876
 INSERT INTO employee
 (name, lastname, username, password, email, phonenumber, function)
 VALUES ('Evert', 'Smit', 'serdesemp1', 'serdesemp123', 'evert@corendon.nl', '0612344321', 'service desk employee');
+
+INSERT INTO client
+(name, lastname, phonenumber, email, country, address, city, zipcode, shippingcountry, shippingaddress, shippingcity, shippingzipcode)
+VALUES ('Floris', 'van Lent', '0613371337', 'floris.van.lent@hva.nl', 'Nederland', 'Pindakaaslaan 2', 'Amsterdam', '1337 WC', 'Nederland', 'Pindakaaslaan 2', 'Amsterdam', '1337 WC');
+
+INSERT INTO client
+(name, lastname, phonenumber, email, country, address, city, zipcode, shippingcountry, shippingaddress, shippingcity, shippingzipcode)
+VALUES ('Lars', 'Cornelissen', '0612345678', 'lars.cornelissen@hva.nl', 'Nederland', 'Pindakaaslaan 3', 'Amsterdam', '1337 IQ', 'Nederland', 'Pindakaaslaan 3', 'Amsterdam', '1337 IQ');
+
+INSERT INTO baggage
+(flightnumber, brand, color, weight, description, dateadded, dateretrieved, status, clientID)
+VALUES ('MH16', 'Samsonite', 'Blauw', '10 kg', 'Er staat vet groot "FLORIS" op', '2014-12-8', '2014-12-9', 'Retrieved', '1');
+
+INSERT INTO baggage
+(flightnumber, dateadded, status, clientID)
+VALUES ('MH18', '2014-12-1', 'Permanently lost', '2');
+
+INSERT INTO baggage
+(flightnumber, dateadded, status, clientID)
+VALUES ('MH19', '2014-12-7', 'Missing', '2');
