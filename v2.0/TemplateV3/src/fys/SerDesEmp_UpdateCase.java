@@ -6,7 +6,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
@@ -24,24 +23,15 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Manual_Panel.setEnabled(false);
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
-        
+
         conn = javaconnect.ConnecrDb();
         Update_table();
-        
-                ButtonGroup group = new ButtonGroup();
-        group.add(Button_Found);
-        group.add(Button_Retrieved);
-        group.add(Button_NotFound);
-        
     
     }
-    
-
-
 
     private void Update_table() {
         try {
-            String sql = "select clientID, name, lastname ,flightnumber from client "; 
+            String sql = "select clientID, name, lastname from client";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             Table_Cases.setModel(DbUtils.resultSetToTableModel(rs));
@@ -60,7 +50,10 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup = new javax.swing.ButtonGroup();
+        Manual_Panel = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
@@ -108,8 +101,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Button_Reset = new javax.swing.JLabel();
         Tab_NewCase = new javax.swing.JLabel();
         Tab_UpdateCase = new javax.swing.JLabel();
-        Tab_UpdateBaggage = new javax.swing.JLabel();
-        Tab_AddBaggage = new javax.swing.JLabel();
+        Tab_AddExtraBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
         Button_PDF = new javax.swing.JLabel();
         Check_ClientCase = new javax.swing.JCheckBox();
@@ -117,21 +109,41 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         emptyfield_warning = new javax.swing.JLabel();
         Field_DateFound = new com.toedter.calendar.JDateChooser();
         Label_Date2 = new javax.swing.JLabel();
-        Label_Date3 = new javax.swing.JLabel();
-        Button_Retrieved = new javax.swing.JRadioButton();
-        Button_Found = new javax.swing.JRadioButton();
-        Button_NotFound = new javax.swing.JRadioButton();
         Background = new javax.swing.JLabel();
-        Manual_Panel = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Manual_Panel.setEnabled(false);
+        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.\n<br>\n<br>\nRequired fields are marked by a *.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -409,16 +421,13 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 600, 130, 30));
 
         Tab_NewCase.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tab_NewCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Tab_NewCase.setForeground(new java.awt.Color(255, 255, 255));
         Tab_NewCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tab_NewCase.setText("New Case");
         Tab_NewCase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Tab_NewCase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_NewCase.setMaximumSize(new java.awt.Dimension(186, 27));
-        Tab_NewCase.setMinimumSize(new java.awt.Dimension(186, 27));
         Tab_NewCase.setOpaque(true);
-        Tab_NewCase.setPreferredSize(new java.awt.Dimension(186, 27));
         Tab_NewCase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Tab_NewCaseMouseClicked(evt);
@@ -430,19 +439,16 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Tab_NewCaseMouseExited(evt);
             }
         });
-        add(Tab_NewCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 240, 40));
+        add(Tab_NewCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
 
         Tab_UpdateCase.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateCase.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tab_UpdateCase.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Tab_UpdateCase.setForeground(new java.awt.Color(156, 0, 0));
         Tab_UpdateCase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateCase.setText("Update Client Case");
+        Tab_UpdateCase.setText("Update Case");
         Tab_UpdateCase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Tab_UpdateCase.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateCase.setMaximumSize(new java.awt.Dimension(186, 27));
-        Tab_UpdateCase.setMinimumSize(new java.awt.Dimension(186, 27));
         Tab_UpdateCase.setOpaque(true);
-        Tab_UpdateCase.setPreferredSize(new java.awt.Dimension(186, 27));
         Tab_UpdateCase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Tab_UpdateCaseMouseEntered(evt);
@@ -451,52 +457,31 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Tab_UpdateCaseMouseExited(evt);
             }
         });
-        add(Tab_UpdateCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 240, 40));
+        add(Tab_UpdateCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 40));
 
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_UpdateBaggage.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateBaggage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateBaggage.setText("Update Baggage Case");
-        Tab_UpdateBaggage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_UpdateBaggage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_UpdateBaggage.setOpaque(true);
-        Tab_UpdateBaggage.addMouseListener(new java.awt.event.MouseAdapter() {
+        Tab_AddExtraBaggage.setBackground(new java.awt.Color(156, 0, 0));
+        Tab_AddExtraBaggage.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Tab_AddExtraBaggage.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_AddExtraBaggage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Tab_AddExtraBaggage.setText("Add Extra Baggage");
+        Tab_AddExtraBaggage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_AddExtraBaggage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tab_AddExtraBaggage.setOpaque(true);
+        Tab_AddExtraBaggage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_UpdateBaggageMouseClicked(evt);
+                Tab_AddExtraBaggageMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_UpdateBaggageMouseEntered(evt);
+                Tab_AddExtraBaggageMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_UpdateBaggageMouseExited(evt);
+                Tab_AddExtraBaggageMouseExited(evt);
             }
         });
-        add(Tab_UpdateBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 230, 40));
-
-        Tab_AddBaggage.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_AddBaggage.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        Tab_AddBaggage.setForeground(new java.awt.Color(255, 255, 255));
-        Tab_AddBaggage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Tab_AddBaggage.setText("Add Extra Baggage");
-        Tab_AddBaggage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Tab_AddBaggage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Tab_AddBaggage.setOpaque(true);
-        Tab_AddBaggage.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_AddBaggageMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Tab_AddBaggageMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Tab_AddBaggageMouseExited(evt);
-            }
-        });
-        add(Tab_AddBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 230, 40));
+        add(Tab_AddExtraBaggage, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 40));
 
         Tab_LogOut.setBackground(new java.awt.Color(156, 0, 0));
-        Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        Tab_LogOut.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
         Tab_LogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tab_LogOut.setText("Log Out");
@@ -514,7 +499,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Tab_LogOutMouseExited(evt);
             }
         });
-        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 110, 230, 40));
+        add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, 250, 40));
 
         Button_PDF.setBackground(new java.awt.Color(34, 153, 68));
         Button_PDF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -561,49 +546,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
         Label_Date2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Date2.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Date2.setText("State of baggage:");
-        add(Label_Date2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 480, 140, 20));
-
-        Label_Date3.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        Label_Date3.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Date3.setText("Retrieved Date:");
-        add(Label_Date3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 140, 20));
-
-        Button_Retrieved.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup.add(Button_Retrieved);
-        Button_Retrieved.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Button_Retrieved.setForeground(new java.awt.Color(156, 0, 0));
-        Button_Retrieved.setText("Retrieved");
-        Button_Retrieved.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_RetrievedActionPerformed(evt);
-            }
-        });
-        add(Button_Retrieved, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 480, 90, -1));
-
-        Button_Found.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup.add(Button_Found);
-        Button_Found.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Button_Found.setForeground(new java.awt.Color(156, 0, 0));
-        Button_Found.setText("Found");
-        Button_Found.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_FoundActionPerformed(evt);
-            }
-        });
-        add(Button_Found, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 480, -1, -1));
-
-        Button_NotFound.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup.add(Button_NotFound);
-        Button_NotFound.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Button_NotFound.setForeground(new java.awt.Color(156, 0, 0));
-        Button_NotFound.setText("Not Found");
-        Button_NotFound.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_NotFoundActionPerformed(evt);
-            }
-        });
-        add(Button_NotFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 480, -1, -1));
+        Label_Date2.setText("Retrieved Date:");
+        add(Label_Date2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 140, 20));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -611,35 +555,19 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
-
-        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Manual_Panel.setEnabled(false);
-        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.\n<br>\n<br>\nRequired fields are marked by a *.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Tab_AddExtraBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseEntered
+        Tab_AddExtraBaggage.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_AddExtraBaggage.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_Tab_AddExtraBaggageMouseEntered
+
+    private void Tab_AddExtraBaggageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseExited
+        Tab_AddExtraBaggage.setBackground(new java.awt.Color(153, 0, 0));
+
+        Tab_AddExtraBaggage.setForeground(new java.awt.Color(255, 255, 255));
+
+    }//GEN-LAST:event_Tab_AddExtraBaggageMouseExited
 
 
     private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
@@ -659,6 +587,22 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
 
     }//GEN-LAST:event_Button_SaveMouseExited
+
+    private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_LogOut());
+        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_Tab_LogOutMouseClicked
+
+    private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
+        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
+    }//GEN-LAST:event_Tab_LogOutMouseEntered
+
+    private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
+        Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_Tab_LogOutMouseExited
 
     private void Tab_NewCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewCaseMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_NewCase());
@@ -733,6 +677,12 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_Field_SearchKeyReleased
+
+    private void Tab_AddExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseClicked
+        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
+        Tab_AddExtraBaggage.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_AddExtraBaggage.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_Tab_AddExtraBaggageMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
         Manual_Panel.setVisible(false);
@@ -876,17 +826,15 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                     emptyfield_warning.setEnabled(true);
                 } else {
                     try {
-                           
+
                         String value1 = Field_FlightNumber.getText();
                         String value2 = Field_Brand.getText();
                         String value3 = Field_Color.getText();
                         String value4 = Field_Weight.getText();
                         String value5 = Field_Description.getText();
                         String value6 =((JTextField)Field_DateFound.getDateEditor().getUiComponent()).getText();
-                        String value7 =  state;
 
-
-                        String sql = "update baggage set flightnumber = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "' ,datefound = '" + value6 + "',state = '" + value7 + "'where name='" + value1 + "' ";
+                        String sql = "update baggage set flightnumber = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "' ,datefound = '" + value6 + "'where name='" + value1 + "' ";
                         pst = conn.prepareStatement(sql);
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Updated");
@@ -969,75 +917,11 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Field_ShippingCountryActionPerformed
 
-    private void Button_FoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_FoundActionPerformed
-       state = "found";
-    }//GEN-LAST:event_Button_FoundActionPerformed
-
-    private void Button_RetrievedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_RetrievedActionPerformed
-       state = "retrieved";
-    }//GEN-LAST:event_Button_RetrievedActionPerformed
-
-    private void Button_NotFoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_NotFoundActionPerformed
-       state = "not found";
-    }//GEN-LAST:event_Button_NotFoundActionPerformed
-
-    private void Tab_UpdateBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_UpdateBaggage());
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(153, 0, 0));
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_UpdateBaggageMouseClicked
-
-    private void Tab_UpdateBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseEntered
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_UpdateBaggageMouseEntered
-
-    private void Tab_UpdateBaggageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateBaggageMouseExited
-        Tab_UpdateBaggage.setBackground(new java.awt.Color(153, 0, 0));
-
-        Tab_UpdateBaggage.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_UpdateBaggageMouseExited
-
-    private void Tab_AddBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddBaggageMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_AddBagage());
-        Tab_AddBaggage.setForeground(new java.awt.Color(153, 0, 0));
-        Tab_AddBaggage.setBackground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_AddBaggageMouseClicked
-
-    private void Tab_AddBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddBaggageMouseEntered
-        Tab_AddBaggage.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_AddBaggage.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_AddBaggageMouseEntered
-
-    private void Tab_AddBaggageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddBaggageMouseExited
-        Tab_AddBaggage.setBackground(new java.awt.Color(153, 0, 0));
-        Tab_AddBaggage.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_AddBaggageMouseExited
-
-    private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
-        FYS.getInstance().showPage(new SerDesEmp_LogOut());
-        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
-        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_LogOutMouseClicked
-
-    private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
-        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
-    }//GEN-LAST:event_Tab_LogOutMouseEntered
-
-    private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
-        Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
-        Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_Tab_LogOutMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JRadioButton Button_Found;
-    private javax.swing.JRadioButton Button_NotFound;
     private javax.swing.JLabel Button_PDF;
     private javax.swing.JLabel Button_Reset;
-    private javax.swing.JRadioButton Button_Retrieved;
     private javax.swing.JLabel Button_Save;
     private javax.swing.JCheckBox Check_BaggageCase;
     private javax.swing.JCheckBox Check_ClientCase;
@@ -1069,7 +953,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Color;
     private javax.swing.JLabel Label_Country;
     private javax.swing.JLabel Label_Date2;
-    private javax.swing.JLabel Label_Date3;
     private javax.swing.JLabel Label_Description;
     private javax.swing.JLabel Label_EmailAddress;
     private javax.swing.JLabel Label_FirstName;
@@ -1089,16 +972,12 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_ZipCode;
     private javax.swing.JPanel Manual_Panel;
     private javax.swing.JScrollPane ScrollPane_Cases;
-    private javax.swing.JLabel Tab_AddBaggage;
+    private javax.swing.JLabel Tab_AddExtraBaggage;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JLabel Tab_NewCase;
-    private javax.swing.JLabel Tab_UpdateBaggage;
     private javax.swing.JLabel Tab_UpdateCase;
     private javax.swing.JTable Table_Cases;
-    private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JLabel emptyfield_warning;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
-private String state;
 }
