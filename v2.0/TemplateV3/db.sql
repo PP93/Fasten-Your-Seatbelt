@@ -68,12 +68,12 @@ VALUES ('Lars', 'Cornelissen', '0612345678', 'lars.cornelissen@hva.nl', 'Nederla
 
 INSERT INTO baggage
 (flightnumber, brand, color, weight, description, dateadded, dateretrieved, status, clientID)
-VALUES ('MH16', 'Samsonite', 'Blauw', '10 kg', 'Er staat vet groot "FLORIS" op', '2014-12-8', '2014-12-9', 'Retrieved', '1');
+VALUES ('MH16', 'Samsonite', 'Blauw', '10 kg', 'Er staat vet groot "FLORIS" op', '2014-12-8', '2014-12-9', 'resolved', '1');
 
 INSERT INTO baggage
 (flightnumber, dateadded, status, clientID)
-VALUES ('MH18', '2014-12-1', 'Permanently lost', '2');
+VALUES ('MH18', '2014-12-1', 'permanently lost', '2');
 
 INSERT INTO baggage
 (flightnumber, dateadded, status, clientID)
-VALUES ('MH19', '2014-12-7', 'Missing', '2');
+VALUES ('MH19', '2014-12-7', 'unresolved', '2');
