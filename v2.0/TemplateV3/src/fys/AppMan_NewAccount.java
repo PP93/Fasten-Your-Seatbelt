@@ -23,6 +23,9 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
 
+        Employee currentEmployee = new Employee(Employee.getCurrentUser());
+        Label_LoggedInAs.setText("Logged in as " + currentEmployee.getFullName());
+        
         ButtonGroup group = new ButtonGroup();
         group.add(Radio_ApplicationManager);
         group.add(Radio_Manager);
@@ -67,6 +70,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         Tab_NewAccount = new javax.swing.JLabel();
         Tab_ManageAccounts = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
+        Label_LoggedInAs = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -336,6 +340,11 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
         });
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 250, 40));
 
+        Label_LoggedInAs.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Label_LoggedInAs.setForeground(new java.awt.Color(240, 240, 240));
+        Label_LoggedInAs.setText("Logged in as");
+        add(Label_LoggedInAs, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, -1, -1));
+
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -540,6 +549,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private javax.swing.JLabel Label_FirstName;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_LoggedInAs;
     private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;
