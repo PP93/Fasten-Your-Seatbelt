@@ -13,7 +13,12 @@ import org.jfree.ui.RefineryUtilities;
 import java.awt.BasicStroke;
 import java.awt.Dimension;
 import java.awt.Paint;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -29,16 +34,37 @@ import org.jfree.ui.ApplicationFrame;
  */
 public class Man_Graphs extends javax.swing.JPanel {
 private DefaultCategoryDataset dataset;
-    private JFreeChart chart;
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;   
+private JFreeChart chart;
     /**
      * Creates new form Man_Graphs1
      */
     public Man_Graphs() {
         initComponents();
+           conn = javaconnect.ConnecrDb();
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
+        Update_table();
     }
+   
+       private void Update_table() {
+        try {
+            String sql = "select baggageID, flightnumber, dateadded,dateretrieved,status,clientID from baggage";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            Table_Cases.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        
+       }
+    
 
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -239,7 +265,7 @@ private DefaultCategoryDataset dataset;
         ));
         Scrollpane_Cases.setViewportView(Table_Cases);
 
-        add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 510, 280));
+        add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 510, 280));
 
         JPanel_Graph.setBackground(new java.awt.Color(255, 255, 255));
         JPanel_Graph.setLayout(new java.awt.BorderLayout());
