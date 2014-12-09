@@ -23,6 +23,8 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
+        
+         Field_EmployeeID.setEditable(false);
 
         ButtonGroup group = new ButtonGroup();
         group.add(Radio_ApplicationManager);
@@ -498,7 +500,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
                 String add1 = rs.getString("employeeID");
                 Field_EmployeeID.setText(add1);
-                Field_EmployeeID.setEditable(false);
                 String add2 = rs.getString("name");
                 Field_FirstName.setText(add2);
                 String add3 = rs.getString("lastname");
