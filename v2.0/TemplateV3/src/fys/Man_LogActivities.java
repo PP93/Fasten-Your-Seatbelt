@@ -58,6 +58,7 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Box_Case = new javax.swing.JComboBox();
         Box_TimeFrame = new javax.swing.JComboBox();
         Label_Search = new javax.swing.JLabel();
+        Button_Reset = new javax.swing.JLabel();
         Field_Search = new javax.swing.JTextField();
         ScrollPane_Log = new javax.swing.JScrollPane();
         Table_Log = new javax.swing.JTable();
@@ -199,9 +200,34 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Label_Search.setText("Search:");
         add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, 30));
 
+        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Reset.setText("Reset");
+        Button_Reset.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Button_Reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Reset.setOpaque(true);
+        Button_Reset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_ResetMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_ResetMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_ResetMouseExited(evt);
+            }
+        });
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 70, 30));
+
         Field_Search.setForeground(new java.awt.Color(153, 0, 0));
         Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Field_SearchKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Field_SearchKeyReleased(evt);
             }
@@ -271,7 +297,17 @@ public class Man_LogActivities extends javax.swing.JPanel {
     }//GEN-LAST:event_Box_TimeFrameActionPerformed
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
-
+        try {
+            String sql = "select * from log where employeeID=? OR tab=?  ";
+                           pst = conn.prepareStatement(sql);
+                            pst.setString(1, Field_Search.getText());
+                            pst.setString(2, Field_Search.getText());
+            rs = pst.executeQuery();
+            Table_Log.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }//GEN-LAST:event_Field_SearchKeyReleased
 
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
@@ -293,11 +329,28 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Manual_Panel.setEnabled(false);
     }//GEN-LAST:event_Label_ManualExitMouseClicked
 
+    private void Field_SearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Field_SearchKeyPressed
+
+    private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
+     Update_table();    
+    }//GEN-LAST:event_Button_ResetMouseClicked
+
+    private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
+        Button_Reset.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_Button_ResetMouseEntered
+
+    private void Button_ResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseExited
+        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_Button_ResetMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JComboBox Box_Case;
     private javax.swing.JComboBox Box_TimeFrame;
+    private javax.swing.JLabel Button_Reset;
     private javax.swing.JTextField Field_Search;
     private javax.swing.JLabel Label_CallManual;
     private javax.swing.JLabel Label_Case;
