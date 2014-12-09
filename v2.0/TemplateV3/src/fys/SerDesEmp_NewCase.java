@@ -567,16 +567,17 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                         pst.execute();
                         createLog(Field_FirstName.getText());
                         
-                        String searchClientID = "SELECT clientID FROM client WHERE name = ? AND lastname = ?";
+                       /* String searchClientID = "SELECT * FROM client WHERE name = ? AND lastname = ?";
                         pst = conn.prepareStatement(searchClientID);
                         
                         pst.setString(1, Field_FirstName.getText());
                         pst.setString(2, Field_LastName.getText());
                         
                         rs = pst.executeQuery();
-                        String clientID = rs.toString();
+                        String clientID = rs.getString("clientID");*/
+
                         
-                        String addBaggage = "insert into baggage (flightnumber,brand,color,weight,description,dateadded, clientID)value(?,?,?,?,?,?, ?)";
+                        String addBaggage = "insert into baggage (flightnumber,brand,color,weight,description,dateadded)value(?,?,?,?,?,?)";
                         pst = conn.prepareStatement(addBaggage);
 
                         pst.setString(1, Field_FlightNumber.getText());
@@ -585,7 +586,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                         pst.setString(4, Field_Weight.getText());
                         pst.setString(5, Field_Description.getText());                     
                         pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
-                        pst.setString(7, clientID);
+                        //pst.setString(7, clientID);
                         
                         pst.execute();
                         
