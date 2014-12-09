@@ -729,7 +729,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         try {
             int row = Table_Cases.getSelectedRow();
             String Table_click = (Table_Cases.getModel().getValueAt(row, 0).toString());
-            System.out.println(Table_click);
             String sql = "SELECT * FROM client INNER JOIN baggage ON client.clientID=baggage.clientID WHERE client.clientID='" + Table_click + "'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -766,6 +765,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_Description.setText(rs.getString("description"));
                 Field_EntryDate.setText(rs.getString("dateadded"));
                 Field_RetrievalDate.setText(rs.getString("dateretrieved"));
+                Field_Status.setText(rs.getString("status"));
 
             }
         } catch (Exception e) {
