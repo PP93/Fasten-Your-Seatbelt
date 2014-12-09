@@ -566,6 +566,36 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
                         pst.execute();
                         createLog(Field_FirstName.getText());
+                        
+                        String searchClientID = "SELECT clientID FROM client WHERE name = ? AND lastname = ?";
+                        pst = conn.prepareStatement(searchClientID);
+                        
+                        pst.setString(1, Field_FirstName.getText());
+                        pst.setString(2, Field_LastName.getText());
+                        
+                        rs = pst.executeQuery();
+                        String clientID = rs.toString();
+                        
+                        String addBaggage = "insert into baggage (flightnumber,brand,color,weight,description,dateadded, clientID)value(?,?,?,?,?,?, ?)";
+                        pst = conn.prepareStatement(addBaggage);
+
+                        pst.setString(1, Field_FlightNumber.getText());
+                        pst.setString(2, Field_Brand.getText());
+                        pst.setString(3, Field_Color.getText());
+                        pst.setString(4, Field_Weight.getText());
+                        pst.setString(5, Field_Description.getText());                     
+                        pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
+                        pst.setString(7, clientID);
+                        
+                        pst.execute();
+                        
+                        //Floris: This isn't perfect yet but neither is this huge ass block of 
+                        //if-else-statements :P When we have a class for getting all info of a piece
+                        //of baggage and other classes for employees and clients, I'll make this
+                        //better :D
+                        createLog(Field_FlightNumber.getText());
+                        
+
                         JOptionPane.showMessageDialog(null, "Saved");
                         emptyfield_warning.setVisible(false);
                         emptyfield_warning.setEnabled(false);
