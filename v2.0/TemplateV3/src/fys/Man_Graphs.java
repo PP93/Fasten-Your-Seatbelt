@@ -470,15 +470,15 @@ public void makeGraphToday() {
         
         for (int i = 0; i < timeFramePoints.length; i++) {
             totalResolved[i] = (int) (Math.random() * 9) + 1;
-
+        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
         for (int i = 0; i < timeFramePoints.length; i++) {
             totalUnresolved[i] = (int) (Math.random() * 9) + 1;
-
+        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
         for (int i = 0; i < timeFramePoints.length; i++) {
             totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
-
+        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
     }
 }
