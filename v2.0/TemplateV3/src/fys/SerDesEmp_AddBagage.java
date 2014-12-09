@@ -69,12 +69,13 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Label_Color = new javax.swing.JLabel();
         Label_Weight = new javax.swing.JLabel();
         Label_Description = new javax.swing.JLabel();
-        Field_FlightNumber1 = new javax.swing.JTextField();
+        Field_ClientID = new javax.swing.JTextField();
         Field_FlightNumber = new javax.swing.JTextField();
         Field_Brand = new javax.swing.JTextField();
         Field_Color = new javax.swing.JTextField();
         Field_Weight = new javax.swing.JTextField();
-        Field_Description = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Field_Description = new javax.swing.JTextArea();
         Label_FlightNumber1 = new javax.swing.JLabel();
         Button_AddToCase = new javax.swing.JLabel();
         Button_Reset = new javax.swing.JLabel();
@@ -199,9 +200,9 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Label_Description.setText("Description:");
         add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 460, -1, -1));
 
-        Field_FlightNumber1.setForeground(new java.awt.Color(153, 0, 0));
-        Field_FlightNumber1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FlightNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 260, 30));
+        Field_ClientID.setForeground(new java.awt.Color(153, 0, 0));
+        Field_ClientID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_ClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 260, 30));
 
         Field_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_FlightNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -219,9 +220,11 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Field_Weight.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 420, 260, 30));
 
-        Field_Description.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Description.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, 260, 100));
+        Field_Description.setColumns(20);
+        Field_Description.setRows(5);
+        jScrollPane1.setViewportView(Field_Description);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, 260, -1));
 
         Label_FlightNumber1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FlightNumber1.setForeground(new java.awt.Color(153, 0, 0));
@@ -430,14 +433,15 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             try {
 
                 
-                String sql = "insert into baggage (flightnumber,brand,color,weight,description)value(?,?,?,?,?)";
+                String sql = "insert into baggage (clientID,flightnumber,brand,color,weight,description)value(?,?,?,?,?,?)";
                 pst = conn.prepareStatement(sql);
                 
-                pst.setString(1, Field_FlightNumber.getText());
-                pst.setString(2, Field_Brand.getText());
-                pst.setString(3, Field_Color.getText());
-                pst.setString(4, Field_Weight.getText());
-                pst.setString(5, Field_Description.getText());
+                pst.setString(1, Field_ClientID.getText());
+                pst.setString(2, Field_FlightNumber.getText());
+                pst.setString(3, Field_Brand.getText());
+                pst.setString(4, Field_Color.getText());
+                pst.setString(5, Field_Weight.getText());
+                pst.setString(6, Background.getText());
 
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Saved");
@@ -454,21 +458,15 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
     private void Field_SearchClientIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchClientIDKeyReleased
         try {
-            String sql = "select * from baggage where baggageID=?";
+            String sql = "select * from client where clientID=?";
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, Field_SearchClientID.getText());
 
             rs = pst.executeQuery();
             if (rs.next()) {
-                String add1 = rs.getString("brand");
-                Field_Brand.setText(add1);
-                String add2 = rs.getString("color");
-                Field_Color.setText(add2);
-                String add3 = rs.getString("weight");
-                Field_Weight.setText(add3);
-                String add4 = rs.getString("description");
-                Field_Description.setText(add4);
+                String add1 = rs.getString("clientID");
+                Field_ClientID.setText(add1);
 
             }
         } catch (Exception e) {
@@ -511,20 +509,13 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         try {
             int row = Table_ExtraBaggage.getSelectedRow();
             String Table_click = (Table_ExtraBaggage.getModel().getValueAt(row, 0).toString());
-            String sql = "select * from baggage where bagaggeID='" + Table_click + "' ";
+            String sql = "select * from client where clientID='" + Table_click + "' ";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs.next()) {
-                String add1 = rs.getString("flightnumber");
-                Field_FlightNumber.setText(add1);
-                String add2 = rs.getString("brand");
-                Field_Brand.setText(add2);
-                String add3 = rs.getString("color");
-                Field_Color.setText(add3);
-                String add4 = rs.getString("weight");
-                Field_Weight.setText(add4);
-                String add5 = rs.getString("description");
-                Field_Description.setText(add5);
+                String add1 = rs.getString("clientID");
+                Field_ClientID.setText(add1);
+
 
             }
         } catch (Exception e) {
@@ -540,10 +531,10 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     private javax.swing.JLabel Button_AddToCase;
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JTextField Field_Brand;
+    private javax.swing.JTextField Field_ClientID;
     private javax.swing.JTextField Field_Color;
-    private javax.swing.JTextField Field_Description;
+    private javax.swing.JTextArea Field_Description;
     private javax.swing.JTextField Field_FlightNumber;
-    private javax.swing.JTextField Field_FlightNumber1;
     private javax.swing.JTextField Field_SearchClientID;
     private javax.swing.JTextField Field_Weight;
     private javax.swing.JLabel Label_BaggageInformation;
@@ -567,5 +558,6 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_UpdateCase;
     private javax.swing.JTable Table_ExtraBaggage;
     private javax.swing.JLabel emptyfield_warning;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
