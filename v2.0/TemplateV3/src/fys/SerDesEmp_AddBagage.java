@@ -29,6 +29,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Panel_Manual.setEnabled(false);
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
+        Field_ClientID.setEditable(false);
         Update_table();
     
    }
@@ -467,6 +468,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             if (rs.next()) {
                 String add1 = rs.getString("clientID");
                 Field_ClientID.setText(add1);
+               
 
             }
         } catch (Exception e) {
