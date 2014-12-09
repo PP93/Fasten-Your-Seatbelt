@@ -50,10 +50,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Manual_Panel = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
         Label_Search = new javax.swing.JLabel();
@@ -85,8 +81,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_ShippingAddress = new javax.swing.JTextField();
         Field_ShippingCountry = new javax.swing.JTextField();
         Field_ShippingCity = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Field_Description = new javax.swing.JTextArea();
         Label_BaggageInformation = new javax.swing.JLabel();
         Label_FlightNumber = new javax.swing.JLabel();
         Label_Brand = new javax.swing.JLabel();
@@ -97,6 +91,11 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_Brand = new javax.swing.JTextField();
         Field_Color = new javax.swing.JTextField();
         Field_Weight = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Field_Description = new javax.swing.JTextArea();
+        Field_EntryDate = new javax.swing.JTextField();
+        Field_RetrievalDate = new javax.swing.JTextField();
+        Field_Status = new javax.swing.JTextField();
         Button_Save = new javax.swing.JLabel();
         Button_Reset = new javax.swing.JLabel();
         Tab_NewCase = new javax.swing.JLabel();
@@ -107,43 +106,22 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Check_ClientCase = new javax.swing.JCheckBox();
         Check_BaggageCase = new javax.swing.JCheckBox();
         emptyfield_warning = new javax.swing.JLabel();
-        Field_DateFound = new com.toedter.calendar.JDateChooser();
-        Label_Date2 = new javax.swing.JLabel();
+        Label_EntryDate = new javax.swing.JLabel();
+        Label_RetrievalDate = new javax.swing.JLabel();
+        Label_Status = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
+        Manual_Panel = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
+        Field_EntryDateChooser = new com.toedter.calendar.JDateChooser();
+        Field_RetrievalDateChooser = new com.toedter.calendar.JDateChooser();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Manual_Panel.setEnabled(false);
-        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.\n<br>\n<br>\nRequired fields are marked by a *.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -322,14 +300,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         });
         add(Field_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, 210, 30));
 
-        Field_Description.setColumns(20);
-        Field_Description.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        Field_Description.setRows(5);
-        Field_Description.setBorder(null);
-        jScrollPane1.setViewportView(Field_Description);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 330, 230, 110));
-
         Label_BaggageInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_BaggageInformation.setForeground(new java.awt.Color(153, 0, 0));
         Label_BaggageInformation.setText("Baggage Information:");
@@ -375,6 +345,26 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_Weight.setForeground(new java.awt.Color(153, 0, 0));
         Field_Weight.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 300, 230, 30));
+
+        Field_Description.setColumns(20);
+        Field_Description.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        Field_Description.setRows(5);
+        Field_Description.setBorder(null);
+        jScrollPane1.setViewportView(Field_Description);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 330, 230, 110));
+
+        Field_EntryDate.setForeground(new java.awt.Color(153, 0, 0));
+        Field_EntryDate.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 440, 230, 30));
+
+        Field_RetrievalDate.setForeground(new java.awt.Color(153, 0, 0));
+        Field_RetrievalDate.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_RetrievalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 470, 230, 30));
+
+        Field_Status.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Status.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 500, 230, 30));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
         Button_Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -542,12 +532,21 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
         add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, -1, -1));
-        add(Field_DateFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 440, 230, 30));
 
-        Label_Date2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        Label_Date2.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Date2.setText("Retrieved Date:");
-        add(Label_Date2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 140, 20));
+        Label_EntryDate.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_EntryDate.setForeground(new java.awt.Color(153, 0, 0));
+        Label_EntryDate.setText("Entry Date:");
+        add(Label_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 140, 20));
+
+        Label_RetrievalDate.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_RetrievalDate.setForeground(new java.awt.Color(153, 0, 0));
+        Label_RetrievalDate.setText("Retrieval Date:");
+        add(Label_RetrievalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 470, 140, 20));
+
+        Label_Status.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_Status.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Status.setText("Status:");
+        add(Label_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 140, 20));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -555,6 +554,36 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
+
+        Manual_Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Manual_Panel.setEnabled(false);
+        Manual_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Manual_Panel.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Manual_Panel.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nOn the left side of the screen, fill in the search term\nfor the case you wish to update. This will generate\na list of cases that match your search in the table below. \nClick on the desired table to fill the list of fields to the right.\nFrom here you can change or delete the case's data. If you \nwish to start over, click the 'Reset' button to return the\nfields to their original values. If you're satisfied with the\nchanges you've made, click the 'Save' button to make\nthem permanent.\n<br>\n<br>\nRequired fields are marked by a *.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Manual_Panel.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
+        add(Field_EntryDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 440, 230, 30));
+        add(Field_RetrievalDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 470, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Tab_AddExtraBaggageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseEntered
@@ -564,9 +593,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
     private void Tab_AddExtraBaggageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseExited
         Tab_AddExtraBaggage.setBackground(new java.awt.Color(153, 0, 0));
-
         Tab_AddExtraBaggage.setForeground(new java.awt.Color(255, 255, 255));
-
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseExited
 
 
@@ -580,18 +607,14 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
     private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
         Button_Save.setBackground(new java.awt.Color(51, 136, 68));
-
     }//GEN-LAST:event_Button_SaveMouseEntered
 
     private void Button_SaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseExited
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
-
     }//GEN-LAST:event_Button_SaveMouseExited
 
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_LogOut());
-        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
-        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
@@ -706,7 +729,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         try {
             int row = Table_Cases.getSelectedRow();
             String Table_click = (Table_Cases.getModel().getValueAt(row, 0).toString());
-            String sql = "select * from client where clientID='" + Table_click + "' ";
+            System.out.println(Table_click);
+            String sql = "SELECT * FROM client INNER JOIN baggage ON client.clientID=baggage.clientID WHERE client.clientID='" + Table_click + "'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs.next()) {
@@ -735,7 +759,13 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_ShippingCity.setText(add11);
                 String add12 = rs.getString("shippingcountry");
                 Field_ShippingCountry.setText(add12);
-
+                Field_FlightNumber.setText(rs.getString("flightnumber"));
+                Field_Brand.setText(rs.getString("brand"));
+                Field_Color.setText(rs.getString("color"));
+                Field_Weight.setText(rs.getString("weight"));
+                Field_Description.setText(rs.getString("description"));
+                Field_EntryDate.setText(rs.getString("dateadded"));
+                Field_RetrievalDate.setText(rs.getString("dateretrieved"));
 
             }
         } catch (Exception e) {
@@ -770,15 +800,26 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                         String value10 = Field_ShippingAddress.getText();
                         String value11 = Field_ShippingCity.getText();
                         String value12 = Field_ShippingCountry.getText();
+                        String value13 = Field_FlightNumber.getText();
+                        String value14 = Field_Brand.getText();
+                        String value15 = Field_Color.getText();
+                        String value16 = Field_Weight.getText();
+                        String value17 = Field_Description.getText();
+                        String value18 = Field_EntryDate.getText();
+                        String value19 = Field_RetrievalDate.getText();
+                        String value20 = Field_Status.getText();
                         
 
                         String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "'where name='" + value1 + "' ";
                         pst = conn.prepareStatement(sql);
                         pst.execute();
+                        
+                        String sql2 = "UPDATE baggage SET flightnumber = '" + value13 + "',brand = '" + value14 + "',color = '" + value15 + "',weight = '" + value16 + "',description = '" + value17 + "',dateadded = '" + value18 + "',dateretrieved = '" + value19 + "',status = '" + value20 + "' WHERE flightnumber = '" + value13 + "'";
+                        pst = conn.prepareStatement(sql2);
+                        pst.execute();
                         JOptionPane.showMessageDialog(null, "Updated");
 
                     } catch (Exception e) {
-
                         JOptionPane.showMessageDialog(null, e);
                     }
                     Update_table();
@@ -832,9 +873,12 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                         String value3 = Field_Color.getText();
                         String value4 = Field_Weight.getText();
                         String value5 = Field_Description.getText();
-                        String value6 =((JTextField)Field_DateFound.getDateEditor().getUiComponent()).getText();
+                        String value6 = Field_EntryDate.getText();
+                        String value7 = Field_RetrievalDate.getText();
+                        String value8 = Field_Status.getText();
+//                        String value6 =((JTextField)Field_RetrievalDateChooser.getDateEditor().getUiComponent()).getText();
 
-                        String sql = "update baggage set flightnumber = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "' ,datefound = '" + value6 + "'where name='" + value1 + "' ";
+                        String sql = "update baggage set flightnumber = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "',dateadded = '" + value6 + "',dateretrieved = '" + value7 + "',status = '" + value8 + "' where flightnumber='" + value1 + "' ";
                         pst = conn.prepareStatement(sql);
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Updated");
@@ -864,6 +908,14 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_ShippingAddress.setText("");
         Field_ShippingCity.setText("");
         Field_ShippingCountry.setText("");
+        Field_FlightNumber.setText("");
+        Field_Brand.setText("");
+        Field_Color.setText("");
+        Field_Weight.setText("");
+        Field_Description.setText("");
+//        Field_EntryDate.setText("");
+//        Field_RetrievalDate.setText("");
+
         
     }//GEN-LAST:event_Button_ResetMouseClicked
 
@@ -930,18 +982,22 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JTextField Field_City;
     private javax.swing.JTextField Field_Color;
     private javax.swing.JTextField Field_Country;
-    private com.toedter.calendar.JDateChooser Field_DateFound;
     private javax.swing.JTextArea Field_Description;
     private javax.swing.JTextField Field_EmailAddress;
+    private javax.swing.JTextField Field_EntryDate;
+    private com.toedter.calendar.JDateChooser Field_EntryDateChooser;
     private javax.swing.JTextField Field_FirstName;
     private javax.swing.JTextField Field_FlightNumber;
     private javax.swing.JTextField Field_LastName;
     private javax.swing.JTextField Field_PhoneNumber;
+    private javax.swing.JTextField Field_RetrievalDate;
+    private com.toedter.calendar.JDateChooser Field_RetrievalDateChooser;
     private javax.swing.JTextField Field_Search;
     private javax.swing.JTextField Field_ShippingAddress;
     private javax.swing.JTextField Field_ShippingCity;
     private javax.swing.JTextField Field_ShippingCountry;
     private javax.swing.JTextField Field_ShippingZipCode;
+    private javax.swing.JTextField Field_Status;
     private javax.swing.JTextField Field_Weight;
     private javax.swing.JTextField Field_ZipCode;
     private javax.swing.JLabel Label_Address;
@@ -952,9 +1008,9 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_ClientInformation;
     private javax.swing.JLabel Label_Color;
     private javax.swing.JLabel Label_Country;
-    private javax.swing.JLabel Label_Date2;
     private javax.swing.JLabel Label_Description;
     private javax.swing.JLabel Label_EmailAddress;
+    private javax.swing.JLabel Label_EntryDate;
     private javax.swing.JLabel Label_FirstName;
     private javax.swing.JLabel Label_FlightNumber;
     private javax.swing.JLabel Label_Info;
@@ -962,11 +1018,13 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_PhoneNumber;
+    private javax.swing.JLabel Label_RetrievalDate;
     private javax.swing.JLabel Label_Search;
     private javax.swing.JLabel Label_ShippingAddress;
     private javax.swing.JLabel Label_ShippingCity;
     private javax.swing.JLabel Label_ShippingCountry;
     private javax.swing.JLabel Label_ShippingZipCode;
+    private javax.swing.JLabel Label_Status;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel Label_Weight;
     private javax.swing.JLabel Label_ZipCode;
