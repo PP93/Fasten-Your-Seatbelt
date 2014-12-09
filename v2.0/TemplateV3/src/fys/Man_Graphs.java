@@ -390,15 +390,15 @@ public void makeGraphToday() {
         //deze loop moet een database connectie worden.
         //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is today
         for (int i = 0; i < today.length; i++) {
-            totalResolved[i] = 4;
+            totalResolved[i] = (int) (Math.random() * 9) + 1;
 
         }
         for (int i = 0; i < today.length; i++) {
-            totalUnresolved[i] = 3;
+            totalUnresolved[i] = (int) (Math.random() * 9) + 1;
 
         }
         for (int i = 0; i < today.length; i++) {
-            totalPermanentlyLost[i] = 2;
+            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
 
         }
 
@@ -431,15 +431,15 @@ public void makeGraphToday() {
         //deze loop moet een database connectie worden.
         //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is 1
         for (int i = 0; i < week.length; i++) {
-            totalResolved[i] = i;
+            totalResolved[i] = (int) (Math.random() * 9) + 1;
 
         }
         for (int i = 0; i < week.length; i++) {
-            totalUnresolved[i] = (i+1);
+            totalUnresolved[i] =(int) (Math.random() * 9) + 1;
 
         }
         for (int i = 0; i < week.length; i++) {
-            totalPermanentlyLost[i] = (i+2);
+            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
 
         }
 
@@ -471,15 +471,15 @@ public void makeGraphToday() {
         //deze loop moet een database connectie worden.
         //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is 1
         for (int i = 0; i < month.length; i++) {
-            totalResolved[i] = i;
+            totalResolved[i] = (int) (Math.random() * 9) + 1;
 
         }
         for (int i = 0; i < month.length; i++) {
-            totalUnresolved[i] = (i +4);
+            totalUnresolved[i] = (int) (Math.random() * 9) + 1;
 
         }
         for (int i = 0; i < month.length; i++) {
-            totalPermanentlyLost[i] = (i+6);
+            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
 
         }
 
@@ -511,15 +511,16 @@ public void makeGraphToday() {
         //deze loop moet een database connectie worden.
         //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is jan
         for (int i = 0; i < year.length; i++) {
-            totalResolved[i] = i;
+            totalResolved[i] = (int) (Math.random() * 9) + 1;
+            ;
 
         }
         for (int i = 0; i < year.length; i++) {
-            totalUnresolved[i] = (i+6);
+            totalUnresolved[i] = (int) (Math.random() * 9) + 1;
 
         }
         for (int i = 0; i < year.length; i++) {
-            totalPermanentlyLost[i] =(i+9);
+            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
 
         }
 
