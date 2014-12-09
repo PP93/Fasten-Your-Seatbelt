@@ -27,6 +27,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
+import java.util.*;
 
 /**
  *
@@ -268,7 +269,7 @@ public class Man_Graphs extends javax.swing.JPanel {
 
         JPanel_Graph.setBackground(new java.awt.Color(255, 255, 255));
         JPanel_Graph.setLayout(new java.awt.BorderLayout());
-        add(JPanel_Graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 760, 400));
+        add(JPanel_Graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 760, 400));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
@@ -387,35 +388,9 @@ public void makeGraphToday() {
         int[] totalUnresolved = new int[today.length];
         int[] totalPermanentlyLost = new int[today.length];
 
-        //deze loop moet een database connectie worden.
-        //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is today
-        for (int i = 0; i < today.length; i++) {
-            totalResolved[i] = (int) (Math.random() * 9) + 1;
+        forLoopSetInfoInArrayFromDatabaseForGraph(today, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, today, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved);
 
-        }
-        for (int i = 0; i < today.length; i++) {
-            totalUnresolved[i] = (int) (Math.random() * 9) + 1;
-
-        }
-        for (int i = 0; i < today.length; i++) {
-            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
-
-        }
-
-        Graph baggageGraph = new Graph(graphname);
-        baggageGraph.addSeries(totalResolved, "Resolved", today);
-        baggageGraph.addSeries(totalUnresolved, "Unresolved", today);
-        baggageGraph.addSeries(totalPermanentlyLost, "PermanentlyLost", today);
-        baggageGraph.createChart("Baggage Overview", "Time of Day", "Number", 760, 400, Color.WHITE, JPanel_Graph);
-        baggageGraph.setSeriesThickness(Resolved, 2);
-        baggageGraph.setSeriesThickness(PermanentlyLost, 2);
-        baggageGraph.setSeriesThickness(Unresolved, 2);
-        baggageGraph.setSeriesColor(Resolved, Color.GREEN);
-        baggageGraph.setSeriesColor(PermanentlyLost, Color.RED);
-        baggageGraph.setSeriesColor(Unresolved, Color.YELLOW);
-        baggageGraph.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
-        baggageGraph.setVisible(true);
-        ;
     }
 
     public void makeGraphWeek() {
@@ -428,39 +403,14 @@ public void makeGraphToday() {
         int[] totalUnresolved = new int[week.length];
         int[] totalPermanentlyLost = new int[week.length];
 
-        //deze loop moet een database connectie worden.
-        //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is 1
-        for (int i = 0; i < week.length; i++) {
-            totalResolved[i] = (int) (Math.random() * 9) + 1;
+        forLoopSetInfoInArrayFromDatabaseForGraph(week, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, week, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved);
 
-        }
-        for (int i = 0; i < week.length; i++) {
-            totalUnresolved[i] =(int) (Math.random() * 9) + 1;
-
-        }
-        for (int i = 0; i < week.length; i++) {
-            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
-
-        }
-
-        Graph baggageGraph2 = new Graph(graphname);
-        baggageGraph2.addSeries(totalResolved, "Resolved", week);
-        baggageGraph2.addSeries(totalUnresolved, "Unresolved", week);
-        baggageGraph2.addSeries(totalPermanentlyLost, "PermanentlyLost", week);
-        baggageGraph2.createChart("Baggage Overview", "Day", "Number", 760, 400, Color.WHITE, JPanel_Graph);
-        baggageGraph2.setSeriesThickness(Resolved, 2);
-        baggageGraph2.setSeriesThickness(PermanentlyLost, 2);
-        baggageGraph2.setSeriesThickness(Unresolved, 2);
-        baggageGraph2.setSeriesColor(Resolved, Color.GREEN);
-        baggageGraph2.setSeriesColor(PermanentlyLost, Color.RED);
-        baggageGraph2.setSeriesColor(Unresolved, Color.YELLOW);
-        baggageGraph2.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
-        baggageGraph2.setVisible(true);
     }
 
     public void makeGraphMonth() {
         String graphname = "Graph Name Test";
-        String[] month = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12 ", " 13", "14", "15", "16", "17 ", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
+        String[] month = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
@@ -468,34 +418,9 @@ public void makeGraphToday() {
         int[] totalUnresolved = new int[month.length];
         int[] totalPermanentlyLost = new int[month.length];
 
-        //deze loop moet een database connectie worden.
-        //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is 1
-        for (int i = 0; i < month.length; i++) {
-            totalResolved[i] = (int) (Math.random() * 9) + 1;
+        forLoopSetInfoInArrayFromDatabaseForGraph(month, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, month, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved);
 
-        }
-        for (int i = 0; i < month.length; i++) {
-            totalUnresolved[i] = (int) (Math.random() * 9) + 1;
-
-        }
-        for (int i = 0; i < month.length; i++) {
-            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
-
-        }
-
-        Graph baggageGraph3 = new Graph(graphname);
-        baggageGraph3.addSeries(totalResolved, "Resolved", month);
-        baggageGraph3.addSeries(totalUnresolved, "Unresolved", month);
-        baggageGraph3.addSeries(totalPermanentlyLost, "PermanentlyLost", month);
-        baggageGraph3.createChart("Baggage Overview", "Day", "Number", 760, 400, Color.WHITE, JPanel_Graph);
-        baggageGraph3.setSeriesThickness(Resolved, 2);
-        baggageGraph3.setSeriesThickness(PermanentlyLost, 2);
-        baggageGraph3.setSeriesThickness(Unresolved, 2);
-        baggageGraph3.setSeriesColor(Resolved, Color.GREEN);
-        baggageGraph3.setSeriesColor(PermanentlyLost, Color.RED);
-        baggageGraph3.setSeriesColor(Unresolved, Color.YELLOW);
-        baggageGraph3.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
-        baggageGraph3.setVisible(true);
     }
 
     public void makeGraphYear() {
@@ -510,32 +435,41 @@ public void makeGraphToday() {
 
         //deze loop moet een database connectie worden.
         //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is jan
-        for (int i = 0; i < year.length; i++) {
+        forLoopSetInfoInArrayFromDatabaseForGraph(year, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, year, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved);
+
+    }
+
+    private void graphMakerMethod(String graphname, int[] totalResolved, String[] today, int[] totalUnresolved, int[] totalPermanentlyLost, int Resolved, int PermanentlyLost, int Unresolved) {
+        Graph baggageGraph = new Graph(graphname);
+        baggageGraph.addSeries(totalResolved, "Resolved", today);
+        baggageGraph.addSeries(totalUnresolved, "Unresolved", today);
+        baggageGraph.addSeries(totalPermanentlyLost, "PermanentlyLost", today);
+        baggageGraph.createChart("Baggage Overview", "Time of Day", "Number", 760, 400, Color.WHITE, JPanel_Graph);
+        baggageGraph.setSeriesThickness(Resolved, 2);
+        baggageGraph.setSeriesThickness(PermanentlyLost, 2);
+        baggageGraph.setSeriesThickness(Unresolved, 2);
+        baggageGraph.setSeriesColor(Resolved, Color.GREEN);
+        baggageGraph.setSeriesColor(PermanentlyLost, Color.RED);
+        baggageGraph.setSeriesColor(Unresolved, Color.YELLOW);
+        baggageGraph.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
+        baggageGraph.setVisible(true);
+    }
+
+    private void forLoopSetInfoInArrayFromDatabaseForGraph(String[] today, int[] totalResolved, int[] totalUnresolved, int[] totalPermanentlyLost) {
+        //deze loop moet een database connectie worden.
+        //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is today
+        for (int i = 0; i < today.length; i++) {
             totalResolved[i] = (int) (Math.random() * 9) + 1;
-            ;
 
         }
-        for (int i = 0; i < year.length; i++) {
+        for (int i = 0; i < today.length; i++) {
             totalUnresolved[i] = (int) (Math.random() * 9) + 1;
 
         }
-        for (int i = 0; i < year.length; i++) {
+        for (int i = 0; i < today.length; i++) {
             totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
 
         }
-
-        Graph baggageGraph4 = new Graph(graphname);
-        baggageGraph4.addSeries(totalResolved, "Resolved", year);
-        baggageGraph4.addSeries(totalUnresolved, "Unresolved", year);
-        baggageGraph4.addSeries(totalPermanentlyLost, "PermanentlyLost", year);
-        baggageGraph4.createChart("Baggage Overview", "Month", "Number", 760, 400, Color.WHITE, JPanel_Graph);
-        baggageGraph4.setSeriesThickness(Resolved, 2);
-        baggageGraph4.setSeriesThickness(PermanentlyLost, 2);
-        baggageGraph4.setSeriesThickness(Unresolved, 2);
-        baggageGraph4.setSeriesColor(Resolved, Color.GREEN);
-        baggageGraph4.setSeriesColor(PermanentlyLost, Color.RED);
-        baggageGraph4.setSeriesColor(Unresolved, Color.YELLOW);
-        baggageGraph4.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
-        baggageGraph4.setVisible(true);
     }
 }
