@@ -57,7 +57,6 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Label_Timeframe = new javax.swing.JLabel();
         Box_Case = new javax.swing.JComboBox();
         Box_TimeFrame = new javax.swing.JComboBox();
-        Label_Search = new javax.swing.JLabel();
         Button_Reset = new javax.swing.JLabel();
         Field_Search = new javax.swing.JTextField();
         ScrollPane_Log = new javax.swing.JScrollPane();
@@ -195,16 +194,11 @@ public class Man_LogActivities extends javax.swing.JPanel {
         });
         add(Box_TimeFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 120, 20));
 
-        Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_Search.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Search.setText("Search:");
-        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, 30));
-
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
         Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
         Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Button_Reset.setText("Reset");
+        Button_Reset.setText("Search");
         Button_Reset.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Button_Reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -220,7 +214,7 @@ public class Man_LogActivities extends javax.swing.JPanel {
                 Button_ResetMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 70, 30));
+        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 70, 30));
 
         Field_Search.setForeground(new java.awt.Color(153, 0, 0));
         Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -231,8 +225,11 @@ public class Man_LogActivities extends javax.swing.JPanel {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Field_SearchKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Field_SearchKeyTyped(evt);
+            }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 210, 30));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 210, 30));
 
         Table_Log.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -297,17 +294,7 @@ public class Man_LogActivities extends javax.swing.JPanel {
     }//GEN-LAST:event_Box_TimeFrameActionPerformed
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
-        try {
-            String sql = "select * from log where employeeID=? OR tab=?  ";
-                           pst = conn.prepareStatement(sql);
-                            pst.setString(1, Field_Search.getText());
-                            pst.setString(2, Field_Search.getText());
-            rs = pst.executeQuery();
-            Table_Log.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
+
     }//GEN-LAST:event_Field_SearchKeyReleased
 
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
@@ -334,7 +321,16 @@ public class Man_LogActivities extends javax.swing.JPanel {
     }//GEN-LAST:event_Field_SearchKeyPressed
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-     Update_table();    
+             try {
+            String sql = "select * from log where employeeID=? OR tab=?  ";
+                           pst = conn.prepareStatement(sql);
+                            pst.setString(1, Field_Search.getText());
+                            pst.setString(2, Field_Search.getText());
+            rs = pst.executeQuery();
+            Table_Log.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }          
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
@@ -344,6 +340,10 @@ public class Man_LogActivities extends javax.swing.JPanel {
     private void Button_ResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseExited
         Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
     }//GEN-LAST:event_Button_ResetMouseExited
+
+    private void Field_SearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyTyped
+
+    }//GEN-LAST:event_Field_SearchKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -357,7 +357,6 @@ public class Man_LogActivities extends javax.swing.JPanel {
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
-    private javax.swing.JLabel Label_Search;
     private javax.swing.JLabel Label_Timeframe;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JPanel Manual_Panel;
