@@ -6,4 +6,7 @@ Appmanager:
 	
 Service Desk Employee:
        In Update Case: nieuw aangemaakte cases worden niet meer getoond in de text fields bij aanklikken, kunnen dus niet geedit worden.
-                       CaseID 1 en 2 zijn wel te editen maar edit wordt niet opgeslagen, ookal zegt de app 'saved'
+                       CaseID 1 en 2 zijn wel te editen maar edit wordt niet opgeslagen, ookal zegt de app 'saved'.
+                       
+Manager:
+       In Graph Data, tabel data is aan te passen.
