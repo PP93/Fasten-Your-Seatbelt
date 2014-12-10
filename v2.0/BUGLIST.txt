@@ -2,3 +2,8 @@ Appmanager:
 	Als je een account verwijdert worden ook accounts met dezelfde naam verwijderd.
 	Search Employee in Manage Accounts gaat meteen naar dat account, Field_EmployeeID verandert niet mee, tabel wordt niet aangepast
 	Je kan typen in de tabel van Manage Accounts
+	
+	
+Service Desk Employee:
+       In Update Case: nieuw aangemaakte cases worden niet meer getoond in de text fields bij aanklikken, kunnen dus niet geedit worden.
+                       CaseID 1 en 2 zijn wel te editen maar edit wordt niet opgeslagen, ookal zegt de app 'saved'
