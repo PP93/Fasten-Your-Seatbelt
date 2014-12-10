@@ -339,18 +339,20 @@ public class Man_Graphs extends javax.swing.JPanel {
     private void Button_GenerateGraphMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_GenerateGraphMouseClicked
 
         int timeFrame = Box_TimeFrame.getSelectedIndex();
+        
+        Graphmaking graph = new Graphmaking();
         switch (timeFrame) {
             case 0:
-                makeGraphToday();
+                graph.makeGraphToday(JPanel_Graph);
                 break;
             case 1:
-                makeGraphWeek();
+                graph.makeGraphWeek(JPanel_Graph);
                 break;
             case 2:
-                makeGraphMonth();
+                graph.makeGraphMonth(JPanel_Graph);
                 break;
             case 3:
-                makeGraphYear();
+                graph.makeGraphYear(JPanel_Graph);
                 break;
         }
     }//GEN-LAST:event_Button_GenerateGraphMouseClicked
@@ -378,107 +380,4 @@ public class Man_Graphs extends javax.swing.JPanel {
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JTable Table_Cases;
     // End of variables declaration//GEN-END:variables
-public void makeGraphToday() {
-        String graphname = "Graph Name Test";
-        String[] today = {"Morning", "Afternoon", "Evening", "Night"};
-        String timeFrameGraph = "Time of Day";
-        int Resolved = 0;
-        int Unresolved = 0;
-        int PermanentlyLost = 0;
-        int[] totalResolved = new int[today.length];
-        int[] totalUnresolved = new int[today.length];
-        int[] totalPermanentlyLost = new int[today.length];
-
-        forLoopSetInfoInArrayFromDatabaseForGraph(today, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, today, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph);
-
-    }
-
-    public void makeGraphWeek() {
-        String graphname = "Graph Name Test";
-        String[] week = {"1", "2", "3", "4", "5", "6", "7",};
-        String timeFrameGraph = "Week Day";
-
-        int Resolved = 0;
-        int Unresolved = 0;
-        int PermanentlyLost = 0;
-        int[] totalResolved = new int[week.length];
-        int[] totalUnresolved = new int[week.length];
-        int[] totalPermanentlyLost = new int[week.length];
-
-        forLoopSetInfoInArrayFromDatabaseForGraph(week, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, week, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph);
-
-    }
-
-    public void makeGraphMonth() {
-        String graphname = "Graph Name Test";
-        String[] month = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        String timeFrameGraph = "Part of the Month";
-
-        int Resolved = 0;
-        int Unresolved = 0;
-        int PermanentlyLost = 0;
-        int[] totalResolved = new int[month.length];
-        int[] totalUnresolved = new int[month.length];
-        int[] totalPermanentlyLost = new int[month.length];
-
-        forLoopSetInfoInArrayFromDatabaseForGraph(month, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, month, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph);
-
-    }
-
-    public void makeGraphYear() {
-        String graphname = "Graph Name Test";
-        String[] year = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        String timeFrameGraph = "Month";
-
-        int Resolved = 0;
-        int Unresolved = 0;
-        int PermanentlyLost = 0;
-        int[] totalResolved = new int[year.length];
-        int[] totalUnresolved = new int[year.length];
-        int[] totalPermanentlyLost = new int[year.length];
-
-        //deze loop moet een database connectie worden.
-        //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is jan
-        forLoopSetInfoInArrayFromDatabaseForGraph(year, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, year, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph);
-
-    }
-
-    private void graphMakerMethod(String graphname, int[] totalResolved, String[] today, int[] totalUnresolved, int[] totalPermanentlyLost, int Resolved, int PermanentlyLost, int Unresolved, String timeFrameGraph) {
-        Graph baggageGraph = new Graph(graphname);
-        baggageGraph.addSeries(totalResolved, "Resolved", today);
-        baggageGraph.addSeries(totalUnresolved, "Unresolved", today);
-        baggageGraph.addSeries(totalPermanentlyLost, "PermanentlyLost", today);
-        baggageGraph.createChart("Baggage Overview", timeFrameGraph, "Number", 760, 400, Color.WHITE, JPanel_Graph);
-        baggageGraph.setSeriesThickness(Resolved, 2);
-        baggageGraph.setSeriesThickness(PermanentlyLost, 2);
-        baggageGraph.setSeriesThickness(Unresolved, 2);
-        baggageGraph.setSeriesColor(Resolved, Color.GREEN);
-        baggageGraph.setSeriesColor(PermanentlyLost, Color.RED);
-        baggageGraph.setSeriesColor(Unresolved, Color.YELLOW);
-        baggageGraph.setGraphBackgroudColors(Color.WHITE, Color.GRAY);
-        baggageGraph.setVisible(true);
-    }
-
-    private void forLoopSetInfoInArrayFromDatabaseForGraph(String[] timeFramePoints, int[] totalResolved, int[] totalUnresolved, int[] totalPermanentlyLost) {
-        //deze loop moet een database connectie worden.
-        
-        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
-        
-        for (int i = 0; i < timeFramePoints.length; i++) {
-            totalResolved[i] = (int) (Math.random() * 9) + 1;
-        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
-        }
-        for (int i = 0; i < timeFramePoints.length; i++) {
-            totalUnresolved[i] = (int) (Math.random() * 9) + 1;
-        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
-        }
-        for (int i = 0; i < timeFramePoints.length; i++) {
-            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
-        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
-        }
-    }
 }
