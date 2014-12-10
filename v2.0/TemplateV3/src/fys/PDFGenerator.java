@@ -71,12 +71,7 @@ public class PDFGenerator {
             this.contentStream.drawString("Item(s) is now permanentley lost.");
             this.contentStream.endText();
 
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.setFont(boldFont, headerFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Client Information ");
-            this.contentStream.endText();
+            pdfmethode(X_START_NORMAL, Y_START_NORMAL, spacingbetweenlines, boldFont, headerFontSize, "Client Information");
             spacingbetweenlines += 24;
 
             this.contentStream.beginText();
@@ -325,6 +320,15 @@ public class PDFGenerator {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private void pdfmethode(final int X_START_NORMAL, final int Y_START_NORMAL, int spacingbetweenlines, PDFont boldFont, int headerFontSize, String drawStringNaam) throws IOException {
+        this.contentStream.beginText();
+        this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
+        this.contentStream.setFont(boldFont, headerFontSize);
+        this.contentStream.setNonStrokingColor(Color.black);
+        this.contentStream.drawString(drawStringNaam);
+        this.contentStream.endText();
     }
 
     private void normaal(PDFont normalFont, int normalFontSize) throws IOException {
