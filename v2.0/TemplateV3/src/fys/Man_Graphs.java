@@ -263,7 +263,6 @@ public class Man_Graphs extends javax.swing.JPanel {
                 "Found", "Not Found", "Returned"
             }
         ));
-        Table_Cases.setEnabled(false);
         Scrollpane_Cases.setViewportView(Table_Cases);
 
         add(Scrollpane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 510, 280));
