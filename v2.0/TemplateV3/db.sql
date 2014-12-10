@@ -21,7 +21,7 @@ USE `fysModel` ;
 -- Table `fysModel`.`employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fysModel`.`employee` (
-  `employeeID` INT NOT NULL,
+  `employeeID` INT NOT NULL AUTO_INCREMENT,
   `firstName` CHAR(45) NOT NULL,
   `lastName` CHAR(45) NOT NULL,
   `username` CHAR(20) NOT NULL,
@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 -- Table `fysModel`.`client`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fysModel`.`client` (
-  `clientID` INT NOT NULL,
+  `clientID` INT NOT NULL AUTO_INCREMENT,
   `flightNumber` CHAR(45) NULL,
   `firstName` CHAR(45) NULL,
   `lastName` CHAR(45) NULL,
@@ -63,7 +63,7 @@ ENGINE = InnoDB;
 -- Table `fysModel`.`baggage`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fysModel`.`baggage` (
-  `baggageID` INT NOT NULL,
+  `baggageID` INT NOT NULL AUTO_INCREMENT,
   `flightNumber` CHAR(45) NULL,
   `brand` CHAR(15) NULL,
   `color` CHAR(15) NULL,
@@ -88,7 +88,7 @@ ENGINE = InnoDB;
 -- Table `fysModel`.`log`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fysModel`.`log` (
-  `logID` INT NOT NULL,
+  `logID` INT NOT NULL AUTO_INCREMENT,
   `employeeID` INT NOT NULL,
   `timestamp` TIMESTAMP(0) NOT NULL,
   `screen` CHAR(45) NOT NULL,
