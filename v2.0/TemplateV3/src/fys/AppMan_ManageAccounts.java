@@ -172,6 +172,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        Table_Accounts.setEnabled(false);
         Table_Accounts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Table_AccountsMouseClicked(evt);
