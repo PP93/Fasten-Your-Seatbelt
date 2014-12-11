@@ -8,28 +8,28 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema fysModel
+-- Schema fys
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema fysModel
+-- Schema fys
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `fysModel` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `fysModel` ;
+CREATE SCHEMA IF NOT EXISTS `fys` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `fys` ;
 
 -- -----------------------------------------------------
--- Table `fysModel`.`employee`
+-- Table `fys`.`employee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fysModel`.`employee` (
+CREATE TABLE IF NOT EXISTS `fys`.`employee` (
   `employeeID` INT NOT NULL AUTO_INCREMENT,
-  `firstName` CHAR(45) NOT NULL,
-  `lastName` CHAR(45) NOT NULL,
-  `username` CHAR(20) NOT NULL,
-  `password` CHAR(25) NOT NULL,
-  `emailAddress` CHAR(40) NULL,
-  `phoneNumber` CHAR(45) NULL,
-  `function` CHAR(30) NOT NULL,
-  `location` CHAR(40) NOT NULL,
+  `firstName` CHAR(63) NOT NULL,
+  `lastName` CHAR(63) NOT NULL,
+  `username` CHAR(31) NOT NULL,
+  `password` CHAR(31) NOT NULL,
+  `emailAddress` CHAR(63) NULL,
+  `phoneNumber` CHAR(31) NULL,
+  `function` CHAR(31) NOT NULL,
+  `location` CHAR(63) NOT NULL,
   PRIMARY KEY (`employeeID`),
   UNIQUE INDEX `employeeID_UNIQUE` (`employeeID` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC))
@@ -37,88 +37,108 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `fysModel`.`client`
+-- Table `fys`.`client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fysModel`.`client` (
+CREATE TABLE IF NOT EXISTS `fys`.`client` (
   `clientID` INT NOT NULL AUTO_INCREMENT,
-  `flightNumber` CHAR(45) NULL,
-  `firstName` CHAR(45) NULL,
-  `lastName` CHAR(45) NULL,
-  `emailAddress` CHAR(45) NULL,
-  `phoneNumber` CHAR(45) NULL,
-  `zipCode` CHAR(10) NULL,
-  `address` CHAR(45) NULL,
-  `city` CHAR(30) NULL,
-  `country` CHAR(30) NULL,
-  `shippingZipCode` CHAR(10) NULL,
-  `shippingAddress` CHAR(45) NULL,
-  `shippingCity` CHAR(45) NULL,
-  `shippingCountry` CHAR(30) NULL,
+  `flightNumber` CHAR(31) NULL,
+  `firstName` CHAR(63) NULL,
+  `lastName` CHAR(63) NULL,
+  `emailAddress` CHAR(63) NULL,
+  `phoneNumber` CHAR(63) NULL,
+  `zipCode` CHAR(15) NULL,
+  `address` CHAR(63) NULL,
+  `city` CHAR(63) NULL,
+  `country` CHAR(63) NULL,
+  `shippingZipCode` CHAR(15) NULL,
+  `shippingAddress` CHAR(63) NULL,
+  `shippingCity` CHAR(63) NULL,
+  `shippingCountry` CHAR(63) NULL,
   PRIMARY KEY (`clientID`),
   UNIQUE INDEX `clientID_UNIQUE` (`clientID` ASC))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `fysModel`.`baggage`
+-- Table `fys`.`baggage`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fysModel`.`baggage` (
+CREATE TABLE IF NOT EXISTS `fys`.`baggage` (
   `baggageID` INT NOT NULL AUTO_INCREMENT,
-  `flightNumber` CHAR(45) NULL,
-  `brand` CHAR(15) NULL,
+  `location` CHAR(63) NULL,
+  `brand` CHAR(31) NULL,
   `color` CHAR(15) NULL,
-  `weight` CHAR(10) NULL,
-  `description` CHAR(500) NULL,
-  `status` CHAR(40) NOT NULL COMMENT 'not matched, missing, found, permanently lost',
+  `weight` CHAR(15) NULL,
+  `description` CHAR(255) NULL,
+  `status` CHAR(31) NOT NULL COMMENT 'not matched, missing, resolved, permanently lost',
   `startDate` DATETIME NOT NULL,
   `resolvedDate` DATETIME NULL,
   `clientID` INT NULL,
   PRIMARY KEY (`baggageID`),
-  UNIQUE INDEX `baggageID_UNIQUE` (`baggageID` ASC),
-  INDEX `verzinzelf1_idx` (`clientID` ASC),
-  CONSTRAINT `verzinzelf1`
-    FOREIGN KEY (`clientID`)
-    REFERENCES `fysModel`.`client` (`clientID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `baggageID_UNIQUE` (`baggageID` ASC))
+--   INDEX `has_owner_idx` (`clientID` ASC),
+--   CONSTRAINT `has_owner`
+--     FOREIGN KEY (`clientID`)
+--     REFERENCES `fys`.`client` (`clientID`)
+--     ON DELETE NO ACTION
+--     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `fysModel`.`log`
+-- Table `fys`.`log`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fysModel`.`log` (
+CREATE TABLE IF NOT EXISTS `fys`.`log` (
   `logID` INT NOT NULL AUTO_INCREMENT,
   `employeeID` INT NOT NULL,
   `timestamp` TIMESTAMP(0) NOT NULL,
-  `screen` CHAR(45) NOT NULL,
-  `action` CHAR(45) NOT NULL,
+  `screen` CHAR(31) NOT NULL,
+  `action` CHAR(63) NOT NULL,
   `affectedClientID` INT NULL,
   `affectedBaggageID` INT NULL,
   `affectedEmployeeID1` INT NULL,
   PRIMARY KEY (`logID`),
-  UNIQUE INDEX `logID_UNIQUE` (`logID` ASC),
-  INDEX `verzinzelf2_idx` (`affectedClientID` ASC),
-  INDEX `verzinzelf3_idx` (`affectedBaggageID` ASC),
-  INDEX `verzinzelf4_idx` (`affectedEmployeeID1` ASC),
-  CONSTRAINT `verzinzelf2`
-    FOREIGN KEY (`affectedClientID`)
-    REFERENCES `fysModel`.`client` (`clientID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `verzinzelf3`
-    FOREIGN KEY (`affectedBaggageID`)
-    REFERENCES `fysModel`.`baggage` (`baggageID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `verzinzelf4`
-    FOREIGN KEY (`affectedEmployeeID1`)
-    REFERENCES `fysModel`.`employee` (`employeeID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `logID_UNIQUE` (`logID` ASC))
+--   INDEX `affects_client_idx` (`affectedClientID` ASC),
+--   INDEX `affects_baggage_idx` (`affectedBaggageID` ASC),
+--   INDEX `affects_employee_idx` (`affectedEmployeeID1` ASC),
+--   CONSTRAINT `affects_client`
+--     FOREIGN KEY (`affectedClientID`)
+--     REFERENCES `fys`.`client` (`clientID`)
+--     ON DELETE NO ACTION
+--     ON UPDATE NO ACTION,
+--   CONSTRAINT `affects_baggage`
+--     FOREIGN KEY (`affectedBaggageID`)
+--     REFERENCES `fys`.`baggage` (`baggageID`)
+--     ON DELETE NO ACTION
+--     ON UPDATE NO ACTION,
+--   CONSTRAINT `affects_employee`
+--     FOREIGN KEY (`affectedEmployeeID1`)
+--     REFERENCES `fys`.`employee` (`employeeID`)
+--     ON DELETE NO ACTION
+--     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO employee
+(firstName, lastName, username, password, emailAddress, phoneNumber, function, location)
+VALUES ('Jan', 'Janssen', 'appmanager1', 'appmanager123', 'jan@corendon.nl', '0612300321', 'application manager', 'Schiphol');
+
+INSERT INTO employee
+(firstName, lastName, username, password, emailAddress, phoneNumber, function, location)
+VALUES ('Henk', 'de Vries', 'manager1', 'manager123', 'henk@corendon.nl', '0687654321', 'manager', 'Schiphol'); 
+
+INSERT INTO employee
+(firstName, lastName, username, password, emailAddress, phoneNumber, function, location)
+VALUES ('Evert', 'Smit', 'serdesemp1', 'serdesemp123', 'evert@corendon.nl', '0612344321', 'service desk employee', 'Schiphol');
+
+INSERT INTO client
+(flightNumber, firstName, lastName, emailAddress, phoneNumber, zipCode, address, city, country, shippingZipCode, shippingAddress, shippingCity, shippingCountry)
+VALUES ('MH18', 'Floris', 'van Lent', 'floris.van.lent@hva.nl', '0613371337', '1337 WC', 'Pindakaaslaan 2', 'Amsterdam', 'Nederland', '1337 WC', 'Pindakaaslaan 2', 'Amsterdam', 'Nederland');
+
+INSERT INTO baggage
+(location, brand, color, weight, description, status, startDate, resolvedDate, clientID)
+VALUES ('Schiphol', 'Samsonite', 'Blauw', '10 kg', 'Er staat vet groot "FLORIS" op', 'resolved', '2014-08-14 13:37:00', '2014-08-15 13:37:00', '1');
