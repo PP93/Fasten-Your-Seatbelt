@@ -6,11 +6,6 @@
 package fys;
 
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -19,11 +14,6 @@ import javax.swing.JPanel;
  */
 public class Graphmaking {
 
-    private String status;
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-
     public void makeGraphToday(JPanel Container) {
         String graphname = "Graph Name Test";
         String[] timeFramePoints = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"};
@@ -31,14 +21,11 @@ public class Graphmaking {
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-        String ResolvedString = "resolved";
-        String UnresolvedString = "unresolved";
-        String PermanentlyLostString = "permanentlylost";
         int[] totalResolved = new int[timeFramePoints.length];
         int[] totalUnresolved = new int[timeFramePoints.length];
         int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
-        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost, ResolvedString, UnresolvedString, PermanentlyLostString);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
         graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
@@ -51,14 +38,11 @@ public class Graphmaking {
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-        String ResolvedString = "resolved";
-        String UnresolvedString = "unresolved";
-        String PermanentlyLostString = "permanentlylost";
         int[] totalResolved = new int[timeFramePoints.length];
         int[] totalUnresolved = new int[timeFramePoints.length];
         int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
-        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost, ResolvedString, UnresolvedString, PermanentlyLostString);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
         graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
@@ -71,14 +55,11 @@ public class Graphmaking {
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-        String ResolvedString = "resolved";
-        String UnresolvedString = "unresolved";
-        String PermanentlyLostString = "permanentlylost";
         int[] totalResolved = new int[timeFramePoints.length];
         int[] totalUnresolved = new int[timeFramePoints.length];
         int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
-        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost, ResolvedString, UnresolvedString, PermanentlyLostString);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
         graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
@@ -91,17 +72,13 @@ public class Graphmaking {
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-
-        String ResolvedString = "resolved";
-        String UnresolvedString = "unresolved";
-        String PermanentlyLostString = "permanentlylost";
         int[] totalResolved = new int[timeFramePoints.length];
         int[] totalUnresolved = new int[timeFramePoints.length];
         int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
         //deze loop moet een database connectie worden.
         //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is jan
-        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost, ResolvedString, UnresolvedString, PermanentlyLostString);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
         graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
@@ -122,41 +99,21 @@ public class Graphmaking {
         baggageGraph.setVisible(true);
     }
 
-    private void forLoopSetInfoInArrayFromDatabaseForGraph(String[] timeFramePoints, int[] totalResolved, int[] totalUnresolved, int[] totalPermanentlyLost, String Resolved, String Unresolved, String PermanentlyLost) {
+    private void forLoopSetInfoInArrayFromDatabaseForGraph(String[] timeFramePoints, int[] totalResolved, int[] totalUnresolved, int[] totalPermanentlyLost) {
         //deze loop moet een database connectie worden.
 
         //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         for (int i = 0; i < timeFramePoints.length; i++) {
-            totalResolved[i] = fromdatabaseintforloop(i, Resolved);
+            totalResolved[i] = (int) (Math.random() * 9) + 15;
             //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
         for (int i = 0; i < timeFramePoints.length; i++) {
-            totalUnresolved[i] = fromdatabaseintforloop(i, Unresolved);
+            totalUnresolved[i] = (int) (Math.random() * 9) + 15;
             //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
         for (int i = 0; i < timeFramePoints.length; i++) {
-            totalPermanentlyLost[i] = fromdatabaseintforloop(i, PermanentlyLost);
+            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 15;
             //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
     }
-
-    public int fromdatabaseintforloop(int timeFramePointData, String Satus) {
-        conn = javaconnect.ConnecrDb();
-
-        try {
-            String sql = "SELECT count(*) FROM fys.baggage WHERE status='?';";
-
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, Satus);
-
-            rs = pst.executeQuery();
-
-        } catch (SQLException e) {
-
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-        return timeFramePointData;
-    }
-
 }
