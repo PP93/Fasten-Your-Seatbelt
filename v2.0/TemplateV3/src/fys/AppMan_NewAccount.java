@@ -1,21 +1,14 @@
 package fys;
 
-import java.awt.HeadlessException;
 import java.security.MessageDigest;
-import java.sql.*;
 import javax.swing.*;
-import javax.swing.JOptionPane;
 
 public class AppMan_NewAccount extends javax.swing.JPanel {
 
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
     boolean radiobuttonSelected = false;
 
     public AppMan_NewAccount() {
         initComponents();
-        conn = javaconnect.ConnecrDb();
 
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
@@ -25,13 +18,14 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
         Employee currentEmployee = new Employee(Employee.getCurrentUser());
         Label_LoggedInAs.setText("Logged in as " + currentEmployee.getFullName());
-        
+
         ButtonGroup group = new ButtonGroup();
         group.add(Radio_ApplicationManager);
         group.add(Radio_Manager);
         group.add(Radio_ServiceDeskEmployee);
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -372,7 +366,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_ResetMouseExited
 
     private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
-        accounttype = "application manager";
+
     }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
     private void Button_SaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseEntered
@@ -410,72 +404,41 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_NewAccountMouseClicked
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype = "service desk employee";
+
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
         radiobuttonSelected = Radio_ApplicationManager.isSelected() || Radio_Manager.isSelected() || Radio_ServiceDeskEmployee.isSelected();
+        String function = "";
+        if (Radio_ApplicationManager.isSelected()) {
+            function = "application manager";
+        } else if (Radio_Manager.isSelected()) {
+            function = "manager";
+        } else if (Radio_ServiceDeskEmployee.isSelected()) {
+            function = "service desk employee";
+        }
 
         if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_Username.getText().equals("") || Field_Password.getText().equals("") || radiobuttonSelected == false) {
             emptyfield_warning.setVisible(true);
             emptyfield_warning.setEnabled(true);
         } else {
-            try {
-
-                String sql = "insert into employee (name,lastname,username,password,email,phonenumber,function)value(?,?,?,?,?,?,?)";
-                pst = conn.prepareStatement(sql);
-
-                pst.setString(1, Field_FirstName.getText());
-                pst.setString(2, Field_LastName.getText());
-                pst.setString(3, Field_Username.getText());
-             
-                if(md5(Field_Password.getPassword()).equals(""))
-                {
-                    
-                     JOptionPane.showMessageDialog(this, "Cannot encrypt", "error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                pst.setString(4, md5 (Field_Password.getPassword()));
-                
-                pst.setString(5, Field_Email.getText());
-                pst.setString(6, Field_PhoneNumber.getText());
-                pst.setString(7, accounttype);
-
-                
-                
-                pst.execute();
-                createLog(Field_Username.getText(), accounttype);
-                JOptionPane.showMessageDialog(null, "Saved");
-                
-                emptyfield_warning.setVisible(false);
-                emptyfield_warning.setEnabled(false);
-                
-               
- 
-                
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+            FYS.getQueryManager().createAccount(Field_FirstName.getText(), Field_LastName.getText(), Field_Username.getText(), Field_Password.getText(), Field_Email.getText(), Field_PhoneNumber.getText(), function);
         }
     }
-        
-            private String md5(char[] c){
-        try{
-        MessageDigest digs = MessageDigest.getInstance("MD5");
-  
-        
-        digs.update(new String(c).getBytes("UTF8"));
-       
-        
-        String str = new String (digs.digest());
-        
-        return str;
+
+    private String md5(char[] c) {
+        try {
+            MessageDigest digs = MessageDigest.getInstance("MD5");
+
+            digs.update(new String(c).getBytes("UTF8"));
+
+            String str = new String(digs.digest());
+
+            return str;
+        } catch (Exception e) {
+
+            return "";
         }
-        catch(Exception e)
-        {
-    
-        return "";
-    }
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Field_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_FirstNameActionPerformed
@@ -483,7 +446,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_Field_FirstNameActionPerformed
 
     private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
-        accounttype = "manager";
+
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
@@ -508,30 +471,6 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
         FYS.getInstance().showPage(new AppMan_Home());
     }//GEN-LAST:event_Label_LogoMouseClicked
-
-    private void createLog(String newAccountEmployeeID, String newAccountFunction) {
-        try {
-            String sql1 = "select * from employee where username=?";
-            pst = conn.prepareStatement(sql1);
-            pst.setString(1, Global.getCurrentUser());
-            rs = pst.executeQuery();
-            
-            if (rs.next()) {
-                String employeeID = rs.getString("employeeID");
-                
-                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
-                pst = conn.prepareStatement(sql2);
-
-                pst.setString(1, employeeID);
-                pst.setString(2, "Created new " + newAccountFunction + " " + newAccountEmployeeID);
-                pst.setString(3, "AppMan_NewAccount");
-
-                pst.execute();
-            }
-        } catch (SQLException | HeadlessException e1) {
-            JOptionPane.showMessageDialog(null, e1);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -566,5 +505,5 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel emptyfield_warning;
     // End of variables declaration//GEN-END:variables
-    private String accounttype;
+
 }

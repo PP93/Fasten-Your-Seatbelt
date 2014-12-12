@@ -56,6 +56,30 @@ public class QueryManager {
             JOptionPane.showMessageDialog(null, e1);
         }
     }
+    
+     private void createLog(String newAccountEmployeeID, String newAccountFunction) {
+        try {
+            String sql1 = "select * from employee where username=?";
+            pst = conn.prepareStatement(sql1);
+            pst.setString(1, Global.getCurrentUser());
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String employeeID = rs.getString("employeeID");
+
+                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+                pst = conn.prepareStatement(sql2);
+
+                pst.setString(1, employeeID);
+                pst.setString(2, "Created new " + newAccountFunction + " " + newAccountEmployeeID);
+                pst.setString(3, "AppMan_NewAccount");
+
+                pst.execute();
+            }
+        } catch (SQLException | HeadlessException e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+    }
 
     // ------------------------------ APPLICATION MANAGER QUERIES -------------------------
     public void updateAccountTable(JTable table) {
@@ -128,6 +152,26 @@ public class QueryManager {
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated");
+        } catch (SQLException ex) {
+            Logger.getLogger(QueryManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void createAccount(String name, String lastname, String username, String password, String email, String phonenumber, String function) {
+        String sql = "INSERT INTO employee (name, lastname, username, password, email, phonenumber, function) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, name);
+            pst.setString(2, lastname);
+            pst.setString(3, username);
+            pst.setString(4, password);
+            pst.setString(5, email);
+            pst.setString(6, phonenumber);
+            pst.setString(7, function);
+            
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Saved");
         } catch (SQLException ex) {
             Logger.getLogger(QueryManager.class.getName()).log(Level.SEVERE, null, ex);
         }
