@@ -14,7 +14,7 @@ public class FYS {
     public static final int FRAME_HEIGHT = 760;
     public static final String NAME = "FYS Application";
     //private Dbmanager dbManager;
-    //private QueryManager queryManager;
+    private QueryManager queryManager;
 
     public static void main(String[] args) {
 
@@ -79,4 +79,8 @@ public class FYS {
      dbManager.openConnection();
      queryManager = new QueryManager(dbManager);
      }*/
+    
+    public static QueryManager getQueryManager() {
+     return getInstance().queryManager;
+     }
 }

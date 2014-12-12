@@ -1,47 +1,55 @@
 package fys;
 
-import java.awt.HeadlessException;
-import java.security.MessageDigest;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
-import javax.xml.bind.DatatypeConverter;
-import net.proteanit.sql.DbUtils;
 
 public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
     boolean radiobuttonSelected = false;
 
     public AppMan_ManageAccounts() {
         initComponents();
-        conn = javaconnect.ConnecrDb();
 
         Panel_Manual.setVisible(false);
         Panel_Manual.setEnabled(false);
 
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
-        
-         Field_EmployeeID.setEditable(false);
+
+        Field_EmployeeID.setEditable(false);
 
         ButtonGroup group = new ButtonGroup();
         group.add(Radio_ApplicationManager);
         group.add(Radio_Manager);
         group.add(Radio_ServiceDeskEmployee);
 
-        Update_table();
+        FYS.getQueryManager().updateAccountTable(Table_Accounts);
     }
 
-    private void Update_table() {
-        try {
-            String sql = "select * from employee";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            Table_Accounts.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+    private void fillAccountData(ResultSet rs) throws SQLException {
+        if (rs.next()) {
+
+            String add1 = rs.getString("name");
+            Field_FirstName.setText(add1);
+            String add2 = rs.getString("lastname");
+            Field_LastName.setText(add2);
+            String add3 = rs.getString("username");
+            Field_Username.setText(add3);
+            String add4 = rs.getString("password");
+            Field_Password.setText(add4);
+            String add5 = rs.getString("email");
+            Field_Email.setText(add5);
+            String add6 = rs.getString("phonenumber");
+            Field_PhoneNumber.setText(add6);
+            if (rs.getString("function").equals("application manager")) {
+                Radio_ApplicationManager.setSelected(true);
+            } else if (rs.getString("function").equals("manager")) {
+                Radio_Manager.setSelected(true);
+            } else if (rs.getString("function").equals("service desk employee")) {
+                Radio_ServiceDeskEmployee.setSelected(true);
+            }
         }
     }
 
@@ -490,70 +498,21 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
     private void Table_AccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_AccountsMouseClicked
+        int row = Table_Accounts.getSelectedRow();
+        String tableClick = (Table_Accounts.getModel().getValueAt(row, 0).toString());
+
         try {
-            int row = Table_Accounts.getSelectedRow();
-            String Table_click = (Table_Accounts.getModel().getValueAt(row, 0).toString());
-            String sql = "select * from employee where employeeID='" + Table_click + "' ";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            if (rs.next()) {
-
-                String add1 = rs.getString("employeeID");
-                Field_EmployeeID.setText(add1);
-                String add2 = rs.getString("name");
-                Field_FirstName.setText(add2);
-                String add3 = rs.getString("lastname");
-                Field_LastName.setText(add3);
-                String add4 = rs.getString("username");
-                Field_Username.setText(add4);
-                String add5 = rs.getString("password");
-                Field_Password.setText(add5);
-                String add6 = rs.getString("email");
-                Field_Email.setText(add6);
-                String add7 = rs.getString("phonenumber");
-                Field_PhoneNumber.setText(add7);
-                rs.getString("function");
-                if (rs.getString("function").equals("application manager")) {
-                    Radio_ApplicationManager.setSelected(true);
-                }
-                else if (rs.getString("function").equals("manager")) {
-                    Radio_Manager.setSelected(true);
-                }
-                else if (rs.getString("function").equals("service desk employee")) {
-                    Radio_ServiceDeskEmployee.setSelected(true);
-                }
-                
-
-            }
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null, e);
-
+            fillAccountData(FYS.getQueryManager().getFromTable(tableClick));
+        } catch (SQLException ex) {
+            Logger.getLogger(AppMan_ManageAccounts.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }//GEN-LAST:event_Table_AccountsMouseClicked
 
     private void Button_DeleteAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_DeleteAccountMouseClicked
         int p = JOptionPane.showConfirmDialog(null, "Do you really want to delete this account?", "Delete Account", JOptionPane.YES_NO_OPTION);
         if (p == 0) {
-
-            String sql = "delete from employee where name=?";
-            try {
-
-                pst = conn.prepareStatement(sql);
-
-                pst.setString(1, Field_FirstName.getText());
-
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Deleted");
-
-            } catch (SQLException | HeadlessException e) {
-
-                JOptionPane.showMessageDialog(null, e);
-
-            }
-            Update_table();
+            FYS.getQueryManager().deleteAccount(Field_EmployeeID.getText());
+            FYS.getQueryManager().updateAccountTable(Table_Accounts);
         }
     }//GEN-LAST:event_Button_DeleteAccountMouseClicked
 
@@ -573,41 +532,19 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
             emptyfield_warning.setVisible(true);
             emptyfield_warning.setEnabled(true);
         } else {
-            try {
-                
-
-                String value1 = Field_EmployeeID.getText();
-                Field_EmployeeID.setEditable(false);
-                String value2 = Field_FirstName.getText();
-                String value3 = Field_LastName.getText();
-                String value4 = Field_Username.getText();
-                String value5 =Field_Password.getText();
-                String value6 = Field_Email.getText();
-                String value7 = Field_PhoneNumber.getText();
-                String value8 = "";
-                if (Radio_ApplicationManager.isSelected()) {
-                    value8 = "application manager";
-                }
-                else if (Radio_Manager.isSelected()) {
-                    value8 = "manager";
-                }
-                else if (Radio_ServiceDeskEmployee.isSelected()) {
-                    value8 = "service desk employee";
-                }
-                
-
-                String sql = "update employee set employeeID = '" + value1 + "',name = '" + value2 + "',lastname = '" + value3 + "',username = '" + value4 + "',password = '" + value5 + "' ,email = '" + value6 + "',phonenumber = '" + value7 + "',  function = '" + value8 + "' where employeeID='" + value1 + "' ";
-                pst = conn.prepareStatement(sql);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Updated");
-                emptyfield_warning.setVisible(false);
-                emptyfield_warning.setEnabled(false);
-
-            } catch (Exception e) {
-
-                JOptionPane.showMessageDialog(null, e);
+            String function = "";
+            if (Radio_ApplicationManager.isSelected()) {
+                function = "application manager";
+            } else if (Radio_Manager.isSelected()) {
+                function = "manager";
+            } else if (Radio_ServiceDeskEmployee.isSelected()) {
+                function = "service desk employee";
             }
-            Update_table();
+
+            emptyfield_warning.setVisible(false);
+            emptyfield_warning.setEnabled(false);
+            FYS.getQueryManager().updateAccount(Field_EmployeeID.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_Username.getText(), Field_Password.getText(), Field_Email.getText(), Field_PhoneNumber.getText(), function);
+            FYS.getQueryManager().updateAccountTable(Table_Accounts);
 
         }
 
@@ -626,33 +563,9 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
         try {
-            String sql = "select * from employee where employeeID=? OR name=? OR lastname=? OR username=? ";
-
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, Field_Search.getText());
-            pst.setString(2, Field_Search.getText());
-            pst.setString(3, Field_Search.getText());
-            pst.setString(4, Field_Search.getText());
-
-            rs = pst.executeQuery();
-            if (rs.next()) {
-
-                String add1 = rs.getString("name");
-                Field_FirstName.setText(add1);
-                String add2 = rs.getString("lastname");
-                Field_LastName.setText(add2);
-                String add3 = rs.getString("username");
-                Field_Username.setText(add3);
-                String add4 = rs.getString("password");
-                Field_Password.setText(add4);
-                String add5 = rs.getString("email");
-                Field_Email.setText(add5);
-                String add6 = rs.getString("phonenumber");
-                Field_PhoneNumber.setText(add6);
-            }
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null, e);
+            fillAccountData(FYS.getQueryManager().searchAccounts(Field_Search.getText()));
+        } catch (SQLException ex) {
+            Logger.getLogger(AppMan_ManageAccounts.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_Field_SearchKeyReleased
@@ -686,19 +599,19 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     }//GEN-LAST:event_Label_LogoMouseClicked
 
     private void Field_EmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_EmployeeIDActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_Field_EmployeeIDActionPerformed
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
-        accounttype = "service desk employee";
+
     }//GEN-LAST:event_Radio_ServiceDeskEmployeeActionPerformed
 
     private void Radio_ManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ManagerActionPerformed
-        accounttype = "manager";
+
     }//GEN-LAST:event_Radio_ManagerActionPerformed
 
     private void Radio_ApplicationManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ApplicationManagerActionPerformed
-        accounttype = "application manager";
+
     }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
 
@@ -741,7 +654,5 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel emptyfield_warning;
     // End of variables declaration//GEN-END:variables
-
-    private String accounttype;
 
 }
