@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package fys;
 
 import java.awt.Color;
@@ -13,75 +12,74 @@ import javax.swing.JPanel;
  *
  * @author Alternate
  */
-public class Graphmaking  {
-    
-    
+public class Graphmaking {
+
     public void makeGraphToday(JPanel Container) {
         String graphname = "Graph Name Test";
-        String[] today = {"Morning", "Afternoon", "Evening", "Night"};
-        String timeFrameGraph = "Time of Day";
+        String[] timeFramePoints = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"};
+        String timeFrameGraph = "Hour";
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-        int[] totalResolved = new int[today.length];
-        int[] totalUnresolved = new int[today.length];
-        int[] totalPermanentlyLost = new int[today.length];
+        int[] totalResolved = new int[timeFramePoints.length];
+        int[] totalUnresolved = new int[timeFramePoints.length];
+        int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
-        forLoopSetInfoInArrayFromDatabaseForGraph(today, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, today, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
 
     public void makeGraphWeek(JPanel Container) {
         String graphname = "Graph Name Test";
-        String[] week = {"1", "2", "3", "4", "5", "6", "7",};
+        String[] timeFramePoints = {"1", "2", "3", "4", "5", "6", "7",};
         String timeFrameGraph = "Week Day";
 
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-        int[] totalResolved = new int[week.length];
-        int[] totalUnresolved = new int[week.length];
-        int[] totalPermanentlyLost = new int[week.length];
+        int[] totalResolved = new int[timeFramePoints.length];
+        int[] totalUnresolved = new int[timeFramePoints.length];
+        int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
-        forLoopSetInfoInArrayFromDatabaseForGraph(week, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, week, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
 
     public void makeGraphMonth(JPanel Container) {
         String graphname = "Graph Name Test";
-        String[] month = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        String timeFrameGraph = "Part of the Month";
+        String[] timeFramePoints = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
+        String timeFrameGraph = "Month Day";
 
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-        int[] totalResolved = new int[month.length];
-        int[] totalUnresolved = new int[month.length];
-        int[] totalPermanentlyLost = new int[month.length];
+        int[] totalResolved = new int[timeFramePoints.length];
+        int[] totalUnresolved = new int[timeFramePoints.length];
+        int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
-        forLoopSetInfoInArrayFromDatabaseForGraph(month, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, month, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
 
     public void makeGraphYear(JPanel Container) {
         String graphname = "Graph Name Test";
-        String[] year = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        String[] timeFramePoints = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         String timeFrameGraph = "Month";
 
         int Resolved = 0;
         int Unresolved = 0;
         int PermanentlyLost = 0;
-        int[] totalResolved = new int[year.length];
-        int[] totalUnresolved = new int[year.length];
-        int[] totalPermanentlyLost = new int[year.length];
+        int[] totalResolved = new int[timeFramePoints.length];
+        int[] totalUnresolved = new int[timeFramePoints.length];
+        int[] totalPermanentlyLost = new int[timeFramePoints.length];
 
         //deze loop moet een database connectie worden.
         //SELECT COUNT (*) FROM baggage WHERE status == Resolved and date is jan
-        forLoopSetInfoInArrayFromDatabaseForGraph(year, totalResolved, totalUnresolved, totalPermanentlyLost);
-        graphMakerMethod(graphname, totalResolved, year, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
+        forLoopSetInfoInArrayFromDatabaseForGraph(timeFramePoints, totalResolved, totalUnresolved, totalPermanentlyLost);
+        graphMakerMethod(graphname, totalResolved, timeFramePoints, totalUnresolved, totalPermanentlyLost, Resolved, PermanentlyLost, Unresolved, timeFrameGraph, Container);
 
     }
 
@@ -103,20 +101,19 @@ public class Graphmaking  {
 
     private void forLoopSetInfoInArrayFromDatabaseForGraph(String[] timeFramePoints, int[] totalResolved, int[] totalUnresolved, int[] totalPermanentlyLost) {
         //deze loop moet een database connectie worden.
-        
+
         //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
-        
         for (int i = 0; i < timeFramePoints.length; i++) {
-            totalResolved[i] = (int) (Math.random() * 9) + 1;
-        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
+            totalResolved[i] = (int) (Math.random() * 9) + 15;
+            //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
         for (int i = 0; i < timeFramePoints.length; i++) {
-            totalUnresolved[i] = (int) (Math.random() * 9) + 1;
-        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
+            totalUnresolved[i] = (int) (Math.random() * 9) + 15;
+            //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
         for (int i = 0; i < timeFramePoints.length; i++) {
-            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 1;
-        //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
+            totalPermanentlyLost[i] = (int) (Math.random() * 9) + 15;
+            //SELECT COUNT (*) FROM baggage WHERE status = ? and date = ?
         }
     }
 }
