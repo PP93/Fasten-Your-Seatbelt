@@ -189,4 +189,100 @@ public class QueryManager {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    public void createCase(){
+        
+    }
+    
+    public void createClientCase(String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, 
+            String city, String country, String shippingCountry, String shippingZipCode, String shippingAddress, String shippingCity){
+        
+        try{
+         String sql = "insert into client (firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?)";
+                       pst = conn.prepareStatement(sql);
+
+                        pst.setString(1, firstName);
+                        pst.setString(2, lastName);
+                        pst.setString(3, emailAddress);
+                        pst.setString(4, phoneNumber);                     
+                        pst.setString(5, zipCode);
+                        pst.setString(6, address);
+                        pst.setString(7, city);
+                        pst.setString(8, country);           
+                        pst.setString(9,  shippingCountry);
+                        pst.setString(10, shippingZipCode);
+                        pst.setString(11, shippingAddress);
+                        pst.setString(12, shippingCity);
+                        
+                        pst.execute();
+                                                String fullName = firstName + " " + lastName;
+                      createLogNewCase(fullName);
+                        JOptionPane.showMessageDialog(null, "Saved");
+
+                    } catch (SQLException | HeadlessException e) {
+
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                
+
+    }
+    // shit vragen aan floris
+    public void createBaggageCase(String location, String brand, String color, String weight, String description, String status,java.sql.Date startDate, java.sql.Date resolvedDate){
+           try {
+
+                        String sql = "insert into baggage (location, brand, color, weight, description, status, startDate)value(?,?,?,?,?,?,?)";
+                        pst = conn.prepareStatement(sql);
+
+                        pst.setString(1, location);
+                        pst.setString(2, brand);
+                        pst.setString(3, color);
+                        pst.setString(4, weight);
+                        pst.setString(5, description);
+                        pst.setString(6, "unresolved");
+//                        pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
+                 
+                        
+                        pst.execute();
+                        
+                        //Floris: This isn't perfect yet but neither is this huge ass block of 
+                        //if-else-statements :P When we have a class for getting all info of a piece
+                        //of baggage and other classes for employees and clients, I'll make this
+                        //better :D
+                        
+                        //vrage wat er moet gebeuren met deze
+                      //createLogNewCase(Field_FlightNumber.getText());
+                        
+                        JOptionPane.showMessageDialog(null, "Saved");
+
+                    } catch (SQLException | HeadlessException e) {
+
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                }
+
+    
+    public void createLogNewCase(String clientName) {
+        try {
+            String sql1 = "select * from employee where username=?";
+            pst = conn.prepareStatement(sql1);
+            pst.setString(1, Employee.getCurrentUser());
+            rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String employeeID = rs.getString("employeeID");
+                
+                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+                pst = conn.prepareStatement(sql2);
+// Log voor Bagage navrage
+                pst.setString(1, employeeID);
+                pst.setString(2, "Created new case for " + clientName);
+                pst.setString(3, "SerDesEmp_NewCase");
+
+                pst.execute();
+            }
+        } catch (SQLException | HeadlessException e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+    }
+
 }

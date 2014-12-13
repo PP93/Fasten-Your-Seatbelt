@@ -558,6 +558,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     emptyfield_warning.setEnabled(true);
                 } else {
                     try {
+                       
 
                         String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?) ";
                         pst = conn.prepareStatement(sql);
@@ -579,7 +580,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
                         pst.execute();
                         String fullName = Field_FirstName.getText() + " " + Field_LastName.getText();
-                        createLog(fullName);
+                        FYS.getQueryManager().createLogNewCase(fullName);
 
                         String sql2 = "SELECT clientID FROM client where name = '" + Field_FirstName.getText() + "' AND lastname = '" + Field_LastName.getText() + "'";
                         pst = conn.prepareStatement(sql2);
@@ -607,7 +608,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                             //if-else-statements :P When we have a class for getting all info of a piece
                             //of baggage and other classes for employees and clients, I'll make this
                             //better :D
-                            createLog(Field_FlightNumber.getText());
+                          FYS.getQueryManager().createLogNewCase(Field_FlightNumber.getText());
 
                             JOptionPane.showMessageDialog(null, "Saved");
                             emptyfield_warning.setVisible(false);
@@ -625,44 +626,24 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    try {
+                    
+                       FYS.getQueryManager().createClientCase(Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(), Field_Address.getText(), Field_City.getText(), Field_Country.getText(), 
+                                Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText());
 
-                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?)";
-                        pst = conn.prepareStatement(sql);
-
-                        pst.setString(1, Field_FirstName.getText());
-                        pst.setString(2, Field_LastName.getText());
-                        pst.setString(3, Field_EmailAddress.getText());
-                        pst.setString(4, Field_PhoneNumber.getText());                     
-                        pst.setString(5, Field_ZipCode.getText());
-                        pst.setString(6, Field_Address.getText());
-                        pst.setString(7, Field_City.getText());
-                        pst.setString(8, Field_Country.getText());           
-                        pst.setString(9, Field_ShippingCountry.getText());
-                        pst.setString(10, Field_ShippingZipCode.getText());
-                        pst.setString(11, Field_ShippingAddress.getText());
-                        pst.setString(12, Field_ShippingCity.getText());
-                        
-
-                        pst.execute();
-                        String fullName = Field_FirstName.getText() + " " + Field_LastName.getText();
-                        createLog(fullName);
-                        JOptionPane.showMessageDialog(null, "Saved");
                         emptyfield_warning.setVisible(false);
                         emptyfield_warning.setEnabled(false);
-
-                    } catch (SQLException | HeadlessException e) {
-
-                        JOptionPane.showMessageDialog(null, e);
-                    }
                 }
 
+              
             } else {
                 if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    try {
+                    
+                    //Shit vragen aan floris
+                   //FYS.getQueryManager().createBaggageCase();
+                 /*   try {
 
                         String sql = "insert into baggage (flightnumber,brand,color,weight,description,dateadded,status)value(?,?,?,?,?,?,?)";
                         pst = conn.prepareStatement(sql);
@@ -682,14 +663,14 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                         //if-else-statements :P When we have a class for getting all info of a piece
                         //of baggage and other classes for employees and clients, I'll make this
                         //better :D
-                        createLog(Field_FlightNumber.getText());
+                        FYS.getQueryManager().createLogNewCase(Field_FlightNumber.getText());
                         
                         JOptionPane.showMessageDialog(null, "Saved");
 
                     } catch (SQLException | HeadlessException e) {
 
                         JOptionPane.showMessageDialog(null, e);
-                    }
+                    }*/
                 }
             }
         }
@@ -798,30 +779,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Check_ClientCaseActionPerformed
 
-    private void createLog(String clientName) {
-        try {
-            String sql1 = "select * from employee where username=?";
-            pst = conn.prepareStatement(sql1);
-            pst.setString(1, Employee.getCurrentUser());
-            rs = pst.executeQuery();
-            
-            if (rs.next()) {
-                String employeeID = rs.getString("employeeID");
-                
-                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
-                pst = conn.prepareStatement(sql2);
-
-                pst.setString(1, employeeID);
-                pst.setString(2, "Created new case for " + clientName);
-                pst.setString(3, "SerDesEmp_NewCase");
-
-                pst.execute();
-            }
-        } catch (SQLException | HeadlessException e1) {
-            JOptionPane.showMessageDialog(null, e1);
-        }
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JLabel Button_Save;
