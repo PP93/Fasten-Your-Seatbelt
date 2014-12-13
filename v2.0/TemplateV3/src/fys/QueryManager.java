@@ -177,4 +177,16 @@ public class QueryManager {
         }
     }
 
+// ------------------------------ SERVICE DESK EMPLOYEE QUERIES -------------------------
+    
+    public void updateClientTable(JTable jTable){
+        try {
+            String sql = "select clientID, firstName, lastName from client";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            jTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 }

@@ -25,19 +25,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         emptyfield_warning.setEnabled(false);
 
         conn = javaconnect.ConnecrDb();
-        Update_table();
-    
-    }
-
-    private void Update_table() {
-        try {
-            String sql = "select clientID, name, lastname from client";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            Table_Cases.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        
+        FYS.getQueryManager().updateClientTable(Table_Cases);
     }
     
 
@@ -822,7 +811,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e);
                     }
-                    Update_table();
+                   FYS.getQueryManager().updateClientTable(Table_Cases);
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
                 }
@@ -856,7 +845,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
                         JOptionPane.showMessageDialog(null, e);
                     }
-                    Update_table();
+                   FYS.getQueryManager().updateClientTable(Table_Cases);
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
                 }
@@ -887,7 +876,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
                         JOptionPane.showMessageDialog(null, e);
                     }
-                    Update_table();
+                   FYS.getQueryManager().updateClientTable(Table_Cases);
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
                 }
