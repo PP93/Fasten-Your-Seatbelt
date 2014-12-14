@@ -25,10 +25,9 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         emptyfield_warning.setEnabled(false);
 
         conn = javaconnect.ConnecrDb();
-        
+
         FYS.getQueryManager().updateClientTable(Table_Cases);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +45,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         ScrollPane_Cases = new javax.swing.JScrollPane();
         Table_Cases = new javax.swing.JTable();
         Label_ClientInformation = new javax.swing.JLabel();
+        Label_FlightNumber = new javax.swing.JLabel();
         Label_FirstName = new javax.swing.JLabel();
         Label_LastName = new javax.swing.JLabel();
         Label_EmailAddress = new javax.swing.JLabel();
@@ -54,6 +54,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Label_Address = new javax.swing.JLabel();
         Label_City = new javax.swing.JLabel();
         Label_Country = new javax.swing.JLabel();
+        Field_FlightNumber = new javax.swing.JTextField();
         Field_FirstName = new javax.swing.JTextField();
         Field_LastName = new javax.swing.JTextField();
         Field_EmailAddress = new javax.swing.JTextField();
@@ -71,12 +72,12 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_ShippingCountry = new javax.swing.JTextField();
         Field_ShippingCity = new javax.swing.JTextField();
         Label_BaggageInformation = new javax.swing.JLabel();
-        Label_FlightNumber = new javax.swing.JLabel();
+        Label_Location = new javax.swing.JLabel();
         Label_Brand = new javax.swing.JLabel();
         Label_Color = new javax.swing.JLabel();
         Label_Weight = new javax.swing.JLabel();
         Label_Description = new javax.swing.JLabel();
-        Field_FlightNumber = new javax.swing.JTextField();
+        Field_Location = new javax.swing.JTextField();
         Field_Brand = new javax.swing.JTextField();
         Field_Color = new javax.swing.JTextField();
         Field_Weight = new javax.swing.JTextField();
@@ -130,7 +131,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Search.setForeground(new java.awt.Color(153, 0, 0));
         Label_Search.setText("Search:");
-        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 30));
+        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 30));
 
         Field_Search.setForeground(new java.awt.Color(153, 0, 0));
         Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -139,7 +140,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_SearchKeyReleased(evt);
             }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 210, 30));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 210, 30));
 
         Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -159,12 +160,17 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         });
         ScrollPane_Cases.setViewportView(Table_Cases);
 
-        add(ScrollPane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 450, 350));
+        add(ScrollPane_Cases, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 450, 350));
 
         Label_ClientInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_ClientInformation.setForeground(new java.awt.Color(153, 0, 0));
         Label_ClientInformation.setText("Client Information:");
-        add(Label_ClientInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
+        add(Label_ClientInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, -1));
+
+        Label_FlightNumber.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
+        Label_FlightNumber.setText("Flightnumber: *");
+        add(Label_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
@@ -205,6 +211,10 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Label_Country.setForeground(new java.awt.Color(153, 0, 0));
         Label_Country.setText("Country: *");
         add(Label_Country, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
+
+        Field_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
+        Field_FlightNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 210, 30));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -292,48 +302,48 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Label_BaggageInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_BaggageInformation.setForeground(new java.awt.Color(153, 0, 0));
         Label_BaggageInformation.setText("Baggage Information:");
-        add(Label_BaggageInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 180, -1, -1));
+        add(Label_BaggageInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 160, -1, -1));
 
-        Label_FlightNumber.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        Label_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FlightNumber.setText("Flight Number:");
-        add(Label_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 210, -1, -1));
+        Label_Location.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_Location.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Location.setText("Location:");
+        add(Label_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 180, -1, -1));
 
         Label_Brand.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Brand.setForeground(new java.awt.Color(153, 0, 0));
         Label_Brand.setText("Brand:");
-        add(Label_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 240, -1, -1));
+        add(Label_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 210, -1, -1));
 
         Label_Color.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Color.setForeground(new java.awt.Color(153, 0, 0));
         Label_Color.setText("Color:");
-        add(Label_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 270, -1, -1));
+        add(Label_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 240, -1, -1));
 
         Label_Weight.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Weight.setForeground(new java.awt.Color(153, 0, 0));
         Label_Weight.setText("Weight:");
-        add(Label_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 300, -1, -1));
+        add(Label_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 270, -1, -1));
 
         Label_Description.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Description.setForeground(new java.awt.Color(153, 0, 0));
         Label_Description.setText("Description:");
-        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 330, -1, -1));
+        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 300, -1, -1));
 
-        Field_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
-        Field_FlightNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 210, 230, 30));
+        Field_Location.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Location.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 180, 230, 30));
 
         Field_Brand.setForeground(new java.awt.Color(153, 0, 0));
         Field_Brand.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 240, 230, 30));
+        add(Field_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 210, 230, 30));
 
         Field_Color.setForeground(new java.awt.Color(153, 0, 0));
         Field_Color.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 270, 230, 30));
+        add(Field_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 240, 230, 30));
 
         Field_Weight.setForeground(new java.awt.Color(153, 0, 0));
         Field_Weight.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 300, 230, 30));
+        add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 270, 230, 30));
 
         Field_Description.setColumns(20);
         Field_Description.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -341,19 +351,19 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_Description.setBorder(null);
         jScrollPane1.setViewportView(Field_Description);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 330, 230, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 300, 230, 110));
 
         Field_EntryDate.setForeground(new java.awt.Color(153, 0, 0));
         Field_EntryDate.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 440, 230, 30));
+        add(Field_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 410, 230, 30));
 
         Field_RetrievalDate.setForeground(new java.awt.Color(153, 0, 0));
         Field_RetrievalDate.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_RetrievalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 470, 230, 30));
+        add(Field_RetrievalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 440, 230, 30));
 
         Field_Status.setForeground(new java.awt.Color(153, 0, 0));
         Field_Status.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 500, 230, 30));
+        add(Field_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 470, 230, 30));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
         Button_Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -510,12 +520,12 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Check_ClientCaseActionPerformed(evt);
             }
         });
-        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, 20));
+        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, 20));
 
         Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
         Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Check_BaggageCase.setForeground(new java.awt.Color(153, 0, 0));
-        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 180, -1, 20));
+        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 160, -1, 20));
 
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
@@ -525,17 +535,17 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Label_EntryDate.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_EntryDate.setForeground(new java.awt.Color(153, 0, 0));
         Label_EntryDate.setText("Entry Date:");
-        add(Label_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 140, 20));
+        add(Label_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 410, 140, 20));
 
         Label_RetrievalDate.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_RetrievalDate.setForeground(new java.awt.Color(153, 0, 0));
         Label_RetrievalDate.setText("Retrieval Date:");
-        add(Label_RetrievalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 470, 140, 20));
+        add(Label_RetrievalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 140, 20));
 
         Label_Status.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Status.setForeground(new java.awt.Color(153, 0, 0));
         Label_Status.setText("Status:");
-        add(Label_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 140, 20));
+        add(Label_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 470, 140, 20));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -747,7 +757,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_ShippingCity.setText(add11);
                 String add12 = rs.getString("shippingcountry");
                 Field_ShippingCountry.setText(add12);
-                Field_FlightNumber.setText(rs.getString("flightnumber"));
+                Field_Location.setText(rs.getString("flightnumber"));
                 Field_Brand.setText(rs.getString("brand"));
                 Field_Color.setText(rs.getString("color"));
                 Field_Weight.setText(rs.getString("weight"));
@@ -771,112 +781,43 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
         } else {
             if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
-                if ((Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
+                if ((Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    try {
 
-                        String value1 = Field_FirstName.getText();
-                        String value2 = Field_LastName.getText();
-                        String value3 = Field_EmailAddress.getText();
-                        String value4 = Field_PhoneNumber.getText();
-                        String value5 = Field_ZipCode.getText();
-                        String value6 = Field_Address.getText();
-                        String value7 = Field_City.getText();
-                        String value8 = Field_Country.getText();
-                        String value9 = Field_ShippingZipCode.getText();
-                        String value10 = Field_ShippingAddress.getText();
-                        String value11 = Field_ShippingCity.getText();
-                        String value12 = Field_ShippingCountry.getText();
-                        String value13 = Field_FlightNumber.getText();
-                        String value14 = Field_Brand.getText();
-                        String value15 = Field_Color.getText();
-                        String value16 = Field_Weight.getText();
-                        String value17 = Field_Description.getText();
-                        String value18 = Field_EntryDate.getText();
-                        String value19 = Field_RetrievalDate.getText();
-                        String value20 = Field_Status.getText();
-                        
+                    FYS.getQueryManager().updateCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
+                            Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), Field_ShippingCountry.getText(),
+                            Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText(), Field_RetrievalDate.getText(), Field_Status.getText());
 
-                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "'where name='" + value1 + "' ";
-                        pst = conn.prepareStatement(sql);
-                        pst.execute();
-                        
-                        String sql2 = "UPDATE baggage SET flightnumber = '" + value13 + "',brand = '" + value14 + "',color = '" + value15 + "',weight = '" + value16 + "',description = '" + value17 + "',dateadded = '" + value18 + "',dateretrieved = '" + value19 + "',status = '" + value20 + "' WHERE flightnumber = '" + value13 + "'";
-                        pst = conn.prepareStatement(sql2);
-                        pst.execute();
-                        JOptionPane.showMessageDialog(null, "Updated");
-
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, e);
-                    }
-                   FYS.getQueryManager().updateClientTable(Table_Cases);
+                    FYS.getQueryManager().updateClientTable(Table_Cases);
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
                 }
             } else if (Check_ClientCase.isSelected()) {
-                if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
+                if (Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    try {
-
-                        String value1 = Field_FirstName.getText();
-                        String value2 = Field_LastName.getText();
-                        String value3 = Field_EmailAddress.getText();
-                        String value4 = Field_PhoneNumber.getText();
-                        String value5 = Field_ZipCode.getText();
-                        String value6 = Field_Address.getText();
-                        String value7 = Field_City.getText();
-                        String value8 = Field_Country.getText();
-                        String value9 = Field_ShippingZipCode.getText();
-                        String value10 = Field_ShippingAddress.getText();
-                        String value11 = Field_ShippingCity.getText();
-                        String value12 = Field_ShippingCountry.getText();
-                        
-
-                        String sql = "update client set name = '" + value1 + "',lastname = '" + value2 + "',email = '" + value3 + "',phonenumber = '" + value4 + "',zipcode = '" + value5 + "' ,address = '" + value6 + "',city = '" + value7 + "' ,country = '" + value8 + "',shippingzipcode = '" + value9 + "',shippingaddress = '" + value10 + "',shippingcity = '" + value11 + "',shippingcountry = '" + value12 + "'where name='" + value1 + "' ";
-                        pst = conn.prepareStatement(sql);
-                        pst.execute();
-                        JOptionPane.showMessageDialog(null, "Updated");
-
-                    } catch (Exception e) {
-
-                        JOptionPane.showMessageDialog(null, e);
-                    }
-                   FYS.getQueryManager().updateClientTable(Table_Cases);
+                    
+                   FYS.getQueryManager().updateClientCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
+                            Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), Field_ShippingCountry.getText());
+                   
+                    FYS.getQueryManager().updateClientTable(Table_Cases);
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
                 }
 
             } else {
-                if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
+                if (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    try {
-
-                        String value1 = Field_FlightNumber.getText();
-                        String value2 = Field_Brand.getText();
-                        String value3 = Field_Color.getText();
-                        String value4 = Field_Weight.getText();
-                        String value5 = Field_Description.getText();
-                        String value6 = Field_EntryDate.getText();
-                        String value7 = Field_RetrievalDate.getText();
-                        String value8 = Field_Status.getText();
-//                        String value6 =((JTextField)Field_RetrievalDateChooser.getDateEditor().getUiComponent()).getText();
-
-                        String sql = "update baggage set flightnumber = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "',dateadded = '" + value6 + "',dateretrieved = '" + value7 + "',status = '" + value8 + "' where flightnumber='" + value1 + "' ";
-                        pst = conn.prepareStatement(sql);
-                        pst.execute();
-                        JOptionPane.showMessageDialog(null, "Updated");
-
-                    } catch (Exception e) {
-
-                        JOptionPane.showMessageDialog(null, e);
-                    }
-                   FYS.getQueryManager().updateClientTable(Table_Cases);
+                    
+                   FYS.getQueryManager().updateBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText(), 
+                           Field_RetrievalDate.getText(), Field_Status.getText());
+                    
+                    FYS.getQueryManager().updateClientTable(Table_Cases);
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
                 }
@@ -897,7 +838,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_ShippingAddress.setText("");
         Field_ShippingCity.setText("");
         Field_ShippingCountry.setText("");
-        Field_FlightNumber.setText("");
+        Field_Location.setText("");
         Field_Brand.setText("");
         Field_Color.setText("");
         Field_Weight.setText("");
@@ -905,7 +846,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 //        Field_EntryDate.setText("");
 //        Field_RetrievalDate.setText("");
 
-        
+
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
@@ -978,6 +919,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JTextField Field_FirstName;
     private javax.swing.JTextField Field_FlightNumber;
     private javax.swing.JTextField Field_LastName;
+    private javax.swing.JTextField Field_Location;
     private javax.swing.JTextField Field_PhoneNumber;
     private javax.swing.JTextField Field_RetrievalDate;
     private com.toedter.calendar.JDateChooser Field_RetrievalDateChooser;
@@ -1004,6 +946,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_FlightNumber;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_Location;
     private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_PhoneNumber;

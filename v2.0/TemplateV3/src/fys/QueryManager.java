@@ -189,25 +189,26 @@ public class QueryManager {
         }
     }
 
-    public void createCase(String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingCountry, String shippingZipCode,
-            String shippingAddress, String shippingCity, String location, String brand, String color, String weight, String description, String startDate) {
+    public void createCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingCountry,
+            String shippingZipCode, String shippingAddress, String shippingCity, String location, String brand, String color, String weight, String description, String startDate) {
         try {
 
-            String sql = "insert into client (firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?) ";
+            String sql = "insert into client (flightNumber, firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
             pst = conn.prepareStatement(sql);
 
-            pst.setString(1, firstName);
-            pst.setString(2, lastName);
-            pst.setString(3, emailAddress);
-            pst.setString(4, phoneNumber);
-            pst.setString(5, zipCode);
-            pst.setString(6, address);
-            pst.setString(7, city);
-            pst.setString(8, country);
-            pst.setString(9, shippingCountry);
-            pst.setString(10, shippingZipCode);
-            pst.setString(11, shippingAddress);
-            pst.setString(12, shippingCity);
+            pst.setString(1, flightNumber);
+            pst.setString(2, firstName);
+            pst.setString(3, lastName);
+            pst.setString(4, emailAddress);
+            pst.setString(5, phoneNumber);
+            pst.setString(6, zipCode);
+            pst.setString(7, address);
+            pst.setString(8, city);
+            pst.setString(9, country);
+            pst.setString(10, shippingCountry);
+            pst.setString(11, shippingZipCode);
+            pst.setString(12, shippingAddress);
+            pst.setString(13, shippingCity);
 
             pst.execute();
             String fullName = firstName + " " + lastName;
@@ -235,11 +236,11 @@ public class QueryManager {
 
                 pst.execute();
 
-                            //Floris: This isn't perfect yet but neither is this huge ass block of 
+                //Floris: This isn't perfect yet but neither is this huge ass block of 
                 //if-else-statements :P When we have a class for getting all info of a piece
                 //of baggage and other classes for employees and clients, I'll make this
                 //better :D
-                          //createLogNewCase(Field_Location.getText());
+                //createLogNewCase(Field_Location.getText());
                 JOptionPane.showMessageDialog(null, "Saved");
 
             }
@@ -251,25 +252,26 @@ public class QueryManager {
 
     }
 
-    public void createClientCase(String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address,
-            String city, String country, String shippingCountry, String shippingZipCode, String shippingAddress, String shippingCity) {
+    public void createClientCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingCountry,
+            String shippingZipCode, String shippingAddress, String shippingCity) {
 
         try {
-            String sql = "insert into client (firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "insert into client (flightNumber, firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pst = conn.prepareStatement(sql);
 
-            pst.setString(1, firstName);
-            pst.setString(2, lastName);
-            pst.setString(3, emailAddress);
-            pst.setString(4, phoneNumber);
-            pst.setString(5, zipCode);
-            pst.setString(6, address);
-            pst.setString(7, city);
-            pst.setString(8, country);
-            pst.setString(9, shippingCountry);
-            pst.setString(10, shippingZipCode);
-            pst.setString(11, shippingAddress);
-            pst.setString(12, shippingCity);
+            pst.setString(1, flightNumber);
+            pst.setString(2, firstName);
+            pst.setString(3, lastName);
+            pst.setString(4, emailAddress);
+            pst.setString(5, phoneNumber);
+            pst.setString(6, zipCode);
+            pst.setString(7, address);
+            pst.setString(8, city);
+            pst.setString(9, country);
+            pst.setString(10, shippingCountry);
+            pst.setString(11, shippingZipCode);
+            pst.setString(12, shippingAddress);
+            pst.setString(13, shippingCity);
 
             pst.execute();
             String fullName = firstName + " " + lastName;
@@ -300,7 +302,7 @@ public class QueryManager {
 
             pst.execute();
 
-                        //Floris: This isn't perfect yet but neither is this huge ass block of 
+            //Floris: This isn't perfect yet but neither is this huge ass block of 
             //if-else-statements :P When we have a class for getting all info of a piece
             //of baggage and other classes for employees and clients, I'll make this
             //better :D
@@ -313,9 +315,110 @@ public class QueryManager {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-/* Floris, dit is je create log van new case. Die heb ik in een methode gezet omdat ik dat beter vond. Misschien is het beter om deze bij Logs te zetten maar dat moet je maar even kijken.
-    Aangezien FlightNumber bij baggage in de DB niet meer staat en er bij de createLogs voor baggage comments staan van Caitling heb ik deze maar even zo gelaten zou jij hiernaar kunnen kijken.
-    */
+
+    public void updateCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingZipCode,
+            String shippingAddress, String shippingCity, String shippingCountry, String location, String brand, String color, String weight, String description, String entryDate, String retrievalDate, String status) {
+        try {
+
+            String value1 = flightNumber;
+            String value2 = firstName;
+            String value3 = lastName;
+            String value4 = emailAddress;
+            String value5 = phoneNumber;
+            String value6 = zipCode;
+            String value7 = address;
+            String value8 = city;
+            String value9 = country;
+            String value10 = shippingZipCode;
+            String value11 = shippingAddress;
+            String value12 = shippingCity;
+            String value13 = shippingCountry;
+            String value14 = location;
+            String value15 = brand;
+            String value16 = color;
+            String value17 = weight;
+            String value18 = description;
+            String value19 = entryDate;
+            String value20 = retrievalDate;
+            String value21 = status;
+
+            String sql = "update client set flightNumber =  '" + value1 + "', name = '" + value2 + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '" + value5 + "',zipcode = '" + value6
+                    + "' ,address = '" + value7 + "',city = '" + value8 + "' ,country = '" + value9 + "',shippingzipcode = '" + value10 + "',shippingaddress = '" + value11 + "',shippingcity = '" + value12
+                    + "',shippingcountry = '" + value13 + "'where clientID='" + value1 + "' ";// vrage Floris hoe ik clientID krijg
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+
+            String sql2 = "UPDATE baggage SET location = '" + value14 + "',brand = '" + value15 + "',color = '" + value16 + "',weight = '" + value17 + "',description = '" + value18 + "',dateadded = '" + value19
+                    + "',dateretrieved = '" + value20 + "',status = '" + value21 + "' WHERE baggageID = '" + 1 + "'";// vrage Floris hoe ik baggageID krijg
+            pst = conn.prepareStatement(sql2);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Updated");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public void updateClientCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingZipCode,
+            String shippingAddress, String shippingCity, String shippingCountry) {
+        try {
+
+            String value1 = flightNumber;
+            String value2 = firstName;
+            String value3 = lastName;
+            String value4 = emailAddress;
+            String value5 = phoneNumber;
+            String value6 = zipCode;
+            String value7 = address;
+            String value8 = city;
+            String value9 = country;
+            String value10 = shippingZipCode;
+            String value11 = shippingAddress;
+            String value12 = shippingCity;
+            String value13 = shippingCountry;
+
+            String sql = "update client set flightNumber =  '" + value1 + "', name = '" + value2 + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '" + value5 + "',zipcode = '" + value6 + "' ,address = '" + value7
+                    + "',city = '" + value8 + "' ,country = '" + value9 + "',shippingzipcode = '" + value10 + "',shippingaddress = '" + value11 + "',shippingcity = '" + value12 + "',shippingcountry = '" + value13
+                    + "'where ClientID='" + value1 + "' ";//Floris vragen naar ClientID
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Updated");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public void updateBaggageCase(String location, String brand, String color, String weight, String description, String entryDate, String retrievalDate, String status) {
+        try {
+
+            String value1 = location;
+            String value2 = brand;
+            String value3 = color;
+            String value4 = weight;
+            String value5 = description;
+            String value6 = entryDate;
+            String value7 = retrievalDate;
+            String value8 = status;
+//                        String value6 =((JTextField)Field_RetrievalDateChooser.getDateEditor().getUiComponent()).getText();
+
+            String sql = "update baggage set location = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "',dateadded = '" + value6 + "',dateretrieved = '" + value7 
+                    + "',status = '" + value8 + "' where baggageID='" + value1 + "' ";//Floris vragen voor baggage ID
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Updated");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+
+    /* Floris, dit is je create log van new case. Die heb ik in een methode gezet omdat ik dat beter vond. Misschien is het beter om deze bij Logs te zetten maar dat moet je maar even kijken.
+     Aangezien FlightNumber bij baggage in de DB niet meer staat en er bij de createLogs voor baggage comments staan van Caitling heb ik deze maar even zo gelaten zou jij hiernaar kunnen kijken.
+     */
     public void createLogNewCase(String clientName) {
         try {
             String sql1 = "select * from employee where username=?";
