@@ -69,7 +69,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Label_Weight = new javax.swing.JLabel();
         Label_Description = new javax.swing.JLabel();
         Label_Country1 = new javax.swing.JLabel();
-        Field_FlightNumber = new javax.swing.JTextField();
+        Field_Location = new javax.swing.JTextField();
         Field_Brand = new javax.swing.JTextField();
         Field_Color = new javax.swing.JTextField();
         Field_Weight = new javax.swing.JTextField();
@@ -260,7 +260,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
         Label_FlightNumber.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FlightNumber.setText("Flight Number:");
+        Label_FlightNumber.setText("Location:");
         add(Label_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, -1, -1));
 
         Label_Brand.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -288,9 +288,9 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Label_Country1.setText("Country: *");
         add(Label_Country1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
 
-        Field_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
-        Field_FlightNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 210, 230, 30));
+        Field_Location.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Location.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 210, 230, 30));
 
         Field_Brand.setForeground(new java.awt.Color(153, 0, 0));
         Field_Brand.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -500,7 +500,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Field_DateAdded.setForeground(new java.awt.Color(156, 0, 0));
-        Field_DateAdded.setDateFormatString("d-MMM-yyyy");
         Field_DateAdded.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         add(Field_DateAdded, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 490, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
@@ -524,7 +523,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
     private void Checkbox_CopyAddressInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Checkbox_CopyAddressInfoActionPerformed
 // WHY INSERT THIS SHIT IN THE DATABASE WITHOUT SAVING???
-        
+
 //        try {
 //
 //            String sql = "insert into client (shippingcountry,shippingcity,shippingzipcode,shippingaddress)value(?,?,?,?)";
@@ -540,7 +539,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 //
 //            JOptionPane.showMessageDialog(null, e);
 //        }
-        
         // I think this is way better:
         Field_ShippingAddress.setText(Field_Address.getText());
         Field_ShippingCity.setText(Field_City.getText());
@@ -553,124 +551,67 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
         } else {
             if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
-                if ((Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
+                if ((Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    try {
-                       
-
-                        String sql = "insert into client (name,lastname,email,phonenumber,zipcode,address,city,country,shippingcountry,shippingzipcode,shippingaddress,shippingcity) value(?,?,?,?,?,?,?,?,?,?,?,?) ";
-                        pst = conn.prepareStatement(sql);
-
-                        pst.setString(1, Field_FirstName.getText());
-                        pst.setString(2, Field_LastName.getText());
-                        pst.setString(3, Field_EmailAddress.getText());
-                        pst.setString(4, Field_PhoneNumber.getText());
-                        pst.setString(5, Field_ZipCode.getText());
-                        pst.setString(6, Field_Address.getText());
-                        pst.setString(7, Field_City.getText());
-                        pst.setString(8, Field_Country.getText());           
-                        pst.setString(9, Field_ShippingCountry.getText());
-                        pst.setString(10, Field_ShippingZipCode.getText());
-                        pst.setString(11, Field_ShippingAddress.getText());
-                        pst.setString(12, Field_ShippingCity.getText());
-                        
-                        
-
-                        pst.execute();
-                        String fullName = Field_FirstName.getText() + " " + Field_LastName.getText();
-                        FYS.getQueryManager().createLogNewCase(fullName);
-
-                        String sql2 = "SELECT clientID FROM client where name = '" + Field_FirstName.getText() + "' AND lastname = '" + Field_LastName.getText() + "'";
-                        pst = conn.prepareStatement(sql2);
-                        rs = pst.executeQuery();
-                        
-                        if (rs.next()) {
-                            String clientID = rs.getString("clientID");
-
-                            String addBaggage = "insert into baggage (flightnumber,brand,color,weight,description,dateadded,status,clientID)value(?,?,?,?,?,?,?,?)";
-                            pst = conn.prepareStatement(addBaggage);
-
-                            pst.setString(1, Field_FlightNumber.getText());
-                            pst.setString(2, Field_Brand.getText());
-                            pst.setString(3, Field_Color.getText());
-                            pst.setString(4, Field_Weight.getText());
-                            pst.setString(5, Field_Description.getText());
-                            pst.setString(6, Field_EntryDate.getText());
-//                            pst.setString(6, ((JTextField) Field_DateAdded.getDateEditor().getUiComponent()).getText());
-                            pst.setString(7, "unresolved");
-                            pst.setString(8, clientID);
-
-                            pst.execute();
-
-                            //Floris: This isn't perfect yet but neither is this huge ass block of 
-                            //if-else-statements :P When we have a class for getting all info of a piece
-                            //of baggage and other classes for employees and clients, I'll make this
-                            //better :D
-                          FYS.getQueryManager().createLogNewCase(Field_FlightNumber.getText());
-
-                            JOptionPane.showMessageDialog(null, "Saved");
-                            emptyfield_warning.setVisible(false);
-                            emptyfield_warning.setEnabled(false);
-                        }
-
-                    } catch (SQLException | HeadlessException e) {
-
-                        JOptionPane.showMessageDialog(null, e);
-                    }
                 }
-            }
-            else if (Check_ClientCase.isSelected()) {
+
+                FYS.getQueryManager().createCase(Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(), Field_Address.getText(), 
+                        Field_City.getText(), Field_Country.getText(), Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), Field_Location.getText(), 
+                        Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText());
+
+                emptyfield_warning.setVisible(false);
+                emptyfield_warning.setEnabled(false);
+
+            } else if (Check_ClientCase.isSelected()) {
                 if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    
-                       FYS.getQueryManager().createClientCase(Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(), Field_Address.getText(), Field_City.getText(), Field_Country.getText(), 
-                                Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText());
 
-                        emptyfield_warning.setVisible(false);
-                        emptyfield_warning.setEnabled(false);
+                    FYS.getQueryManager().createClientCase(Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(), Field_Address.getText(), Field_City.getText(), Field_Country.getText(),
+                            Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText());
+
+                    emptyfield_warning.setVisible(false);
+                    emptyfield_warning.setEnabled(false);
                 }
 
-              
             } else {
-                if (Field_FlightNumber.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
+                if (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
-                    
-                    //Shit vragen aan floris
-                   //FYS.getQueryManager().createBaggageCase();
-                 /*   try {
 
-                        String sql = "insert into baggage (flightnumber,brand,color,weight,description,dateadded,status)value(?,?,?,?,?,?,?)";
-                        pst = conn.prepareStatement(sql);
+                    FYS.getQueryManager().createBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText());
+                    /*  try {
 
-                        pst.setString(1, Field_FlightNumber.getText());
-                        pst.setString(2, Field_Brand.getText());
-                        pst.setString(3, Field_Color.getText());
-                        pst.setString(4, Field_Weight.getText());
-                        pst.setString(5, Field_Description.getText());
-                        pst.setString(6, Field_EntryDate.getText());
-//                        pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
-                        pst.setString(7, "unresolved");
+                     String sql = "insert into baggage (flightnumber,brand,color,weight,description,dateadded,status)value(?,?,?,?,?,?,?)";
+                     pst = conn.prepareStatement(sql);
+
+                     pst.setString(1, Field_FlightNumber.getText());
+                     pst.setString(2, Field_Brand.getText());
+                     pst.setString(3, Field_Color.getText());
+                     pst.setString(4, Field_Weight.getText());
+                     pst.setString(5, Field_Description.getText());
+                     pst.setString(6, Field_EntryDate.getText());
+                     //                        pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
+                     pst.setString(7, "unresolved");
                         
-                        pst.execute();
+                     pst.execute();
                         
-                        //Floris: This isn't perfect yet but neither is this huge ass block of 
-                        //if-else-statements :P When we have a class for getting all info of a piece
-                        //of baggage and other classes for employees and clients, I'll make this
-                        //better :D
-                        FYS.getQueryManager().createLogNewCase(Field_FlightNumber.getText());
+                     //Floris: This isn't perfect yet but neither is this huge ass block of 
+                     //if-else-statements :P When we have a class for getting all info of a piece
+                     //of baggage and other classes for employees and clients, I'll make this
+                     //better :D
+                     FYS.getQueryManager().createLogNewCase(Field_FlightNumber.getText());
                         
-                        JOptionPane.showMessageDialog(null, "Saved");
+                     JOptionPane.showMessageDialog(null, "Saved");
 
-                    } catch (SQLException | HeadlessException e) {
+                     } catch (SQLException | HeadlessException e) {
 
-                        JOptionPane.showMessageDialog(null, e);
-                    }*/
+                     JOptionPane.showMessageDialog(null, e);
+                     }*/
                 }
             }
         }
@@ -691,7 +632,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Field_ShippingAddress.setText("");
         Field_ShippingCity.setText("");
 
-        Field_FlightNumber.setText("");
+        Field_Location.setText("");
         Field_Brand.setText("");
         Field_Color.setText("");
         Field_Weight.setText("");
@@ -779,7 +720,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Check_ClientCaseActionPerformed
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JLabel Button_Save;
@@ -796,8 +737,8 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JTextField Field_EmailAddress;
     private javax.swing.JTextField Field_EntryDate;
     private javax.swing.JTextField Field_FirstName;
-    private javax.swing.JTextField Field_FlightNumber;
     private javax.swing.JTextField Field_LastName;
+    private javax.swing.JTextField Field_Location;
     private javax.swing.JTextField Field_PhoneNumber;
     private javax.swing.JTextField Field_ShippingAddress;
     private javax.swing.JTextField Field_ShippingCity;
