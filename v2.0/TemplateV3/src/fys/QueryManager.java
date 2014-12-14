@@ -95,7 +95,7 @@ public class QueryManager {
 
     public ResultSet searchAccounts(String searchTerm) {
         try {
-            String sql = "select * from employee where employeeID=? OR name=? OR lastname=? OR username=? ";
+            String sql = "select * from employee where employeeID=? OR firstName=? OR lastName=? OR username=? ";
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, searchTerm);
@@ -137,16 +137,16 @@ public class QueryManager {
         }
     }
 
-    public void updateAccount(String employeeID, String name, String lastname, String username, String password, String email, String phonenumber, String function) {
-       String sql = "UPDATE employee SET (name, lastname, username, password, email, phonenumber, function) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE employeeID = ?";
+    public void updateAccount(String employeeID, String firstName, String lastName, String username, String password, String emailAddress, String phoneNumber, String function) {
+       String sql = "UPDATE employee SET (firstName, lastName, username, password, emailAddress, phoneNumber, function) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE employeeID = ?";
         try {          
             pst = conn.prepareStatement(sql);
-            pst.setString(1, name);
-            pst.setString(2, lastname);
+            pst.setString(1, firstName);
+            pst.setString(2, lastName);
             pst.setString(3, username);
             pst.setString(4, password);
-            pst.setString(5, email);
-            pst.setString(6, phonenumber);
+            pst.setString(5, emailAddress);
+            pst.setString(6, phoneNumber);
             pst.setString(7, function);
             pst.setString(8, employeeID);
             
@@ -157,17 +157,17 @@ public class QueryManager {
         }
     }
     
-    public void createAccount(String name, String lastname, String username, String password, String email, String phonenumber, String function) {
-        String sql = "INSERT INTO employee (name, lastname, username, password, email, phonenumber, function) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void createAccount(String firstName, String lastName, String username, String password, String emailAddress, String phoneNumber, String function) {
+        String sql = "INSERT INTO employee (firstName, lastName, username, password, emailAddress, phoneNumber, function) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, name);
-            pst.setString(2, lastname);
+            pst.setString(1, firstName);
+            pst.setString(2, lastName);
             pst.setString(3, username);
             pst.setString(4, password);
-            pst.setString(5, email);
-            pst.setString(6, phonenumber);
+            pst.setString(5, emailAddress);
+            pst.setString(6, phoneNumber);
             pst.setString(7, function);
             
             pst.executeUpdate();
