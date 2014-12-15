@@ -140,14 +140,14 @@ public class Graphmaking {
         }
     }
 
-    public int fromdatabaseintforloop(int timeFramePointData, String Satus) {
+    public int fromdatabaseintforloop(int timeFramePointData, String Status) {
         conn = javaconnect.ConnecrDb();
 
         try {
-            String sql = "SELECT count(*) FROM fys.baggage WHERE status='?';";
+            String sql = "SELECT count(*) FROM baggage WHERE status= ?";
 
             pst = conn.prepareStatement(sql);
-            pst.setString(1, Satus);
+            pst.setString(1, Status);
 
             rs = pst.executeQuery();
 
