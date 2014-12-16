@@ -1,21 +1,9 @@
 package fys;
 
-import java.awt.HeadlessException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-
 public class AppMan_LogOut extends javax.swing.JPanel {
-
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
 
     public AppMan_LogOut() {
         initComponents();
-        conn = javaconnect.ConnecrDb();
 
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
