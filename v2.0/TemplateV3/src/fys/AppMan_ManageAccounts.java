@@ -31,18 +31,28 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     private void fillAccountData(ResultSet rs) throws SQLException {
         if (rs.next()) {
 
-            String add1 = rs.getString("name");
-            Field_FirstName.setText(add1);
-            String add2 = rs.getString("lastname");
-            Field_LastName.setText(add2);
-            String add3 = rs.getString("username");
-            Field_Username.setText(add3);
-            String add4 = rs.getString("password");
-            Field_Password.setText(add4);
-            String add5 = rs.getString("email");
-            Field_Email.setText(add5);
-            String add6 = rs.getString("phonenumber");
-            Field_PhoneNumber.setText(add6);
+            String add1 = rs.getString("employeeID");
+            Field_EmployeeID.setText(add1);
+            String add2 = rs.getString("firstName");
+            Field_FirstName.setText(add2);
+            String add3 = rs.getString("lastName");
+            Field_LastName.setText(add3);
+            String add4 = rs.getString("username");
+            Field_Username.setText(add4);
+            String add5 = rs.getString("password");
+            Field_Password.setText(add5);
+            String add6 = rs.getString("emailAddress");
+            Field_Email.setText(add6);
+            String add7 = rs.getString("phoneNumber");
+            Field_PhoneNumber.setText(add7);
+            
+            
+//            String add8 = rs.getString("function");
+//            Field_Email.setText(add8);
+//            String add9 = rs.getString("location");
+//            Field_PhoneNumber.setText(add9);
+            
+            
             if (rs.getString("function").equals("application manager")) {
                 Radio_ApplicationManager.setSelected(true);
             } else if (rs.getString("function").equals("manager")) {
@@ -132,7 +142,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_Title.setText("Manual");
         Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
-        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
+        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 290, 590));
 
         Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -599,7 +609,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     }//GEN-LAST:event_Label_LogoMouseClicked
 
     private void Field_EmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_EmployeeIDActionPerformed
-        
+
     }//GEN-LAST:event_Field_EmployeeIDActionPerformed
 
     private void Radio_ServiceDeskEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_ServiceDeskEmployeeActionPerformed
