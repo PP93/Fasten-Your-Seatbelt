@@ -17,19 +17,91 @@ public class QueryManager {
     PreparedStatement pst;
     ResultSet rs;
 
-    // ----------------------------- LOG QUERIES ----------------------------------------
-    public void createLog(String employeeID, String screen, String action) {
-        try {
-            String sql = "INSERT INTO log (employeeID, screen, action)value(?,?,?)";
-            pst = conn.prepareStatement(sql);
+    // -------------------------------- LOG QUERIES --------------------------------------
+    
+    /**
+     * Returns logs from the database based on the chosen search terms.
+     * @param searchTerm
+     * @param toDate
+     * @param searchType
+     * @return rs to be processed by the updateTable method
+     */
+    public ResultSet getLogData(String searchTerm, String toDate, String searchType) {
+  
+        String getLog = "";
 
-            pst.setString(1, employeeID);
-            pst.setString(2, screen);
+        switch (searchType) {
+            case "username":
+                getLog = "SELECT * FROM log WHERE username = ? ORDER BY date DESC LIMIT 1000";
+                break;
+            case "date":
+                getLog = "SELECT * FROM log WHERE date BETWEEN ? AND ? ORDER BY date DESC LIMIT 1000";
+                break;
+        }
+
+        try {
+            switch (searchType) {
+                case "username":
+                    pst = conn.prepareStatement(getLog);
+                    pst.setString(1, searchTerm);
+                    break;
+                case "date":
+                    pst = conn.prepareStatement(getLog);
+                    pst.setString(1, searchTerm);
+                    pst.setString(2, toDate);
+                    break;
+            }
+
+            rs = pst.executeQuery();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(QueryManager.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "An error occured retrieving user log data from the database.", "Database Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        return rs;
+    }
+
+    /**
+     * Returns the most recent 1000 logs from the database.
+     * @return rs to be processed by the updateTable method
+     */
+    public ResultSet getAllLogs() {
+        try {
+
+            String getAllLogs = "SELECT * FROM log ORDER BY date DESC LIMIT 1000";
+
+            pst = conn.prepareStatement(getAllLogs);
+            rs = pst.executeQuery();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(QueryManager.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "An error occured retrieving user log data from the database.", "Database Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        return rs;
+    }
+
+    /**
+     * Creates a log in the database based on the passed arguments.
+     * @param username
+     * @param page
+     * @param action 
+     */
+    public void createLog(String username, String page, String action) {
+        String createLog = "INSERT INTO log (username, page, action) VALUES (?, ?, ?)";
+
+        try {
+
+            pst = conn.prepareStatement(createLog);
+            pst.setString(1, username);
+            pst.setString(2, page);
             pst.setString(3, action);
 
-            pst.execute();
-        } catch (SQLException | HeadlessException e) {
-            JOptionPane.showMessageDialog(null, e);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(QueryManager.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "An error occured logging this action.", "Logging Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

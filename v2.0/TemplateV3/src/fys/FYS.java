@@ -2,9 +2,12 @@ package fys;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import net.proteanit.sql.DbUtils;
 
 public class FYS {
 
@@ -75,5 +78,14 @@ public class FYS {
     
     public static QueryManager getQueryManager() {
         return getInstance().queryManager;
+    }
+    
+    /**
+     * Updates a table with results from a query.
+     * @param table
+     * @param rs 
+     */
+    public void updateTable(JTable table, ResultSet rs) {
+        table.setModel(DbUtils.resultSetToTableModel(rs));
     }
 }

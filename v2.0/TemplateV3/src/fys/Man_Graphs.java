@@ -269,7 +269,7 @@ public class Man_Graphs extends javax.swing.JPanel {
 
         JPanel_Graph.setBackground(new java.awt.Color(255, 255, 255));
         JPanel_Graph.setLayout(new java.awt.BorderLayout());
-        add(JPanel_Graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 760, 400));
+        add(JPanel_Graph, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 750, 400));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N

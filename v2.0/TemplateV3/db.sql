@@ -88,34 +88,11 @@ ENGINE = InnoDB;
 -- Table `fys`.`log`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fys`.`log` (
-  `logID` INT NOT NULL AUTO_INCREMENT,
-  `employeeID` INT NOT NULL,
-  `timestamp` TIMESTAMP(0) NOT NULL,
-  `screen` CHAR(31) NOT NULL,
-  `action` CHAR(63) NOT NULL,
-  `affectedClientID` INT NULL,
-  `affectedBaggageID` INT NULL,
-  `affectedEmployeeID1` INT NULL,
-  PRIMARY KEY (`logID`),
-  UNIQUE INDEX `logID_UNIQUE` (`logID` ASC))
---   INDEX `affects_client_idx` (`affectedClientID` ASC),
---   INDEX `affects_baggage_idx` (`affectedBaggageID` ASC),
---   INDEX `affects_employee_idx` (`affectedEmployeeID1` ASC),
---   CONSTRAINT `affects_client`
---     FOREIGN KEY (`affectedClientID`)
---     REFERENCES `fys`.`client` (`clientID`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `affects_baggage`
---     FOREIGN KEY (`affectedBaggageID`)
---     REFERENCES `fys`.`baggage` (`baggageID`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `affects_employee`
---     FOREIGN KEY (`affectedEmployeeID1`)
---     REFERENCES `fys`.`employee` (`employeeID`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION)
+  `username` CHAR(30) NOT NULL,
+  `date` TIMESTAMP(0) NOT NULL,
+  `page` CHAR(31) NOT NULL,
+  `action` CHAR(255) NOT NULL,
+  PRIMARY KEY ('username', 'timestamp')) 
 ENGINE = InnoDB;
 
 

@@ -1,38 +1,21 @@
 package fys;
 
-import java.awt.HeadlessException;
-import java.sql.*;
-import javax.swing.*;
-import net.proteanit.sql.DbUtils;
+import javax.swing.ButtonGroup;
 
 public class Man_LogActivities extends javax.swing.JPanel {
 
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
 
     public Man_LogActivities() {
         initComponents();
-        conn = javaconnect.ConnecrDb();
 
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
         
-        //emptyfield_warning.setVisible(false);
-        //emptyfield_warning.setEnabled(false);
+        ButtonGroup group = new ButtonGroup();
+        group.add(Radio_SearchByUsername);
+        group.add(Radio_SearchByDate);
         
-        Update_table();
-    }
-    
-    private void Update_table() {
-        try {
-            String sql = "SELECT * FROM log";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            Table_Log.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        FYS.getInstance().updateTable(Table_Logs, FYS.getQueryManager().getAllLogs());
     }
 
     /**
@@ -53,14 +36,15 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Label_ManualExit = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
-        Label_Case = new javax.swing.JLabel();
-        Label_Timeframe = new javax.swing.JLabel();
-        Box_Case = new javax.swing.JComboBox();
-        Box_TimeFrame = new javax.swing.JComboBox();
-        Button_Reset = new javax.swing.JLabel();
+        Button_Search = new javax.swing.JLabel();
+        Combo_Day = new javax.swing.JComboBox();
+        Combo_Month = new javax.swing.JComboBox();
+        Combo_Year = new javax.swing.JComboBox();
+        Radio_SearchByDate = new javax.swing.JRadioButton();
         Field_Search = new javax.swing.JTextField();
-        ScrollPane_Log = new javax.swing.JScrollPane();
-        Table_Log = new javax.swing.JTable();
+        Radio_SearchByUsername = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table_Logs = new javax.swing.JTable();
         Background = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,80 +155,69 @@ public class Man_LogActivities extends javax.swing.JPanel {
 
         add(Manual_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
-        Label_Case.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_Case.setForeground(new java.awt.Color(156, 10, 13));
-        Label_Case.setText("Case:");
-        add(Label_Case, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 40));
-
-        Label_Timeframe.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_Timeframe.setForeground(new java.awt.Color(156, 10, 13));
-        Label_Timeframe.setText("Timeframe:");
-        add(Label_Timeframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 30));
-
-        Box_Case.setForeground(new java.awt.Color(156, 10, 13));
-        Box_Case.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Unresolved", "Resolved", "Permanently lost" }));
-        add(Box_Case, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 120, 20));
-
-        Box_TimeFrame.setForeground(new java.awt.Color(156, 10, 13));
-        Box_TimeFrame.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Today", "This week", "This Month", "This Year" }));
-        Box_TimeFrame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Box_TimeFrameActionPerformed(evt);
-            }
-        });
-        add(Box_TimeFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 120, 20));
-
-        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-        Button_Reset.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Button_Reset.setForeground(new java.awt.Color(255, 255, 255));
-        Button_Reset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Button_Reset.setText("Search");
-        Button_Reset.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Button_Reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Button_Reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Button_Reset.setOpaque(true);
-        Button_Reset.addMouseListener(new java.awt.event.MouseAdapter() {
+        Button_Search.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Button_Search.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Search.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Search.setText("Search");
+        Button_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Button_Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Search.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Search.setOpaque(true);
+        Button_Search.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button_ResetMouseClicked(evt);
+                Button_SearchMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Button_ResetMouseEntered(evt);
+                Button_SearchMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Button_ResetMouseExited(evt);
+                Button_SearchMouseExited(evt);
             }
         });
-        add(Button_Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 70, 30));
+        add(Button_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 70, 30));
 
-        Field_Search.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                Field_SearchKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                Field_SearchKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                Field_SearchKeyTyped(evt);
+        Combo_Day.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        add(Combo_Day, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
+
+        Combo_Month.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        add(Combo_Month, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
+
+        Combo_Year.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
+        add(Combo_Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
+
+        Radio_SearchByDate.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_SearchByDate.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Radio_SearchByDate.setForeground(new java.awt.Color(153, 0, 0));
+        Radio_SearchByDate.setText("Search By Date:");
+        Radio_SearchByDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Radio_SearchByDateActionPerformed(evt);
             }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 210, 30));
+        add(Radio_SearchByDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 260, 20));
 
-        Table_Log.setModel(new javax.swing.table.DefaultTableModel(
+        Radio_SearchByUsername.setBackground(new java.awt.Color(255, 255, 255));
+        Radio_SearchByUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Radio_SearchByUsername.setForeground(new java.awt.Color(153, 0, 0));
+        Radio_SearchByUsername.setText("Search By Username:");
+        add(Radio_SearchByUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
+
+        Table_Logs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        ScrollPane_Log.setViewportView(Table_Log);
+        jScrollPane1.setViewportView(Table_Logs);
 
-        add(ScrollPane_Log, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 227, 840, 380));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 870, 400));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Background.setForeground(new java.awt.Color(153, 0, 0));
@@ -289,14 +262,6 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Manual_Panel.setEnabled(true);
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
-    private void Box_TimeFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Box_TimeFrameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Box_TimeFrameActionPerformed
-
-    private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
-
-    }//GEN-LAST:event_Field_SearchKeyReleased
-
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked
         FYS.getInstance().showPage(new Man_LogOut());
     }//GEN-LAST:event_Tab_LogOutMouseClicked
@@ -316,54 +281,50 @@ public class Man_LogActivities extends javax.swing.JPanel {
         Manual_Panel.setEnabled(false);
     }//GEN-LAST:event_Label_ManualExitMouseClicked
 
-    private void Field_SearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyPressed
+    private void Button_SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseClicked
+        String fromDate = Combo_Year.getSelectedItem().toString() + "-" + Combo_Month.getSelectedItem().toString() + "-" + Combo_Day.getSelectedItem().toString() + " 00:00:00";
+        String toDate = Combo_Year.getSelectedItem().toString() + "-" + Combo_Month.getSelectedItem().toString() + "-" + Combo_Day.getSelectedItem().toString() + " 23:59:59";
+        String searchTerm = Field_Search.getText();
+
+        if (Radio_SearchByUsername.isSelected()) {
+            FYS.getInstance().updateTable(Table_Logs, FYS.getQueryManager().getLogData(Field_Search.getText(), toDate, "username"));
+        } else if (Radio_SearchByDate.isSelected()) {
+            FYS.getInstance().updateTable(Table_Logs, FYS.getQueryManager().getLogData(fromDate, toDate, "date"));
+        }
+    }//GEN-LAST:event_Button_SearchMouseClicked
+
+    private void Button_SearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseEntered
+        Button_Search.setBackground(new java.awt.Color(51, 136, 68));
+    }//GEN-LAST:event_Button_SearchMouseEntered
+
+    private void Button_SearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseExited
+        Button_Search.setBackground(new java.awt.Color(34, 153, 68));
+    }//GEN-LAST:event_Button_SearchMouseExited
+
+    private void Radio_SearchByDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_SearchByDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Field_SearchKeyPressed
-
-    private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-             try {
-            String sql = "select * from log where employeeID=? OR tab=?  ";
-                           pst = conn.prepareStatement(sql);
-                            pst.setString(1, Field_Search.getText());
-                            pst.setString(2, Field_Search.getText());
-            rs = pst.executeQuery();
-            Table_Log.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }          
-    }//GEN-LAST:event_Button_ResetMouseClicked
-
-    private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
-        Button_Reset.setBackground(new java.awt.Color(51, 136, 68));
-    }//GEN-LAST:event_Button_ResetMouseEntered
-
-    private void Button_ResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseExited
-        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
-    }//GEN-LAST:event_Button_ResetMouseExited
-
-    private void Field_SearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyTyped
-
-    }//GEN-LAST:event_Field_SearchKeyTyped
+    }//GEN-LAST:event_Radio_SearchByDateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JComboBox Box_Case;
-    private javax.swing.JComboBox Box_TimeFrame;
-    private javax.swing.JLabel Button_Reset;
+    private javax.swing.JLabel Button_Search;
+    private javax.swing.JComboBox Combo_Day;
+    private javax.swing.JComboBox Combo_Month;
+    private javax.swing.JComboBox Combo_Year;
     private javax.swing.JTextField Field_Search;
     private javax.swing.JLabel Label_CallManual;
-    private javax.swing.JLabel Label_Case;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
-    private javax.swing.JLabel Label_Timeframe;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JPanel Manual_Panel;
-    private javax.swing.JScrollPane ScrollPane_Log;
+    private javax.swing.JRadioButton Radio_SearchByDate;
+    private javax.swing.JRadioButton Radio_SearchByUsername;
     private javax.swing.JLabel Tab_GraphData;
     private javax.swing.JLabel Tab_LogActivities;
     private javax.swing.JLabel Tab_LogOut;
-    private javax.swing.JTable Table_Log;
+    private javax.swing.JTable Table_Logs;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
