@@ -199,7 +199,7 @@ public class QueryManager {
     }
 
     public void updateAccount(String employeeID, String firstName, String lastName, String username, String password, String emailAddress, String phoneNumber, String function, String location) {
-        String sql = "UPDATE employee SET (firstName, lastName, username, password, emailAddress, phoneNumber, function, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE employeeID = ?";
+        String sql = "UPDATE employee SET firstName = ?, lastName = ?, username = ?, password = ?, emailAddress = ?, phoneNumber = ?, function = ?, location = ? WHERE employeeID = ?";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, firstName);
