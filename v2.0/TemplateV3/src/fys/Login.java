@@ -200,7 +200,7 @@ public class Login extends javax.swing.JPanel {
             rs = pst.executeQuery();
 
             if (rs.next()) {
-//                FYS.getQueryManager().createLog(rs.getString("employeeID"), "LogIn", "Logged in");
+                FYS.getQueryManager().createLog(rs.getString("employeeID"), "LogIn", "Logged in");
                 Employee.setCurrentUser(Field_Username.getText());
 
                 employeeFunction = rs.getString("function");

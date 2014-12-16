@@ -13,7 +13,6 @@ public class FYS {
     public static final int FRAME_WIDTH = 1290;
     public static final int FRAME_HEIGHT = 760;
     public static final String NAME = "FYS Application";
-    //private Dbmanager dbManager;
     private QueryManager queryManager;
 
     public static void main(String[] args) {
@@ -25,7 +24,6 @@ public class FYS {
             @Override
             public void run() {
                 try {
-                    //application.initialize();
                     application.start();
                 } catch (Exception e) {
                     System.out.println("Application FYS failed to launch.");
@@ -43,6 +41,8 @@ public class FYS {
         showPage(new Login());
 
         container.setVisible(true);
+        
+        queryManager = new QueryManager();
 
         container.addWindowListener(new WindowAdapter() {
 
@@ -71,14 +71,7 @@ public class FYS {
 
     private void shutdown() {
         container.dispose();
-        //dbManager.closeConnection();
     }
-
-    /*public void initialize() {
-     dbManager = new Dbmanager();
-     dbManager.openConnection();
-     queryManager = new QueryManager(dbManager);
-     }*/
     
     public static QueryManager getQueryManager() {
         return getInstance().queryManager;
