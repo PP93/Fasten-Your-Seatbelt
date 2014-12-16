@@ -213,9 +213,10 @@ public class QueryManager {
             pst.setString(9, employeeID);
 
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Updated");
+            JOptionPane.showMessageDialog(null, "The case has been updated.");
         } catch (SQLException ex) {
             Logger.getLogger(QueryManager.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "An error occurred and the account could not be updated.");
         }
     }
 
@@ -234,9 +235,10 @@ public class QueryManager {
             pst.setString(8, location);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Saved");
+            JOptionPane.showMessageDialog(null, "The account has been saved.");
         } catch (SQLException ex) {
             Logger.getLogger(QueryManager.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "An error occurred and the account could not be saved.");
         }
     }
 
