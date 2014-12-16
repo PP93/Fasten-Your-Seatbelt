@@ -302,7 +302,7 @@ public class Man_LogActivities extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_SearchMouseExited
 
     private void Radio_SearchByDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Radio_SearchByDateActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_Radio_SearchByDateActionPerformed
 
 

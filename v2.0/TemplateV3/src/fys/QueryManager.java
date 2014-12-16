@@ -16,6 +16,43 @@ public class QueryManager {
     Connection conn = javaconnect.ConnecrDb();
     PreparedStatement pst;
     ResultSet rs;
+    
+    
+   public void logIn(String username, String password) {
+        String sql = "SELECT * FROM employee WHERE username=? AND password=?";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, username);
+            pst.setString(2, password);
+
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                Employee.setCurrentUser(username);
+                FYS.getQueryManager().createLog(username, "Login", "Logged in.");
+
+                String employeeFunction = rs.getString("function");
+
+                switch (employeeFunction) {
+                    case "application manager":
+                        FYS.getInstance().showPage(new AppMan_Home());
+                        break;
+                    case "manager":
+                        FYS.getInstance().showPage(new Man_Home());
+                        break;
+                    case "service desk employee":
+                        FYS.getInstance().showPage(new SerDesEmp_Home());
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Username and Password is not correct");
+            }
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 
     // -------------------------------- LOG QUERIES --------------------------------------
     

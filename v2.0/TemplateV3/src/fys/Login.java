@@ -1,31 +1,17 @@
 package fys;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.*;
 
 public class Login extends javax.swing.JPanel {
 
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-    String employeeFunction;
 
     public Login() {
         initComponents();
-        conn = javaconnect.ConnecrDb();
 
         Manual_Panel.setVisible(false);
         Manual_Panel.setEnabled(false);
     }
 
-    public void close() {
-        this.setVisible(false);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -167,7 +153,7 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_LogInMouseExited
 
     private void Button_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LogInMouseClicked
-        logIn();
+        FYS.getQueryManager().logIn(Field_Username.getText(), Field_Password.getText());
     }//GEN-LAST:event_Button_LogInMouseClicked
 
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_ManualExitMouseClicked
@@ -186,51 +172,10 @@ public class Login extends javax.swing.JPanel {
 
     private void Field_PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_PasswordKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            logIn();
+            FYS.getQueryManager().logIn(Field_Username.getText(), Field_Password.getText());
         }
     }//GEN-LAST:event_Field_PasswordKeyPressed
 
-    private void logIn() {
-        String sql = "SELECT * FROM employee WHERE username=? AND password=?";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, Field_Username.getText());
-            pst.setString(2, Field_Password.getText());
-
-            rs = pst.executeQuery();
-
-            if (rs.next()) {
-                FYS.getQueryManager().createLog(rs.getString("employeeID"), "LogIn", "Logged in");
-                Employee.setCurrentUser(Field_Username.getText());
-
-                employeeFunction = rs.getString("function");
-
-                switch (employeeFunction) {
-                    case "application manager":
-                        FYS.getInstance().showPage(new AppMan_Home());
-                        break;
-                    case "manager":
-                        FYS.getInstance().showPage(new Man_Home());
-                        break;
-                    case "service desk employee":
-                        FYS.getInstance().showPage(new SerDesEmp_Home());
-                        break;
-                    default:
-                        break;
-                }
-                
-                rs.close();
-                pst.close();
-                close();
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Username and Password is not correct");
-            }
-        } catch (SQLException | HeadlessException e) {
-
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
