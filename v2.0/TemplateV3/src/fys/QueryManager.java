@@ -218,8 +218,8 @@ public class QueryManager {
         }
     }
 
-    public void createAccount(String firstName, String lastName, String username, String password, String emailAddress, String phoneNumber, String function) {
-        String sql = "INSERT INTO employee (firstName, lastName, username, password, emailAddress, phoneNumber, function) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void createAccount(String firstName, String lastName, String username, String password, String emailAddress, String phoneNumber, String function, String location) {
+        String sql = "INSERT INTO employee (firstName, lastName, username, password, emailAddress, phoneNumber, function, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             pst = conn.prepareStatement(sql);
@@ -230,6 +230,7 @@ public class QueryManager {
             pst.setString(5, emailAddress);
             pst.setString(6, phoneNumber);
             pst.setString(7, function);
+            pst.setString(8, location);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Saved");
