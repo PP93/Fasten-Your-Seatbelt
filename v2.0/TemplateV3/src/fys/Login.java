@@ -130,7 +130,7 @@ public class Login extends javax.swing.JPanel {
         Tab_LogIn.setForeground(new java.awt.Color(153, 0, 0));
         Tab_LogIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tab_LogIn.setText("Log In");
-        Tab_LogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tab_LogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Tab_LogIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tab_LogIn.setOpaque(true);
         add(Tab_LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
