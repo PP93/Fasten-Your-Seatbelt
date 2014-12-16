@@ -45,13 +45,8 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
             Field_Email.setText(add6);
             String add7 = rs.getString("phoneNumber");
             Field_PhoneNumber.setText(add7);
-            
-            
-//            String add8 = rs.getString("function");
-//            Field_Email.setText(add8);
-//            String add9 = rs.getString("location");
-//            Field_PhoneNumber.setText(add9);
-            
+            String add8 = rs.getString("location");
+            Combo_Location.setSelectedItem(add8);         
             
             if (rs.getString("function").equals("application manager")) {
                 Radio_ApplicationManager.setSelected(true);
@@ -92,6 +87,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_EmailAddress = new javax.swing.JLabel();
         Label_PhoneNumber = new javax.swing.JLabel();
         Label_FirstName1 = new javax.swing.JLabel();
+        Label_Location = new javax.swing.JLabel();
         Radio_ServiceDeskEmployee = new javax.swing.JRadioButton();
         Radio_Manager = new javax.swing.JRadioButton();
         Radio_ApplicationManager = new javax.swing.JRadioButton();
@@ -103,6 +99,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Field_Email = new javax.swing.JTextField();
         Field_PhoneNumber = new javax.swing.JTextField();
         Field_EmployeeID = new javax.swing.JTextField();
+        Combo_Location = new javax.swing.JComboBox();
         Button_SaveChanges = new javax.swing.JLabel();
         Button_ResetChanges = new javax.swing.JLabel();
         Tab_NewAccount = new javax.swing.JLabel();
@@ -142,7 +139,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_Title.setText("Manual");
         Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
-        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 290, 590));
+        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 90, 290, 590));
 
         Label_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -167,7 +164,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
-        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 560, -1, -1));
+        add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 570, -1, -1));
 
         ScrollPane_Accounts.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -230,42 +227,47 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_AccountType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_AccountType.setForeground(new java.awt.Color(153, 0, 0));
         Label_AccountType.setText("Account Type: *");
-        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 240, -1, -1));
+        add(Label_AccountType, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, -1));
 
         Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Label_FirstName.setText("Employee ID: *");
-        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, -1, -1));
+        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, -1, -1));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Label_LastName.setText("Last Name: *");
-        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 360, -1, -1));
+        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, -1, -1));
 
         Label_Username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Username.setForeground(new java.awt.Color(153, 0, 0));
         Label_Username.setText("Username: *");
-        add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 400, -1, -1));
+        add(Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 370, -1, -1));
 
         Label_Password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(153, 0, 0));
         Label_Password.setText("Password: *");
-        add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 440, -1, -1));
+        add(Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 410, -1, -1));
 
         Label_EmailAddress.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_EmailAddress.setForeground(new java.awt.Color(153, 0, 0));
         Label_EmailAddress.setText("Email Address:");
-        add(Label_EmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 480, -1, -1));
+        add(Label_EmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, -1, -1));
 
         Label_PhoneNumber.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Label_PhoneNumber.setText("Phone Number:");
-        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 520, -1, -1));
+        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, -1, -1));
 
         Label_FirstName1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_FirstName1.setForeground(new java.awt.Color(153, 0, 0));
         Label_FirstName1.setText("First Name: *");
-        add(Label_FirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
+        add(Label_FirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, -1, -1));
+
+        Label_Location.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Label_Location.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Location.setText("Location: *");
+        add(Label_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 535, -1, -1));
 
         Radio_ServiceDeskEmployee.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_ServiceDeskEmployee);
@@ -280,7 +282,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Radio_ServiceDeskEmployeeActionPerformed(evt);
             }
         });
-        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 190, -1, -1));
+        add(Radio_ServiceDeskEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 160, -1, -1));
 
         Radio_Manager.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_Manager);
@@ -294,7 +296,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Radio_ManagerActionPerformed(evt);
             }
         });
-        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 220, -1, -1));
+        add(Radio_Manager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 190, -1, -1));
 
         Radio_ApplicationManager.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(Radio_ApplicationManager);
@@ -308,7 +310,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Radio_ApplicationManagerActionPerformed(evt);
             }
         });
-        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, -1, -1));
+        add(Radio_ApplicationManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 220, -1, -1));
 
         Field_Search.setForeground(new java.awt.Color(153, 0, 0));
         Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -317,31 +319,31 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Field_SearchKeyReleased(evt);
             }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, 30));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, 30));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 320, 210, 30));
+        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 290, 210, 30));
 
         Field_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Field_LastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 360, 210, 30));
+        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 330, 210, 30));
 
         Field_Username.setForeground(new java.awt.Color(153, 0, 0));
         Field_Username.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 400, 210, 30));
+        add(Field_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 370, 210, 30));
 
         Field_Password.setForeground(new java.awt.Color(153, 0, 0));
         Field_Password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 440, 210, 30));
+        add(Field_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 410, 210, 30));
 
         Field_Email.setForeground(new java.awt.Color(153, 0, 0));
         Field_Email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 480, 210, 30));
+        add(Field_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, 210, 30));
 
         Field_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_PhoneNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 520, 210, 30));
+        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 490, 210, 30));
 
         Field_EmployeeID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Field_EmployeeID.addActionListener(new java.awt.event.ActionListener() {
@@ -349,7 +351,16 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Field_EmployeeIDActionPerformed(evt);
             }
         });
-        add(Field_EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 280, 210, 30));
+        add(Field_EmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 250, 210, 30));
+
+        Combo_Location.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Combo_Location.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Location", "Amsterdam", "Dubai" }));
+        Combo_Location.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo_LocationActionPerformed(evt);
+            }
+        });
+        add(Combo_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 530, 130, 30));
 
         Button_SaveChanges.setBackground(new java.awt.Color(34, 153, 68));
         Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -371,7 +382,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Button_SaveChangesMouseExited(evt);
             }
         });
-        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 590, 170, 30));
+        add(Button_SaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 600, 170, 30));
 
         Button_ResetChanges.setBackground(new java.awt.Color(34, 153, 68));
         Button_ResetChanges.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -393,7 +404,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Button_ResetChangesMouseExited(evt);
             }
         });
-        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 590, 180, 30));
+        add(Button_ResetChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, 180, 30));
 
         Tab_NewAccount.setBackground(new java.awt.Color(156, 10, 13));
         Tab_NewAccount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -538,7 +549,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     private void Button_SaveChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseClicked
         radiobuttonSelected = Radio_ApplicationManager.isSelected() || Radio_Manager.isSelected() || Radio_ServiceDeskEmployee.isSelected();
 
-        if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_Username.getText().equals("") || Field_Password.getText().equals("") || radiobuttonSelected == false) {
+        if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_Username.getText().equals("") || Field_Password.getText().equals("") || radiobuttonSelected == false || Combo_Location.getSelectedItem().toString().equals("Location")) {
             emptyfield_warning.setVisible(true);
             emptyfield_warning.setEnabled(true);
         } else {
@@ -553,9 +564,8 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
             emptyfield_warning.setVisible(false);
             emptyfield_warning.setEnabled(false);
-            FYS.getQueryManager().updateAccount(Field_EmployeeID.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_Username.getText(), Field_Password.getText(), Field_Email.getText(), Field_PhoneNumber.getText(), function);
+            FYS.getQueryManager().updateAccount(Field_EmployeeID.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_Username.getText(), Field_Password.getText(), Field_Email.getText(), Field_PhoneNumber.getText(), function, Combo_Location.getSelectedItem().toString());
             FYS.getQueryManager().updateAccountTable(Table_Accounts);
-
         }
 
 
@@ -569,6 +579,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Field_Password.setText("");
         Field_Email.setText("");
         Field_PhoneNumber.setText("");
+        Combo_Location.setSelectedItem("Location");
     }//GEN-LAST:event_Button_ResetChangesMouseClicked
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
@@ -624,12 +635,17 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Radio_ApplicationManagerActionPerformed
 
+    private void Combo_LocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_LocationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo_LocationActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_DeleteAccount;
     private javax.swing.JLabel Button_ResetChanges;
     private javax.swing.JLabel Button_SaveChanges;
+    private javax.swing.JComboBox Combo_Location;
     private javax.swing.JTextField Field_Email;
     private javax.swing.JTextField Field_EmployeeID;
     private javax.swing.JTextField Field_FirstName;
@@ -645,6 +661,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     private javax.swing.JLabel Label_FirstName1;
     private javax.swing.JLabel Label_Info;
     private javax.swing.JLabel Label_LastName;
+    private javax.swing.JLabel Label_Location;
     private javax.swing.JLabel Label_Logo;
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_Password;

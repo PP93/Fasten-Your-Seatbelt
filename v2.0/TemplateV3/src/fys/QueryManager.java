@@ -198,8 +198,8 @@ public class QueryManager {
         }
     }
 
-    public void updateAccount(String employeeID, String firstName, String lastName, String username, String password, String emailAddress, String phoneNumber, String function) {
-        String sql = "UPDATE employee SET (firstName, lastName, username, password, emailAddress, phoneNumber, function) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE employeeID = ?";
+    public void updateAccount(String employeeID, String firstName, String lastName, String username, String password, String emailAddress, String phoneNumber, String function, String location) {
+        String sql = "UPDATE employee SET (firstName, lastName, username, password, emailAddress, phoneNumber, function, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE employeeID = ?";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, firstName);
@@ -209,7 +209,8 @@ public class QueryManager {
             pst.setString(5, emailAddress);
             pst.setString(6, phoneNumber);
             pst.setString(7, function);
-            pst.setString(8, employeeID);
+            pst.setString(8, location);
+            pst.setString(9, employeeID);
 
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated");

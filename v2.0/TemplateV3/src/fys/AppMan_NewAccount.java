@@ -160,7 +160,7 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
 
         Label_Location.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Location.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Location.setText("Location:");
+        Label_Location.setText("Location: *");
         add(Label_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 495, -1, -1));
 
         Radio_ServiceDeskEmployee.setBackground(new java.awt.Color(255, 255, 255));
