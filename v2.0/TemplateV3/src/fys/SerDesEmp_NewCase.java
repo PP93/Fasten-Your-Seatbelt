@@ -729,8 +729,14 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Label_ManualExitMouseClicked
 
     private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
-        Panel_Manual.setVisible(true);
-        Panel_Manual.setEnabled(true);
+        if (Panel_Manual.isVisible()) {
+            Panel_Manual.setVisible(false);
+            Panel_Manual.setEnabled(false);
+        } else {
+            Panel_Manual.setVisible(true);
+            Panel_Manual.setEnabled(true);
+
+        }
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
     private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked

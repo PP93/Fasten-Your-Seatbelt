@@ -14,13 +14,11 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-
 public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
-    
 
     public SerDesEmp_AddBagage() {
         initComponents();
@@ -31,9 +29,10 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         emptyfield_warning.setEnabled(false);
         Field_ClientID.setEditable(false);
         Update_table();
-    
-   }
-       private void Update_table() {
+
+    }
+
+    private void Update_table() {
         try {
             String sql = "select clientID, name, lastname from client";
             pst = conn.prepareStatement(sql);
@@ -41,9 +40,8 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             Table_ExtraBaggage.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        } 
-       }
-    
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -433,10 +431,9 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         } else {
             try {
 
-                
                 String sql = "insert into baggage (clientID,flightnumber,brand,color,weight,description)value(?,?,?,?,?,?)";
                 pst = conn.prepareStatement(sql);
-                
+
                 pst.setString(1, Field_ClientID.getText());
                 pst.setString(2, Field_FlightNumber.getText());
                 pst.setString(3, Field_Brand.getText());
@@ -468,7 +465,6 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             if (rs.next()) {
                 String add1 = rs.getString("clientID");
                 Field_ClientID.setText(add1);
-               
 
             }
         } catch (Exception e) {
@@ -499,8 +495,15 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     }//GEN-LAST:event_Label_ManualExitMouseClicked
 
     private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
-        Panel_Manual.setVisible(true);
-        Panel_Manual.setEnabled(true);
+        if (Panel_Manual.isVisible()) {
+            Panel_Manual.setVisible(false);
+            Panel_Manual.setEnabled(false);
+        } else {
+            Panel_Manual.setVisible(true);
+            Panel_Manual.setEnabled(true);
+
+        }
+
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
     private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
@@ -517,7 +520,6 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             if (rs.next()) {
                 String add1 = rs.getString("clientID");
                 Field_ClientID.setText(add1);
-
 
             }
         } catch (Exception e) {

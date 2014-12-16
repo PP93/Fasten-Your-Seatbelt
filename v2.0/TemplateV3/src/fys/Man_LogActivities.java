@@ -258,8 +258,14 @@ public class Man_LogActivities extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_LogActivitiesMouseExited
 
     private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
-        Manual_Panel.setVisible(true);
-        Manual_Panel.setEnabled(true);
+       if (Manual_Panel.isVisible()) {
+            Manual_Panel.setVisible(false);
+            Manual_Panel.setEnabled(false);
+        } else {
+            Manual_Panel.setVisible(true);
+            Manual_Panel.setEnabled(true);
+
+        }
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
     private void Tab_LogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseClicked

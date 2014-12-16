@@ -191,10 +191,11 @@ public class AppMan_Home extends javax.swing.JPanel {
     private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
         if (Manual_Panel.isVisible()) {
             Manual_Panel.setVisible(false);
-        Manual_Panel.setEnabled(false);
-        }else {Manual_Panel.setVisible(true);
+            Manual_Panel.setEnabled(false);
+        } else {
+            Manual_Panel.setVisible(true);
             Manual_Panel.setEnabled(true);
-            
+
         }
 
     }//GEN-LAST:event_Label_CallManualMouseClicked
