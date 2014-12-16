@@ -81,6 +81,6 @@ public class FYS {
      }*/
     
     public static QueryManager getQueryManager() {
-     return getInstance().queryManager;
-     }
+        return getInstance().queryManager;
+    }
 }

@@ -250,7 +250,11 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_YesMouseExited
 
     private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
-        createLog();
+        Employee currentEmployee = new Employee(Employee.getCurrentUser());
+        FYS.getQueryManager().createLog("" + currentEmployee.employeeID, "SerDesEmp_LogOut",
+                "Service Desk Employee " + currentEmployee.firstName + " "
+                + currentEmployee.lastName + " logged out");
+        
         Global.setCurrentUser(null);
         FYS.getInstance().showPage(new Login());
     }//GEN-LAST:event_Button_YesMouseClicked
@@ -287,8 +291,6 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
 
     private void Tab_UpdateCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseClicked
         FYS.getInstance().showPage(new SerDesEmp_UpdateCase());
-        Tab_UpdateCase.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_UpdateCase.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_Tab_UpdateCaseMouseClicked
 
     private void Tab_UpdateCaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseEntered
@@ -351,30 +353,6 @@ public class SerDesEmp_LogOut extends javax.swing.JPanel {
     private void Tab_NewCaseMouseExited(java.awt.event.MouseEvent evt) {
         Tab_NewCase.setBackground(new java.awt.Color(153, 0, 0));
         Tab_NewCase.setForeground(new java.awt.Color(255, 255, 255));
-    }
-
-    private void createLog() {
-        try {
-            String sql1 = "select * from employee where username=?";
-            pst = conn.prepareStatement(sql1);
-            pst.setString(1, Global.getCurrentUser());
-            rs = pst.executeQuery();
-            
-            if (rs.next()) {
-                String employeeID = rs.getString("employeeID");
-                
-                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
-                pst = conn.prepareStatement(sql2);
-
-                pst.setString(1, employeeID);
-                pst.setString(2, "Logged out");
-                pst.setString(3, "SerDesEmp_LogOut");
-
-                pst.execute();
-            }
-        } catch (SQLException | HeadlessException e1) {
-            JOptionPane.showMessageDialog(null, e1);
-        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -252,7 +252,10 @@ public class Man_LogOut extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_GraphDataMouseClicked
 
     private void Button_YesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_YesMouseClicked
-        createLog();
+        Employee currentEmployee = new Employee(Employee.getCurrentUser());
+        FYS.getQueryManager().createLog("" + currentEmployee.employeeID, "Man_LogOut", "Manager "
+                + currentEmployee.firstName + " " + currentEmployee.lastName + " logged out");
+
         Global.setCurrentUser(null);
         FYS.getInstance().showPage(new Login());
     }//GEN-LAST:event_Button_YesMouseClicked

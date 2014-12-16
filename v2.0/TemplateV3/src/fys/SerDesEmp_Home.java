@@ -206,13 +206,13 @@ public class SerDesEmp_Home extends javax.swing.JPanel {
     }//GEN-LAST:event_Tab_LogOutMouseClicked
 
     private void Tab_LogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseEntered
-        Tab_AddExtraBaggage.setBackground(new java.awt.Color(255, 255, 255));
-        Tab_AddExtraBaggage.setForeground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setBackground(new java.awt.Color(255, 255, 255));
+        Tab_LogOut.setForeground(new java.awt.Color(153, 0, 0));
     }//GEN-LAST:event_Tab_LogOutMouseEntered
 
     private void Tab_LogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_LogOutMouseExited
-        Tab_AddExtraBaggage.setBackground(new java.awt.Color(153, 0, 0));
-        Tab_AddExtraBaggage.setForeground(new java.awt.Color(255, 255, 255));
+        Tab_LogOut.setBackground(new java.awt.Color(153, 0, 0));
+        Tab_LogOut.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_LogOutMouseExited
 
     private void Tab_UpdateCaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_UpdateCaseMouseEntered

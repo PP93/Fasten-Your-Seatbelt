@@ -423,6 +423,10 @@ public class AppMan_NewAccount extends javax.swing.JPanel {
             emptyfield_warning.setEnabled(true);
         } else {
             FYS.getQueryManager().createAccount(Field_FirstName.getText(), Field_LastName.getText(), Field_Username.getText(), Field_Password.getText(), Field_Email.getText(), Field_PhoneNumber.getText(), function);
+            
+            Employee currentEmployee = new Employee(Employee.getCurrentUser());
+            FYS.getQueryManager().createLog("" + currentEmployee.employeeID, "AppMan_NewAccount",
+                    "Created new " + function + " " + Field_Username.getText());
         }
     }
 

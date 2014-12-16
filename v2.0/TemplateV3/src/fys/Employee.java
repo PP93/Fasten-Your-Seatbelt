@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author Floris
  */
 public class Employee {
+
     public static String currentUsername;
 
     public int employeeID;
@@ -23,6 +24,7 @@ public class Employee {
     public String emailAddress;
     public String phoneNumber;
     public String function;
+    public String location;
 
     public Employee(int employeeID) {
         Connection conn = javaconnect.ConnecrDb();
@@ -34,15 +36,14 @@ public class Employee {
 
             if (rs.next()) {
                 this.employeeID = employeeID;
-                this.firstName = rs.getString("name");
-                this.lastName = rs.getString("lastname");
+                this.firstName = rs.getString("firstName");
+                this.lastName = rs.getString("lastName");
                 this.username = rs.getString("username");
                 this.password = rs.getString("password");
-                this.phoneNumber = rs.getString("phonenumber");
+                this.emailAddress = rs.getString("emailAddress");
+                this.phoneNumber = rs.getString("phoneNumber");
                 this.function = rs.getString("function");
-
-            } else {
-                System.out.println("THIS WENT WRONG");
+                this.location = rs.getString("location");
             }
 
         } catch (SQLException | HeadlessException e) {
@@ -64,15 +65,14 @@ public class Employee {
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                this.firstName = rs.getString("name");
-                this.lastName = rs.getString("lastname");
-                this.username = username;
+                this.firstName = rs.getString("firstName");
+                this.lastName = rs.getString("lastName");
+                this.username = rs.getString("username");
                 this.password = rs.getString("password");
-                this.phoneNumber = rs.getString("phonenumber");
+                this.emailAddress = rs.getString("emailAddress");
+                this.phoneNumber = rs.getString("phoneNumber");
                 this.function = rs.getString("function");
-
-            } else {
-                System.out.println("THIS WENT WRONG");
+                this.location = rs.getString("location");
             }
 
         } catch (SQLException | HeadlessException e) {

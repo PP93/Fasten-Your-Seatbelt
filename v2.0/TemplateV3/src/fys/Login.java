@@ -191,7 +191,7 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_Field_PasswordKeyPressed
 
     private void logIn() {
-        String sql = "select * from employee where username=? and password=?";
+        String sql = "SELECT * FROM employee WHERE username=? AND password=?";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, Field_Username.getText());
@@ -200,7 +200,7 @@ public class Login extends javax.swing.JPanel {
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                createLog(rs.getString("employeeID"));
+//                FYS.getQueryManager().createLog(rs.getString("employeeID"), "LogIn", "Logged in");
                 Employee.setCurrentUser(Field_Username.getText());
 
                 employeeFunction = rs.getString("function");
@@ -228,21 +228,6 @@ public class Login extends javax.swing.JPanel {
             }
         } catch (SQLException | HeadlessException e) {
 
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-    
-    private void createLog(String employeeID) {
-        try {
-            String sql = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
-            pst = conn.prepareStatement(sql);
-
-            pst.setString(1, employeeID);
-            pst.setString(2, "Logged in");
-            pst.setString(3, "LogIn");
-
-            pst.execute();
-        } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }

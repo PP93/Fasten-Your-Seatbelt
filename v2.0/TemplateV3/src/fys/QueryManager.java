@@ -18,66 +18,18 @@ public class QueryManager {
     ResultSet rs;
 
     // ----------------------------- LOG QUERIES ----------------------------------------
-    public void createLog(String employeeID) {
+    public void createLog(String employeeID, String screen, String action) {
         try {
-            String sql = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
+            String sql = "INSERT INTO log (employeeID, screen, action)value(?,?,?)";
             pst = conn.prepareStatement(sql);
 
             pst.setString(1, employeeID);
-            pst.setString(2, "Logged in");
-            pst.setString(3, "LogIn");
+            pst.setString(2, screen);
+            pst.setString(3, action);
 
             pst.execute();
         } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
-    public void createLog() {
-        try {
-            String sql1 = "select * from employee where username=?";
-            pst = conn.prepareStatement(sql1);
-            pst.setString(1, Global.getCurrentUser());
-            rs = pst.executeQuery();
-
-            if (rs.next()) {
-                String employeeID = rs.getString("employeeID");
-
-                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
-                pst = conn.prepareStatement(sql2);
-
-                pst.setString(1, employeeID);
-                pst.setString(2, "Logged out");
-                pst.setString(3, "AppMan_LogOut");
-
-                pst.execute();
-            }
-        } catch (SQLException | HeadlessException e1) {
-            JOptionPane.showMessageDialog(null, e1);
-        }
-    }
-
-    private void createLog(String newAccountEmployeeID, String newAccountFunction) {
-        try {
-            String sql1 = "select * from employee where username=?";
-            pst = conn.prepareStatement(sql1);
-            pst.setString(1, Global.getCurrentUser());
-            rs = pst.executeQuery();
-
-            if (rs.next()) {
-                String employeeID = rs.getString("employeeID");
-
-                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
-                pst = conn.prepareStatement(sql2);
-
-                pst.setString(1, employeeID);
-                pst.setString(2, "Created new " + newAccountFunction + " " + newAccountEmployeeID);
-                pst.setString(3, "AppMan_NewAccount");
-
-                pst.execute();
-            }
-        } catch (SQLException | HeadlessException e1) {
-            JOptionPane.showMessageDialog(null, e1);
         }
     }
 
@@ -211,8 +163,12 @@ public class QueryManager {
             pst.setString(13, shippingCity);
 
             pst.execute();
+            
+            //Moet client-/baggageID in de log? Lijkt me wel, maar is moeilijk
+            Employee currentEmployee = new Employee(Employee.getCurrentUser());
             String fullName = firstName + " " + lastName;
-            createLogNewCase(fullName);
+            createLog("" + currentEmployee.employeeID, "SerDesEmp_NewCase", "Created new case for "
+                    + firstName + " " + lastName + " at " + currentEmployee.location);
 
             String sql2 = "SELECT clientID FROM client where name = '" + firstName + "' AND lastname = '" + lastName + "'";
             pst = conn.prepareStatement(sql2);
@@ -231,16 +187,10 @@ public class QueryManager {
                 pst.setString(5, description);
                 pst.setString(6, "unresolved");
                 pst.setString(7, startDate);
-//                        pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
                 pst.setString(8, clientID);
 
                 pst.execute();
 
-                //Floris: This isn't perfect yet but neither is this huge ass block of 
-                //if-else-statements :P When we have a class for getting all info of a piece
-                //of baggage and other classes for employees and clients, I'll make this
-                //better :D
-                //createLogNewCase(Field_Location.getText());
                 JOptionPane.showMessageDialog(null, "Saved");
 
             }
@@ -274,8 +224,12 @@ public class QueryManager {
             pst.setString(13, shippingCity);
 
             pst.execute();
-            String fullName = firstName + " " + lastName;
-            createLogNewCase(fullName);
+            
+            //Moet client-/baggageID in de log? Lijkt me wel, maar is moeilijk
+            Employee currentEmployee = new Employee(Employee.getCurrentUser());
+            createLog("" + currentEmployee.employeeID, "SerDesEmp_NewCase", "Created new case for "
+                    + firstName + " " + lastName + " at " + currentEmployee.location);
+            
             JOptionPane.showMessageDialog(null, "Saved");
 
         } catch (SQLException | HeadlessException e) {
@@ -298,16 +252,9 @@ public class QueryManager {
             pst.setString(5, description);
             pst.setString(6, "unresolved");
             pst.setString(7, startDate);
-//                        pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
 
             pst.execute();
 
-            //Floris: This isn't perfect yet but neither is this huge ass block of 
-            //if-else-statements :P When we have a class for getting all info of a piece
-            //of baggage and other classes for employees and clients, I'll make this
-            //better :D
-            //vrage wat er moet gebeuren met deze
-            //createLogNewCase(Field_FlightNumber.getText());
             JOptionPane.showMessageDialog(null, "Saved");
 
         } catch (SQLException | HeadlessException e) {
@@ -379,7 +326,9 @@ public class QueryManager {
 
             String sql = "update client set flightNumber =  '" + value1 + "', name = '" + value2 + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '" + value5 + "',zipcode = '" + value6 + "' ,address = '" + value7
                     + "',city = '" + value8 + "' ,country = '" + value9 + "',shippingzipcode = '" + value10 + "',shippingaddress = '" + value11 + "',shippingcity = '" + value12 + "',shippingcountry = '" + value13
-                    + "'where ClientID='" + value1 + "' ";//Floris vragen naar ClientID
+                    + "'where ClientID='" + value1 + "' ";
+//Floris vragen naar ClientID
+//Floris: Ik denk dat we dan toch een Client.java moeten maken? OVERLEGGEN
             pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated");
@@ -401,10 +350,10 @@ public class QueryManager {
             String value6 = entryDate;
             String value7 = retrievalDate;
             String value8 = status;
-//                        String value6 =((JTextField)Field_RetrievalDateChooser.getDateEditor().getUiComponent()).getText();
 
             String sql = "update baggage set location = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "',dateadded = '" + value6 + "',dateretrieved = '" + value7 
-                    + "',status = '" + value8 + "' where baggageID='" + value1 + "' ";//Floris vragen voor baggage ID
+                    + "',status = '" + value8 + "' where baggageID='" + value1 + "' ";
+//Floris vragen voor baggage ID
             pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated");
@@ -413,34 +362,5 @@ public class QueryManager {
 
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
-
-    /* Floris, dit is je create log van new case. Die heb ik in een methode gezet omdat ik dat beter vond. Misschien is het beter om deze bij Logs te zetten maar dat moet je maar even kijken.
-     Aangezien FlightNumber bij baggage in de DB niet meer staat en er bij de createLogs voor baggage comments staan van Caitling heb ik deze maar even zo gelaten zou jij hiernaar kunnen kijken.
-     */
-    public void createLogNewCase(String clientName) {
-        try {
-            String sql1 = "select * from employee where username=?";
-            pst = conn.prepareStatement(sql1);
-            pst.setString(1, Employee.getCurrentUser());
-            rs = pst.executeQuery();
-
-            if (rs.next()) {
-                String employeeID = rs.getString("employeeID");
-
-                String sql2 = "INSERT INTO log (employeeID, action, tab)value(?,?,?)";
-                pst = conn.prepareStatement(sql2);
-// Log voor Bagage navrage
-                pst.setString(1, employeeID);
-                pst.setString(2, "Created new case for " + clientName);
-                pst.setString(3, "SerDesEmp_NewCase");
-
-                pst.execute();
-            }
-        } catch (SQLException | HeadlessException e1) {
-            JOptionPane.showMessageDialog(null, e1);
-        }
-    }
-
 }
