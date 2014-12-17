@@ -476,4 +476,26 @@ public class QueryManager {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    public void addToCase(String clientID, String flightNumber, String brand, String color, String weight, String description){
+          try {
+// vragen Floris
+                String sql = "insert into baggage (clientID,flightnumber,brand,color,weight,description)value(?,?,?,?,?,?)";
+                pst = conn.prepareStatement(sql);
+
+                pst.setString(1, clientID);
+                pst.setString(2, flightNumber);
+                pst.setString(3, brand);
+                pst.setString(4, color);
+                pst.setString(5, weight);
+                pst.setString(6, description);
+
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Saved");
+
+            } catch (SQLException | HeadlessException e) {
+
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
 }

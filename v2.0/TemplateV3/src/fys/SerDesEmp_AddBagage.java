@@ -429,27 +429,10 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
             emptyfield_warning.setVisible(true);
             emptyfield_warning.setEnabled(true);
         } else {
-            try {
 
-                String sql = "insert into baggage (clientID,flightnumber,brand,color,weight,description)value(?,?,?,?,?,?)";
-                pst = conn.prepareStatement(sql);
-
-                pst.setString(1, Field_ClientID.getText());
-                pst.setString(2, Field_FlightNumber.getText());
-                pst.setString(3, Field_Brand.getText());
-                pst.setString(4, Field_Color.getText());
-                pst.setString(5, Field_Weight.getText());
-                pst.setString(6, Background.getText());
-
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Saved");
-                emptyfield_warning.setVisible(false);
-                emptyfield_warning.setEnabled(false);
-
-            } catch (SQLException | HeadlessException e) {
-
-                JOptionPane.showMessageDialog(null, e);
-            }
+            FYS.getQueryManager().addToCase(Field_ClientID.getText(), Field_FlightNumber.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
+            emptyfield_warning.setVisible(false);
+            emptyfield_warning.setEnabled(false);
         }
 
     }//GEN-LAST:event_Button_AddToCaseMouseClicked
