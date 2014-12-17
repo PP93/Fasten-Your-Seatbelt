@@ -88,11 +88,11 @@ ENGINE = InnoDB;
 -- Table `fys`.`log`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fys`.`log` (
-  `username` CHAR(30) NOT NULL,
-  `date` TIMESTAMP(0) NOT NULL,
+  `username` CHAR(31) NOT NULL,
+  `timestamp` TIMESTAMP(0) NOT NULL,
   `page` CHAR(31) NOT NULL,
   `action` CHAR(255) NOT NULL,
-  PRIMARY KEY (`username`, `date`)) 
+  PRIMARY KEY (`username`, `timestamp`)) 
 ENGINE = InnoDB;
 
 

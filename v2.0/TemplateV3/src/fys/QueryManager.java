@@ -69,10 +69,10 @@ public class QueryManager {
 
         switch (searchType) {
             case "username":
-                getLog = "SELECT * FROM log WHERE username = ? ORDER BY date DESC LIMIT 1000";
+                getLog = "SELECT * FROM log WHERE username = ? ORDER BY timestamp DESC LIMIT 1000";
                 break;
             case "date":
-                getLog = "SELECT * FROM log WHERE date BETWEEN ? AND ? ORDER BY date DESC LIMIT 1000";
+                getLog = "SELECT * FROM log WHERE timestamp BETWEEN ? AND ? ORDER BY timestamp DESC LIMIT 1000";
                 break;
         }
 
@@ -106,7 +106,7 @@ public class QueryManager {
     public ResultSet getAllLogs() {
         try {
 
-            String getAllLogs = "SELECT * FROM log ORDER BY date DESC LIMIT 1000";
+            String getAllLogs = "SELECT * FROM log ORDER BY timestamp DESC LIMIT 1000";
 
             pst = conn.prepareStatement(getAllLogs);
             rs = pst.executeQuery();
