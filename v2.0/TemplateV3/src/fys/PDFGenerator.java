@@ -2,6 +2,10 @@ package fys;
 
 import java.awt.Color;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.edit.PDPageContentStream;
@@ -49,19 +53,40 @@ public class PDFGenerator {
             int logoFontSize = 32;
             int headerFontSize = 16;
             int normalFontSize = 12;
-
+            String corendon = "Corendon";
             String text = "text";
             int setXStart = 30;
-            int setXAnswer = 250;
+            int setXstartLogo = 20;
+            int setystartLogo = 750;
+            int setXAnswer = 200;
+            int setXemployee = 350;
+            int setXemployeeanswer = 450;
             int setYStart = 700;
-            String[] allvariablesanswers = {firstname, lastname, country, city, zipcode, address, phonenumber, emailaddress, shippingcountry, shippingzipcode, shippingaddress, shippingcity, flightnumber, brand, color, weight, description};
-            String[] allVariables = {"firstname", "lastname", "country", "city", "zipcode", "address", "phonenumber", "emailaddress", "shippingcountry", "shippingzipcode", "shippingaddress", "shippingcity", "flightnumber", "brand", "color", "weight", "description"};
-            System.out.println(allVariables[0]);
-            for (int i = 0; i < allVariables.length; i++) {
-                System.out.println(allVariables[i]);
+            String[] allvariableemployeeinfo = {"date", "employee id",
+                "location", "employee name", "phonenumber location",
+                "location@corendon.com"};
 
+            String[] allvariablesanswers = {firstname, lastname, country, city,
+                zipcode, address, phonenumber, emailaddress, shippingcountry,
+                shippingzipcode, shippingaddress, shippingcity, flightnumber,
+                brand, color, weight, description};
+            String[] allVariables = {"firstname", "lastname", "country", "city",
+                "zipcode", "address", "phonenumber", "emailaddress",
+                "shippingcountry", "shippingzipcode", "shippingaddress",
+                "shippingcity", "flightnumber", "brand", "color", "weight",
+                "description"};
+
+            for (int i = 0; i < allVariables.length; i++) {
                 pdfSetText(setXStart, setYStart, normalFont, normalFontSize, allVariables[i], spacingbetweenlinesnormalFontSize, i);
+            }
+            for (int i = 0; i < 1; i++) {
+                pdfSetText(setXstartLogo, setystartLogo, normalFont, logoFontSize, corendon, spacingbetweenlinesnormalFontSize, i);
+            }
+            for (int i = 0; i < allvariablesanswers.length; i++) {
                 pdfSetText(setXAnswer, setYStart, normalFont, normalFontSize, allvariablesanswers[i], spacingbetweenlinesnormalFontSize, i);
+            }
+            for (int i = 0; i < allvariableemployeeinfo.length; i++) {
+                pdfSetText(setXemployee, setYStart, normalFont, normalFontSize, allvariableemployeeinfo[i], spacingbetweenlinesnormalFontSize, i);
 
             }
 
@@ -99,5 +124,17 @@ public class PDFGenerator {
             // ignore, but return 0
             return 0;
         }
+    }
+
+    public Date dateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        //get current date time with Date()
+        Date date = new Date();
+//	   System.out.println(dateFormat.format(date));
+// 
+//	   get current date time with Calendar()
+//	   Calendar cal = Calendar.getInstance();
+//	   System.out.println(dateFormat.format(cal.getTime()));
+        return date;
     }
 }
