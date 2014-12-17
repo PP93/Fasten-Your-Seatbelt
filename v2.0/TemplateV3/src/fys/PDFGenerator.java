@@ -10,7 +10,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 /**
  *
- * @author breud
+ * @author Lars
  */
 public class PDFGenerator {
 
@@ -35,7 +35,6 @@ public class PDFGenerator {
             String shippingcountry, String shippingzipcode, String shippingaddress, String shippingcity, String flightnumber, String brand, String color, String weight, String description) {
         try {
             // Define a text content stream using the selected font, moving the cursor and drawing the text "Hello World"
-            this.contentStream.beginText();
 
             System.out.println(date + firstname + lastname + country + city + zipcode + address + phonenumber + emailaddress + shippingcountry + shippingzipcode + shippingaddress + shippingcity + flightnumber + brand + color + weight);
             // Create a new font object selecting one of the PDF base fonts
@@ -43,299 +42,41 @@ public class PDFGenerator {
             PDFont normalFont = PDType1Font.HELVETICA;
             PDFont italicFont = PDType1Font.HELVETICA_OBLIQUE;
 
-            final int X_START = 30;
-            final int Y_START = 700;
-            final int X_START_NORMAL = 40;
-            final int X_ANSWER = 200;
-            final int Y_START_NORMAL = 600;
-            int spacingbetweenlines = 12;
+            int spacingbetweenlineslogoFontSize = 32;
+            int spacingbetweenlinesheaderFontSize = 16;
+            int spacingbetweenlinesnormalFontSize = 12;
             // header
             int logoFontSize = 32;
             int headerFontSize = 16;
             int normalFontSize = 12;
 
-            this.contentStream.setFont(boldFont, logoFontSize);
-            this.contentStream.moveTextPositionByAmount(X_START, Y_START);
-            this.contentStream.setNonStrokingColor(Color.RED);
-            this.contentStream.drawString("Corendon");
-            this.contentStream.endText();
+            String text = "text";
+            int setXStart = 30;
+            int setXAnswer = 250;
+            int setYStart = 700;
+            String[] allvariablesanswers = {firstname, lastname, country, city, zipcode, address, phonenumber, emailaddress, shippingcountry, shippingzipcode, shippingaddress, shippingcity, flightnumber, brand, color, weight, description};
+            String[] allVariables = {"firstname", "lastname", "country", "city", "zipcode", "address", "phonenumber", "emailaddress", "shippingcountry", "shippingzipcode", "shippingaddress", "shippingcity", "flightnumber", "brand", "color", "weight", "description"};
+            System.out.println(allVariables[0]);
+            for (int i = 0; i < allVariables.length; i++) {
+                System.out.println(allVariables[i]);
 
-            normaal(normalFont, normalFontSize);
-            this.contentStream.drawString("The Item(s) has not been found within a month of searching. ");
-            this.contentStream.endText();
+                pdfSetText(setXStart, setYStart, normalFont, normalFontSize, allVariables[i], spacingbetweenlinesnormalFontSize, i);
+                pdfSetText(setXAnswer, setYStart, normalFont, normalFontSize, allvariablesanswers[i], spacingbetweenlinesnormalFontSize, i);
 
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(40, 638);
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Item(s) is now permanentley lost.");
-            this.contentStream.endText();
-
-            pdfmethode(X_START_NORMAL, Y_START_NORMAL, spacingbetweenlines, boldFont, headerFontSize, "Client Information");
-            spacingbetweenlines += 24;
-
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Date: ");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("" + date);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("First name: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(firstname);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Last name: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(lastname);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Country: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(country);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("City: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(city);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Zip Code: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(zipcode);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Address: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(address);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Phone number: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(phonenumber);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("E-mail adress: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(emailaddress);
-            this.contentStream.endText();
-            spacingbetweenlines += 24;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.setFont(boldFont, headerFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Bagage Information ");
-            this.contentStream.endText();
-
-            spacingbetweenlines += 32;
-
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Flight number: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(flightnumber);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Brand: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(brand);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Color: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(color);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("weight: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("" + weight);
-            this.contentStream.endText();
-            spacingbetweenlines += 12;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Description: ");
-            this.contentStream.endText();
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString(description);
-            this.contentStream.endText();
-            spacingbetweenlines += 48;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Bagage has been found:  ");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.moveTextPositionByAmount(X_ANSWER, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("YES / NO");
-            this.contentStream.endText();
-
-            spacingbetweenlines += 200;
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-            this.contentStream.drawString("Signature: ____________________ ");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(400, 588);
-            this.contentStream.setFont(boldFont, headerFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Employee information");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(400, 566);
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Date : datum");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(400, (566 - 12));
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Employee : test");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(400, (566 - 24));
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Employee ID : test");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(400, (566 - 36));
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Locatie : nederland");
-            this.contentStream.endText();
-
-            this.contentStream.beginText();
-            this.contentStream.moveTextPositionByAmount(400, (566 - 48));
-            this.contentStream.setFont(normalFont, normalFontSize);
-            this.contentStream.setNonStrokingColor(Color.black);
-            this.contentStream.drawString("Office Location : schiphol");
-            this.contentStream.endText();
+            }
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    private void pdfmethode(final int X_START_NORMAL, final int Y_START_NORMAL, int spacingbetweenlines, PDFont boldFont, int headerFontSize, String drawStringNaam) throws IOException {
+    private void pdfSetText(int XBegin, int YBegin, PDFont fontType, int fontSize, String allVariables, int spacingbetweenlinesnormalFontSize, int i) throws IOException {
         this.contentStream.beginText();
-        this.contentStream.moveTextPositionByAmount(X_START_NORMAL, (Y_START_NORMAL - spacingbetweenlines));
-        this.contentStream.setFont(boldFont, headerFontSize);
+        this.contentStream.setFont(fontType, fontSize);
+        this.contentStream.moveTextPositionByAmount(XBegin, (YBegin - (spacingbetweenlinesnormalFontSize * i)));
         this.contentStream.setNonStrokingColor(Color.black);
-        this.contentStream.drawString(drawStringNaam);
+        this.contentStream.drawString(allVariables);
         this.contentStream.endText();
-    }
-
-    private void normaal(PDFont normalFont, int normalFontSize) throws IOException {
-        this.contentStream.beginText();
-        this.contentStream.moveTextPositionByAmount(40, 650);
-        this.contentStream.setFont(normalFont, normalFontSize);
-        this.contentStream.setNonStrokingColor(Color.black);
     }
 
     public void save(String filename) {
@@ -359,5 +100,4 @@ public class PDFGenerator {
             return 0;
         }
     }
-
 }
