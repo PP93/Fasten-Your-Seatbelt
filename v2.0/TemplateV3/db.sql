@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `fys`.`log` (
   `date` TIMESTAMP(0) NOT NULL,
   `page` CHAR(31) NOT NULL,
   `action` CHAR(255) NOT NULL,
-  PRIMARY KEY ('username', 'timestamp')) 
+  PRIMARY KEY (`username`, `date`)) 
 ENGINE = InnoDB;
 
 
