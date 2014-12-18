@@ -85,10 +85,12 @@ public class PDFGenerator {
             for (int i = 0; i < allvariablesanswers.length; i++) {
                 pdfSetText(setXAnswer, setYStart, normalFont, normalFontSize, allvariablesanswers[i], spacingbetweenlinesnormalFontSize, i);
             }
-            for (int i = 0; i < allvariableemployeeinfo.length; i++) {
-                pdfSetText(setXemployee, setYStart, normalFont, normalFontSize, allvariableemployeeinfo[i], spacingbetweenlinesnormalFontSize, i);
-
-            }
+//            for (int i = 0; i < allvariableemployeeinfo.length; i++) {
+//                pdfSetText(setXemployee, setYStart, normalFont, normalFontSize, allvariableemployeeinfo[i], spacingbetweenlinesnormalFontSize, i);
+//            }
+//            for (int i = 0; i < allVariables.length; i++) {
+//                pdfSetText(setXemployeeanswer, setYStart, normalFont, normalFontSize, allVariables[i], spacingbetweenlinesnormalFontSize, i);
+//            }
 
         } catch (Exception ex) {
             ex.printStackTrace();
