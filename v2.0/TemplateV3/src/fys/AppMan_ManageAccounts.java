@@ -27,7 +27,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
         FYS.getQueryManager().updateAccountTable(Table_Accounts);
     }
-
+    
     private void fillAccountData(ResultSet rs) throws SQLException {
         if (rs.next()) {
 
@@ -100,6 +100,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Field_PhoneNumber = new javax.swing.JTextField();
         Field_EmployeeID = new javax.swing.JTextField();
         Combo_Location = new javax.swing.JComboBox();
+        Button_Search = new javax.swing.JLabel();
         Button_SaveChanges = new javax.swing.JLabel();
         Button_ResetChanges = new javax.swing.JLabel();
         Tab_NewAccount = new javax.swing.JLabel();
@@ -159,7 +160,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_Search.setForeground(new java.awt.Color(153, 0, 0));
         Label_Search.setText("Search Employee:");
-        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
@@ -319,7 +320,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
                 Field_SearchKeyReleased(evt);
             }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, 30));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 210, 30));
 
         Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
         Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -361,6 +362,28 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
             }
         });
         add(Combo_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 530, 130, 30));
+
+        Button_Search.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Button_Search.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Search.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Search.setText("Search");
+        Button_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Button_Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Search.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Search.setOpaque(true);
+        Button_Search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseExited(evt);
+            }
+        });
+        add(Button_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 90, 30));
 
         Button_SaveChanges.setBackground(new java.awt.Color(34, 153, 68));
         Button_SaveChanges.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -547,7 +570,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
 
 
     private void Button_SaveChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveChangesMouseClicked
-        radiobuttonSelected = Radio_ApplicationManager.isSelected() || Radio_Manager.isSelected() || Radio_ServiceDeskEmployee.isSelected();
+               radiobuttonSelected = Radio_ApplicationManager.isSelected() || Radio_Manager.isSelected() || Radio_ServiceDeskEmployee.isSelected();
 
         if (Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_Username.getText().equals("") || Field_Password.getText().equals("") || radiobuttonSelected == false || Combo_Location.getSelectedItem().toString().equals("Location")) {
             emptyfield_warning.setVisible(true);
@@ -568,7 +591,6 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
             FYS.getQueryManager().updateAccountTable(Table_Accounts);
         }
 
-
     }//GEN-LAST:event_Button_SaveChangesMouseClicked
 
     private void Button_ResetChangesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetChangesMouseClicked
@@ -583,11 +605,7 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_ResetChangesMouseClicked
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
-        try {
-            fillAccountData(FYS.getQueryManager().searchAccounts(Field_Search.getText()));
-        } catch (SQLException ex) {
-            Logger.getLogger(AppMan_ManageAccounts.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
 
     }//GEN-LAST:event_Field_SearchKeyReleased
 
@@ -645,12 +663,30 @@ public class AppMan_ManageAccounts extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Combo_LocationActionPerformed
 
+    private void Button_SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseClicked
+        try {
+            fillAccountData(FYS.getQueryManager().searchAccounts(Field_Search.getText()));
+        } catch (SQLException ex) {
+            Logger.getLogger(AppMan_ManageAccounts.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_Button_SearchMouseClicked
+
+    private void Button_SearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SearchMouseEntered
+
+    private void Button_SearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SearchMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_DeleteAccount;
     private javax.swing.JLabel Button_ResetChanges;
     private javax.swing.JLabel Button_SaveChanges;
+    private javax.swing.JLabel Button_Search;
     private javax.swing.JComboBox Combo_Location;
     private javax.swing.JTextField Field_Email;
     private javax.swing.JTextField Field_EmployeeID;

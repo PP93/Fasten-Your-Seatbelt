@@ -40,7 +40,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
-        Label_Search = new javax.swing.JLabel();
         Field_Search = new javax.swing.JTextField();
         ScrollPane_Cases = new javax.swing.JScrollPane();
         Table_Cases = new javax.swing.JTable();
@@ -86,6 +85,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_EntryDate = new javax.swing.JTextField();
         Field_RetrievalDate = new javax.swing.JTextField();
         Field_Status = new javax.swing.JTextField();
+        Button_Search = new javax.swing.JLabel();
         Button_Save = new javax.swing.JLabel();
         Button_Reset = new javax.swing.JLabel();
         Tab_NewCase = new javax.swing.JLabel();
@@ -128,11 +128,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
-        Label_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_Search.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Search.setText("Search:");
-        add(Label_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 30));
-
         Field_Search.setForeground(new java.awt.Color(153, 0, 0));
         Field_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Field_Search.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -140,7 +135,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_SearchKeyReleased(evt);
             }
         });
-        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 210, 30));
+        add(Field_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 210, 30));
 
         Table_Cases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -364,6 +359,28 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_Status.setForeground(new java.awt.Color(153, 0, 0));
         Field_Status.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(Field_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 470, 230, 30));
+
+        Button_Search.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Button_Search.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Search.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Search.setText("Search");
+        Button_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Button_Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Search.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Search.setOpaque(true);
+        Button_Search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseExited(evt);
+            }
+        });
+        add(Button_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 80, 30));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
         Button_Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -650,54 +667,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
     private void Field_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchKeyReleased
 
-        try {
-            String sql = "select * from client where name=? OR lastname=? OR email=? OR phonenumber=? OR address=? OR city=? OR country=? OR shippingzipcode=? OR shippingaddress=? OR shippingcity=? OR shippingcountry=? ";
-
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, Field_Search.getText());
-            pst.setString(2, Field_Search.getText());
-            pst.setString(3, Field_Search.getText());
-            pst.setString(4, Field_Search.getText());
-            pst.setString(5, Field_Search.getText());
-            pst.setString(6, Field_Search.getText());
-            pst.setString(7, Field_Search.getText());
-            pst.setString(8, Field_Search.getText());
-            pst.setString(9, Field_Search.getText());
-            pst.setString(10, Field_Search.getText());
-            pst.setString(11, Field_Search.getText());
-
-            rs = pst.executeQuery();
-            if (rs.next()) {
-
-                String add2 = rs.getString("name");
-                Field_FirstName.setText(add2);
-                String add3 = rs.getString("lastname");
-                Field_LastName.setText(add3);
-                String add4 = rs.getString("email");
-                Field_EmailAddress.setText(add4);
-                String add5 = rs.getString("phonenumber");
-                Field_PhoneNumber.setText(add5);
-                String add7 = rs.getString("address");
-                Field_Address.setText(add7);
-                String add8 = rs.getString("city");
-                Field_City.setText(add8);
-                String add9 = rs.getString("country");
-                Field_Country.setText(add9);
-                String add10 = rs.getString("shippingzipcode");
-                Field_ShippingZipCode.setText(add10);
-                String add11 = rs.getString("shippingaddress");
-                Field_ShippingAddress.setText(add11);
-                String add12 = rs.getString("shippingcity");
-                Field_ShippingCity.setText(add12);
-                String add13 = rs.getString("shippingcountry");
-                Field_ShippingCountry.setText(add13);
-            }
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-
     }//GEN-LAST:event_Field_SearchKeyReleased
 
     private void Tab_AddExtraBaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_AddExtraBaggageMouseClicked
@@ -739,11 +708,11 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
             rs = pst.executeQuery();
             if (rs.next()) {
 
-                String add1 = rs.getString("name");
+                String add1 = rs.getString("firstName");
                 Field_FirstName.setText(add1);
-                String add2 = rs.getString("lastname");
+                String add2 = rs.getString("lastName");
                 Field_LastName.setText(add2);
-                String add3 = rs.getString("email");
+                String add3 = rs.getString("emailAddress");
                 Field_EmailAddress.setText(add3);
                 String add4 = rs.getString("address");
                 Field_Address.setText(add4);
@@ -768,9 +737,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
                 Field_Color.setText(rs.getString("color"));
                 Field_Weight.setText(rs.getString("weight"));
                 Field_Description.setText(rs.getString("description"));
-                Field_EntryDate.setText(rs.getString("dateadded"));
-                Field_RetrievalDate.setText(rs.getString("dateretrieved"));
-                Field_Status.setText(rs.getString("status"));
+
 
             }
         } catch (Exception e) {
@@ -905,12 +872,39 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Field_ShippingCountryActionPerformed
 
+    private void Button_SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseClicked
+             try {
+            String sql = "select clientID, firstName, lastName from client where clientID=? OR  firstname=? OR lastname=?  ";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, Field_Search.getText());
+            pst.setString(2, Field_Search.getText());
+            pst.setString(3, Field_Search.getText());
+   
+            rs = pst.executeQuery();
+            Table_Cases.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_Button_SearchMouseClicked
+
+    private void Button_SearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SearchMouseEntered
+
+    private void Button_SearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SearchMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_PDF;
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JLabel Button_Save;
+    private javax.swing.JLabel Button_Search;
     private javax.swing.JCheckBox Check_BaggageCase;
     private javax.swing.JCheckBox Check_ClientCase;
     private javax.swing.JTextField Field_Address;
@@ -957,7 +951,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_ManualExit;
     private javax.swing.JLabel Label_PhoneNumber;
     private javax.swing.JLabel Label_RetrievalDate;
-    private javax.swing.JLabel Label_Search;
     private javax.swing.JLabel Label_ShippingAddress;
     private javax.swing.JLabel Label_ShippingCity;
     private javax.swing.JLabel Label_ShippingCountry;
