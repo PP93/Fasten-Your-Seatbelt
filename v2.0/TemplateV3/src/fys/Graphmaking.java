@@ -144,7 +144,7 @@ public class Graphmaking {
         conn = javaconnect.ConnecrDb();
 
         try {
-            String sql = "SELECT count(*) FROM baggage WHERE status= ?";
+            String sql = "SELECT count(*) FROM baggage";
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, Status);

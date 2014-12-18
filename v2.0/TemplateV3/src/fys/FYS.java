@@ -1,3 +1,14 @@
+/**
+ * Authors:
+ * Caitlin Fairhurst
+ * Floris van Lent
+ * Lars Cornelissen
+ * The Fallen:
+ * Doreen van Erven
+ * Leslie Fellensiek
+ * Patrick Pauëlsen
+ * Zakaria Akka
+ */
 package fys;
 
 import java.awt.event.WindowAdapter;

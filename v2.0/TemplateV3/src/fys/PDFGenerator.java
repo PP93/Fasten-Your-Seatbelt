@@ -62,10 +62,14 @@ public class PDFGenerator {
             int setXemployee = 350;
             int setXemployeeanswer = 450;
             int setYStart = 700;
-            String dateee = dateTime() + "";
-            
+            String dateTimeString = dateTime() + "";
+           // String locationEmail = location + "@corendon.com";
+
             String[] allvariableemployeeinfo = {"date", "employee id",
                 "location", "employee name", "phonenumber location",
+                "location@corendon.com"};
+            String[] allvariableemployeeinfoanswers = {dateTimeString, "employee id",
+                "location", "employee name", "+31 23 75 10 600",
                 "location@corendon.com"};
 
             String[] allvariablesanswers = {firstname, lastname, country, city,
@@ -79,19 +83,28 @@ public class PDFGenerator {
                 "description"};
 
             for (int i = 0; i < allVariables.length; i++) {
-                pdfSetText(setXStart, setYStart, normalFont, normalFontSize, allVariables[i], spacingbetweenlinesnormalFontSize, i);
+                pdfSetText(setXStart, setYStart, normalFont, normalFontSize,
+                        allVariables[i], spacingbetweenlinesnormalFontSize, i);
             }
             for (int i = 0; i < 1; i++) {
-                pdfSetText(setXstartLogo, setystartLogo, normalFont, logoFontSize, corendon, spacingbetweenlinesnormalFontSize, i);
+                pdfSetText(setXstartLogo, setystartLogo, normalFont,
+                        logoFontSize, corendon,
+                        spacingbetweenlinesnormalFontSize, i);
             }
             for (int i = 0; i < allvariablesanswers.length; i++) {
-                pdfSetText(setXAnswer, setYStart, normalFont, normalFontSize, allvariablesanswers[i], spacingbetweenlinesnormalFontSize, i);
+                pdfSetText(setXAnswer, setYStart, normalFont, normalFontSize,
+                        allvariablesanswers[i],
+                        spacingbetweenlinesnormalFontSize, i);
             }
 //            for (int i = 0; i < allvariableemployeeinfo.length; i++) {
-//                pdfSetText(setXemployee, setYStart, normalFont, normalFontSize, allvariableemployeeinfo[i], spacingbetweenlinesnormalFontSize, i);
+//                pdfSetText(setXemployee, setYStart, normalFont,
+           // normalFontSize, allvariableemployeeinfo[i],
+          //  spacingbetweenlinesnormalFontSize, i);
 //            }
-//            for (int i = 0; i < allVariables.length; i++) {
-//                pdfSetText(setXemployeeanswer, setYStart, normalFont, normalFontSize, allVariables[i], spacingbetweenlinesnormalFontSize, i);
+//            for (int i = 0; i < allvariableemployeeinfoanswers.length; i++) {
+//                pdfSetText(setXemployeeanswer, setYStart, normalFont, 
+          //  normalFontSize, allVariables[i], 
+          //  spacingbetweenlinesnormalFontSize, i);
 //            }
 
         } catch (Exception ex) {
@@ -99,10 +112,13 @@ public class PDFGenerator {
         }
     }
 
-    private void pdfSetText(int XBegin, int YBegin, PDFont fontType, int fontSize, String allVariables, int spacingbetweenlinesnormalFontSize, int i) throws IOException {
+    private void pdfSetText(int XBegin, int YBegin, PDFont fontType,
+            int fontSize, String allVariables,
+            int spacingbetweenlinesnormalFontSize, int i) throws IOException {
         this.contentStream.beginText();
         this.contentStream.setFont(fontType, fontSize);
-        this.contentStream.moveTextPositionByAmount(XBegin, (YBegin - (spacingbetweenlinesnormalFontSize * i)));
+        this.contentStream.moveTextPositionByAmount(XBegin,
+                (YBegin - (spacingbetweenlinesnormalFontSize * i)));
         this.contentStream.setNonStrokingColor(Color.black);
         this.contentStream.drawString(allVariables);
         this.contentStream.endText();

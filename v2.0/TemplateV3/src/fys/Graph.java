@@ -15,7 +15,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
- * @author breud
+ * @author Lars
  */
 public class Graph extends JPanel {
 
