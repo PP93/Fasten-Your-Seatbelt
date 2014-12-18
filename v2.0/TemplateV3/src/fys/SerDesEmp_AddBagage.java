@@ -34,7 +34,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
     private void Update_table() {
         try {
-            String sql = "select clientID, name, lastname from client";
+            String sql = "select clientID, firstName, lastName from client";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             Table_ExtraBaggage.setModel(DbUtils.resultSetToTableModel(rs));
@@ -68,6 +68,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Label_Color = new javax.swing.JLabel();
         Label_Weight = new javax.swing.JLabel();
         Label_Description = new javax.swing.JLabel();
+        Button_Search = new javax.swing.JLabel();
         Field_ClientID = new javax.swing.JTextField();
         Field_FlightNumber = new javax.swing.JTextField();
         Field_Brand = new javax.swing.JTextField();
@@ -132,7 +133,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
 
         Label_SearchClientID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Label_SearchClientID.setForeground(new java.awt.Color(153, 0, 0));
-        Label_SearchClientID.setText("Search Client ID:");
+        Label_SearchClientID.setText("Search Client:");
         add(Label_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, 30));
 
         Field_SearchClientID.setForeground(new java.awt.Color(153, 0, 0));
@@ -147,7 +148,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
                 Field_SearchClientIDKeyReleased(evt);
             }
         });
-        add(Field_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 250, 30));
+        add(Field_SearchClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 250, 30));
 
         Table_ExtraBaggage.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -198,6 +199,28 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         Label_Description.setForeground(new java.awt.Color(153, 0, 0));
         Label_Description.setText("Description:");
         add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 460, -1, -1));
+
+        Button_Search.setBackground(new java.awt.Color(34, 153, 68));
+        Button_Search.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Button_Search.setForeground(new java.awt.Color(255, 255, 255));
+        Button_Search.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Search.setText("Search");
+        Button_Search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Button_Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Search.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_Search.setOpaque(true);
+        Button_Search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_SearchMouseExited(evt);
+            }
+        });
+        add(Button_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 90, 30));
 
         Field_ClientID.setForeground(new java.awt.Color(153, 0, 0));
         Field_ClientID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -438,22 +461,7 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_AddToCaseMouseClicked
 
     private void Field_SearchClientIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchClientIDKeyReleased
-        try {
-            String sql = "select * from client where clientID=?";
 
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, Field_SearchClientID.getText());
-
-            rs = pst.executeQuery();
-            if (rs.next()) {
-                String add1 = rs.getString("clientID");
-                Field_ClientID.setText(add1);
-
-            }
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null, e);
-        }
     }//GEN-LAST:event_Field_SearchClientIDKeyReleased
 
     private void Field_SearchClientIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_SearchClientIDActionPerformed
@@ -512,11 +520,37 @@ public class SerDesEmp_AddBagage extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Table_ExtraBaggageMouseClicked
 
+    private void Button_SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseClicked
+              try {
+            String sql = "select clientID, firstName, lastName from client where clientID=? OR firstName=? OR lastName=?";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, Field_SearchClientID.getText());
+            pst.setString(2, Field_SearchClientID.getText());
+            pst.setString(3, Field_SearchClientID.getText());
+            
+            rs = pst.executeQuery();
+            Table_ExtraBaggage.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_Button_SearchMouseClicked
+
+    private void Button_SearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SearchMouseEntered
+
+    private void Button_SearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_SearchMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_AddToCase;
     private javax.swing.JLabel Button_Reset;
+    private javax.swing.JLabel Button_Search;
     private javax.swing.JTextField Field_Brand;
     private javax.swing.JTextField Field_ClientID;
     private javax.swing.JTextField Field_Color;
