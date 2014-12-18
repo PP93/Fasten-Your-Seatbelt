@@ -62,6 +62,8 @@ public class PDFGenerator {
             int setXemployee = 350;
             int setXemployeeanswer = 450;
             int setYStart = 700;
+            String dateee = dateTime() + "";
+            
             String[] allvariableemployeeinfo = {"date", "employee id",
                 "location", "employee name", "phonenumber location",
                 "location@corendon.com"};
