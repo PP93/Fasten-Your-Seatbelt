@@ -26,6 +26,7 @@ public class PDFGenerator {
             // Create a document and add a page to it
             this.document = PDDocument.load("C:\\Users\\Alternate\\Documents\\GitHub\\Fasten-Your-Seatbelt\\v2.0\\TemplateV3\\Florisvan Lent1337 WC.pdf");
                     PDPage page = new PDPage();
+            this.document.addPage(page);
             
 
             // Start a new content stream which will "hold" the to be created content
