@@ -35,25 +35,26 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Field_Description = new javax.swing.JTextArea();
+        Check_ClientCase = new javax.swing.JCheckBox();
         Label_ClientInformation = new javax.swing.JLabel();
-        Label_FirstName = new javax.swing.JLabel();
         Label_FlightNumber = new javax.swing.JLabel();
+        Label_FirstName = new javax.swing.JLabel();
         Label_LastName = new javax.swing.JLabel();
         Label_EmailAddress = new javax.swing.JLabel();
         Label_PhoneNumber = new javax.swing.JLabel();
         Label_ZipCode = new javax.swing.JLabel();
         Label_Address = new javax.swing.JLabel();
         Label_City = new javax.swing.JLabel();
-        Field_FirstName = new javax.swing.JTextField();
+        Label_Country = new javax.swing.JLabel();
         Field_FlightNumber = new javax.swing.JTextField();
+        Field_FirstName = new javax.swing.JTextField();
         Field_LastName = new javax.swing.JTextField();
         Field_EmailAddress = new javax.swing.JTextField();
         Field_PhoneNumber = new javax.swing.JTextField();
         Field_ZipCode = new javax.swing.JTextField();
         Field_Address = new javax.swing.JTextField();
         Field_City = new javax.swing.JTextField();
+        Field_Country = new javax.swing.JTextField();
         Checkbox_CopyAddressInfo = new javax.swing.JCheckBox();
         Label_ShippingZipCode = new javax.swing.JLabel();
         Label_ShippingAddress = new javax.swing.JLabel();
@@ -63,35 +64,33 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Field_ShippingAddress = new javax.swing.JTextField();
         Field_ShippingCity = new javax.swing.JTextField();
         Field_ShippingCountry = new javax.swing.JTextField();
-        Field_Country = new javax.swing.JTextField();
         Label_BaggageInformation = new javax.swing.JLabel();
+        Check_BaggageCase = new javax.swing.JCheckBox();
         Label_Location = new javax.swing.JLabel();
         Label_Brand = new javax.swing.JLabel();
         Label_Color = new javax.swing.JLabel();
         Label_Weight = new javax.swing.JLabel();
         Label_Description = new javax.swing.JLabel();
-        Label_Country1 = new javax.swing.JLabel();
+        Label_Status = new javax.swing.JLabel();
         Field_Location = new javax.swing.JTextField();
         Field_Brand = new javax.swing.JTextField();
         Field_Color = new javax.swing.JTextField();
         Field_Weight = new javax.swing.JTextField();
+        ScrollPanel_Description = new javax.swing.JScrollPane();
+        Field_Description = new javax.swing.JTextArea();
         Button_Save = new javax.swing.JLabel();
         Button_Reset = new javax.swing.JLabel();
         Tab_NewCase = new javax.swing.JLabel();
         Tab_UpdateCase = new javax.swing.JLabel();
         Tab_AddBaggage = new javax.swing.JLabel();
         Tab_LogOut = new javax.swing.JLabel();
-        Check_BaggageCase = new javax.swing.JCheckBox();
-        Check_ClientCase = new javax.swing.JCheckBox();
         emptyfield_warning = new javax.swing.JLabel();
-        Field_EntryDate = new javax.swing.JTextField();
-        Label_Date1 = new javax.swing.JLabel();
-        Label_EntryDate = new javax.swing.JLabel();
+        ComboBox_Status = new javax.swing.JComboBox();
+        Background = new javax.swing.JLabel();
         Panel_Manual = new javax.swing.JPanel();
         Label_ManualExit = new javax.swing.JLabel();
         Label_Title = new javax.swing.JLabel();
         Label_Info = new javax.swing.JLabel();
-        Field_DateAdded = new com.toedter.calendar.JDateChooser();
 
         employee_id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         employee_id.setForeground(new java.awt.Color(153, 0, 0));
@@ -118,61 +117,66 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
 
-        Field_Description.setColumns(20);
-        Field_Description.setRows(5);
-        jScrollPane1.setViewportView(Field_Description);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 330, 230, 150));
+        Check_ClientCase.setBackground(new java.awt.Color(255, 255, 255));
+        Check_ClientCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Check_ClientCase.setForeground(new java.awt.Color(153, 0, 0));
+        Check_ClientCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Check_ClientCaseActionPerformed(evt);
+            }
+        });
+        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         Label_ClientInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_ClientInformation.setForeground(new java.awt.Color(153, 0, 0));
         Label_ClientInformation.setText("Client Information:");
         add(Label_ClientInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
-        Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Label_FirstName.setText("First Name: *");
-        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
-
         Label_FlightNumber.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
         Label_FlightNumber.setText("Flightnumber: *");
-        add(Label_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        add(Label_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 30));
+
+        Label_FirstName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_FirstName.setForeground(new java.awt.Color(153, 0, 0));
+        Label_FirstName.setText("First Name: *");
+        add(Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 30));
 
         Label_LastName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Label_LastName.setText("Last Name: *");
-        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+        add(Label_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 30));
 
         Label_EmailAddress.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_EmailAddress.setForeground(new java.awt.Color(153, 0, 0));
         Label_EmailAddress.setText("Email Address:");
-        add(Label_EmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+        add(Label_EmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, 30));
 
         Label_PhoneNumber.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Label_PhoneNumber.setText("Phone Number:");
         Label_PhoneNumber.setToolTipText("");
-        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        add(Label_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, 30));
 
         Label_ZipCode.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ZipCode.setForeground(new java.awt.Color(153, 0, 0));
         Label_ZipCode.setText("Zip Code: *");
-        add(Label_ZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 361, -1, 30));
+        add(Label_ZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, 30));
 
         Label_Address.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Address.setForeground(new java.awt.Color(153, 0, 0));
         Label_Address.setText("Address: *");
-        add(Label_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+        add(Label_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, 30));
 
         Label_City.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_City.setForeground(new java.awt.Color(153, 0, 0));
         Label_City.setText("City: *");
-        add(Label_City, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
+        add(Label_City, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, 30));
 
-        Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
-        Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 30));
+        Label_Country.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_Country.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Country.setText("Country: *");
+        add(Label_Country, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, -1, 30));
 
         Field_FlightNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_FlightNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -183,6 +187,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         });
         add(Field_FlightNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 230, 30));
 
+        Field_FirstName.setForeground(new java.awt.Color(153, 0, 0));
+        Field_FirstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 230, 30));
+
         Field_LastName.setForeground(new java.awt.Color(153, 0, 0));
         Field_LastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Field_LastName.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +198,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Field_LastNameActionPerformed(evt);
             }
         });
-        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 230, 30));
+        add(Field_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 230, 30));
 
         Field_EmailAddress.setForeground(new java.awt.Color(153, 0, 0));
         Field_EmailAddress.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -199,23 +207,27 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Field_EmailAddressActionPerformed(evt);
             }
         });
-        add(Field_EmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 230, 30));
+        add(Field_EmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 230, 30));
 
         Field_PhoneNumber.setForeground(new java.awt.Color(153, 0, 0));
         Field_PhoneNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 230, 30));
+        add(Field_PhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 230, 30));
 
         Field_ZipCode.setForeground(new java.awt.Color(153, 0, 0));
         Field_ZipCode.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_ZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 230, 30));
+        add(Field_ZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 230, 30));
 
         Field_Address.setForeground(new java.awt.Color(153, 0, 0));
         Field_Address.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 230, 30));
+        add(Field_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 230, 30));
 
         Field_City.setForeground(new java.awt.Color(153, 0, 0));
         Field_City.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_City, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 230, 30));
+        add(Field_City, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 230, 30));
+
+        Field_Country.setForeground(new java.awt.Color(153, 0, 0));
+        Field_Country.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(Field_Country, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 230, 30));
 
         Checkbox_CopyAddressInfo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Checkbox_CopyAddressInfo.setForeground(new java.awt.Color(153, 0, 0));
@@ -227,35 +239,35 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Checkbox_CopyAddressInfoActionPerformed(evt);
             }
         });
-        add(Checkbox_CopyAddressInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 350, 40));
+        add(Checkbox_CopyAddressInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 350, 40));
 
         Label_ShippingZipCode.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingZipCode.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingZipCode.setText("Shipping Zip Code:");
-        add(Label_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
+        add(Label_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, 30));
 
         Label_ShippingAddress.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingAddress.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingAddress.setText("Shipping Address:");
-        add(Label_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+        add(Label_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, 30));
 
         Label_ShippingCity.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingCity.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingCity.setText("Shipping City:");
-        add(Label_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, -1));
+        add(Label_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, -1, 30));
 
         Label_ShippingCountry.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_ShippingCountry.setForeground(new java.awt.Color(153, 0, 0));
         Label_ShippingCountry.setText("Shipping Country:");
-        add(Label_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
+        add(Label_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 530, -1, 30));
 
         Field_ShippingZipCode.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingZipCode.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 230, 30));
+        add(Field_ShippingZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 230, 30));
 
         Field_ShippingAddress.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingAddress.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 230, 30));
+        add(Field_ShippingAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 230, 30));
 
         Field_ShippingCity.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingCity.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -264,20 +276,21 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 Field_ShippingCityActionPerformed(evt);
             }
         });
-        add(Field_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 230, 30));
+        add(Field_ShippingCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 230, 30));
 
         Field_ShippingCountry.setForeground(new java.awt.Color(153, 0, 0));
         Field_ShippingCountry.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 230, 30));
-
-        Field_Country.setForeground(new java.awt.Color(153, 0, 0));
-        Field_Country.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Country, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 230, 30));
+        add(Field_ShippingCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, 230, 30));
 
         Label_BaggageInformation.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         Label_BaggageInformation.setForeground(new java.awt.Color(153, 0, 0));
         Label_BaggageInformation.setText("Baggage Information:");
         add(Label_BaggageInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 180, -1, -1));
+
+        Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
+        Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Check_BaggageCase.setForeground(new java.awt.Color(153, 0, 0));
+        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 180, -1, -1));
 
         Label_Location.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Location.setForeground(new java.awt.Color(153, 0, 0));
@@ -287,43 +300,49 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Label_Brand.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Brand.setForeground(new java.awt.Color(153, 0, 0));
         Label_Brand.setText("Brand:");
-        add(Label_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 240, -1, -1));
+        add(Label_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 250, -1, -1));
 
         Label_Color.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Color.setForeground(new java.awt.Color(153, 0, 0));
         Label_Color.setText("Color:");
-        add(Label_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 270, -1, -1));
+        add(Label_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 290, -1, -1));
 
         Label_Weight.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Weight.setForeground(new java.awt.Color(153, 0, 0));
         Label_Weight.setText("Weight:");
-        add(Label_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 300, -1, -1));
+        add(Label_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 330, -1, -1));
 
         Label_Description.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Description.setForeground(new java.awt.Color(153, 0, 0));
         Label_Description.setText("Description:");
-        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 330, -1, -1));
+        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, -1, -1));
 
-        Label_Country1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        Label_Country1.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Country1.setText("Country: *");
-        add(Label_Country1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
+        Label_Status.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        Label_Status.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Status.setText("Status: *");
+        add(Label_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 530, -1, 30));
 
         Field_Location.setForeground(new java.awt.Color(153, 0, 0));
         Field_Location.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 210, 230, 30));
+        add(Field_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 210, 270, 30));
 
         Field_Brand.setForeground(new java.awt.Color(153, 0, 0));
         Field_Brand.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 240, 230, 30));
+        add(Field_Brand, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, 270, 30));
 
         Field_Color.setForeground(new java.awt.Color(153, 0, 0));
         Field_Color.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
+        add(Field_Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 290, 270, 30));
 
         Field_Weight.setForeground(new java.awt.Color(153, 0, 0));
         Field_Weight.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 230, 30));
+        add(Field_Weight, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 330, 270, 30));
+
+        Field_Description.setColumns(20);
+        Field_Description.setRows(5);
+        ScrollPanel_Description.setViewportView(Field_Description);
+
+        add(ScrollPanel_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 270, 150));
 
         Button_Save.setBackground(new java.awt.Color(34, 153, 68));
         Button_Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -456,41 +475,20 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         });
         add(Tab_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, 250, 40));
 
-        Check_BaggageCase.setBackground(new java.awt.Color(255, 255, 255));
-        Check_BaggageCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Check_BaggageCase.setForeground(new java.awt.Color(153, 0, 0));
-        add(Check_BaggageCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 180, -1, -1));
-
-        Check_ClientCase.setBackground(new java.awt.Color(255, 255, 255));
-        Check_ClientCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Check_ClientCase.setForeground(new java.awt.Color(153, 0, 0));
-        Check_ClientCase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Check_ClientCaseActionPerformed(evt);
-            }
-        });
-        add(Check_ClientCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
-
         emptyfield_warning.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emptyfield_warning.setForeground(new java.awt.Color(153, 0, 0));
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
         add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, -1, -1));
 
-        Field_EntryDate.setForeground(new java.awt.Color(153, 0, 0));
-        Field_EntryDate.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(Field_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 490, 230, 30));
+        ComboBox_Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Missing", "Not Matched", "Resolved", "Permanently Lost" }));
+        add(ComboBox_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 530, 270, 30));
 
-        Label_Date1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        Label_Date1.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Date1.setText(" Entry Date:");
-        add(Label_Date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 490, -1, -1));
-
-        Label_EntryDate.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Label_EntryDate.setForeground(new java.awt.Color(153, 0, 0));
-        Label_EntryDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_EntryDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
-        Label_EntryDate.setOpaque(true);
-        add(Label_EntryDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
+        Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Background.setForeground(new java.awt.Color(153, 0, 0));
+        Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
+        Background.setOpaque(true);
+        add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
 
         Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Panel_Manual.setEnabled(false);
@@ -519,10 +517,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
 
         add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
-
-        Field_DateAdded.setForeground(new java.awt.Color(156, 0, 0));
-        Field_DateAdded.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        add(Field_DateAdded, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 490, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -580,7 +574,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
                 FYS.getQueryManager().createCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(), 
                         Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), 
-                        Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText());
+                        Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
 
                 emptyfield_warning.setVisible(false);
                 emptyfield_warning.setEnabled(false);
@@ -604,7 +598,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     emptyfield_warning.setEnabled(true);
                 } else {
 
-                    FYS.getQueryManager().createBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText());
+                    FYS.getQueryManager().createBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
                     /*  try {
 
                      String sql = "insert into baggage (flightnumber,brand,color,weight,description,dateadded,status)value(?,?,?,?,?,?,?)";
@@ -640,25 +634,26 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
-        Field_FirstName.setText("");
         Field_FlightNumber.setText("");
-        Field_City.setText("");
-        Field_ZipCode.setText("");
-        Field_Country.setText("");
-        Field_Address.setText("");
-        Field_PhoneNumber.setText("");
+        Field_FirstName.setText("");
+        Field_LastName.setText("");
         Field_EmailAddress.setText("");
-        Field_ShippingCountry.setText("");
+        Field_PhoneNumber.setText("");
+        Field_ZipCode.setText("");
+        Field_Address.setText("");
+        Field_City.setText("");
+        Field_Country.setText("");
         Field_ShippingZipCode.setText("");
         Field_ShippingAddress.setText("");
         Field_ShippingCity.setText("");
+        Field_ShippingCountry.setText("");
 
         Field_Location.setText("");
         Field_Brand.setText("");
         Field_Color.setText("");
         Field_Weight.setText("");
         Field_Description.setText("");
-        Field_EntryDate.setText("");
+        ComboBox_Status.setSelectedIndex(0);
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Tab_NewCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewCaseMouseClicked
@@ -735,7 +730,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         } else {
             Panel_Manual.setVisible(true);
             Panel_Manual.setEnabled(true);
-
         }
     }//GEN-LAST:event_Label_CallManualMouseClicked
 
@@ -757,20 +751,20 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JLabel Button_Reset;
     private javax.swing.JLabel Button_Save;
     private javax.swing.JCheckBox Check_BaggageCase;
     private javax.swing.JCheckBox Check_ClientCase;
     private javax.swing.JCheckBox Checkbox_CopyAddressInfo;
+    private javax.swing.JComboBox ComboBox_Status;
     private javax.swing.JTextField Field_Address;
     private javax.swing.JTextField Field_Brand;
     private javax.swing.JTextField Field_City;
     private javax.swing.JTextField Field_Color;
     private javax.swing.JTextField Field_Country;
-    private com.toedter.calendar.JDateChooser Field_DateAdded;
     private javax.swing.JTextArea Field_Description;
     private javax.swing.JTextField Field_EmailAddress;
-    private javax.swing.JTextField Field_EntryDate;
     private javax.swing.JTextField Field_FirstName;
     private javax.swing.JTextField Field_FlightNumber;
     private javax.swing.JTextField Field_LastName;
@@ -789,11 +783,9 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_City;
     private javax.swing.JLabel Label_ClientInformation;
     private javax.swing.JLabel Label_Color;
-    private javax.swing.JLabel Label_Country1;
-    private javax.swing.JLabel Label_Date1;
+    private javax.swing.JLabel Label_Country;
     private javax.swing.JLabel Label_Description;
     private javax.swing.JLabel Label_EmailAddress;
-    private javax.swing.JLabel Label_EntryDate;
     private javax.swing.JLabel Label_FirstName;
     private javax.swing.JLabel Label_FlightNumber;
     private javax.swing.JLabel Label_Info;
@@ -806,10 +798,12 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.JLabel Label_ShippingCity;
     private javax.swing.JLabel Label_ShippingCountry;
     private javax.swing.JLabel Label_ShippingZipCode;
+    private javax.swing.JLabel Label_Status;
     private javax.swing.JLabel Label_Title;
     private javax.swing.JLabel Label_Weight;
     private javax.swing.JLabel Label_ZipCode;
     private javax.swing.JPanel Panel_Manual;
+    private javax.swing.JScrollPane ScrollPanel_Description;
     private javax.swing.JLabel Tab_AddBaggage;
     private javax.swing.JLabel Tab_LogOut;
     private javax.swing.JLabel Tab_NewCase;
@@ -817,6 +811,5 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel employee_id;
     private javax.swing.JLabel emptyfield_warning;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

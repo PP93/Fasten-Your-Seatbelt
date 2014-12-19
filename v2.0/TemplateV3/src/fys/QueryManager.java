@@ -255,7 +255,7 @@ public class QueryManager {
     }
 
     public void createCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingCountry,
-            String shippingZipCode, String shippingAddress, String shippingCity, String location, String brand, String color, String weight, String description, String startDate) {
+            String shippingZipCode, String shippingAddress, String shippingCity, String location, String brand, String color, String weight, String description) {
         try {
 
             String sql = "insert into client (flightNumber, firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
@@ -276,8 +276,7 @@ public class QueryManager {
             pst.setString(13, shippingCity);
 
             pst.execute();
-            
-            //Moet client-/baggageID in de log? Lijkt me wel, maar is moeilijk
+
             Employee currentEmployee = new Employee(Employee.getCurrentUser());
             String fullName = firstName + " " + lastName;
             createLog("" + currentEmployee.employeeID, "SerDesEmp_NewCase", "Created new case for "
@@ -290,7 +289,7 @@ public class QueryManager {
             if (rs.next()) {
                 String clientID = rs.getString("clientID");
 
-                String addBaggage = "insert into baggage (location, brand, color, weight, description, status, startDate, clientID)value(?,?,?,?,?,?,?,?)";
+                String addBaggage = "insert into baggage (location, brand, color, weight, description, status, startDate, clientID)value(?,?,?,?,?,?,GETDATE(),?)";
                 pst = conn.prepareStatement(addBaggage);
 
                 pst.setString(1, location);
@@ -299,7 +298,7 @@ public class QueryManager {
                 pst.setString(4, weight);
                 pst.setString(5, description);
                 pst.setString(6, "unresolved");
-                pst.setString(7, startDate);
+//                pst.setString(7, "GETDATE()");
                 pst.setString(8, clientID);
 
                 pst.execute();
@@ -352,7 +351,7 @@ public class QueryManager {
 
     }
 
-    public void createBaggageCase(String location, String brand, String color, String weight, String description, String startDate) {
+    public void createBaggageCase(String location, String brand, String color, String weight, String description) {
         try {
 
             String sql = "insert into baggage (location, brand, color, weight, description, status, startDate)value(?,?,?,?,?,?,?)";
@@ -364,7 +363,7 @@ public class QueryManager {
             pst.setString(4, weight);
             pst.setString(5, description);
             pst.setString(6, "unresolved");
-            pst.setString(7, startDate);
+            pst.setString(7, "GETDATE()");
 
             pst.execute();
 
