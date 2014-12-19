@@ -59,18 +59,27 @@ public class PDFGenerator {
             int setXstartLogo = 20;
             int setystartLogo = 750;
             int setXAnswer = 200;
-            int setXemployee = 350;
-            int setXemployeeanswer = 450;
+            int setXemployee = 30;
+            int setXemployeeanswer = 200;
+            int setYemployeeanswer = 300;
             int setYStart = 700;
             String dateTimeString = dateTime() + "";
-           // String locationEmail = location + "@corendon.com";
 
-            String[] allvariableemployeeinfo = {"date", "employee id",
-                "location", "employee name", "phonenumber location",
-                "location@corendon.com"};
-            String[] allvariableemployeeinfoanswers = {dateTimeString, "employee id",
-                "location", "employee name", "+31 23 75 10 600",
-                "location@corendon.com"};
+            Employee currentEmployee = new Employee(Employee.getCurrentUser());
+//           Label_WelcomeText.setText("Welcome " + currentEmployee.getFullName() + ".");
+
+            String currentEmployeeIDString = currentEmployee.getCurrentEmployeeID() + "";
+            String currentEmployeeString = currentEmployee + "";
+            String locationEmployeeString = currentEmployee.getCurrentLocation() + "";
+
+            String locationEmail = locationEmployeeString + "@corendon.com";
+
+            String[] allvariableemployeeinfo = {"Date: ", "Employee Information", "Phonenumber: ",
+                "Email: ", "Location: "};
+
+            String[] allvariableemployeeinfoanswers = {dateTimeString, currentEmployeeString,
+                "+31 23 75 10 600",
+                locationEmail, locationEmployeeString};
 
             String[] allvariablesanswers = {firstname, lastname, country, city,
                 zipcode, address, phonenumber, emailaddress, shippingcountry,
@@ -96,16 +105,16 @@ public class PDFGenerator {
                         allvariablesanswers[i],
                         spacingbetweenlinesnormalFontSize, i);
             }
-//            for (int i = 0; i < allvariableemployeeinfo.length; i++) {
-//                pdfSetText(setXemployee, setYStart, normalFont,
-           // normalFontSize, allvariableemployeeinfo[i],
-          //  spacingbetweenlinesnormalFontSize, i);
-//            }
-//            for (int i = 0; i < allvariableemployeeinfoanswers.length; i++) {
-//                pdfSetText(setXemployeeanswer, setYStart, normalFont, 
-          //  normalFontSize, allVariables[i], 
-          //  spacingbetweenlinesnormalFontSize, i);
-//            }
+            for (int i = 0; i < allvariableemployeeinfo.length; i++) {
+                pdfSetText(setXemployee, setYemployeeanswer, normalFont,
+                        normalFontSize, allvariableemployeeinfo[i],
+                        spacingbetweenlinesnormalFontSize, i);
+            }
+            for (int i = 0; i < allvariableemployeeinfoanswers.length; i++) {
+                pdfSetText(setXemployeeanswer, setYemployeeanswer, normalFont,
+                        normalFontSize, allvariableemployeeinfoanswers[i],
+                        spacingbetweenlinesnormalFontSize, i);
+            }
 
         } catch (Exception ex) {
             ex.printStackTrace();
