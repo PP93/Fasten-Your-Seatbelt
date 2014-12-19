@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `fys`.`baggage` (
   `color` CHAR(15) NULL,
   `weight` CHAR(15) NULL,
   `description` CHAR(255) NULL,
-  `status` CHAR(31) NOT NULL COMMENT 'not matched, missing, resolved, permanently lost',
+  `status` INT NOT NULL COMMENT '0 = Missing, 1 = Not matched, 2 = Resolved, 3 = Permanently lost',
   `startDate` DATETIME NOT NULL,
   `resolvedDate` DATETIME NULL,
   `clientID` INT NULL,
@@ -118,4 +118,4 @@ VALUES ('MH18', 'Floris', 'van Lent', 'floris.van.lent@hva.nl', '0613371337', '1
 
 INSERT INTO baggage
 (location, brand, color, weight, description, status, startDate, resolvedDate, clientID)
-VALUES ('Schiphol', 'Samsonite', 'Blauw', '10 kg', 'Er staat vet groot "FLORIS" op', 'resolved', '2014-08-14 13:37:00', '2014-08-15 13:37:00', '1');
+VALUES ('Schiphol', 'Samsonite', 'Blauw', '10 kg', 'Er staat vet groot "FLORIS" op', '2', '2014-08-14 13:37:00', '2014-08-15 13:37:00', '1');

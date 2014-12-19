@@ -20,6 +20,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Panel_Manual.setEnabled(false);
         emptyfield_warning.setVisible(false);
         emptyfield_warning.setEnabled(false);
+        ComboBox_Status.setSelectedIndex(-1);
     }
 
     /**
@@ -315,7 +316,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Label_Description.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Description.setForeground(new java.awt.Color(153, 0, 0));
         Label_Description.setText("Description:");
-        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, -1, -1));
+        add(Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, -1, 30));
 
         Label_Status.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         Label_Status.setForeground(new java.awt.Color(153, 0, 0));
@@ -480,7 +481,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         emptyfield_warning.setText("* One or more required fields are empty. Please fill them in and try again.");
         add(emptyfield_warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, -1, -1));
 
-        ComboBox_Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Missing", "Not Matched", "Resolved", "Permanently Lost" }));
+        ComboBox_Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Missing (no baggage)", "Not matched (no client)", "Resolved", "Permanently lost" }));
         add(ComboBox_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 530, 270, 30));
 
         Background.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -537,24 +538,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_SaveMouseExited
 
     private void Checkbox_CopyAddressInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Checkbox_CopyAddressInfoActionPerformed
-// WHY INSERT THIS SHIT IN THE DATABASE WITHOUT SAVING???
-
-//        try {
-//
-//            String sql = "insert into client (shippingcountry,shippingcity,shippingzipcode,shippingaddress)value(?,?,?,?)";
-//            pst = conn.prepareStatement(sql);
-//
-//            pst.setString(1, Field_Address.getText());
-//            pst.setString(2, Field_City.getText());
-//            pst.setString(3, Field_ZipCode.getText());
-//            pst.setString(4, Field_Address.getText());
-//            pst.execute();
-//
-//        } catch (SQLException | HeadlessException e) {
-//
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-        // I think this is way better:
         Field_ShippingAddress.setText(Field_Address.getText());
         Field_ShippingCity.setText(Field_City.getText());
         Field_ShippingZipCode.setText(Field_ZipCode.getText());
@@ -562,25 +545,41 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Checkbox_CopyAddressInfoActionPerformed
 
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
+
+        //NEITHER CLIENT NOR BAGGAGE
         if (!Check_ClientCase.isSelected() && !Check_BaggageCase.isSelected()) {
+
             JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
         } else {
+
+            //BOTH CLIENT AND BAGGAGE
             if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
-                if ((Field_FlightNumber.getText().equals("") ||Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
+
+                if (Field_FlightNumber.getText().equals("")
+                        || Field_FirstName.getText().equals("")
+                        || Field_LastName.getText().equals("")
+                        || Field_Location.getText().equals("")
+                        || Field_Brand.getText().equals("")
+                        || Field_Color.getText().equals("")
+                        || Field_Weight.getText().equals("")
+                        || Field_Description.getText().equals("")
+                        || ComboBox_Status.getSelectedIndex() == -1) {
+
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
+
+                    FYS.getQueryManager().createCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
+                            Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(),
+                            Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
+
+                    emptyfield_warning.setVisible(false);
+                    emptyfield_warning.setEnabled(false);
                 }
 
-                FYS.getQueryManager().createCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(), 
-                        Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), 
-                        Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
-
-                emptyfield_warning.setVisible(false);
-                emptyfield_warning.setEnabled(false);
-
+            //CLIENT ONLY
             } else if (Check_ClientCase.isSelected()) {
-                if (Field_FlightNumber.getText().equals("") ||Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
+                if (Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
@@ -592,6 +591,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     emptyfield_warning.setEnabled(false);
                 }
 
+                //BAGGAGE ONLY
             } else {
                 if (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
@@ -599,34 +599,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                 } else {
 
                     FYS.getQueryManager().createBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
-                    /*  try {
-
-                     String sql = "insert into baggage (flightnumber,brand,color,weight,description,dateadded,status)value(?,?,?,?,?,?,?)";
-                     pst = conn.prepareStatement(sql);
-
-                     pst.setString(1, Field_FlightNumber.getText());
-                     pst.setString(2, Field_Brand.getText());
-                     pst.setString(3, Field_Color.getText());
-                     pst.setString(4, Field_Weight.getText());
-                     pst.setString(5, Field_Description.getText());
-                     pst.setString(6, Field_EntryDate.getText());
-                     //                        pst.setString(6,((JTextField)Field_DateAdded.getDateEditor().getUiComponent()).getText());
-                     pst.setString(7, "unresolved");
-                        
-                     pst.execute();
-                        
-                     //Floris: This isn't perfect yet but neither is this huge ass block of 
-                     //if-else-statements :P When we have a class for getting all info of a piece
-                     //of baggage and other classes for employees and clients, I'll make this
-                     //better :D
-                     FYS.getQueryManager().createLogNewCase(Field_FlightNumber.getText());
-                        
-                     JOptionPane.showMessageDialog(null, "Saved");
-
-                     } catch (SQLException | HeadlessException e) {
-
-                     JOptionPane.showMessageDialog(null, e);
-                     }*/
                 }
             }
         }
@@ -653,7 +625,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Field_Color.setText("");
         Field_Weight.setText("");
         Field_Description.setText("");
-        ComboBox_Status.setSelectedIndex(0);
+        ComboBox_Status.setSelectedIndex(-1);
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Tab_NewCaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_NewCaseMouseClicked

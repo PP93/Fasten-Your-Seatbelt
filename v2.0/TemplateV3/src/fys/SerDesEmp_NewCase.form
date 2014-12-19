@@ -680,7 +680,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="830" y="370" width="-1" height="-1"/>
+          <AbsoluteConstraints x="830" y="370" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -1007,10 +1007,10 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="Missing"/>
-            <StringItem index="1" value="Not Matched"/>
+            <StringItem index="0" value="Missing (no baggage)"/>
+            <StringItem index="1" value="Not matched (no client)"/>
             <StringItem index="2" value="Resolved"/>
-            <StringItem index="3" value="Permanently Lost"/>
+            <StringItem index="3" value="Permanently lost"/>
           </StringArray>
         </Property>
       </Properties>
