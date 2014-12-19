@@ -15,7 +15,8 @@ import javax.swing.JOptionPane;
 public class Employee {
 
     public static String currentUsername;
-
+    public static String currentLocation;
+    public static int currentemployeeID;
     public int employeeID;
     public String firstName;
     public String lastName;
@@ -83,9 +84,22 @@ public class Employee {
     public static String getCurrentUser() {
         return Employee.currentUsername;
     }
-
     public static void setCurrentUser(String currentUsername) {
         Employee.currentUsername = currentUsername;
+    }
+
+    public  String getCurrentLocation() {
+        return location;
+    }
+    public static void setCurrentLocation(String currentLocation) {
+        Employee.currentLocation = currentLocation;
+    }
+
+    public  int getCurrentEmployeeID() {
+        return Employee.currentemployeeID;
+    }
+    public static void setCurrentEmployeeID(int currentemployeeID) {
+        Employee.currentemployeeID = currentemployeeID;
     }
 
     public String getFullName() {
