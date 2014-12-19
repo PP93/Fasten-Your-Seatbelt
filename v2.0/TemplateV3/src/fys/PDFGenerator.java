@@ -74,7 +74,7 @@ public class PDFGenerator {
 
             String locationEmail = locationEmployeeString + "@corendon.com";
 
-            String[] allvariableemployeeinfo = {"Date: ", "Employee Information", "Phonenumber: ",
+            String[] allvariableemployeeinfo = {"Date: ", "Employee Information: ", "Phonenumber: ",
                 "Email: ", "Location: "};
 
             String[] allvariableemployeeinfoanswers = {dateTimeString, currentEmployeeString,
