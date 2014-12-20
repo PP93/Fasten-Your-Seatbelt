@@ -254,12 +254,19 @@ public class QueryManager {
         }
     }
 
-    public void createCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingCountry,
-            String shippingZipCode, String shippingAddress, String shippingCity, String location, String brand, String color, String weight, String description) {
-        try {
+    public void createCase(String flightNumber, String firstName, String lastName,
+            String emailAddress, String phoneNumber, String zipCode, String address, String city,
+            String country, String shippingZipCode, String shippingAddress, String shippingCity,
+            String shippingCountry, String location, String brand, String color, String weight,
+            String description, int status) {
 
-            String sql = "insert into client (flightNumber, firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
-            pst = conn.prepareStatement(sql);
+        try {
+            //Insert client-info into the fys.client table
+            String insertClient = "INSERT INTO client (flightNumber, firstName, lastName, "
+                    + "emailAddress, phoneNumber, zipCode, address, city, country, "
+                    + "shippingZipCode, shippingAddress, shippingCity, shippingCountry) VALUE "
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            pst = conn.prepareStatement(insertClient);
 
             pst.setString(1, flightNumber);
             pst.setString(2, firstName);
@@ -270,41 +277,40 @@ public class QueryManager {
             pst.setString(7, address);
             pst.setString(8, city);
             pst.setString(9, country);
-            pst.setString(10, shippingCountry);
-            pst.setString(11, shippingZipCode);
-            pst.setString(12, shippingAddress);
-            pst.setString(13, shippingCity);
+            pst.setString(10, shippingZipCode);
+            pst.setString(11, shippingAddress);
+            pst.setString(12, shippingCity);
+            pst.setString(13, shippingCountry);
 
             pst.execute();
 
-            Employee currentEmployee = new Employee(Employee.getCurrentUser());
-            String fullName = firstName + " " + lastName;
-            createLog("" + currentEmployee.employeeID, "SerDesEmp_NewCase", "Created new case for "
-                    + firstName + " " + lastName + " at " + currentEmployee.location);
+            createLog(Employee.getCurrentUser(), "SerDesEmp_NewCase", "Created new case for "
+                    + firstName + " " + lastName + " at " + location);
 
-            String sql2 = "SELECT clientID FROM client where name = '" + firstName + "' AND lastname = '" + lastName + "'";
-            pst = conn.prepareStatement(sql2);
+            //Get the clientID we just generated (Can't this be easier D: ? This could go wrong!)
+            String getClientID = "SELECT clientID FROM client WHERE flightNumber = '" + flightNumber
+                    + "' AND firstName = '" + firstName + "' AND lastName = '" + lastName + "'";
+            pst = conn.prepareStatement(getClientID);
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                String clientID = rs.getString("clientID");
-
-                String addBaggage = "insert into baggage (location, brand, color, weight, description, status, startDate, clientID)value(?,?,?,?,?,?,GETDATE(),?)";
-                pst = conn.prepareStatement(addBaggage);
+                //Insert baggage-info into the fys.baggage table
+                String insertBaggage = "INSERT INTO baggage (location, brand, color, weight, "
+                        + "description, status, startDate, clientID) VALUE "
+                        + "(?,?,?,?,?,?,now(),?)";
+                pst = conn.prepareStatement(insertBaggage);
 
                 pst.setString(1, location);
                 pst.setString(2, brand);
                 pst.setString(3, color);
                 pst.setString(4, weight);
                 pst.setString(5, description);
-                pst.setString(6, "unresolved");
-//                pst.setString(7, "GETDATE()");
-                pst.setString(8, clientID);
+                pst.setString(6, "" + status);
+                pst.setString(7, rs.getString("clientID"));
 
                 pst.execute();
 
                 JOptionPane.showMessageDialog(null, "Saved");
-
             }
 
         } catch (SQLException | HeadlessException e) {

@@ -549,7 +549,8 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         //NEITHER CLIENT NOR BAGGAGE
         if (!Check_ClientCase.isSelected() && !Check_BaggageCase.isSelected()) {
 
-            JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
+            JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make "
+                    + "first.");
         } else {
 
             //BOTH CLIENT AND BAGGAGE
@@ -569,9 +570,27 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     emptyfield_warning.setEnabled(true);
                 } else {
 
-                    FYS.getQueryManager().createCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
-                            Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(),
-                            Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
+                    FYS.getQueryManager().createCase(
+                            Field_FlightNumber.getText(),
+                            Field_FirstName.getText(),
+                            Field_LastName.getText(),
+                            Field_EmailAddress.getText(),
+                            Field_PhoneNumber.getText(),
+                            Field_ZipCode.getText(),
+                            Field_Address.getText(),
+                            Field_City.getText(),
+                            Field_Country.getText(),
+                            Field_ShippingZipCode.getText(),
+                            Field_ShippingAddress.getText(),
+                            Field_ShippingCity.getText(),
+                            Field_ShippingCountry.getText(),
+                            Field_Location.getText(),
+                            Field_Brand.getText(),
+                            Field_Color.getText(),
+                            Field_Weight.getText(),
+                            Field_Description.getText(),
+                            ComboBox_Status.getSelectedIndex()
+                    );
 
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
@@ -579,7 +598,14 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
             //CLIENT ONLY
             } else if (Check_ClientCase.isSelected()) {
-                if (Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
+                if (Field_FlightNumber.getText().equals("")
+                        || Field_FirstName.getText().equals("")
+                        || Field_LastName.getText().equals("")
+                        || Field_ZipCode.getText().equals("")
+                        || Field_Address.getText().equals("")
+                        || Field_City.getText().equals("")
+                        || Field_Country.getText().equals("")) {
+
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
@@ -591,7 +617,7 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     emptyfield_warning.setEnabled(false);
                 }
 
-                //BAGGAGE ONLY
+            //BAGGAGE ONLY
             } else {
                 if (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
                     emptyfield_warning.setVisible(true);
