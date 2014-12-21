@@ -1,16 +1,20 @@
 package fys;
 
 import java.awt.Color;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import org.apache.pdfbox.exceptions.COSVisitorException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.edit.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.util.PDFMergerUtility;
 
 /**
  *
@@ -24,13 +28,18 @@ public class PDFGenerator {
     public PDFGenerator() {
         try {
             // Create a document and add a page to it
-            this.document = PDDocument.load("C:\\Users\\Alternate\\Documents\\GitHub\\Fasten-Your-Seatbelt\\v2.0\\TemplateV3\\Florisvan Lent1337 WC.pdf");
-                    PDPage page = new PDPage();
-            this.document.addPage(page);
-            
 
+            this.document = PDDocument.load("C:\\Users\\Alternate\\Documents\\GitHub\\Fasten-Your-Seatbelt\\v2.0\\TemplateV3\\Template.pdf");
+//            PDPage page = new PDPage();
+//            this.document.addPage(page);
+            //(URL C:\Users\Alternate\Documents\GitHub\Fasten-Your-Seatbelt\v2.0\TemplateV3\Florisvan Lent1337 WC.pdf)
             // Start a new content stream which will "hold" the to be created content
-            this.contentStream = new PDPageContentStream(document, page);
+//            this.document = new PDDocument();
+            PDPage page = (PDPage) document.getDocumentCatalog().getAllPages().get(0);
+            this.document.addPage(page);
+
+            this.contentStream = new PDPageContentStream(document, page, true, true);
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -58,12 +67,12 @@ public class PDFGenerator {
             String text = "text";
             int setXStart = 30;
             int setXstartLogo = 20;
-            int setystartLogo = 750;
+            int setystartLogo = 720;
             int setXAnswer = 200;
             int setXemployee = 30;
             int setXemployeeanswer = 200;
-            int setYemployeeanswer = 300;
-            int setYStart = 700;
+            int setYemployeeanswer = 276;
+            int setYStart = 670;
             String dateTimeString = dateTime() + "";
 
             Employee currentEmployee = new Employee(Employee.getCurrentUser());
@@ -75,8 +84,7 @@ public class PDFGenerator {
 
             String locationEmail = locationEmployeeString + "@corendon.com";
 
-            String[] allvariableemployeeinfo = {"Date: ", "Employee Information: ", "Phonenumber: ",
-                "Email: ", "Location: "};
+            
 
             String[] allvariableemployeeinfoanswers = {dateTimeString, currentEmployeeString,
                 "+31 23 75 10 600",
@@ -86,31 +94,17 @@ public class PDFGenerator {
                 zipcode, address, phonenumber, emailaddress, shippingcountry,
                 shippingzipcode, shippingaddress, shippingcity, flightnumber,
                 brand, color, weight, description};
-            String[] allVariables = {"firstname", "lastname", "country", "city",
-                "zipcode", "address", "phonenumber", "emailaddress",
-                "shippingcountry", "shippingzipcode", "shippingaddress",
-                "shippingcity", "flightnumber", "brand", "color", "weight",
-                "description"};
+            
 
-            for (int i = 0; i < allVariables.length; i++) {
-                pdfSetText(setXStart, setYStart, normalFont, normalFontSize,
-                        allVariables[i], spacingbetweenlinesnormalFontSize, i);
-            }
-            for (int i = 0; i < 1; i++) {
-                pdfSetText(setXstartLogo, setystartLogo, normalFont,
-                        logoFontSize, corendon,
-                        spacingbetweenlinesnormalFontSize, i);
-            }
+            
+            
             for (int i = 0; i < allvariablesanswers.length; i++) {
                 pdfSetText(setXAnswer, setYStart, normalFont, normalFontSize,
                         allvariablesanswers[i],
                         spacingbetweenlinesnormalFontSize, i);
             }
-            for (int i = 0; i < allvariableemployeeinfo.length; i++) {
-                pdfSetText(setXemployee, setYemployeeanswer, normalFont,
-                        normalFontSize, allvariableemployeeinfo[i],
-                        spacingbetweenlinesnormalFontSize, i);
-            }
+            
+            
             for (int i = 0; i < allvariableemployeeinfoanswers.length; i++) {
                 pdfSetText(setXemployeeanswer, setYemployeeanswer, normalFont,
                         normalFontSize, allvariableemployeeinfoanswers[i],
@@ -136,6 +130,7 @@ public class PDFGenerator {
 
     public void save(String filename) {
         try {
+
             // Make sure that the content stream is closed:
             this.contentStream.close();
 
@@ -167,4 +162,5 @@ public class PDFGenerator {
 //	   System.out.println(dateFormat.format(cal.getTime()));
         return date;
     }
+
 }

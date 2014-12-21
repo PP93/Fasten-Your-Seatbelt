@@ -1,6 +1,8 @@
 package fys;
 
 import java.awt.HeadlessException;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -9,6 +11,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
+import org.apache.pdfbox.util.PDFMergerUtility;
 
 public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
@@ -699,29 +702,30 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Tab_AddExtraBaggage.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseClicked
 
-/* THESE PROTECTED FIELDS SUCK WHEN NETBEANS FAILS TO RENAME STUFF AND DECIDES TO SCREW EVERYTHING
+    /* THESE PROTECTED FIELDS SUCK WHEN NETBEANS FAILS TO RENAME STUFF AND DECIDES TO SCREW EVERYTHING
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {             Panel_Manual//GEN-FIRST:event_Label_ManualExitMouseClicked
         Panel_Manual.setVisible(false);
-        Panel_Manual.setEnabled(false);
+     Panel_Manual.setEnabled(false);
     }                          Panel_Manual//GEN-LAST:event_Label_ManualExitMouseClicked
 */
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {
         Panel_Manual.setVisible(false);
         Panel_Manual.setEnabled(false);
     }
-/* DUDE FUCKING SERIOUSLY???
+    /* DUDE FUCKING SERIOUSLY???
     private void LabelPanel_ManualouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
         if (Panel_Manual.isVisible()) {
-            Panel_Manual.setVisible(false);
-            Panel_Manual.setEnabled(false);
-        } else {
-            Panel_Manual.setVisible(true);
-            Panel_Manual.setEnabled(true);
+     Panel_Manual.setVisible(false);
+     Panel_Manual.setEnabled(false);
+     } else {
+     Panel_Manual.setVisible(true);
+     Panel_Manual.setEnabled(true);
 
-        }
+     }
     }//GEN-LAST:event_Label_CallManualMouseClicked
 */
-    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {                                              
+
+    private void Label_CallManualMouseClicked(java.awt.event.MouseEvent evt) {
         if (Panel_Manual.isVisible()) {
             Panel_Manual.setVisible(false);
             Panel_Manual.setEnabled(false);
@@ -729,8 +733,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
             Panel_Manual.setVisible(true);
             Panel_Manual.setEnabled(true);
         }
-    } 
-    
+    }
+
     private void Field_EmailAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_EmailAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Field_EmailAddressActionPerformed
@@ -781,52 +785,52 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
     //TO DO: EVERYTHING HERE, we should use the selected case to make sure the right thing is updated but let me think about that when it's not 4AM
     private void Button_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SaveMouseClicked
-/*        if (!Check_ClientCase.isSelected() && !Check_BaggageCase.isSelected()) {
-            JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
-        } else {
-            if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
-                if ((Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
-                    emptyfield_warning.setVisible(true);
-                    emptyfield_warning.setEnabled(true);
-                } else {
+        /*        if (!Check_ClientCase.isSelected() && !Check_BaggageCase.isSelected()) {
+         JOptionPane.showMessageDialog(null, "Please select what type of case you wish to make first.");
+         } else {
+         if (Check_ClientCase.isSelected() && Check_BaggageCase.isSelected()) {
+         if ((Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) || (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals(""))) {
+         emptyfield_warning.setVisible(true);
+         emptyfield_warning.setEnabled(true);
+         } else {
 
-                    FYS.getQueryManager().updateCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
-                            Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), Field_ShippingCountry.getText(),
-                            Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText(), Field_RetrievalDate.getText(), "" + ComboBox_Status.getSelectedIndex());
+         FYS.getQueryManager().updateCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
+         Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), Field_ShippingCountry.getText(),
+         Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText(), Field_RetrievalDate.getText(), "" + ComboBox_Status.getSelectedIndex());
 
-                    FYS.getQueryManager().updateClientTable(Table_Clients);
-                    emptyfield_warning.setVisible(false);
-                    emptyfield_warning.setEnabled(false);
-                }
-            } else if (Check_ClientCase.isSelected()) {
-                if (Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
-                    emptyfield_warning.setVisible(true);
-                    emptyfield_warning.setEnabled(true);
-                } else {
+         FYS.getQueryManager().updateClientTable(Table_Clients);
+         emptyfield_warning.setVisible(false);
+         emptyfield_warning.setEnabled(false);
+         }
+         } else if (Check_ClientCase.isSelected()) {
+         if (Field_FlightNumber.getText().equals("") || Field_FirstName.getText().equals("") || Field_LastName.getText().equals("") || Field_ZipCode.getText().equals("") || Field_Address.getText().equals("") || Field_City.getText().equals("") || Field_Country.getText().equals("")) {
+         emptyfield_warning.setVisible(true);
+         emptyfield_warning.setEnabled(true);
+         } else {
                     
-                   FYS.getQueryManager().updateClientCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
-                            Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), Field_ShippingCountry.getText());
+         FYS.getQueryManager().updateClientCase(Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(),
+         Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText(), Field_ShippingCountry.getText());
                    
-                    FYS.getQueryManager().updateClientTable(Table_Clients);
-                    emptyfield_warning.setVisible(false);
-                    emptyfield_warning.setEnabled(false);
-                }
+         FYS.getQueryManager().updateClientTable(Table_Clients);
+         emptyfield_warning.setVisible(false);
+         emptyfield_warning.setEnabled(false);
+         }
 
-            } else {
-                if (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
-                    emptyfield_warning.setVisible(true);
-                    emptyfield_warning.setEnabled(true);
-                } else {
+         } else {
+         if (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
+         emptyfield_warning.setVisible(true);
+         emptyfield_warning.setEnabled(true);
+         } else {
                     
-                   FYS.getQueryManager().updateBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText(), 
-                           Field_RetrievalDate.getText(), "" + ComboBox_Status.getSelectedIndex());
+         FYS.getQueryManager().updateBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText(), Field_EntryDate.getText(), 
+         Field_RetrievalDate.getText(), "" + ComboBox_Status.getSelectedIndex());
                     
-                    FYS.getQueryManager().updateClientTable(Table_Clients);
-                    emptyfield_warning.setVisible(false);
-                    emptyfield_warning.setEnabled(false);
-                }
-            }
-        }*/
+         FYS.getQueryManager().updateClientTable(Table_Clients);
+         emptyfield_warning.setVisible(false);
+         emptyfield_warning.setEnabled(false);
+         }
+         }
+         }*/
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
@@ -879,20 +883,23 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         String weight = Field_Weight.getText();
         String description = Field_Description.getText();
 
-        //description  generate and save pdf
         PDFGenerator pdf = new PDFGenerator();
         pdf.generate(date, firstname, lastname, country, city, zipcode, address, phonenumber, emailaddress, shippingcountry, shippingzipcode, shippingaddress, shippingcity, flightnumber, brand, color, weight, description);
 
-        //  moet aangepast worden zodra doreen klaar heeft wat er in gevuld moet worden
         pdf.save(firstname + lastname + zipcode + ".pdf");
+        
+                
+
+        
+        
     }//GEN-LAST:event_Button_PDFMouseClicked
 
     private void Button_PDFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseEntered
-        Button_Save.setBackground(new java.awt.Color(51, 136, 68));
+        Button_PDF.setBackground(new java.awt.Color(51, 136, 68));
     }//GEN-LAST:event_Button_PDFMouseEntered
 
     private void Button_PDFMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseExited
-        Button_Reset.setBackground(new java.awt.Color(34, 153, 68));
+        Button_PDF.setBackground(new java.awt.Color(34, 153, 68));
     }//GEN-LAST:event_Button_PDFMouseExited
 
     private void Field_ShippingCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Field_ShippingCountryActionPerformed
@@ -900,14 +907,14 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Field_ShippingCountryActionPerformed
 
     private void Button_SearchClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_SearchClientMouseClicked
-             try {
+        try {
             String sql = "select clientID, firstName, lastName from client where clientID=? OR  firstname=? OR lastname=?  ";
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, Field_SearchClient.getText());
             pst.setString(2, Field_SearchClient.getText());
             pst.setString(3, Field_SearchClient.getText());
-   
+
             rs = pst.executeQuery();
             Table_Clients.setModel(DbUtils.resultSetToTableModel(rs));
 
