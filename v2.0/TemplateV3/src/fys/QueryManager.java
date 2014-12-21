@@ -245,7 +245,18 @@ public class QueryManager {
 // ------------------------------ SERVICE DESK EMPLOYEE QUERIES -------------------------
     public void updateClientTable(JTable jTable) {
         try {
-            String sql = "select clientID, firstName, lastName from client";
+            String sql = "SELECT clientID, firstName, lastName FROM client";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            jTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    public void updateBaggageTable(JTable jTable) {
+        try {
+            String sql = "SELECT baggageID, location, status FROM baggage";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             jTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -317,15 +328,20 @@ public class QueryManager {
 
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 
-    public void createClientCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingCountry,
-            String shippingZipCode, String shippingAddress, String shippingCity) {
+    public void createClientCase(String flightNumber, String firstName, String lastName,
+            String emailAddress, String phoneNumber, String zipCode, String address, String city,
+            String country, String shippingZipCode, String shippingAddress, String shippingCity,
+            String shippingCountry) {
 
         try {
-            String sql = "insert into client (flightNumber, firstName,lastName,emailAddress,phoneNumber,zipCode,address,city,country,shippingCountry,shippingZipCode,shippingAddress,shippingCity) value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            pst = conn.prepareStatement(sql);
+            //Insert client-info into the fys.client table
+            String insertClient = "INSERT INTO client (flightNumber, firstName, lastName, "
+                    + "emailAddress, phoneNumber, zipCode, address, city, country, "
+                    + "shippingZipCode, shippingAddress, shippingCity, shippingCountry) VALUE "
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            pst = conn.prepareStatement(insertClient);
 
             pst.setString(1, flightNumber);
             pst.setString(2, firstName);
@@ -336,44 +352,62 @@ public class QueryManager {
             pst.setString(7, address);
             pst.setString(8, city);
             pst.setString(9, country);
-            pst.setString(10, shippingCountry);
-            pst.setString(11, shippingZipCode);
-            pst.setString(12, shippingAddress);
-            pst.setString(13, shippingCity);
+            pst.setString(10, shippingZipCode);
+            pst.setString(11, shippingAddress);
+            pst.setString(12, shippingCity);
+            pst.setString(13, shippingCountry);
 
             pst.execute();
-            
-            //Moet client-/baggageID in de log? Lijkt me wel, maar is moeilijk
-            Employee currentEmployee = new Employee(Employee.getCurrentUser());
-            createLog("" + currentEmployee.employeeID, "SerDesEmp_NewCase", "Created new case for "
-                    + firstName + " " + lastName + " at " + currentEmployee.location);
-            
-            JOptionPane.showMessageDialog(null, "Saved");
+
+            createLog(Employee.getCurrentUser(), "SerDesEmp_NewCase", "Created new client-case for "
+                    + firstName + " " + lastName);
+
+            //Get the clientID we just generated (Can't this be easier D: ?)
+            String getClientID = "SELECT clientID FROM client WHERE firstName = '" + firstName
+                    + "' AND lastName = '" + lastName + "' AND zipCode = '" + zipCode + "'";
+            pst = conn.prepareStatement(getClientID);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                //Make sure a status and startDate is created so we have perfect and detailed graphs
+                String insertBaggage = "INSERT INTO baggage (status, startDate, clientID) VALUE "
+                        + "(?,now(),?)";
+                pst = conn.prepareStatement(insertBaggage);
+
+                pst.setString(1, "0");
+                pst.setString(2, rs.getString("clientID"));
+
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Saved");
+            }
 
         } catch (SQLException | HeadlessException e) {
 
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 
-    public void createBaggageCase(String location, String brand, String color, String weight, String description) {
+    public void createBaggageCase(String location, String brand, String color, String weight,
+            String description, int status) {
         try {
+                String insertBaggage = "INSERT INTO baggage (location, brand, color, weight, "
+                        + "description, status, startDate) VALUE (?,?,?,?,?,?,now())";
+                pst = conn.prepareStatement(insertBaggage);
 
-            String sql = "insert into baggage (location, brand, color, weight, description, status, startDate)value(?,?,?,?,?,?,?)";
-            pst = conn.prepareStatement(sql);
+                pst.setString(1, location);
+                pst.setString(2, brand);
+                pst.setString(3, color);
+                pst.setString(4, weight);
+                pst.setString(5, description);
+                pst.setString(6, "" + status);
 
-            pst.setString(1, location);
-            pst.setString(2, brand);
-            pst.setString(3, color);
-            pst.setString(4, weight);
-            pst.setString(5, description);
-            pst.setString(6, "unresolved");
-            pst.setString(7, "GETDATE()");
+                pst.execute();
+                
+                createLog(Employee.getCurrentUser(), "SerDesEmp_NewCase", "Created new baggage-case"
+                        + " at " + location);
 
-            pst.execute();
-
-            JOptionPane.showMessageDialog(null, "Saved");
+                JOptionPane.showMessageDialog(null, "Saved");
 
         } catch (SQLException | HeadlessException e) {
 

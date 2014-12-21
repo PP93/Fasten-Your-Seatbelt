@@ -36,6 +36,10 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         Label_Logo = new javax.swing.JLabel();
         Label_CallManual = new javax.swing.JLabel();
+        Panel_Manual = new javax.swing.JPanel();
+        Label_ManualExit = new javax.swing.JLabel();
+        Label_Title = new javax.swing.JLabel();
+        Label_Info = new javax.swing.JLabel();
         Check_ClientCase = new javax.swing.JCheckBox();
         Label_ClientInformation = new javax.swing.JLabel();
         Label_FlightNumber = new javax.swing.JLabel();
@@ -88,10 +92,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         emptyfield_warning = new javax.swing.JLabel();
         ComboBox_Status = new javax.swing.JComboBox();
         Background = new javax.swing.JLabel();
-        Panel_Manual = new javax.swing.JPanel();
-        Label_ManualExit = new javax.swing.JLabel();
-        Label_Title = new javax.swing.JLabel();
-        Label_Info = new javax.swing.JLabel();
 
         employee_id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         employee_id.setForeground(new java.awt.Color(153, 0, 0));
@@ -117,6 +117,34 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
             }
         });
         add(Label_CallManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 50, 50));
+
+        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Panel_Manual.setEnabled(false);
+        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_ManualExit.setText("X");
+        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Label_ManualExitMouseClicked(evt);
+            }
+        });
+        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
+
+        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Title.setText("Manual");
+        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
+
+        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_Info.setText("<html>\nTo create a new case, fill in all the known and necessary\ndata in the given fields. If you need to start over from \nscratch, click the 'Reset' button to clear all fields and\nbegin again. Once all the needed fields have been filled,\nclick 'Save' to create and save the new case.\n<br>\n<br>\nRequired fields are marked by a *.");
+        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
+
+        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
 
         Check_ClientCase.setBackground(new java.awt.Color(255, 255, 255));
         Check_ClientCase.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -490,34 +518,6 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fys/Images/Background.png"))); // NOI18N
         Background.setOpaque(true);
         add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 780));
-
-        Panel_Manual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        Panel_Manual.setEnabled(false);
-        Panel_Manual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Label_ManualExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_ManualExit.setText("X");
-        Label_ManualExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Label_ManualExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Label_ManualExitMouseClicked(evt);
-            }
-        });
-        Panel_Manual.add(Label_ManualExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 20, 20));
-
-        Label_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Label_Title.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Title.setText("Manual");
-        Panel_Manual.add(Label_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
-
-        Label_Info.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Label_Info.setForeground(new java.awt.Color(153, 0, 0));
-        Label_Info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_Info.setText("<html>\nTo create a new case, fill in all the known and necessary\ndata in the given fields. If you need to start over from \nscratch, click the 'Reset' button to clear all fields and\nbegin again. Once all the needed fields have been filled,\nclick 'Save' to create and save the new case.\n<br>\n<br>\nRequired fields are marked by a *.");
-        Label_Info.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_Manual.add(Label_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 420));
-
-        add(Panel_Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 290, 590));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -610,8 +610,21 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
                     emptyfield_warning.setEnabled(true);
                 } else {
 
-                    FYS.getQueryManager().createClientCase( Field_FlightNumber.getText(), Field_FirstName.getText(), Field_LastName.getText(), Field_EmailAddress.getText(), Field_PhoneNumber.getText(), Field_ZipCode.getText(), 
-                            Field_Address.getText(), Field_City.getText(), Field_Country.getText(), Field_ShippingCountry.getText(), Field_ShippingZipCode.getText(), Field_ShippingAddress.getText(), Field_ShippingCity.getText());
+                    FYS.getQueryManager().createClientCase(
+                            Field_FlightNumber.getText(),
+                            Field_FirstName.getText(),
+                            Field_LastName.getText(),
+                            Field_EmailAddress.getText(),
+                            Field_PhoneNumber.getText(),
+                            Field_ZipCode.getText(),
+                            Field_Address.getText(),
+                            Field_City.getText(),
+                            Field_Country.getText(),
+                            Field_ShippingZipCode.getText(),
+                            Field_ShippingAddress.getText(),
+                            Field_ShippingCity.getText(),
+                            Field_ShippingCountry.getText()
+                    );
 
                     emptyfield_warning.setVisible(false);
                     emptyfield_warning.setEnabled(false);
@@ -619,12 +632,24 @@ public class SerDesEmp_NewCase extends javax.swing.JPanel {
 
             //BAGGAGE ONLY
             } else {
-                if (Field_Location.getText().equals("") && Field_Brand.getText().equals("") && Field_Color.getText().equals("") && Field_Weight.getText().equals("") && Field_Description.getText().equals("")) {
+                if (Field_Location.getText().equals("")
+                        || Field_Brand.getText().equals("")
+                        || Field_Color.getText().equals("")
+                        || Field_Weight.getText().equals("")
+                        || Field_Description.getText().equals("")
+                        || ComboBox_Status.getSelectedIndex() == -1) {
+
                     emptyfield_warning.setVisible(true);
                     emptyfield_warning.setEnabled(true);
                 } else {
 
-                    FYS.getQueryManager().createBaggageCase(Field_Location.getText(), Field_Brand.getText(), Field_Color.getText(), Field_Weight.getText(), Field_Description.getText());
+                    FYS.getQueryManager().createBaggageCase(
+                            Field_Location.getText(),
+                            Field_Brand.getText(),
+                            Field_Color.getText(),
+                            Field_Weight.getText(),
+                            Field_Description.getText(),
+                            ComboBox_Status.getSelectedIndex());
                 }
             }
         }
