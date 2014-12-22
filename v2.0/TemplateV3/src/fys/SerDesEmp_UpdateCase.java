@@ -19,6 +19,8 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     ResultSet rs = null;
     PreparedStatement pst = null;
     boolean isSelected = false;
+    int selectedClientID = 0;
+    int selectedBaggageID = 0;
 
     public SerDesEmp_UpdateCase() {
         initComponents();
@@ -639,7 +641,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Tab_AddExtraBaggage.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseExited
 
-
     private void Button_ResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseEntered
         Button_Reset.setBackground(new java.awt.Color(51, 136, 68));
     }//GEN-LAST:event_Button_ResetMouseEntered
@@ -702,17 +703,19 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Tab_AddExtraBaggage.setBackground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_Tab_AddExtraBaggageMouseClicked
 
-    /* THESE PROTECTED FIELDS SUCK WHEN NETBEANS FAILS TO RENAME STUFF AND DECIDES TO SCREW EVERYTHING
+/* THESE PROTECTED FIELDS SUCK WHEN NETBEANS FAILS TO RENAME STUFF AND DECIDES TO SCREW EVERYTHING
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {             Panel_Manual//GEN-FIRST:event_Label_ManualExitMouseClicked
         Panel_Manual.setVisible(false);
      Panel_Manual.setEnabled(false);
     }                          Panel_Manual//GEN-LAST:event_Label_ManualExitMouseClicked
 */
+
     private void Label_ManualExitMouseClicked(java.awt.event.MouseEvent evt) {
         Panel_Manual.setVisible(false);
         Panel_Manual.setEnabled(false);
     }
-    /* DUDE FUCKING SERIOUSLY???
+
+/* DUDE FUCKING SERIOUSLY???
     private void LabelPanel_ManualouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_CallManualMouseClicked
         if (Panel_Manual.isVisible()) {
      Panel_Manual.setVisible(false);
@@ -745,11 +748,14 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
 
     private void Table_ClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_ClientsMouseClicked
         try {
+
+ //           rs = FYS.getQueryManager().loadCase(Table_Clients);
+            
             int row = Table_Clients.getSelectedRow();
-            String Table_click = (Table_Clients.getModel().getValueAt(row, 0).toString());
+            selectedClientID = Integer.parseInt(Table_Clients.getModel().getValueAt(row, 0).toString());
 
             String sql = "SELECT * FROM client INNER JOIN baggage ON client.clientID = "
-                    + "baggage.clientID WHERE client.clientID = '" + Table_click + "'";
+                    + "baggage.clientID WHERE client.clientID = '" + selectedClientID + "'";
 
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -834,6 +840,7 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
     }//GEN-LAST:event_Button_SaveMouseClicked
 
     private void Button_ResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_ResetMouseClicked
+        Field_FlightNumber.setText("");
         Field_FirstName.setText("");
         Field_LastName.setText("");
         Field_EmailAddress.setText("");
@@ -851,10 +858,9 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         Field_Color.setText("");
         Field_Weight.setText("");
         Field_Description.setText("");
-//        Field_EntryDate.setText("");
-//        Field_RetrievalDate.setText("");
-
-
+        Field_EntryDate.setText("");
+        Field_ResolvedDate.setText("");
+        ComboBox_Status.setSelectedIndex(-1);
     }//GEN-LAST:event_Button_ResetMouseClicked
 
     private void Label_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_LogoMouseClicked
@@ -887,11 +893,6 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         pdf.generate(date, firstname, lastname, country, city, zipcode, address, phonenumber, emailaddress, shippingcountry, shippingzipcode, shippingaddress, shippingcity, flightnumber, brand, color, weight, description);
 
         pdf.save(firstname + lastname + zipcode + ".pdf");
-        
-                
-
-        
-        
     }//GEN-LAST:event_Button_PDFMouseClicked
 
     private void Button_PDFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_PDFMouseEntered
@@ -932,8 +933,60 @@ public class SerDesEmp_UpdateCase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_SearchClientMouseExited
 
+    
+    /*Currently working on this bitch*/
     private void Table_BaggageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_BaggageMouseClicked
-        // TODO add your handling code here:
+        try {
+
+//            rs = FYS.getQueryManager().loadCase(Table_Baggage);
+
+            int row = Table_Baggage.getSelectedRow();
+            selectedBaggageID = Integer.parseInt(Table_Baggage.getModel().getValueAt(row, 0).toString());
+            System.out.println(selectedBaggageID);
+            
+            Integer selectedClientIDFUCK = Integer.parseInt(Table_Baggage.getModel().getValueAt(row,1).toString());
+            System.out.println(selectedClientID);
+            
+            String sql = "";
+
+            if (selectedClientIDFUCK == null) {
+                sql = "SELECT * FROM baggage WHERE baggage.clientID = '" + selectedBaggageID + "'";
+            } else {
+                sql = "SELECT * FROM baggage INNER JOIN client ON baggage.clientID = "
+                        + "client.clientID WHERE baggage.baggageID = '" + selectedBaggageID + "'";
+            }
+
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+
+            if (rs.next()) {
+                Field_FlightNumber.setText(rs.getString("flightNumber"));
+                Field_FirstName.setText(rs.getString("firstName"));
+                Field_LastName.setText(rs.getString("lastName"));
+                Field_EmailAddress.setText(rs.getString("emailAddress"));
+                Field_PhoneNumber.setText(rs.getString("phoneNumber"));
+                Field_ZipCode.setText(rs.getString("zipCode"));
+                Field_Address.setText(rs.getString("address"));
+                Field_City.setText(rs.getString("city"));
+                Field_Country.setText(rs.getString("country"));
+                Field_ShippingZipCode.setText(rs.getString("shippingZipCode"));
+                Field_ShippingAddress.setText(rs.getString("shippingAddress"));
+                Field_ShippingCity.setText(rs.getString("shippingCity"));
+                Field_ShippingCountry.setText(rs.getString("shippingCountry"));
+
+                Field_Location.setText(rs.getString("location"));
+                Field_Brand.setText(rs.getString("brand"));
+                Field_Color.setText(rs.getString("color"));
+                Field_Weight.setText(rs.getString("weight"));
+                Field_Description.setText(rs.getString("description"));
+                ComboBox_Status.setSelectedIndex(Integer.parseInt(rs.getString("status")));
+                Field_EntryDate.setText(rs.getString("startDate"));
+                Field_ResolvedDate.setText(rs.getString("resolvedDate"));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_Table_BaggageMouseClicked
 
     private void Field_SearchBaggageKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Field_SearchBaggageKeyReleased

@@ -256,13 +256,31 @@ public class QueryManager {
     
     public void updateBaggageTable(JTable jTable) {
         try {
-            String sql = "SELECT baggageID, location, status FROM baggage";
+            String sql = "SELECT baggageID, clientID, status FROM baggage";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             jTable.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    public ResultSet loadCase(JTable jTable) {
+        try {
+            int row = jTable.getSelectedRow();
+            String Table_click = (jTable.getModel().getValueAt(row, 0).toString());
+
+            String sql = "SELECT * FROM client INNER JOIN baggage ON client.clientID = "
+                    + "baggage.clientID WHERE client.clientID = '" + Table_click + "'";
+
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        return rs;
     }
 
     public void createCase(String flightNumber, String firstName, String lastName,
@@ -479,8 +497,7 @@ public class QueryManager {
             String sql = "update client set flightNumber =  '" + value1 + "', name = '" + value2 + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '" + value5 + "',zipcode = '" + value6 + "' ,address = '" + value7
                     + "',city = '" + value8 + "' ,country = '" + value9 + "',shippingzipcode = '" + value10 + "',shippingaddress = '" + value11 + "',shippingcity = '" + value12 + "',shippingcountry = '" + value13
                     + "'where ClientID='" + value1 + "' ";
-//Floris vragen naar ClientID
-//Floris: Ik denk dat we dan toch een Client.java moeten maken? OVERLEGGEN
+
             pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated");
@@ -517,24 +534,24 @@ public class QueryManager {
     }
     
     public void addToCase(String clientID, String flightNumber, String brand, String color, String weight, String description){
-          try {
+        try {
 // vragen Floris
-                String sql = "insert into baggage (clientID,flightnumber,brand,color,weight,description)value(?,?,?,?,?,?)";
-                pst = conn.prepareStatement(sql);
+            String sql = "insert into baggage (clientID,flightnumber,brand,color,weight,description)value(?,?,?,?,?,?)";
+            pst = conn.prepareStatement(sql);
 
-                pst.setString(1, clientID);
-                pst.setString(2, flightNumber);
-                pst.setString(3, brand);
-                pst.setString(4, color);
-                pst.setString(5, weight);
-                pst.setString(6, description);
+            pst.setString(1, clientID);
+            pst.setString(2, flightNumber);
+            pst.setString(3, brand);
+            pst.setString(4, color);
+            pst.setString(5, weight);
+            pst.setString(6, description);
 
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Saved");
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Saved");
 
-            } catch (SQLException | HeadlessException e) {
+        } catch (SQLException | HeadlessException e) {
 
-                JOptionPane.showMessageDialog(null, e);
-            }
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 }
