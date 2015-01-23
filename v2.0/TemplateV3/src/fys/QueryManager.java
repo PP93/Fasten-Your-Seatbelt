@@ -16,9 +16,8 @@ public class QueryManager {
     Connection conn = javaconnect.ConnecrDb();
     PreparedStatement pst;
     ResultSet rs;
-    
-    
-   public void logIn(String username, String password) {
+
+    public void logIn(String username, String password) {
         String sql = "SELECT * FROM employee WHERE username=? AND password=?";
         try {
             pst = conn.prepareStatement(sql);
@@ -55,16 +54,16 @@ public class QueryManager {
     }
 
     // -------------------------------- LOG QUERIES --------------------------------------
-    
     /**
      * Returns logs from the database based on the chosen search terms.
+     *
      * @param searchTerm
      * @param toDate
      * @param searchType
      * @return rs to be processed by the updateTable method
      */
     public ResultSet getLogData(String searchTerm, String toDate, String searchType) {
-  
+
         String getLog = "";
 
         switch (searchType) {
@@ -101,6 +100,7 @@ public class QueryManager {
 
     /**
      * Returns the most recent 1000 logs from the database.
+     *
      * @return rs to be processed by the updateTable method
      */
     public ResultSet getAllLogs() {
@@ -121,9 +121,10 @@ public class QueryManager {
 
     /**
      * Creates a log in the database based on the passed arguments.
+     *
      * @param username
      * @param page
-     * @param action 
+     * @param action
      */
     public void createLog(String username, String page, String action) {
         String createLog = "INSERT INTO log (username, page, action) VALUES (?, ?, ?)";
@@ -253,7 +254,7 @@ public class QueryManager {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+
     public void updateBaggageTable(JTable jTable) {
         try {
             String sql = "SELECT baggageID, clientID, status FROM baggage";
@@ -409,23 +410,23 @@ public class QueryManager {
     public void createBaggageCase(String location, String brand, String color, String weight,
             String description, int status) {
         try {
-                String insertBaggage = "INSERT INTO baggage (location, brand, color, weight, "
-                        + "description, status, startDate) VALUE (?,?,?,?,?,?,now())";
-                pst = conn.prepareStatement(insertBaggage);
+            String insertBaggage = "INSERT INTO baggage (location, brand, color, weight, "
+                    + "description, status, startDate) VALUE (?,?,?,?,?,?,now())";
+            pst = conn.prepareStatement(insertBaggage);
 
-                pst.setString(1, location);
-                pst.setString(2, brand);
-                pst.setString(3, color);
-                pst.setString(4, weight);
-                pst.setString(5, description);
-                pst.setString(6, "" + status);
+            pst.setString(1, location);
+            pst.setString(2, brand);
+            pst.setString(3, color);
+            pst.setString(4, weight);
+            pst.setString(5, description);
+            pst.setString(6, "" + status);
 
-                pst.execute();
-                
-                createLog(Employee.getCurrentUser(), "SerDesEmp_NewCase", "Created new baggage-case"
-                        + " at " + location);
+            pst.execute();
 
-                JOptionPane.showMessageDialog(null, "Saved");
+            createLog(Employee.getCurrentUser(), "SerDesEmp_NewCase", "Created new baggage-case"
+                    + " at " + location);
+
+            JOptionPane.showMessageDialog(null, "Saved");
 
         } catch (SQLException | HeadlessException e) {
 
@@ -433,8 +434,11 @@ public class QueryManager {
         }
     }
 
-    public void updateCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingZipCode,
-            String shippingAddress, String shippingCity, String shippingCountry, String location, String brand, String color, String weight, String description, String entryDate, String retrievalDate, String status) {
+    public void updateCase(String flightNumber, String firstName, String lastName,
+            String emailAddress, String phoneNumber, String zipCode, String address, String city,
+            String country, String shippingZipCode, String shippingAddress, String shippingCity,
+            String shippingCountry, String location, String brand, String color, String weight,
+            String description, String entryDate, String retrievalDate, String status) {
         try {
 
             String value1 = flightNumber;
@@ -459,14 +463,20 @@ public class QueryManager {
             String value20 = retrievalDate;
             String value21 = status;
 
-            String sql = "update client set flightNumber =  '" + value1 + "', name = '" + value2 + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '" + value5 + "',zipcode = '" + value6
-                    + "' ,address = '" + value7 + "',city = '" + value8 + "' ,country = '" + value9 + "',shippingzipcode = '" + value10 + "',shippingaddress = '" + value11 + "',shippingcity = '" + value12
-                    + "',shippingcountry = '" + value13 + "'where clientID='" + value1 + "' ";// vrage Floris hoe ik clientID krijg
+            String sql = "update client set flightNumber =  '" + value1 + "', name = '" + value2
+                    + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '"
+                    + value5 + "',zipcode = '" + value6
+                    + "' ,address = '" + value7 + "',city = '" + value8 + "' ,country = '"
+                    + value9 + "',shippingzipcode = '" + value10 + "',shippingaddress = '"
+                    + value11 + "',shippingcity = '" + value12
+                    + "',shippingcountry = '" + value13 + "'where clientID='" + value1 + "' ";
             pst = conn.prepareStatement(sql);
             pst.execute();
 
-            String sql2 = "UPDATE baggage SET location = '" + value14 + "',brand = '" + value15 + "',color = '" + value16 + "',weight = '" + value17 + "',description = '" + value18 + "',dateadded = '" + value19
-                    + "',dateretrieved = '" + value20 + "',status = '" + value21 + "' WHERE baggageID = '" + 1 + "'";// vrage Floris hoe ik baggageID krijg
+            String sql2 = "UPDATE baggage SET location = '" + value14 + "',brand = '" + value15
+                    + "',color = '" + value16 + "',weight = '" + value17 + "',description = '"
+                    + value18 + "',dateadded = '" + value19 + "',dateretrieved = '" + value20
+                    + "',status = '" + value21 + "' WHERE baggageID = '" + 1 + "'";
             pst = conn.prepareStatement(sql2);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated");
@@ -476,8 +486,10 @@ public class QueryManager {
         }
     }
 
-    public void updateClientCase(String flightNumber, String firstName, String lastName, String emailAddress, String phoneNumber, String zipCode, String address, String city, String country, String shippingZipCode,
-            String shippingAddress, String shippingCity, String shippingCountry) {
+    public void updateClientCase(String flightNumber, String firstName, String lastName,
+            String emailAddress, String phoneNumber, String zipCode, String address, String city,
+            String country, String shippingZipCode, String shippingAddress, String shippingCity,
+            String shippingCountry) {
         try {
 
             String value1 = flightNumber;
@@ -494,9 +506,13 @@ public class QueryManager {
             String value12 = shippingCity;
             String value13 = shippingCountry;
 
-            String sql = "update client set flightNumber =  '" + value1 + "', name = '" + value2 + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '" + value5 + "',zipcode = '" + value6 + "' ,address = '" + value7
-                    + "',city = '" + value8 + "' ,country = '" + value9 + "',shippingzipcode = '" + value10 + "',shippingaddress = '" + value11 + "',shippingcity = '" + value12 + "',shippingcountry = '" + value13
-                    + "'where ClientID='" + value1 + "' ";
+            String sql = "update client set flightNumber = '" + value1 + "', name = '" + value2
+                    + "',lastname = '" + value3 + "',email = '" + value4 + "',phonenumber = '"
+                    + value5 + "',zipcode = '" + value6 + "' ,address = '" + value7
+                    + "',city = '" + value8 + "' ,country = '" + value9 + "',shippingzipcode = '"
+                    + value10 + "',shippingaddress = '" + value11 + "',shippingcity = '"
+                    + value12 + "',shippingcountry = '" + value13 + "'where ClientID='" + value1
+                    + "' ";
 
             pst = conn.prepareStatement(sql);
             pst.execute();
@@ -520,7 +536,7 @@ public class QueryManager {
             String value7 = retrievalDate;
             String value8 = status;
 
-            String sql = "update baggage set location = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "',dateadded = '" + value6 + "',dateretrieved = '" + value7 
+            String sql = "update baggage set location = '" + value1 + "',brand = '" + value2 + "',color = '" + value3 + "',weight = '" + value4 + "',description = '" + value5 + "',dateadded = '" + value6 + "',dateretrieved = '" + value7
                     + "',status = '" + value8 + "' where baggageID='" + value1 + "' ";
 //Floris vragen voor baggage ID
             pst = conn.prepareStatement(sql);
@@ -532,8 +548,8 @@ public class QueryManager {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
-    public void addToCase(String clientID, String flightNumber, String brand, String color, String weight, String description){
+
+    public void addToCase(String clientID, String flightNumber, String brand, String color, String weight, String description) {
         try {
 // vragen Floris
             String sql = "insert into baggage (clientID,flightnumber,brand,color,weight,description)value(?,?,?,?,?,?)";
